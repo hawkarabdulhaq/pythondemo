@@ -1,4 +1,14 @@
 import streamlit as st
+import gspread
+from google.oauth2.service_account import Credentials
+
+# Function to connect to Google Sheets
+def connect_to_google_sheet(sheet_name):
+    scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
+    credentials = Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes=scope)
+    client = gspread.authorize(credentials)
+    sheet = client.open_by_key(st.secrets["spreadsheet"]["sheet_id"])
+    return sheet.worksheet(sheet_name)
 
 def show():
     st.markdown('<div class="title">Enrollment</div>', unsafe_allow_html=True)
@@ -42,6 +52,9 @@ def show():
             if not individual_agreement:
                 st.warning("Please agree to the terms to proceed with the Individual Training enrollment.")
             else:
+                # Save to Google Sheet
+                sheet = connect_to_google_sheet("one")
+                sheet.append_row([name, age, job, email, location, gender, course_discovery, payment_method])
                 st.success("Thank you for your enrollment request! You will receive a bill shortly with payment instructions.")
 
     # Group Training Tab
@@ -89,4 +102,7 @@ def show():
             elif group_size and not group_names:
                 st.warning("Please enter the names of all group members.")
             else:
+                # Save to Google Sheet
+                sheet = connect_to_google_sheet("group")
+                sheet.append_row([name, age, job, email, location, gender, course_discovery, group_size, group_names, payment_method])
                 st.success("Thank you for your enrollment request! You will receive a bill shortly with payment instructions.")
