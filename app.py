@@ -76,9 +76,9 @@ Here’s a quick summary of what we’ll cover:
 
 - **Setting Up Python**: We’ll start by preparing your Python environment, ensuring you’re ready to begin your learning journey with a strong foundation.
 - **Hawkar's Workflow**: I’ll introduce my structured approach to learning Python, focusing on breaking down complex concepts into manageable steps for an efficient learning process.
-- **Applying GitHub**: We’ll explore how to leverage GitHub for version control, project management, and efficient collaboration, especially relevant if you’re aiming to build real-world projects.
-- **Your Personalized Project**: As we progress, we’ll work on projects specifically tailored to your field, helping you apply coding skills in practical scenarios.
-- **Building a Future-Proof Skill Set**: Beyond your personalized project, we’ll explore how Python skills can extend into various industries, helping you see how programming can streamline tasks, automate processes, and scale your impact.
+- **Applying GitHub for App Creation**: In this module, you'll learn to leverage GitHub to create a small app, setting the stage for your final project. By the end of the week, you’ll be equipped with the skills to develop, manage, and version control your project efficiently, all through GitHub.
+- **Developing Your Final Project**: Over the course of a week, you’ll work on a draft version of your final project, applying core coding concepts in a practical way. This phase will allow you to gather feedback, refine your approach, and ensure your project aligns with your goals.
+- **Finalizing and Launching Your Project**: In the final week, you’ll bring your project to completion. You’ll deploy the app, integrate key features, and showcase it within your community, creating a tangible outcome that reflects your learning journey.
 </div>
 """, unsafe_allow_html=True)
 
@@ -98,7 +98,7 @@ Choose the option that best fits your needs and learning preferences.
 st.markdown('<div class="section-title">Enrollment</div>', unsafe_allow_html=True)
 st.markdown("""
 <div class="content">
-To confirm your enrollment, please make the course payment to **FIB account 07504792181**. Once the payment is received, you’ll receive a personalized survey to tailor the training according to your unique needs.
+To confirm your enrollment, please make the course payment to **'FIB account 07504792181'**. Once the payment is received, you’ll receive a personalized survey to tailor the training according to your unique needs.
 
 For further details:
 - **Email**: [connect@habdulhaq.com](mailto:connect@habdulhaq.com)
