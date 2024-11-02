@@ -42,33 +42,23 @@ def show():
 
     # Tabs for Enrollment and Demo Session
     col1, col2 = st.columns(2)
+
+    # Enroll the Course Button - Changes page to Enrollment within the app
     with col1:
-        # Styled button for Enroll the Course
-        enroll_button = st.markdown(
-            '<a href="#" style="text-decoration:none;" onclick="window.location.reload(); window.sessionStorage.setItem(\'page\', \'Enrollment\');">'
+        enroll_clicked = st.markdown(
+            '<a href="#" style="text-decoration:none;">'
             '<button style="display:block; width:100%; padding:8px; background-color:#1ABC9C; color:white; border:none; border-radius:5px; font-size:16px;">Enroll the Course</button>'
             '</a>',
             unsafe_allow_html=True
         )
+        if st.button("Enroll the Course"):
+            st.session_state.page = "Enrollment"  # Switch to Enrollment page within the app
 
+    # Book a Demo Session Button - External link
     with col2:
-        # Styled button for booking a demo session
         st.markdown(
             '<a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="text-decoration:none;">'
             '<button style="display:block; width:100%; padding:8px; background-color:#1ABC9C; color:white; border:none; border-radius:5px; font-size:16px;">Book a Demo Session</button>'
             '</a>',
             unsafe_allow_html=True
         )
-
-# Script to update session state and navigate to the Enrollment page
-st.write(
-    """
-    <script>
-    if (window.sessionStorage.getItem('page') === 'Enrollment') {
-        window.sessionStorage.removeItem('page');
-        window.location.hash = '#Enrollment';
-    }
-    </script>
-    """,
-    unsafe_allow_html=True
-)
