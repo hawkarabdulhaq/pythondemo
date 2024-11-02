@@ -33,9 +33,19 @@ def show():
     st.markdown('<div class="section-title">Pricing Options</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="content">
-    - <span class="highlight">One-on-One Session</span>: 435,000IQD for a personalized experience<br>
-    - <span class="highlight">Group Session (3+ people)</span>: 315,000IQD per person (for a group of colleagues or friends)
+    - <span class="highlight">One-on-One Session</span>: 435,000 IQD for a personalized experience<br>
+    - <span class="highlight">Group Session (3+ people)</span>: 315,000 IQD per person (for a group of colleagues or friends)
 
     Choose the option that best fits your needs and learning preferences.
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Demo Session Invitation
+    st.markdown('<div class="section-title">Book a Demo Session</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="content">
+    Are you interested in a demo session with Hawkar Ali Abdulhaq? Click the link below to book a convenient time:
+    
+    <p><a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="color: #1ABC9C; font-weight: bold;">Book a Demo Session</a></p>
     </div>
     """, unsafe_allow_html=True)
