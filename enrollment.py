@@ -25,11 +25,17 @@ def show():
         if enrollment_type == "One-on-One Session":
             st.write("I confirm that I want to participate in the One-on-One session. I understand the payment is **435,000 IQD**.")
             one_on_one_agreement = st.checkbox("I agree to the terms above.")
+        
         elif enrollment_type == "Group Session (3+ people)":
             st.write("I confirm that this is a Group Session enrollment for three or more colleagues. I understand the payment is **315,000 IQD per person**.")
-            st.write("Please enter your group's name below.")
-            group_name = st.text_input("Group Name")
-            group_agreement = st.checkbox("I agree to the terms above.")
+            
+            # Group Size and Names
+            group_size = st.selectbox("How many people are in your group?", [3, 4, 5, 6])
+            group_names = st.text_area("Please enter the names of all group members (one name per line):")
+
+            # Group Agreement
+            group_agreement = st.checkbox("I confirm that I am representing the group.")
+            additional_group_agreement = st.checkbox("I agree to the terms above.")
 
         # Form Submission
         submit_button = st.form_submit_button("Submit Enrollment")
@@ -38,7 +44,13 @@ def show():
     if submit_button:
         if enrollment_type == "One-on-One Session" and not one_on_one_agreement:
             st.warning("Please agree to the terms to proceed with the One-on-One Session enrollment.")
-        elif enrollment_type == "Group Session (3+ people)" and not group_agreement:
-            st.warning("Please agree to the terms to proceed with the Group Session enrollment.")
-        else:
-            st.success("Thank you for your enrollment request! You will receive a bill shortly with payment instructions.")
+        
+        elif enrollment_type == "Group Session (3+ people)":
+            if not group_agreement:
+                st.warning("Please confirm that you are representing the group.")
+            elif not additional_group_agreement:
+                st.warning("Please agree to the terms to proceed with the Group Session enrollment.")
+            elif group_size and not group_names:
+                st.warning("Please enter the names of all group members.")
+            else:
+                st.success("Thank you for your enrollment request! You will receive a bill shortly with payment instructions.")
