@@ -3,7 +3,6 @@ import home
 import gallery
 import learning_platform
 import enrollment
-import demo_booking  # Import the demo booking script
 
 # Initialize session state for page tracking
 if 'page' not in st.session_state:
@@ -73,7 +72,6 @@ with st.sidebar:
     st.button("Gallery", on_click=set_page, args=("Gallery",))
     st.button("Learning Platform", on_click=set_page, args=("Learning Platform",))
     st.button("Enrollment", on_click=set_page, args=("Enrollment",))
-    st.button("Demo Session", on_click=set_page, args=("Demo Session",))  # New Demo Session tab
 
     # Contact Information
     st.markdown("""
@@ -93,5 +91,3 @@ elif st.session_state.page == "Learning Platform":
     learning_platform.show()
 elif st.session_state.page == "Enrollment":
     enrollment.show()
-elif st.session_state.page == "Demo Session":
-    demo_booking.show()  # Display the Demo Session page
