@@ -90,3 +90,4 @@ def show():
                 st.warning("Please enter the names of all group members.")
             else:
                 st.success("Thank you for your enrollment request! You will receive a bill shortly with payment instructions.")
+                
