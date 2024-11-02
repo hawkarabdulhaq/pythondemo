@@ -44,13 +44,7 @@ def show():
     col1, col2 = st.columns(2)
     with col1:
         # Styled button for Enroll the Course
-        enroll_button = st.markdown(
-            '<a href="#" style="text-decoration:none;">'
-            '<button style="display:block; width:100%; padding:8px; background-color:#1ABC9C; color:white; border:none; border-radius:5px; font-size:16px;" onclick="window.location.hash=\'#Enrollment\'">Enroll the Course</button>'
-            '</a>',
-            unsafe_allow_html=True
-        )
-        if enroll_button:
+        if st.button("Enroll the Course"):
             st.session_state.page = "Enrollment"  # Navigate to Enrollment page
 
     with col2:
