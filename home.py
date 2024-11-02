@@ -48,9 +48,8 @@ def show():
 
     with col2:
         if st.button("Book a Demo Session"):
-            # JavaScript to open Calendly in a new tab
             st.markdown("""
-                <script type="text/javascript">
+                <script>
                     window.open("https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar", "_blank");
                 </script>
             """, unsafe_allow_html=True)
