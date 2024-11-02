@@ -43,11 +43,18 @@ def show():
     # Tabs for Enrollment and Demo Session
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("Enroll the Course"):
+        # Styled button for Enroll the Course
+        enroll_button = st.markdown(
+            '<a href="#" style="text-decoration:none;">'
+            '<button style="display:block; width:100%; padding:8px; background-color:#1ABC9C; color:white; border:none; border-radius:5px; font-size:16px;" onclick="window.location.hash=\'#Enrollment\'">Enroll the Course</button>'
+            '</a>',
+            unsafe_allow_html=True
+        )
+        if enroll_button:
             st.session_state.page = "Enrollment"  # Navigate to Enrollment page
 
     with col2:
-        # Direct clickable link for booking a demo session
+        # Styled button for booking a demo session
         st.markdown(
             '<a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="text-decoration:none;">'
             '<button style="display:block; width:100%; padding:8px; background-color:#1ABC9C; color:white; border:none; border-radius:5px; font-size:16px;">Book a Demo Session</button>'
