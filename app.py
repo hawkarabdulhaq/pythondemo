@@ -98,18 +98,17 @@ if st.session_state.page == "Home":
     </div>
     """, unsafe_allow_html=True)
 
-# Pricing Information
-st.markdown('<div class="section-title">Pricing Options</div>', unsafe_allow_html=True)
-st.markdown("""
-<div class="content">
-- <span class="highlight">Standard Course Fee</span>: 375,000 IQD (discounted)
-- <span class="highlight">One-on-One Session</span>: $290 for a personalized experience
-- <span class="highlight">Group Session (3+ people)</span>: $195 per person (for a group of colleagues or friends)
+    # Pricing Information
+    st.markdown('<div class="section-title">Pricing Options</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="content">
+    - <span class="highlight">Standard Course Fee</span>: 375,000 IQD (discounted)
+    - <span class="highlight">One-on-One Session</span>: $290 for a personalized experience
+    - <span class="highlight">Group Session (3+ people)</span>: $195 per person (for a group of colleagues or friends)
 
-Choose the option that best fits your needs and learning preferences.
-</div>
-""", unsafe_allow_html=True)
-
+    Choose the option that best fits your needs and learning preferences.
+    </div>
+    """, unsafe_allow_html=True)
 
     # Enrollment information
     st.markdown('<div class="section-title">Enrollment</div>', unsafe_allow_html=True)
