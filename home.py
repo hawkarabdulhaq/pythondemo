@@ -33,32 +33,13 @@ def show():
     st.markdown('<div class="section-title">Pricing Options</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="content">
-    - <span class="highlight">One-on-One Session</span>: 435,000 IQD for a personalized experience<br>
-    - <span class="highlight">Group Session (3+ people)</span>: 315,000 IQD per person (for a group of colleagues or friends)
+    - <span class="highlight">One-on-One Session</span>: 435,000IQD for a personalized experience<br>
+    - <span class="highlight">Group Session (3+ people)</span>: 315,000IQD per person (for a group of colleagues or friends)
 
     Choose the option that best fits your needs and learning preferences.
     </div>
     """, unsafe_allow_html=True)
-
-    # Tabs for Enrollment and Demo Session
-    col1, col2 = st.columns(2)
-
-    # Enroll the Course Button - Changes page to Enrollment within the app
-    with col1:
-        enroll_clicked = st.markdown(
-            '<a href="#" style="text-decoration:none;">'
-            '<button style="display:block; width:100%; padding:8px; background-color:#1ABC9C; color:white; border:none; border-radius:5px; font-size:16px;">Enroll the Course</button>'
-            '</a>',
-            unsafe_allow_html=True
-        )
-        if st.button("Enroll the Course"):
-            st.session_state.page = "Enrollment"  # Switch to Enrollment page within the app
-
-    # Book a Demo Session Button - External link
-    with col2:
-        st.markdown(
-            '<a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="text-decoration:none;">'
-            '<button style="display:block; width:100%; padding:8px; background-color:#1ABC9C; color:white; border:none; border-radius:5px; font-size:16px;">Book a Demo Session</button>'
-            '</a>',
-            unsafe_allow_html=True
-        )
+    
+    # Enrollment Button
+    if st.button("Enroll the Course"):
+        st.session_state.page = "Enrollment"
