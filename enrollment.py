@@ -32,7 +32,7 @@ def show():
             # Agreement
             st.write("### Agreement")
             st.write("I confirm that I want to participate in the One-on-One session. I understand the payment is **435,000 IQD**.")
-            individual_agreement = st.checkbox("I agree to the terms above.")
+            individual_agreement = st.checkbox("I agree to the terms in the [Terms and Conditions](https://docs.google.com/document/d/1K-WNovtVP7EPylKVyHc6rGCXMGjw-eFwkaNLO2noiPE/edit?usp=sharing).")
 
             # Form Submission
             individual_submit_button = st.form_submit_button("Submit Individual Enrollment")
@@ -75,7 +75,7 @@ def show():
             st.write("### Agreement")
             st.write("I confirm that this is a Group Session enrollment for three or more colleagues. I understand the payment is **315,000 IQD per person**.")
             group_representative_agreement = st.checkbox("I confirm that I am representing the group.")
-            group_terms_agreement = st.checkbox("I agree to the terms above.")
+            group_terms_agreement = st.checkbox("I agree to the terms in the [Terms and Conditions](https://docs.google.com/document/d/1K-WNovtVP7EPylKVyHc6rGCXMGjw-eFwkaNLO2noiPE/edit?usp=sharing).")
 
             # Form Submission
             group_submit_button = st.form_submit_button("Submit Group Enrollment")
@@ -90,4 +90,3 @@ def show():
                 st.warning("Please enter the names of all group members.")
             else:
                 st.success("Thank you for your enrollment request! You will receive a bill shortly with payment instructions.")
-                
