@@ -1,15 +1,67 @@
 import streamlit as st
 
+# Custom CSS for styling
+st.markdown("""
+    <style>
+    /* Set the default font to Courier */
+    * {
+        font-family: "Courier", monospace;
+    }
+    
+    /* Styling the title */
+    .title {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #2C3E50;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    /* Styling for section titles */
+    .section-title {
+        font-size: 1.7em;
+        font-weight: bold;
+        color: #34495E;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #34495E;
+        padding-bottom: 5px;
+    }
+    
+    /* General content styling */
+    .content {
+        font-size: 1.1em;
+        color: #2C3E50;
+        line-height: 1.6;
+        text-align: justify;
+        margin-bottom: 20px;
+    }
+
+    /* Highlighting important sections */
+    .highlight {
+        font-weight: bold;
+        color: #1ABC9C;
+    }
+    
+    /* Style for video container */
+    .video-container {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # Sidebar Navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ("Home", "Gallery", "Learning Platform"))
+page = st.sidebar.radio("Go to", ["Home", "Gallery", "Learning Platform"])
 
-# Page: Home
+# Home Page Content
 if page == "Home":
-    # Welcome message and main content
     st.markdown('<div class="title">Welcome to Personalized Python Training</div>', unsafe_allow_html=True)
     st.markdown('<div class="content">Perfect for beginners looking to learn coding in just one month and deploy their prototype projects.</div>', unsafe_allow_html=True)
-    
+
     # Embed YouTube video
     st.markdown("""
     <div class="video-container">
@@ -59,12 +111,12 @@ if page == "Home":
     </div>
     """, unsafe_allow_html=True)
 
-# Page: Gallery
+# Gallery Page Placeholder
 elif page == "Gallery":
-    st.title("Gallery")
-    st.write("This section will be updated soon with images and visuals from the course.")
+    st.markdown('<div class="title">Gallery</div>', unsafe_allow_html=True)
+    st.markdown('<div class="content">This section will showcase images and achievements from the training sessions. Stay tuned for updates!</div>', unsafe_allow_html=True)
 
-# Page: Learning Platform
+# Learning Platform Page Placeholder
 elif page == "Learning Platform":
-    st.title("Learning Platform")
-    st.write("This section will be updated soon with resources and links for the learning platform.")
+    st.markdown('<div class="title">Learning Platform</div>', unsafe_allow_html=True)
+    st.markdown('<div class="content">Our dedicated learning platform will provide resources, assignments, and quizzes. Updates coming soon!</div>', unsafe_allow_html=True)
