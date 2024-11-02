@@ -40,12 +40,16 @@ def show():
     </div>
     """, unsafe_allow_html=True)
 
-    # Demo Session Invitation
-    st.markdown('<div class="section-title">Book a Demo Session</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <div class="content">
-    Are you interested in a demo session with Hawkar Ali Abdulhaq? Click the link below to book a convenient time:
-    
-    <p><a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="color: #1ABC9C; font-weight: bold;">Book a Demo Session</a></p>
-    </div>
-    """, unsafe_allow_html=True)
+    # Tabs for Enrollment and Demo Session
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Enroll the Course"):
+            st.session_state.page = "Enrollment"  # Navigate to Enrollment page
+
+    with col2:
+        if st.button("Book a Demo Session"):
+            st.markdown("""
+                <script>
+                    window.open("https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar", "_blank");
+                </script>
+            """, unsafe_allow_html=True)
