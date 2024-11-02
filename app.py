@@ -1,5 +1,13 @@
 import streamlit as st
 
+# Initialize session state for page tracking
+if 'page' not in st.session_state:
+    st.session_state.page = "Home"
+
+# Function to update page state
+def set_page(page):
+    st.session_state.page = page
+
 # Custom CSS for styling
 st.markdown("""
     <style>
@@ -53,12 +61,15 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar Navigation
-st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "Gallery", "Learning Platform"])
+# Sidebar Navigation using Buttons
+with st.sidebar:
+    st.title("Navigation")
+    st.button("Home", on_click=set_page, args=("Home",))
+    st.button("Gallery", on_click=set_page, args=("Gallery",))
+    st.button("Learning Platform", on_click=set_page, args=("Learning Platform",))
 
 # Home Page Content
-if page == "Home":
+if st.session_state.page == "Home":
     st.markdown('<div class="title">Welcome to Personalized Python Training</div>', unsafe_allow_html=True)
     st.markdown('<div class="content">Perfect for beginners looking to learn coding in just one month and deploy their prototype projects.</div>', unsafe_allow_html=True)
 
@@ -112,11 +123,11 @@ if page == "Home":
     """, unsafe_allow_html=True)
 
 # Gallery Page Placeholder
-elif page == "Gallery":
+elif st.session_state.page == "Gallery":
     st.markdown('<div class="title">Gallery</div>', unsafe_allow_html=True)
     st.markdown('<div class="content">This section will showcase images and achievements from the training sessions. Stay tuned for updates!</div>', unsafe_allow_html=True)
 
 # Learning Platform Page Placeholder
-elif page == "Learning Platform":
+elif st.session_state.page == "Learning Platform":
     st.markdown('<div class="title">Learning Platform</div>', unsafe_allow_html=True)
     st.markdown('<div class="content">Our dedicated learning platform will provide resources, assignments, and quizzes. Updates coming soon!</div>', unsafe_allow_html=True)
