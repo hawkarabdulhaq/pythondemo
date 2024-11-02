@@ -33,8 +33,8 @@ def show():
     st.markdown('<div class="section-title">Pricing Options</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="content">
-    - <span class="highlight">One-on-One Session</span>: $290 for a personalized experience<br>
-    - <span class="highlight">Group Session (3+ people)</span>: $195 per person (for a group of colleagues or friends)
+    - <span class="highlight">One-on-One Session</span>: 435,000IQD for a personalized experience<br>
+    - <span class="highlight">Group Session (3+ people)</span>: 315,000IQD per person (for a group of colleagues or friends)
 
     Choose the option that best fits your needs and learning preferences.
     </div>
