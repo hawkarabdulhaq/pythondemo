@@ -70,7 +70,7 @@ with st.sidebar:
 
 # Home Page Content
 if st.session_state.page == "Home":
-    st.markdown('<div class="title">Welcome to Personalized Python Training</div>', unsafe_allow_html=True)
+    st.markdown('<div class="title">Welcome to Personalized Python Training with Hawkar</div>', unsafe_allow_html=True)
     st.markdown('<div class="content">Perfect for beginners looking to learn coding in just one month and deploy their prototype projects.</div>', unsafe_allow_html=True)
 
     # Embed YouTube video
