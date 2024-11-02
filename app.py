@@ -80,6 +80,10 @@ with st.sidebar:
             <p>Email: <a href="mailto:connect@habdulhaq.com" target="_blank" style="color: #1ABC9C;">connect@habdulhaq.com</a></p>
             <p>Website: <a href="https://www.habdulhaq.com" target="_blank" style="color: #1ABC9C;">www.habdulhaq.com</a></p>
         </div>
+        <div style="margin-top: 20px; font-size: 1.1em;">
+            <p><strong>Book a Free Demo Session:</strong></p>
+            <p><a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="color: #1ABC9C;">Schedule a Demo on Calendly</a></p>
+        </div>
     """, unsafe_allow_html=True)
 
 # Display the selected page content
