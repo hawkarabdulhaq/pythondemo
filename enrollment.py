@@ -2,7 +2,7 @@ import streamlit as st
 
 def show():
     st.markdown('<div class="title">Enrollment</div>', unsafe_allow_html=True)
-    st.markdown('<div class="content">If you want to participate in the course, please select your preferred training type below and complete the enrollment form. Once submitted, you will receive a bill with the payment instructions.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="content">If you would like to enroll in the course, please select your preferred training type below and complete the enrollment form. Once submitted, you will receive a bill with payment instructions.<br><br>This course is hosted on an online platform and includes a weekly live session, giving you the opportunity for one-on-one learning. You should plan for approximately <strong>one hour per week</strong> for the live session, along with <strong>2 to 3 hours</strong> for completing assignments and following the course material.</div>', unsafe_allow_html=True)
 
     # Tabs for Individual and Group Training
     tab1, tab2 = st.tabs(["Individual Training", "Group Training"])
