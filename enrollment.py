@@ -2,54 +2,78 @@ import streamlit as st
 
 def show():
     st.markdown('<div class="title">Enrollment</div>', unsafe_allow_html=True)
-    st.markdown('<div class="content">If you want to participate in the course, please complete the enrollment form below. Once submitted, you will receive a bill with the payment instructions.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="content">If you want to participate in the course, please select your preferred training type below and complete the enrollment form. Once submitted, you will receive a bill with the payment instructions.</div>', unsafe_allow_html=True)
 
-    # Enrollment Form
-    with st.form("enrollment_form"):
-        # Basic Information
-        st.write("### Personal Information")
-        name = st.text_input("Name")
-        email = st.text_input("Email")
-        location = st.text_input("Location")
-        gender = st.selectbox("Gender", ["Select", "Male", "Female", "Other"])
+    # Tabs for Individual and Group Training
+    tab1, tab2 = st.tabs(["Individual Training", "Group Training"])
 
-        # Course Discovery
-        st.write("### How did you hear about the course?")
-        course_discovery = st.selectbox("Select one", ["Telegram", "YouTube", "Facebook", "Website", "Friend"])
-
-        # Enrollment Options
-        st.write("### Enrollment Type")
-        enrollment_type = st.radio("Choose your enrollment type", ["One-on-One Session", "Group Session (3+ people)"])
-
-        # Conditional Agreement Statements Based on Enrollment Type
-        if enrollment_type == "One-on-One Session":
-            st.write("I confirm that I want to participate in the One-on-One session. I understand the payment is **435,000 IQD**.")
-            one_on_one_agreement = st.checkbox("I agree to the terms above.")
+    # Individual Training Tab
+    with tab1:
+        st.markdown('<div class="section-title">Individual Training Enrollment</div>', unsafe_allow_html=True)
         
-        elif enrollment_type == "Group Session (3+ people)":
-            st.write("I confirm that this is a Group Session enrollment for three or more colleagues. I understand the payment is **315,000 IQD per person**.")
-            
-            # Group Size and Names
+        with st.form("individual_training_form"):
+            # Basic Information
+            st.write("### Personal Information")
+            name = st.text_input("Name")
+            email = st.text_input("Email")
+            location = st.text_input("Location")
+            gender = st.selectbox("Gender", ["Select", "Male", "Female", "Other"])
+
+            # Course Discovery
+            st.write("### How did you hear about the course?")
+            course_discovery = st.selectbox("Select one", ["Telegram", "YouTube", "Facebook", "Website", "Friend"])
+
+            # Agreement
+            st.write("### Agreement")
+            st.write("I confirm that I want to participate in the One-on-One session. I understand the payment is **435,000 IQD**.")
+            individual_agreement = st.checkbox("I agree to the terms above.")
+
+            # Form Submission
+            individual_submit_button = st.form_submit_button("Submit Individual Enrollment")
+
+        # Process Individual Training Submission
+        if individual_submit_button:
+            if not individual_agreement:
+                st.warning("Please agree to the terms to proceed with the Individual Training enrollment.")
+            else:
+                st.success("Thank you for your enrollment request! You will receive a bill shortly with payment instructions.")
+
+    # Group Training Tab
+    with tab2:
+        st.markdown('<div class="section-title">Group Training Enrollment</div>', unsafe_allow_html=True)
+
+        with st.form("group_training_form"):
+            # Basic Information
+            st.write("### Personal Information")
+            name = st.text_input("Name")
+            email = st.text_input("Email")
+            location = st.text_input("Location")
+            gender = st.selectbox("Gender", ["Select", "Male", "Female", "Other"])
+
+            # Course Discovery
+            st.write("### How did you hear about the course?")
+            course_discovery = st.selectbox("Select one", ["Telegram", "YouTube", "Facebook", "Website", "Friend"])
+
+            # Group Details
+            st.write("### Group Details")
             group_size = st.selectbox("How many people are in your group?", [3, 4, 5, 6])
             group_names = st.text_area("Please enter the names of all group members (one name per line):")
 
-            # Group Agreement
-            group_agreement = st.checkbox("I confirm that I am representing the group.")
-            additional_group_agreement = st.checkbox("I agree to the terms above.")
+            # Agreement
+            st.write("### Agreement")
+            st.write("I confirm that this is a Group Session enrollment for three or more colleagues. I understand the payment is **315,000 IQD per person**.")
+            group_representative_agreement = st.checkbox("I confirm that I am representing the group.")
+            group_terms_agreement = st.checkbox("I agree to the terms above.")
 
-        # Form Submission
-        submit_button = st.form_submit_button("Submit Enrollment")
+            # Form Submission
+            group_submit_button = st.form_submit_button("Submit Group Enrollment")
 
-    # Processing the Form Submission
-    if submit_button:
-        if enrollment_type == "One-on-One Session" and not one_on_one_agreement:
-            st.warning("Please agree to the terms to proceed with the One-on-One Session enrollment.")
-        
-        elif enrollment_type == "Group Session (3+ people)":
-            if not group_agreement:
+        # Process Group Training Submission
+        if group_submit_button:
+            if not group_representative_agreement:
                 st.warning("Please confirm that you are representing the group.")
-            elif not additional_group_agreement:
-                st.warning("Please agree to the terms to proceed with the Group Session enrollment.")
+            elif not group_terms_agreement:
+                st.warning("Please agree to the terms to proceed with the Group Training enrollment.")
             elif group_size and not group_names:
                 st.warning("Please enter the names of all group members.")
             else:
