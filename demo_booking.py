@@ -6,7 +6,8 @@ def show():
 
     # Calendly Inline Widget for Demo Session Booking
     st.markdown("""
-    <div class="calendly-inline-widget" data-url="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" style="min-width:320px;height:700px;"></div>
+    <!-- Calendly inline widget begin -->
+    <div class="calendly-inline-widget" data-url="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <!-- Calendly inline widget end -->
     """, unsafe_allow_html=True)
-  
