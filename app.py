@@ -67,6 +67,7 @@ with st.sidebar:
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Gallery", on_click=set_page, args=("Gallery",))
     st.button("Learning Platform", on_click=set_page, args=("Learning Platform",))
+    st.button("Enrollment", on_click=set_page, args=("Enrollment",))
 
 # Home Page Content
 if st.session_state.page == "Home":
@@ -98,7 +99,6 @@ if st.session_state.page == "Home":
     </div>
     """, unsafe_allow_html=True)
 
-
     # Pricing Information
     st.markdown('<div class="section-title">Pricing Options</div>', unsafe_allow_html=True)
     st.markdown("""
@@ -107,19 +107,6 @@ if st.session_state.page == "Home":
     - <span class="highlight">Group Session (3+ people)</span>: $195 per person (for a group of colleagues or friends)
 
     Choose the option that best fits your needs and learning preferences.
-    </div>
-    """, unsafe_allow_html=True)
-
-
-    # Enrollment information
-    st.markdown('<div class="section-title">Enrollment</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <div class="content">
-    To confirm your enrollment, please make the course payment to <strong>FIB account 07504792181</strong>. Once the payment is received, you’ll receive a personalized survey to tailor the training according to your unique needs.
-
-    For further details:
-    - <strong>Email</strong>: <a href="mailto:connect@habdulhaq.com">connect@habdulhaq.com</a>
-    - <strong>Website</strong>: <a href="https://www.habdulhaq.com/trainings">www.habdulhaq.com</a>
     </div>
     """, unsafe_allow_html=True)
 
@@ -132,3 +119,8 @@ elif st.session_state.page == "Gallery":
 elif st.session_state.page == "Learning Platform":
     st.markdown('<div class="title">Learning Platform</div>', unsafe_allow_html=True)
     st.markdown('<div class="content">Our dedicated learning platform will provide resources, assignments, and quizzes. Updates coming soon!</div>', unsafe_allow_html=True)
+
+# Enrollment Page Placeholder
+elif st.session_state.page == "Enrollment":
+    st.markdown('<div class="title">Enrollment</div>', unsafe_allow_html=True)
+    st.markdown('<div class="content">Enrollment details and registration information will be available soon. Stay tuned for updates on how to join the course!</div>', unsafe_allow_html=True)
