@@ -68,7 +68,6 @@ st.markdown("""
 # Sidebar Navigation with Course Title
 with st.sidebar:
     st.title("Personalized Python Training")  # Course Title
-    st.markdown("### Navigation")  # Navigation subtitle
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Testimonials", on_click=set_page, args=("Testimonials",))
     st.button("Learning Platform", on_click=set_page, args=("Learning Platform",))
