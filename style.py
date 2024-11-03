@@ -3,16 +3,40 @@ import streamlit as st
 def apply_custom_styles():
     st.markdown("""
     <style>
-    /* Set the default font to Courier */
+    /* Set the default font to Courier for both themes */
     * {
         font-family: "Courier", monospace;
     }
     
+    /* Light theme styles */
+    :root {
+        --bg-color: #FFFFFF;
+        --text-color: #2C3E50;
+        --section-title-color: #34495E;
+        --highlight-color: #1ABC9C;
+    }
+
+    /* Dark theme styles */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --bg-color: #1E1E1E;
+            --text-color: #F0F0F0;
+            --section-title-color: #F0F0F0;
+            --highlight-color: #4DC9B2;
+        }
+    }
+
+    /* Apply background and text color for body */
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+    }
+
     /* Styling the title */
     .title {
         font-size: 2.5em;
         font-weight: bold;
-        color: #2C3E50;
+        color: var(--text-color);
         text-align: center;
         margin-top: 20px;
         margin-bottom: 20px;
@@ -22,17 +46,17 @@ def apply_custom_styles():
     .section-title {
         font-size: 1.7em;
         font-weight: bold;
-        color: #34495E;
+        color: var(--section-title-color);
         margin-top: 30px;
         margin-bottom: 10px;
-        border-bottom: 2px solid #34495E;
+        border-bottom: 2px solid var(--section-title-color);
         padding-bottom: 5px;
     }
     
     /* General content styling */
     .content {
         font-size: 1.1em;
-        color: #2C3E50;
+        color: var(--text-color);
         line-height: 1.6;
         text-align: justify;
         margin-bottom: 20px;
@@ -41,7 +65,7 @@ def apply_custom_styles():
     /* Highlighting important sections */
     .highlight {
         font-weight: bold;
-        color: #1ABC9C;
+        color: var(--highlight-color);
     }
     
     /* Style for video container */
