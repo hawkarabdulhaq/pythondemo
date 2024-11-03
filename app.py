@@ -3,7 +3,7 @@ import home
 import testimony
 import learning_platform
 import enrollment
-import style  # Import the new style module to apply global styles
+import style  # Import the style module to apply global styles
 
 # Apply custom styles from style.py
 style.apply_custom_styles()
@@ -16,9 +16,15 @@ if 'page' not in st.session_state:
 def set_page(page):
     st.session_state.page = page
 
-# Sidebar Navigation with Course Title
+# Sidebar Navigation with Logo and Course Title
 with st.sidebar:
-    st.title("Personalized Python Training")  # Course Title
+    # Display the logo image
+    st.image("input/logo.jpg", use_column_width=True)
+    
+    # Course title
+    st.title("Personalized Python Training")
+    
+    # Navigation buttons
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Testimonials", on_click=set_page, args=("Testimonials",))
     st.button("Learning Platform", on_click=set_page, args=("Learning Platform",))
@@ -26,14 +32,14 @@ with st.sidebar:
 
     # Contact Information
     st.markdown("""
-        <div>
+        <div style="margin-top: 30px; font-size: 1.1em; color: #2C3E50;">
             <p><strong>Contact:</strong></p>
-            <p>Email: <a href="mailto:connect@habdulhaq.com" target="_blank">connect@habdulhaq.com</a></p>
-            <p>Website: <a href="https://www.habdulhaq.com" target="_blank">www.habdulhaq.com</a></p>
+            <p>Email: <a href="mailto:connect@habdulhaq.com" target="_blank" style="color: #1ABC9C;">connect@habdulhaq.com</a></p>
+            <p>Website: <a href="https://www.habdulhaq.com" target="_blank" style="color: #1ABC9C;">www.habdulhaq.com</a></p>
         </div>
-        <div>
+        <div style="margin-top: 20px; font-size: 1.1em;">
             <p><strong>Book a Free Demo Session:</strong></p>
-            <p><a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank">Schedule a Demo on Calendly</a></p>
+            <p><a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="color: #1ABC9C;">Schedule a Demo on Calendly</a></p>
         </div>
     """, unsafe_allow_html=True)
 
