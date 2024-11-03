@@ -65,8 +65,11 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar Navigation using Buttons
+# Sidebar Navigation with Course Image and Title
 with st.sidebar:
+    st.markdown("<h2 style='text-align: center; color: #2C3E50;'>Course Title</h2>", unsafe_allow_html=True)
+    st.image("https://i.imgur.com/V9Mv2WO.jpg", use_column_width=True)
+    
     st.title("Navigation")
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Testimonials", on_click=set_page, args=("Testimonials",))
