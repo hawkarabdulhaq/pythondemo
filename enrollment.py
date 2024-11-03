@@ -33,7 +33,7 @@ def show():
 
             # Course Discovery
             st.write("### How did you hear about the course?")
-            course_discovery = st.selectbox("Select one", ["Telegram", "YouTube", "Facebook", "Website", "Friend"])
+            course_discovery = st.selectbox("Select one", ["Telegram", "YouTube", "Facebook", "Search", "Friend"])
 
             # Payment Method
             st.write("### Preferred Payment Method")
