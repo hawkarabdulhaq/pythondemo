@@ -14,6 +14,7 @@ def apply_custom_styles():
         --text-color: #2C3E50;
         --section-title-color: #34495E;
         --highlight-color: #1ABC9C;
+        --border-color: #34495E;
     }
 
     /* Dark theme styles */
@@ -23,6 +24,7 @@ def apply_custom_styles():
             --text-color: #F0F0F0;
             --section-title-color: #F0F0F0;
             --highlight-color: #4DC9B2;
+            --border-color: #4DC9B2;
         }
     }
 
@@ -49,7 +51,7 @@ def apply_custom_styles():
         color: var(--section-title-color);
         margin-top: 30px;
         margin-bottom: 10px;
-        border-bottom: 2px solid var(--section-title-color);
+        border-bottom: 2px solid var(--border-color);
         padding-bottom: 5px;
     }
     
@@ -73,6 +75,15 @@ def apply_custom_styles():
         text-align: center;
         margin-top: 20px;
         margin-bottom: 20px;
+        background-color: var(--bg-color); /* Ensure consistent background */
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    /* Adjust YouTube video iframe for better dark mode contrast */
+    iframe {
+        border: 2px solid var(--border-color);
+        border-radius: 8px;
     }
     </style>
     """, unsafe_allow_html=True)
