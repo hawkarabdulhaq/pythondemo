@@ -38,7 +38,7 @@ def show():
     # Embed external HTML page at the bottom
     st.markdown("""
         <div style="margin-top: 40px;">
-            <h3>Additional Resources</h3>
+            <h3>Course Participants</h3>
             <iframe src="https://habdulhaq87.github.io/python_training/" width="100%" height="500px" style="border:none;"></iframe>
         </div>
     """, unsafe_allow_html=True)
