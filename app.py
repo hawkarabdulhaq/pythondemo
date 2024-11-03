@@ -19,7 +19,7 @@ def set_page(page):
 # Sidebar Navigation with Logo and Course Title
 with st.sidebar:
     # Display the logo image with a specified width
-    st.image("input/logo.jpg", width=150)  # Set the width to 150 pixels (adjust as needed)
+    st.image("input/logo.jpg", width=200)  # Set the width to 150 pixels (adjust as needed)
     
     # Course title
     st.title("Personalized Python Training")
