@@ -1,6 +1,6 @@
 import streamlit as st
 import home
-import gallery
+import testimony
 import learning_platform
 import enrollment
 
@@ -69,7 +69,7 @@ st.markdown("""
 with st.sidebar:
     st.title("Navigation")
     st.button("Home", on_click=set_page, args=("Home",))
-    st.button("Gallery", on_click=set_page, args=("Gallery",))
+    st.button("Testimonials", on_click=set_page, args=("Testimonials",))
     st.button("Learning Platform", on_click=set_page, args=("Learning Platform",))
     st.button("Enrollment", on_click=set_page, args=("Enrollment",))
 
@@ -89,8 +89,8 @@ with st.sidebar:
 # Display the selected page content
 if st.session_state.page == "Home":
     home.show()
-elif st.session_state.page == "Gallery":
-    gallery.show()
+elif st.session_state.page == "Testimonials":
+    testimony.show()
 elif st.session_state.page == "Learning Platform":
     learning_platform.show()
 elif st.session_state.page == "Enrollment":
