@@ -65,14 +65,10 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar Navigation with Course Image and Title
+# Sidebar Navigation with Course Title
 with st.sidebar:
-    st.markdown("<h2 style='text-align: center; color: #2C3E50;'>Personalized Python Training by Hawkar Abdulhaq</h2>", unsafe_allow_html=True)
-    
-    # Display the uploaded image file
-    st.image("/mnt/data/image.png", caption="Course Overview", use_column_width=True)
-    
-    st.title("Navigation")
+    st.title("Personalized Python Training")  # Course Title
+    st.markdown("### Navigation")  # Navigation subtitle
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Testimonials", on_click=set_page, args=("Testimonials",))
     st.button("Learning Platform", on_click=set_page, args=("Learning Platform",))
