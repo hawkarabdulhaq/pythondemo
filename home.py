@@ -1,44 +1,54 @@
 import streamlit as st
+import home
+import testimony
+import learning_platform
+import enrollment
+import style  # Import the style module to apply global styles
 
-def show():
-    st.markdown('<div class="title">Welcome to Personalized Python Training</div>', unsafe_allow_html=True)
-    st.markdown('<div class="content">Perfect for beginners looking to learn coding in just one month and deploy their prototype projects.</div>', unsafe_allow_html=True)
+# Apply custom styles from style.py
+style.apply_custom_styles()
 
-    # Embed YouTube video
-    st.markdown("""
-    <div class="video-container">
-        <h3>Watch the demo video and get to know about the course</h3>
-        <iframe width="853" height="480" src="https://www.youtube.com/embed/G8BC2NIfpAs" 
-        title="ڕاهێنانی کۆدینگ لەگەڵ هاوکار" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-        encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen></iframe>
-    </div>
-    """, unsafe_allow_html=True)
+# Initialize session state for page tracking
+if 'page' not in st.session_state:
+    st.session_state.page = "Home"
 
-    # Course Overview
-    st.markdown('<div class="section-title">Course Overview</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <div class="content">
-    Here’s a quick summary of what we’ll cover:
+# Function to update page state
+def set_page(page):
+    st.session_state.page = page
 
-    - <strong>Setting Up Python</strong>: We’ll start by preparing your Python environment, ensuring you’re ready to begin your learning journey with a strong foundation.
-    - <strong>Hawkar's Workflow</strong>: I’ll introduce my structured approach to learning Python, focusing on breaking down complex concepts into manageable steps for an efficient learning process.
-    - <strong>Applying GitHub for App Creation</strong>: In this module, you'll learn to leverage GitHub to create a small app, setting the stage for your final project. By the end of the week, you’ll be equipped with the skills to develop, manage, and version control your project efficiently, all through GitHub.
-    - <strong>Developing Your Final Project</strong>: Over the course of a week, you’ll work on a draft version of your final project, applying core coding concepts in a practical way. This phase will allow you to gather feedback, refine your approach, and ensure your project aligns with your goals.
-    - <strong>Finalizing and Launching Your Project</strong>: In the final week, you’ll bring your project to completion. You’ll deploy the app, integrate key features, and showcase it within your community, creating a tangible outcome that reflects your learning journey.
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Pricing Information
-    st.markdown('<div class="section-title">Pricing Options</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <div class="content">
-    - <span class="highlight">One-on-One Session</span>: 435,000IQD for a personalized experience<br>
-    - <span class="highlight">Group Session (3+ people)</span>: 315,000IQD per person (for a group of colleagues or friends)
-
-    </div>
-    """, unsafe_allow_html=True)
+# Sidebar Navigation with Logo and Course Title
+with st.sidebar:
+    # Display the logo image
+    st.image("input/logo.jpg", use_column_width=True)
     
-    # Enrollment Button
-    if st.button("Enroll the Course"):
-        st.session_state.page = "Enrollment"
+    # Course title
+    st.title("Personalized Python Training")
+    
+    # Navigation buttons
+    st.button("Home", on_click=set_page, args=("Home",))
+    st.button("Testimonials", on_click=set_page, args=("Testimonials",))
+    st.button("Learning Platform", on_click=set_page, args=("Learning Platform",))
+    st.button("Enrollment", on_click=set_page, args=("Enrollment",))
+
+    # Contact Information
+    st.markdown("""
+        <div style="margin-top: 30px; font-size: 1.1em; color: #2C3E50;">
+            <p><strong>Contact:</strong></p>
+            <p>Email: <a href="mailto:connect@habdulhaq.com" target="_blank" style="color: #1ABC9C;">connect@habdulhaq.com</a></p>
+            <p>Website: <a href="https://www.habdulhaq.com" target="_blank" style="color: #1ABC9C;">www.habdulhaq.com</a></p>
+        </div>
+        <div style="margin-top: 20px; font-size: 1.1em;">
+            <p><strong>Book a Free Demo Session:</strong></p>
+            <p><a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="color: #1ABC9C;">Schedule a Demo on Calendly</a></p>
+        </div>
+    """, unsafe_allow_html=True)
+
+# Display the selected page content
+if st.session_state.page == "Home":
+    home.show()
+elif st.session_state.page == "Testimonials":
+    testimony.show()
+elif st.session_state.page == "Learning Platform":
+    learning_platform.show()
+elif st.session_state.page == "Enrollment":
+    enrollment.show()
