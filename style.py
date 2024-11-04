@@ -53,14 +53,15 @@ def apply_custom_styles():
         margin-bottom: 10px;
         border-bottom: 2px solid var(--border-color);
         padding-bottom: 5px;
+        text-align: left; /* Ensures section titles remain left-aligned */
     }
     
-    /* General content styling */
+    /* General content styling - Justified text */
     .content {
         font-size: 1.1em;
         color: var(--text-color);
         line-height: 1.6;
-        text-align: justify;
+        text-align: justify;  /* Justifies text for readability */
         margin-bottom: 20px;
     }
 
@@ -75,7 +76,7 @@ def apply_custom_styles():
         text-align: center;
         margin-top: 20px;
         margin-bottom: 20px;
-        background-color: var(--bg-color); /* Ensure consistent background */
+        background-color: var(--bg-color); /* Consistent background for video */
         padding: 10px;
         border-radius: 8px;
     }
