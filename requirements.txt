@@ -1,3 +1,5 @@
-streamlit
-gspread
-google-auth
+streamlit==1.25.0
+gspread==6.1.0
+google-auth==2.23.4
+google-auth-oauthlib==1.0.0
+oauthlib==3.1.0
