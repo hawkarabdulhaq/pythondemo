@@ -1,10 +1,10 @@
 import streamlit as st
 import home
-import testimony
+import fit  # Place Fit Assessment second for initial self-assessment
 import learning_platform
 import enrollment
 import discounts
-import fit  # Import the fit module for the Fit Assessment page
+import testimony
 import style  # Import the style module to apply global styles
 
 # Apply custom styles from style.py
@@ -28,11 +28,11 @@ with st.sidebar:
     
     # Navigation buttons
     st.button("Home", on_click=set_page, args=("Home",))
-    st.button("Testimonials", on_click=set_page, args=("Testimonials",))
+    st.button("Fit Assessment", on_click=set_page, args=("Fit Assessment",))  # Fit Assessment for initial assessment
     st.button("Learning Platform", on_click=set_page, args=("Learning Platform",))
     st.button("Enrollment", on_click=set_page, args=("Enrollment",))
-    st.button("Discounts", on_click=set_page, args=("Discounts",))  # Discounts button
-    st.button("Fit Assessment", on_click=set_page, args=("Fit Assessment",))  # New Fit Assessment button
+    st.button("Discounts", on_click=set_page, args=("Discounts",))  # Discounts before finalizing enrollment
+    st.button("Testimonials", on_click=set_page, args=("Testimonials",))  # Social proof at the end
 
     # Contact Information with Discord Link
     st.markdown("""
@@ -51,13 +51,13 @@ with st.sidebar:
 # Display the selected page content based on the sidebar navigation
 if st.session_state.page == "Home":
     home.show()
-elif st.session_state.page == "Testimonials":
-    testimony.show()
+elif st.session_state.page == "Fit Assessment":  # Fit Assessment page for initial exploration
+    fit.show()
 elif st.session_state.page == "Learning Platform":
     learning_platform.show()
 elif st.session_state.page == "Enrollment":
     enrollment.show()
 elif st.session_state.page == "Discounts":
     discounts.show()
-elif st.session_state.page == "Fit Assessment":  # New Fit Assessment page
-    fit.show()
+elif st.session_state.page == "Testimonials":  # Testimonials at the end
+    testimony.show()
