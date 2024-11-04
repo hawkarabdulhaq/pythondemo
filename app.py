@@ -3,7 +3,6 @@ import home
 import testimony
 import learning_platform
 import enrollment
-import learning  # Import the new Learning Content page
 import style  # Import the style module to apply global styles
 
 # Apply custom styles from style.py
@@ -30,7 +29,6 @@ with st.sidebar:
     st.button("Testimonials", on_click=set_page, args=("Testimonials",))
     st.button("Learning Platform", on_click=set_page, args=("Learning Platform",))
     st.button("Enrollment", on_click=set_page, args=("Enrollment",))
-    st.button("Learning Content", on_click=set_page, args=("Learning Content",))  # New button for Learning Content
 
     # Contact Information with Discord Link
     st.markdown("""
@@ -55,5 +53,3 @@ elif st.session_state.page == "Learning Platform":
     learning_platform.show()
 elif st.session_state.page == "Enrollment":
     enrollment.show()
-elif st.session_state.page == "Learning Content":
-    learning.show()  # Display the new Learning Content page
