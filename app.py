@@ -20,7 +20,7 @@ def set_page(page):
 # Sidebar Navigation with Logo and Course Title
 with st.sidebar:
     # Display the logo image with a specified width
-    st.image("input/logo.jpg", width=200)  # Set the width to 200 pixels (adjust as needed)
+    st.image("input/logo.jpg", width=200)  # Logo at 200px width for a balanced look
     
     # Course title
     st.title("Personalized Python Training")
@@ -46,7 +46,7 @@ with st.sidebar:
         </div>
     """, unsafe_allow_html=True)
 
-# Display the selected page content
+# Display the selected page content based on the sidebar navigation
 if st.session_state.page == "Home":
     home.show()
 elif st.session_state.page == "Testimonials":
@@ -56,4 +56,4 @@ elif st.session_state.page == "Learning Platform":
 elif st.session_state.page == "Enrollment":
     enrollment.show()
 elif st.session_state.page == "Discounts":  # New Discounts page
-    discounts.show()
+    discounts.show()  # Show discounts content only once to avoid duplication
