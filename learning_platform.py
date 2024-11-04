@@ -81,7 +81,8 @@ def show():
         st.write("""
             - Assignment: "Building an Interactive Urban Analysis Dashboard Using Streamlit" – Develop a Streamlit dashboard for visualizing urban analysis data.
         """)
-        st.write("**Discussion**: "GitHub & Streamlit: How Are You Using Them to Elevate Your Project?" – Share experiences on GitHub and Streamlit.")
+        st.write('**Discussion**: "GitHub & Streamlit: How Are You Using Them to Elevate Your Project?" – Share experiences on GitHub and Streamlit.')
+
 
     # Week 4 content
     with st.expander("Week 4: Draft Submission of Your Personalized Project"):
