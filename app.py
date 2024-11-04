@@ -3,7 +3,8 @@ import home
 import testimony
 import learning_platform
 import enrollment
-import discounts  # Import the discounts module
+import discounts
+import fit  # Import the fit module for the Fit Assessment page
 import style  # Import the style module to apply global styles
 
 # Apply custom styles from style.py
@@ -30,7 +31,8 @@ with st.sidebar:
     st.button("Testimonials", on_click=set_page, args=("Testimonials",))
     st.button("Learning Platform", on_click=set_page, args=("Learning Platform",))
     st.button("Enrollment", on_click=set_page, args=("Enrollment",))
-    st.button("Discounts", on_click=set_page, args=("Discounts",))  # New Discounts button
+    st.button("Discounts", on_click=set_page, args=("Discounts",))  # Discounts button
+    st.button("Fit Assessment", on_click=set_page, args=("Fit Assessment",))  # New Fit Assessment button
 
     # Contact Information with Discord Link
     st.markdown("""
@@ -55,5 +57,7 @@ elif st.session_state.page == "Learning Platform":
     learning_platform.show()
 elif st.session_state.page == "Enrollment":
     enrollment.show()
-elif st.session_state.page == "Discounts":  # New Discounts page
-    discounts.show()  # Show discounts content only once to avoid duplication
+elif st.session_state.page == "Discounts":
+    discounts.show()
+elif st.session_state.page == "Fit Assessment":  # New Fit Assessment page
+    fit.show()
