@@ -3,6 +3,7 @@ import home
 import testimony
 import learning_platform
 import enrollment
+import discounts  # Import the discounts module
 import style  # Import the style module to apply global styles
 
 # Apply custom styles from style.py
@@ -19,7 +20,7 @@ def set_page(page):
 # Sidebar Navigation with Logo and Course Title
 with st.sidebar:
     # Display the logo image with a specified width
-    st.image("input/logo.jpg", width=200)  # Set the width to 150 pixels (adjust as needed)
+    st.image("input/logo.jpg", width=200)  # Set the width to 200 pixels (adjust as needed)
     
     # Course title
     st.title("Personalized Python Training")
@@ -29,6 +30,7 @@ with st.sidebar:
     st.button("Testimonials", on_click=set_page, args=("Testimonials",))
     st.button("Learning Platform", on_click=set_page, args=("Learning Platform",))
     st.button("Enrollment", on_click=set_page, args=("Enrollment",))
+    st.button("Discounts", on_click=set_page, args=("Discounts",))  # New Discounts button
 
     # Contact Information with Discord Link
     st.markdown("""
@@ -53,3 +55,5 @@ elif st.session_state.page == "Learning Platform":
     learning_platform.show()
 elif st.session_state.page == "Enrollment":
     enrollment.show()
+elif st.session_state.page == "Discounts":  # New Discounts page
+    discounts.show()
