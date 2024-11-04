@@ -1,2 +1,5 @@
 streamlit
 gspread
+pandas
+numpy
+requests
