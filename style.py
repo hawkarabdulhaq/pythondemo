@@ -28,6 +28,28 @@ def apply_custom_styles():
         }
     }
 
+    /* Responsive viewport */
+    @media only screen and (max-width: 768px) {
+        /* Adjust text sizes on smaller screens */
+        .title {
+            font-size: 2em;
+        }
+        .section-title {
+            font-size: 1.5em;
+        }
+        .content {
+            font-size: 1em;
+        }
+        /* Video container and iframe adjustments */
+        .video-container {
+            padding: 5px;
+        }
+        iframe {
+            width: 100%;
+            height: auto;
+        }
+    }
+
     /* Apply background and text color for body */
     body {
         background-color: var(--bg-color);
@@ -53,7 +75,7 @@ def apply_custom_styles():
         margin-bottom: 10px;
         border-bottom: 2px solid var(--border-color);
         padding-bottom: 5px;
-        text-align: left; /* Ensures section titles remain left-aligned */
+        text-align: left;
     }
     
     /* General content styling - Justified text */
@@ -61,7 +83,7 @@ def apply_custom_styles():
         font-size: 1.1em;
         color: var(--text-color);
         line-height: 1.6;
-        text-align: justify;  /* Justifies text for readability */
+        text-align: justify;
         margin-bottom: 20px;
     }
 
@@ -76,13 +98,16 @@ def apply_custom_styles():
         text-align: center;
         margin-top: 20px;
         margin-bottom: 20px;
-        background-color: var(--bg-color); /* Consistent background for video */
+        background-color: var(--bg-color);
         padding: 10px;
         border-radius: 8px;
     }
 
-    /* Adjust YouTube video iframe for better dark mode contrast */
+    /* Responsive iframe for video */
     iframe {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
         border: 2px solid var(--border-color);
         border-radius: 8px;
     }
