@@ -6,13 +6,13 @@ def show():
 
     # Embed responsive YouTube video
     st.markdown("""
-    <div class="video-container">
+    <div style="width: 100%; height: auto; display: flex; justify-content: center; align-items: center;">
         <h3>Watch the demo video and get to know about the course</h3>
-        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <div style="width: 100%; max-width: 560px; aspect-ratio: 16/9;">
             <iframe src="https://www.youtube.com/embed/G8BC2NIfpAs" 
             title="ڕاهێنانی کۆدینگ لەگەڵ هاوکار" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
             encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+            allowfullscreen style="width: 100%; height: 100%; border-radius: 10px;"></iframe>
         </div>
     </div>
     """, unsafe_allow_html=True)
