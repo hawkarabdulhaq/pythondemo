@@ -1,17 +1,19 @@
 import streamlit as st
 
 def show():
-    st.markdown('<div class="title">Welcome to Personalized Python Programming and Automating Training</div>', unsafe_allow_html=True)
+    st.markdown('<div class="title">Welcome to Personalized Python Programming and Automation Training</div>', unsafe_allow_html=True)
     st.markdown('<div class="content">Perfect for beginners looking to learn coding in just one month and deploy their prototype projects.</div>', unsafe_allow_html=True)
 
-    # Embed YouTube video
+    # Embed responsive YouTube video
     st.markdown("""
     <div class="video-container">
         <h3>Watch the demo video and get to know about the course</h3>
-        <iframe width="853" height="480" src="https://www.youtube.com/embed/G8BC2NIfpAs" 
-        title="ڕاهێنانی کۆدینگ لەگەڵ هاوکار" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-        encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen></iframe>
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+            <iframe src="https://www.youtube.com/embed/G8BC2NIfpAs" 
+            title="ڕاهێنانی کۆدینگ لەگەڵ هاوکار" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+            encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
