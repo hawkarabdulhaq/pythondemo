@@ -9,7 +9,7 @@ def show():
 
     # Style adjustments for readability
     feature_style = "font-size: 0.95em; margin-bottom: 8px;"
-    button_style = "background-color: #1ABC9C; color: white; padding: 10px 15px; border-radius: 5px; font-size: 0.9em; font-weight: bold; text-decoration: none; display: inline-block;"
+    button_style = "background-color: #1ABC9C; color: white; padding: 8px 12px; border-radius: 5px; font-size: 0.9em; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 10px;"
 
     # Student Offer
     with col1:
