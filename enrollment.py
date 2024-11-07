@@ -1,6 +1,6 @@
 import streamlit as st
 import gspread
-import price  # Make sure price.py is correctly imported
+import price  # Import price for displaying pricing information
 from google.oauth2.service_account import Credentials
 
 # Function to connect to Google Sheets
@@ -20,8 +20,7 @@ def show():
 
     # Prices Tab
     with tab1:
-        st.markdown('<div class="section-title">Course Pricing Options</div>', unsafe_allow_html=True)
-        price.show()  # Display pricing options from price.py
+        price.show()  # Display pricing options directly from price.py
 
     # Individual Training Tab
     with tab2:
