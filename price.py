@@ -1,4 +1,3 @@
-# price.py
 import streamlit as st
 
 def show():
@@ -13,7 +12,7 @@ def show():
         <div style="background-color: #f4f8fb; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
             <h3 style="color: #1ABC9C; font-size: 1.5em;">Student</h3>
             <h4 style="color: #333; font-size: 1.2em;">39,000 IQD</h4>
-            <ul style="list-style-type: none; padding-left: 0; color: #333;">
+            <ul style="list-style-type: none; padding-left: 0; color: #333; font-size: 0.9em; line-height: 1.4;">
                 <li>Full access to the platform</li>
                 <li>Generalized live coding</li>
                 <li>5 interactive group sessions</li>
@@ -30,7 +29,7 @@ def show():
         <div style="background-color: #f4f8fb; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
             <h3 style="color: #1ABC9C; font-size: 1.5em;">Group</h3>
             <h4 style="color: #333; font-size: 1.2em;">195,000 IQD per person</h4>
-            <ul style="list-style-type: none; padding-left: 0; color: #333;">
+            <ul style="list-style-type: none; padding-left: 0; color: #333; font-size: 0.9em; line-height: 1.4;">
                 <li>Full access to the platform</li>
                 <li>Generalized live coding</li>
                 <li>5 group sessions</li>
@@ -47,7 +46,7 @@ def show():
         <div style="background-color: #f4f8fb; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
             <h3 style="color: #1ABC9C; font-size: 1.5em;">One-on-One</h3>
             <h4 style="color: #333; font-size: 1.2em;">395,000 IQD</h4>
-            <ul style="list-style-type: none; padding-left: 0; color: #333;">
+            <ul style="list-style-type: none; padding-left: 0; color: #333; font-size: 0.9em; line-height: 1.4;">
                 <li>Full access to the platform</li>
                 <li>5 one-on-one sessions</li>
                 <li>Personalized live coding</li>
@@ -66,7 +65,7 @@ def show():
         <div style="background-color: #f4f8fb; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
             <h3 style="color: #1ABC9C; font-size: 1.5em;">Enterprise</h3>
             <h4 style="color: #333; font-size: 1.2em;">950,000 IQD</h4>
-            <ul style="list-style-type: none; padding-left: 0; color: #333;">
+            <ul style="list-style-type: none; padding-left: 0; color: #333; font-size: 0.9em; line-height: 1.4;">
                 <li>Exclusive one-on-one sessions</li>
                 <li>Full access to the platform</li>
                 <li>5 personalized sessions per participant</li>
