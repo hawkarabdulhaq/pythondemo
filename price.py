@@ -57,12 +57,12 @@ def show():
         </div>
         """, unsafe_allow_html=True)
 
-    # Enterprise Offer
+    # Enterprise Offer for 3-5 people
     with col4:
         st.markdown(f"""
         <div style="background-color: #f4f8fb; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
             <h3 style="color: #1ABC9C; font-size: 1.5em;">Enterprise</h3>
-            <h4 style="color: #333; font-size: 1.1em; margin-top: 5px;">950,000 IQD</h4>
+            <h4 style="color: #333; font-size: 1.1em; margin-top: 5px;">950,000 IQD <br> <span style="font-size: 0.9em;">(3-5 participants)</span></h4>
             <div style="{feature_style}">Exclusive one-on-one sessions</div>
             <div style="{feature_style}">Full access to the platform</div>
             <div style="{feature_style}">5 personalized sessions per participant</div>
