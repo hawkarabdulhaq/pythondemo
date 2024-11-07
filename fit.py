@@ -68,6 +68,15 @@ def show():
         </div>
         """, unsafe_allow_html=True)
 
+        # Highlighted Button to Survey
+        st.markdown("""
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScHcfqWZ_-mkfuNpq7hBQQNzqmIX3oHlsE0UAAlIAe7FGaRdw/viewform?usp=sf_link" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 1.2em; font-weight: bold; color: white; background-color: #1ABC9C; border-radius: 5px; text-decoration: none;">
+                Take the Fit Assessment
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+
     # Enterprises Tab Content
     with tab2:
         st.markdown("""
@@ -76,32 +85,9 @@ def show():
         </div>
         """, unsafe_allow_html=True)
 
-        st.markdown("<h3>Enterprise Fit Assessment Objectives</h3>", unsafe_allow_html=True)
-        st.markdown("""
-        <ul>
-            <li><strong>Assess Team Needs:</strong> Align your company’s objectives with specific Python programming goals.</li>
-            <li><strong>Classify Team Members:</strong> Organize participants into classes based on their skill levels and roles.</li>
-            <li><strong>Maximize Impact:</strong> Customize learning paths to achieve measurable impact within the organization.</li>
-            <li><strong>Strategic Decision Support:</strong> Equip team members with insights for implementing automation and data-driven solutions.</li>
-        </ul>
-        """, unsafe_allow_html=True)
-
-        # How It Works for Enterprises
-        st.markdown("<h3>Enterprise Assessment Workflow</h3>", unsafe_allow_html=True)
+        st.markdown("<h3>Enterprise Fit Assessment Coming Soon</h3>", unsafe_allow_html=True)
         st.markdown("""
         <div class="content">
-            <ol>
-                <li><strong>Complete the Team Survey:</strong> Share your team’s goals and programming needs.</li>
-                <li><strong>Receive Team Classification by Email:</strong> Get tailored class placements and insights to guide your team’s learning path.</li>
-            </ol>
+            We are working on a tailored Fit Assessment survey for enterprises, designed to meet the specific needs of teams and organizations. Please check back soon!
         </div>
         """, unsafe_allow_html=True)
-
-    # Highlighted Button to Survey for both Individuals and Enterprises
-    st.markdown("""
-    <div style="text-align: center; margin-top: 20px;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScHcfqWZ_-mkfuNpq7hBQQNzqmIX3oHlsE0UAAlIAe7FGaRdw/viewform?usp=sf_link" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 1.2em; font-weight: bold; color: white; background-color: #1ABC9C; border-radius: 5px; text-decoration: none;">
-            Take the Fit Assessment
-        </a>
-    </div>
-    """, unsafe_allow_html=True)
