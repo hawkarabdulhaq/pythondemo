@@ -1,5 +1,7 @@
 import streamlit as st
 import gspread
+import discouns
+
 from google.oauth2.service_account import Credentials
 # Function to connect to Google Sheets
 def connect_to_google_sheet(sheet_name):
