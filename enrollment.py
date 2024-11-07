@@ -1,6 +1,6 @@
 import streamlit as st
 import gspread
-import price  # Import the price module to display pricing options in the first tab
+import price  # Make sure price.py is correctly imported
 from google.oauth2.service_account import Credentials
 
 # Function to connect to Google Sheets
@@ -15,10 +15,10 @@ def show():
     st.markdown('<div class="title">Enrollment</div>', unsafe_allow_html=True)
     st.markdown('<div class="content">If you would like to enroll in the course, please select your preferred training type below and complete the enrollment form. Once submitted, you will receive a bill with payment instructions.<br><br>This course is hosted on an online platform and includes a weekly live session, giving you the opportunity for one-on-one learning. You should plan for approximately <strong>one hour per week</strong> for the live session, along with <strong>2 to 3 hours</strong> for completing assignments and following the course material.</div>', unsafe_allow_html=True)
 
-    # Tabs for Price, Individual Training, and Group Training
+    # Tabs for Prices, Individual Training, and Group Training
     tab1, tab2, tab3 = st.tabs(["Prices", "Individual Training", "Group Training"])
 
-    # Price Tab
+    # Prices Tab
     with tab1:
         st.markdown('<div class="section-title">Course Pricing Options</div>', unsafe_allow_html=True)
         price.show()  # Display pricing options from price.py
