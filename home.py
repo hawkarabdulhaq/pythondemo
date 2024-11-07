@@ -8,7 +8,7 @@ def show():
     st.markdown("""
     <div class="video-container">
         <h3>Watch the demo video and get to know about the course</h3>
-        <iframe width="853" height="480" src="https://www.youtube.com/embed/G8BC2NIfpAs" 
+        <iframe width="853" height="600" src="https://www.youtube.com/embed/G8BC2NIfpAs" 
         title="ڕاهێنانی کۆدینگ لەگەڵ هاوکار" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
         encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
         allowfullscreen></iframe>
