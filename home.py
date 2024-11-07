@@ -30,14 +30,14 @@ def show():
     """, unsafe_allow_html=True)
 
     # What We Offer Section
-    st.markdown('<div class="section-title highlight">What We Offer You</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-title" style="color: #1ABC9C;">What We Offer You</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="content">
-    - <span class="highlight">Accelerated Learning Path:</span> Quickly master Python programming with a targeted curriculum designed for beginners and hands-on learners.<br><br>
-    - <span class="highlight">Automate Your Daily Tasks:</span> Learn to streamline and automate workflows, saving both time and money.<br><br>
-    - <span class="highlight">Build Real-World Skills:</span> Develop hands-on projects to add directly to your CV, highlighting your ability to solve practical, real-world problems.<br><br>
-    - <span class="highlight">Enhance Your Professional Profile:</span> Acquire a highly sought-after skill that enhances your career potential across fields, from productivity and operations to data analysis and beyond.<br><br>
-    - <span class="highlight">Join the 'Code for Good' Community:</span> Become part of a vibrant network that provides access to job opportunities, research co-authorship, and expanded market reach.
+    - <strong>Accelerated Learning Path:</strong> Quickly master Python programming with a targeted curriculum designed for beginners and hands-on learners.<br><br>
+    - <strong>Automate Your Daily Tasks:</strong> Learn to streamline and automate workflows, saving both time and money.<br><br>
+    - <strong>Build Real-World Skills:</strong> Develop hands-on projects to add directly to your CV, highlighting your ability to solve practical, real-world problems.<br><br>
+    - <strong>Enhance Your Professional Profile:</strong> Acquire a highly sought-after skill that enhances your career potential across fields, from productivity and operations to data analysis and beyond.<br><br>
+    - <strong>Join the 'Code for Good' Community:</strong> Become part of a vibrant network that provides access to job opportunities, research co-authorship, and expanded market reach.
     </div>
     """, unsafe_allow_html=True)
     
