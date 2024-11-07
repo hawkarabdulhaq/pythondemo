@@ -1,6 +1,6 @@
 import streamlit as st
 import gspread
-import discouns
+import discounts
 
 from google.oauth2.service_account import Credentials
 # Function to connect to Google Sheets
