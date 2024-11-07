@@ -1,6 +1,7 @@
 import streamlit as st
 import gspread
 from google.oauth2.service_account import Credentials
+import discounts  # Import the discounts module
 
 # Function to connect to Google Sheets
 def connect_to_google_sheet(sheet_name):
@@ -14,8 +15,8 @@ def show():
     st.markdown('<div class="title">Enrollment</div>', unsafe_allow_html=True)
     st.markdown('<div class="content">If you would like to enroll in the course, please select your preferred training type below and complete the enrollment form. Once submitted, you will receive a bill with payment instructions.<br><br>This course is hosted on an online platform and includes a weekly live session, giving you the opportunity for one-on-one learning. You should plan for approximately <strong>one hour per week</strong> for the live session, along with <strong>2 to 3 hours</strong> for completing assignments and following the course material.</div>', unsafe_allow_html=True)
 
-    # Tabs for Individual and Group Training
-    tab1, tab2 = st.tabs(["Individual Training", "Group Training"])
+    # Tabs for Individual, Group Training, and Discounts
+    tab1, tab2, tab3 = st.tabs(["Individual Training", "Group Training", "Discounts"])
 
     # Individual Training Tab
     with tab1:
@@ -106,3 +107,8 @@ def show():
                 sheet = connect_to_google_sheet("group")
                 sheet.append_row([name, age, job, email, location, gender, course_discovery, group_size, group_names, payment_method])
                 st.success("Thank you for your enrollment request! You will receive a bill shortly with payment instructions.")
+
+    # Discounts Tab
+    with tab3:
+        st.markdown('<div class="section-title">Discount Opportunities</div>', unsafe_allow_html=True)
+        discounts.show()  # Display discounts content from the imported discounts module
