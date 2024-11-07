@@ -9,6 +9,7 @@ def show():
 
     # Style adjustments for readability
     feature_style = "font-size: 0.95em; margin-bottom: 8px;"
+    button_style = "background-color: #1ABC9C; color: white; padding: 10px 15px; border-radius: 5px; font-size: 0.9em; font-weight: bold; text-decoration: none; display: inline-block;"
 
     # Student Offer
     with col1:
@@ -22,6 +23,7 @@ def show():
             <div style="{feature_style}">Pre-defined final project</div>
             <div style="{feature_style}">Course certificate</div>
             <div style="{feature_style}">Code for Impact membership</div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfolc_O8_QIn25TylAOwTIKOpHpBV3gG_V4bja79B0EopRLVQ/viewform?usp=sf_link" target="_blank" style="{button_style}">Enroll Now</a>
         </div>
         """, unsafe_allow_html=True)
 
@@ -37,6 +39,7 @@ def show():
             <div style="{feature_style}">Pre-defined final project</div>
             <div style="{feature_style}">Course certificate</div>
             <div style="{feature_style}">Code for Impact membership</div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfolc_O8_QIn25TylAOwTIKOpHpBV3gG_V4bja79B0EopRLVQ/viewform?usp=sf_link" target="_blank" style="{button_style}">Enroll Now</a>
         </div>
         """, unsafe_allow_html=True)
 
@@ -54,6 +57,7 @@ def show():
             <div style="{feature_style}">LinkedIn reference</div>
             <div style="{feature_style}">Follow-up support</div>
             <div style="{feature_style}">Code for Impact membership</div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfolc_O8_QIn25TylAOwTIKOpHpBV3gG_V4bja79B0EopRLVQ/viewform?usp=sf_link" target="_blank" style="{button_style}">Enroll Now</a>
         </div>
         """, unsafe_allow_html=True)
 
@@ -72,5 +76,6 @@ def show():
             <div style="{feature_style}">LinkedIn reference</div>
             <div style="{feature_style}">Ongoing follow-up support</div>
             <div style="{feature_style}">Code for Impact membership</div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfolc_O8_QIn25TylAOwTIKOpHpBV3gG_V4bja79B0EopRLVQ/viewform?usp=sf_link" target="_blank" style="{button_style}">Enroll Now</a>
         </div>
         """, unsafe_allow_html=True)
