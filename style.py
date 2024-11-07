@@ -3,7 +3,7 @@ import streamlit as st
 def apply_custom_styles():
     st.markdown("""
     <style>
-    /* Set the default font to Courier for both themes */
+    /* Keep default font as Courier for general elements */
     * {
         font-family: "Courier", monospace;
     }
@@ -28,35 +28,22 @@ def apply_custom_styles():
         }
     }
 
-    /* Responsive viewport */
+    /* Responsive styling */
     @media only screen and (max-width: 768px) {
-        /* Adjust text sizes on smaller screens */
-        .title {
-            font-size: 2em;
-        }
-        .section-title {
-            font-size: 1.5em;
-        }
-        .content {
-            font-size: 1em;
-        }
-        /* Video container and iframe adjustments */
-        .video-container {
-            padding: 5px;
-        }
-        iframe {
-            width: 100%;
-            height: auto;
-        }
+        .title { font-size: 2em; }
+        .section-title { font-size: 1.5em; }
+        .content { font-size: 1em; }
+        .video-container { padding: 5px; }
+        iframe { width: 100%; height: auto; }
     }
 
-    /* Apply background and text color for body */
+    /* General body styling */
     body {
         background-color: var(--bg-color);
         color: var(--text-color);
     }
 
-    /* Styling the title */
+    /* Title Styling */
     .title {
         font-size: 2.5em;
         font-weight: bold;
@@ -66,7 +53,7 @@ def apply_custom_styles():
         margin-bottom: 20px;
     }
     
-    /* Styling for section titles */
+    /* Section Titles */
     .section-title {
         font-size: 1.7em;
         font-weight: bold;
@@ -78,7 +65,7 @@ def apply_custom_styles():
         text-align: left;
     }
     
-    /* General content styling - Justified text */
+    /* Content Styling */
     .content {
         font-size: 1.1em;
         color: var(--text-color);
@@ -87,13 +74,13 @@ def apply_custom_styles():
         margin-bottom: 20px;
     }
 
-    /* Highlighting important sections */
+    /* Highlight Section */
     .highlight {
         font-weight: bold;
         color: var(--highlight-color);
     }
     
-    /* Style for video container */
+    /* Video Container Styling */
     .video-container {
         text-align: center;
         margin-top: 20px;
@@ -110,6 +97,23 @@ def apply_custom_styles():
         height: auto;
         border: 2px solid var(--border-color);
         border-radius: 8px;
+    }
+
+    /* Pricing Container Specifics */
+    .pricing-box {
+        font-size: 0.9em; /* Adjusted for tighter fit in pricing boxes */
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f4f8fb;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    /* Specific styling for list items in pricing boxes */
+    .pricing-feature {
+        margin: 5px 0;
+        white-space: nowrap; /* Prevents text wrapping within list items */
+        font-size: 0.9em; /* Slightly smaller for tight containers */
     }
     </style>
     """, unsafe_allow_html=True)
