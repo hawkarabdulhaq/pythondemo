@@ -37,7 +37,7 @@ def show():
     - <strong>Automate Your Daily Tasks:</strong> Learn to streamline and automate workflows, saving both time and money.<br><br>
     - <strong>Build Real-World Skills:</strong> Develop hands-on projects to add directly to your CV, highlighting your ability to solve practical, real-world problems.<br><br>
     - <strong>Enhance Your Professional Profile:</strong> Acquire a highly sought-after skill that enhances your career potential across fields, from productivity and operations to data analysis and beyond.<br><br>
-    - <strong>Join the 'Code for Good' Community:</strong> Become part of a vibrant network that provides access to job opportunities, research co-authorship, and expanded market reach.
+    - <strong>Join the 'Code for Impact' Community:</strong> Become part of a vibrant network that provides access to job opportunities, research co-authorship, and expanded market reach.
     </div>
     """, unsafe_allow_html=True)
     
