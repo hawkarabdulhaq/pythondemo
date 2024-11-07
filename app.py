@@ -3,7 +3,6 @@ import home
 import fit  # Place Fit Assessment second for initial self-assessment
 import learning_platform
 import enrollment
-import discounts
 import testimony
 import about  # Import the about module for the About page
 import style  # Import the style module to apply global styles
@@ -32,7 +31,6 @@ with st.sidebar:
     st.button("Fit Assessment", on_click=set_page, args=("Fit Assessment",))  # Fit Assessment for initial assessment
     st.button("Learning Platform", on_click=set_page, args=("Learning Platform",))
     st.button("Enrollment", on_click=set_page, args=("Enrollment",))
-    st.button("Discounts", on_click=set_page, args=("Discounts",))  # Discounts before finalizing enrollment
     st.button("Testimonials", on_click=set_page, args=("Testimonials",))  # Social proof at the end
     st.button("About", on_click=set_page, args=("About",))  # Place About as the last navigation option
 
@@ -59,8 +57,6 @@ elif st.session_state.page == "Learning Platform":
     learning_platform.show()
 elif st.session_state.page == "Enrollment":
     enrollment.show()
-elif st.session_state.page == "Discounts":
-    discounts.show()
 elif st.session_state.page == "Testimonials":  # Testimonials near the end
     testimony.show()
 elif st.session_state.page == "About":  # About as the last option
