@@ -12,7 +12,7 @@ def show():
         st.markdown("""
         <div style="background-color: #f4f8fb; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
             <h3 style="color: #1ABC9C; font-size: 1.5em;">Student</h3>
-            <h4 style="color: #333; font-size: 1.2em;">59,000 IQD</h4>
+            <h4 style="color: #333; font-size: 1.2em;">39,000 IQD</h4>
             <ul style="list-style-type: none; padding-left: 0; color: #333;">
                 <li>Full access to the platform</li>
                 <li>Generalized live coding</li>
@@ -29,7 +29,7 @@ def show():
         st.markdown("""
         <div style="background-color: #f4f8fb; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
             <h3 style="color: #1ABC9C; font-size: 1.5em;">Group</h3>
-            <h4 style="color: #333; font-size: 1.2em;">295,000 IQD per person</h4>
+            <h4 style="color: #333; font-size: 1.2em;">195,000 IQD per person</h4>
             <ul style="list-style-type: none; padding-left: 0; color: #333;">
                 <li>Full access to the platform</li>
                 <li>Generalized live coding</li>
