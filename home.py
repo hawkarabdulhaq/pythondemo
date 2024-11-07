@@ -29,14 +29,15 @@ def show():
     </div>
     """, unsafe_allow_html=True)
 
-    # Pricing Information
-    st.markdown('<div class="section-title">Pricing Options</div>', unsafe_allow_html=True)
+    # What We Offer Section
+    st.markdown('<div class="section-title">What We Offer You</div>', unsafe_allow_html=True)
     st.markdown("""
     <div class="content">
-    - <span class="highlight">One-on-One Session</span>: 435,000IQD for a personalized experience<br>
-    - <span class="highlight">Group Session (3+ people)</span>: 315,000IQD per person (for a group of colleagues or friends)
-
-    Choose the option that best fits your needs and learning preferences.
+    - <strong>Accelerated Learning Path</strong>: Quickly master Python programming with a targeted curriculum designed for beginners and hands-on learners.
+    - <strong>Automate Your Daily Tasks</strong>: Learn to streamline and automate workflows, saving both time and money.
+    - <strong>Build Real-World Skills</strong>: Develop hands-on projects to add directly to your CV, highlighting your ability to solve practical, real-world problems.
+    - <strong>Enhance Your Professional Profile</strong>: Acquire a highly sought-after skill that enhances your career potential across fields, from productivity and operations to data analysis and beyond.
+    - <strong>Join the 'Code for Good' Community</strong>: Become part of a vibrant network that provides access to job opportunities, research co-authorship, and expanded market reach.
     </div>
     """, unsafe_allow_html=True)
     
