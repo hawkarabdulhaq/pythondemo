@@ -138,7 +138,7 @@ def show():
             <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/haval-ali-72308a19b/" target="_blank">Haval Ali</a></p>
             """, unsafe_allow_html=True)
 
-    # Course Participants Tab Content (Full Width)
+    # Course Participants Tab Content
     with tab4:
         st.markdown('<div class="title">Course Participants</div>', unsafe_allow_html=True)
         st.markdown("""
@@ -147,7 +147,14 @@ def show():
             </div>
         """, unsafe_allow_html=True)
         st.markdown("""
-            <div style="width: 100%; margin-top: 40px;">
-                <iframe src="https://habdulhaq87.github.io/python_training/" width="100%" height="1000px" style="border:none;"></iframe>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="https://habdulhaq87.github.io/python_training/" target="_blank" style="font-size: 1.2em; font-weight: bold; color: #1ABC9C; text-decoration: none;">
+                    Open Participant Showcase in Full Screen
+                </a>
+            </div>
+        """, unsafe_allow_html=True)
+        st.markdown("""
+            <div style="margin-top: 20px;">
+                <iframe src="https://habdulhaq87.github.io/python_training/" width="100%" height="800px" style="border:none;"></iframe>
             </div>
         """, unsafe_allow_html=True)
