@@ -6,6 +6,13 @@ import enrollment  # Updated to reflect "Prices" tab
 import about  # Import the about module for the About page
 import style  # Import the style module to apply global styles
 
+# Set up the Streamlit page configuration with the chosen icons
+st.set_page_config(
+    page_title="Personalized Python Training",
+    page_icon="🤖",
+    layout="wide",
+)
+
 # Apply custom styles from style.py
 style.apply_custom_styles()
 
@@ -17,20 +24,20 @@ if 'page' not in st.session_state:
 def set_page(page):
     st.session_state.page = page
 
-# Sidebar Navigation with Logo, Course Title, and Icons
+# Sidebar Navigation with Logo and Course Title
 with st.sidebar:
     # Display the logo image with a specified width
     st.image("input/logo.jpg", width=200)  # Logo at 200px width for a balanced look
     
-    # Course title with robot icon
-    st.title("🤖 Personalized Python Training")
+    # Course title
+    st.title("Personalized Python Training")
     
-    # Navigation buttons with icons
-    st.button("🏠 Home", on_click=set_page, args=("Home",))
-    st.button("📝 Fit Assessment", on_click=set_page, args=("Fit Assessment",))  # Fit Assessment for initial assessment
-    st.button("📚 Learning", on_click=set_page, args=("Learning",))  # Changed from "Learning Platform" to "Learning"
-    st.button("💰 Prices", on_click=set_page, args=("Prices",))  # Changed from "Enrollment" to "Prices"
-    st.button("ℹ️ About", on_click=set_page, args=("About",))  # Place About as the last navigation option
+    # Navigation buttons
+    st.button("Home", on_click=set_page, args=("Home",))
+    st.button("Fit Assessment", on_click=set_page, args=("Fit Assessment",))  # Fit Assessment for initial assessment
+    st.button("Learning", on_click=set_page, args=("Learning",))  # Changed from "Learning Platform" to "Learning"
+    st.button("Prices", on_click=set_page, args=("Prices",))  # Changed from "Enrollment" to "Prices"
+    st.button("About", on_click=set_page, args=("About",))  # Place About as the last navigation option
 
     # Contact Information with Discord Link
     st.markdown("""
