@@ -15,20 +15,6 @@ def show():
     </div>
     """, unsafe_allow_html=True)
 
-    # Course Overview
-    st.markdown('<div class="section-title">Course Overview</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <div class="content">
-    Here’s a quick summary of what we’ll cover:
-
-    - <strong>Setting Up Python</strong>: We’ll start by preparing your Python environment, ensuring you’re ready to begin your learning journey with a strong foundation.
-    - <strong>Hawkar's Workflow</strong>: I’ll introduce my structured approach to learning Python, focusing on breaking down complex concepts into manageable steps for an efficient learning process.
-    - <strong>Applying GitHub for App Creation</strong>: In this module, you'll learn to leverage GitHub to create a small app, setting the stage for your final project.
-    - <strong>Developing Your Final Project</strong>: Over the course of a week, you’ll work on a draft version of your final project, applying core coding concepts in a practical way.
-    - <strong>Finalizing and Launching Your Project</strong>: In the final week, you’ll bring your project to completion. You’ll deploy the app, integrate key features, and showcase it within your community.
-    </div>
-    """, unsafe_allow_html=True)
-
     # What We Offer Section
     st.markdown('<div class="section-title" style="color: #1ABC9C;">What We Offer You</div>', unsafe_allow_html=True)
     st.markdown("""
