@@ -6,13 +6,6 @@ import enrollment  # Updated to reflect "Prices" tab
 import about  # Import the about module for the About page
 import style  # Import the style module to apply global styles
 
-# Set up the Streamlit page configuration with the chosen icons
-st.set_page_config(
-    page_title="Personalized Python Training",
-    page_icon="🤖",
-    layout="wide",
-)
-
 # Apply custom styles from style.py
 style.apply_custom_styles()
 
