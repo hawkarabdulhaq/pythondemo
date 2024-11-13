@@ -10,7 +10,7 @@ def show():
     with tab1:
         st.markdown("""
         <div class="content">
-            Unlock your potential with a tailored training experience. The Fit Assessment helps you find the best match between your goals and the <strong>Personalized Python Programming and Automation Training</strong> by Hawkar Ali Abdulhaq. By answering a few questions, you’ll discover which training class is best suited to support your growth—whether you’re advancing your career, optimizing operations, enhancing research, or developing new skills for personal projects.
+            Unlock your potential with a tailored training experience. The Fit Assessment helps you find the best match between your goals and the <strong>Personalized Python Programming and Automation Training</strong> by Hawkar Ali Abdulhaq. By answering a few questions, you’ll discover which training class best supports your growth—whether advancing your career, optimizing operations, enhancing research, or developing new skills for personal projects.
         </div>
         """, unsafe_allow_html=True)
 
@@ -68,11 +68,11 @@ def show():
         </div>
         """, unsafe_allow_html=True)
 
-        # Highlighted Button to Survey
+        # Highlighted Button to Survey for Individuals
         st.markdown("""
         <div style="text-align: center; margin-top: 20px;">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScHcfqWZ_-mkfuNpq7hBQQNzqmIX3oHlsE0UAAlIAe7FGaRdw/viewform?usp=sf_link" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 1.2em; font-weight: bold; color: white; background-color: #1ABC9C; border-radius: 5px; text-decoration: none;">
-                Take the Fit Assessment
+                Take the Individual Fit Assessment
             </a>
         </div>
         """, unsafe_allow_html=True)
@@ -85,9 +85,11 @@ def show():
         </div>
         """, unsafe_allow_html=True)
 
-        st.markdown("<h3>Enterprise Fit Assessment Coming Soon</h3>", unsafe_allow_html=True)
+        # Highlighted Button to Survey for Enterprises
         st.markdown("""
-        <div class="content">
-            We are working on a tailored Fit Assessment survey for enterprises, designed to meet the specific needs of teams and organizations. Please check back soon!
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSekdOWoJsM1KCzz6lnhDNjiDHmN7jAvp3yp-cJyie1zeT0-Eg/viewform?usp=sf_link" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 1.2em; font-weight: bold; color: white; background-color: #1ABC9C; border-radius: 5px; text-decoration: none;">
+                Take the Enterprise Fit Assessment
+            </a>
         </div>
         """, unsafe_allow_html=True)
