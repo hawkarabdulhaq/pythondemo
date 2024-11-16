@@ -3,6 +3,7 @@ import home
 import fit  # Place Fit Assessment second for initial self-assessment
 import learning_platform  # Combined Learning tab and Testimonials tab
 import enrollment  # Updated to reflect "Prices" tab
+import certificate  # Import the certificate module
 import about  # Import the about module for the About page
 import style  # Import the style module to apply global styles
 
@@ -29,6 +30,7 @@ with st.sidebar:
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Fit Assessment", on_click=set_page, args=("Fit Assessment",))  # Fit Assessment for initial assessment
     st.button("Learning", on_click=set_page, args=("Learning",))  # Changed from "Learning Platform" to "Learning"
+    st.button("Certificate", on_click=set_page, args=("Certificate",))  # Added Certificate tab
     st.button("Prices", on_click=set_page, args=("Prices",))  # Changed from "Enrollment" to "Prices"
     st.button("About", on_click=set_page, args=("About",))  # Place About as the last navigation option
 
@@ -53,6 +55,8 @@ elif st.session_state.page == "Fit Assessment":  # Fit Assessment page for initi
     fit.show()
 elif st.session_state.page == "Learning":  # Changed from "Learning Platform" to "Learning"
     learning_platform.show()
+elif st.session_state.page == "Certificate":  # Certificate page for showcasing course completion
+    certificate.show()
 elif st.session_state.page == "Prices":  # Changed from "Enrollment" to "Prices"
     enrollment.show()
 elif st.session_state.page == "About":  # About as the last option
