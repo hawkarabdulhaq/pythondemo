@@ -20,8 +20,8 @@ def set_page(page):
 
 # Sidebar Navigation with Logo and Course Title
 with st.sidebar:
-    # Display the logo image with a specified width
-    st.image("input/logo.jpg", width=200)  # Logo at 200px width for a balanced look
+    # Display the logo image (code.png) with a specified width
+    st.image("input/code.png", width=200)  # New course logo at the top
     
     # Course title
     st.title("Personalized Python Training")
@@ -61,3 +61,12 @@ elif st.session_state.page == "Prices":  # Changed from "Enrollment" to "Prices"
     enrollment.show()
 elif st.session_state.page == "About":  # About as the last option
     about.show()
+
+# Footer with logo and rights reserved
+st.markdown("""
+    <hr>
+    <div style="text-align: center; margin-top: 20px;">
+        <img src="input/code.png" alt="Course Logo" style="width: 50px; border-radius: 50%;"><br>
+        <p style="font-size: 0.9em; color: #2C3E50;">© 2024 All rights reserved to <a href="https://www.habdulhaq.com" style="color: #1ABC9C; text-decoration: none;">habdulhaq.com</a></p>
+    </div>
+""", unsafe_allow_html=True)
