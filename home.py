@@ -1,8 +1,14 @@
 import streamlit as st
 
 def show():
-    st.markdown('<div class="title">Welcome to Personalized Python Programming and Automating Training</div>', unsafe_allow_html=True)
-    st.markdown('<div class="content">Perfect for beginners looking to learn coding, programming, and automating in just one month and deploy their prototype projects.</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="title">Welcome to Code for Impact By Hawkar Ali Abdulhaq</div>
+    <div class="subtitle">We offer a Personalized Python Programming and Automating Training</div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div class="content">Perfect for beginners looking to learn coding, programming, and automating in just one month and deploy their prototype projects.</div>
+    """, unsafe_allow_html=True)
 
     # Embed YouTube video
     st.markdown("""
