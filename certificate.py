@@ -9,14 +9,9 @@ def show():
     </div>
     """, unsafe_allow_html=True)
 
-    # Apply custom CSS for preventing right-click and enabling zoom
+    # Apply custom CSS for zoom effect
     st.markdown("""
     <style>
-        /* Disable right-click on images */
-        img {
-            pointer-events: none;
-        }
-
         /* Container for zoom effect */
         .zoom-container {
             position: relative;
