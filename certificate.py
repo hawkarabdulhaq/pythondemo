@@ -9,10 +9,43 @@ def show():
     </div>
     """, unsafe_allow_html=True)
 
-    # Display portrait certificate
-    st.markdown("<h3>Portrait Certificate</h3>", unsafe_allow_html=True)
-    st.image("input/p.jpg", caption="Portrait Certificate", use_column_width=True)
+    # Apply custom CSS for preventing right-click and enabling zoom
+    st.markdown("""
+    <style>
+        /* Disable right-click on images */
+        img {
+            pointer-events: none;
+        }
 
-    # Display landscape certificate
+        /* Container for zoom effect */
+        .zoom-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Zoom effect on hover */
+        .zoom-container img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .zoom-container:hover img {
+            transform: scale(1.2); /* Adjust zoom level */
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Portrait Certificate
+    st.markdown("<h3>Portrait Certificate</h3>", unsafe_allow_html=True)
+    st.markdown("""
+    <div class="zoom-container">
+        <img src="input/p.jpg" alt="Portrait Certificate" style="width: 100%; border: 1px solid var(--border-color); border-radius: 10px;">
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Landscape Certificate
     st.markdown("<h3>Landscape Certificate</h3>", unsafe_allow_html=True)
-    st.image("input/l.jpg", caption="Landscape Certificate", use_column_width=True)
+    st.markdown("""
+    <div class="zoom-container">
+        <img src="input/l.jpg" alt="Landscape Certificate" style="width: 100%; border: 1px solid var(--border-color); border-radius: 10px;">
+    </div>
+    """, unsafe_allow_html=True)
