@@ -26,9 +26,6 @@ with st.sidebar:
     # Display the main logo image
     st.image("input/logo.jpg", width=200)  # Logo at 200px width for a balanced look
     
-    # Course title
-    st.title("Personalized Python Training")
-    
     # Navigation buttons
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Fit Assessment", on_click=set_page, args=("Fit Assessment",))  # Fit Assessment for initial assessment
