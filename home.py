@@ -30,11 +30,11 @@ def show():
     st.markdown(f'<div class="section-title" style="color: #1ABC9C;">{translate("what_we_offer_title", language)}</div>', unsafe_allow_html=True)
     st.markdown(f"""
     <div class="content">
-    - <strong>{translate("offer_1", language)}</strong><br><br>
-    - <strong>{translate("offer_2", language)}</strong><br><br>
-    - <strong>{translate("offer_3", language)}</strong><br><br>
-    - <strong>{translate("offer_4", language)}</strong><br><br>
-    - <strong>{translate("offer_5", language)}</strong>
+    - {translate("offer_1", language)}<br><br>
+    - {translate("offer_2", language)}<br><br>
+    - {translate("offer_3", language)}<br><br>
+    - {translate("offer_4", language)}<br><br>
+    - {translate("offer_5", language)}
     </div>
     """, unsafe_allow_html=True)
     
