@@ -2,6 +2,10 @@ import streamlit as st
 from dictionary import translate  # Import the centralized translate function
 
 def show():
+    # Ensure session_state.language is available
+    if "language" not in st.session_state:
+        st.session_state.language = "EN"  # Default to English if not set
+
     language = st.session_state.language  # Retrieve the selected language
 
     # Title
@@ -21,5 +25,5 @@ def show():
         {translate('discount_contact', language)}
     """)
 
-# Display content on the Streamlit page
-show()
+# Remove the direct call to show()
+# The show() function should only be called explicitly from app.py
