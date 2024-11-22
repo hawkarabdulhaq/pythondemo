@@ -3,11 +3,13 @@
 # Import translations from various modules
 from translations.app_translation import app_translations
 from translations.home_translation import home_translations
+from translations.fit_translation import fit_translations  # Import fit translations
 
 # Combine all translations into a single dictionary
 translations = {
     **app_translations,
     **home_translations,
+    **fit_translations,  # Add Fit Assessment translations
     # Add other translation modules here as needed
 }
 
