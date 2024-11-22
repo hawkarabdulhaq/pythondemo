@@ -14,7 +14,7 @@ def load_translation_module(module_name):
 # Function to save updated translations back to the module file
 def save_translation_file(file_path, translations):
     with open(file_path, "w", encoding="utf-8") as f:
-        f.write(f"{json.dumps({'translations': translations}, ensure_ascii=False, indent=4)}\n")
+        f.write(f"translations = {json.dumps(translations, ensure_ascii=False, indent=4)}\n")
 
 # Load all translation files dynamically
 translation_files = [f for f in os.listdir(TRANSLATION_DIR) if f.endswith("_translation.py")]
@@ -23,16 +23,22 @@ for file in translation_files:
     module_name = file.replace(".py", "")
     translations_data[module_name] = load_translation_module(module_name)
 
-# App UI
-st.title("Translation Management Tool")
-st.sidebar.header("Select Translation File")
+# App State
+if "selected_file" not in st.session_state:
+    st.session_state.selected_file = None
 
-# Dropdown to select a translation file
-selected_file = st.sidebar.selectbox("Select a file to edit:", translation_files)
+# Sidebar Navigation with Buttons
+st.sidebar.title("Translation Management")
+st.sidebar.markdown("Select a file to edit:")
 
-if selected_file:
-    # Display and edit translations for the selected file
-    st.header(f"Editing Translations: {selected_file}")
+for file in translation_files:
+    if st.sidebar.button(file):
+        st.session_state.selected_file = file  # Set the selected file
+
+# Main Content
+if st.session_state.selected_file:
+    selected_file = st.session_state.selected_file
+    st.title(f"Editing Translations: {selected_file}")
     module_name = selected_file.replace(".py", "")
     translations = translations_data[module_name]
 
@@ -50,3 +56,7 @@ if selected_file:
         file_path = os.path.join(TRANSLATION_DIR, selected_file)
         save_translation_file(file_path, updated_translations)
         st.success(f"Translations for {selected_file} have been updated!")
+
+else:
+    st.title("Welcome to the Translation Management Tool")
+    st.markdown("Select a file from the sidebar to start editing translations.")
