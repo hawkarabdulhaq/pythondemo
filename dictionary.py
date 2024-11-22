@@ -21,7 +21,7 @@ translations = {
     **price_translations,
     **discount_translations,
     **certificate_translations,
-    **about_translations,  # Include about translations
+    **about_translations,
 }
 
 # Centralized translate function
