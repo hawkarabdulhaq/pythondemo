@@ -1,5 +1,6 @@
 import streamlit as st
 import base64
+from dictionary import translate  # Import the centralized translate function
 
 def load_image_as_base64(image_path):
     """Load an image and return it as a Base64 encoded string."""
@@ -7,11 +8,13 @@ def load_image_as_base64(image_path):
         return base64.b64encode(img_file.read()).decode()
 
 def show():
-    st.markdown('<div class="title">Course Completion Certificates</div>', unsafe_allow_html=True)
+    language = st.session_state.language  # Retrieve the selected language
 
-    st.markdown("""
+    st.markdown(f'<div class="title">{translate("certificate_title", language)}</div>', unsafe_allow_html=True)
+
+    st.markdown(f"""
     <div class="content">
-        Trainees will receive a certificate upon successfully completing all course requirements. This certificate is a testament to your dedication, hard work, and mastery of Python programming and automation. Below are the two styles of certificates available:
+        {translate("certificate_description", language)}
     </div>
     """, unsafe_allow_html=True)
 
@@ -47,17 +50,17 @@ def show():
     """, unsafe_allow_html=True)
 
     # Portrait Certificate
-    st.markdown("<h3>Portrait Certificate</h3>", unsafe_allow_html=True)
+    st.markdown(f"<h3>{translate('portrait_certificate_title', language)}</h3>", unsafe_allow_html=True)
     st.markdown(f"""
     <div class="zoom-container">
-        <img src="data:image/jpeg;base64,{portrait_image_base64}" alt="Portrait Certificate" style="width: 100%;">
+        <img src="data:image/jpeg;base64,{portrait_image_base64}" alt="{translate('portrait_certificate_alt', language)}" style="width: 100%;">
     </div>
     """, unsafe_allow_html=True)
 
     # Landscape Certificate
-    st.markdown("<h3>Landscape Certificate</h3>", unsafe_allow_html=True)
+    st.markdown(f"<h3>{translate('landscape_certificate_title', language)}</h3>", unsafe_allow_html=True)
     st.markdown(f"""
     <div class="zoom-container">
-        <img src="data:image/jpeg;base64,{landscape_image_base64}" alt="Landscape Certificate" style="width: 100%;">
+        <img src="data:image/jpeg;base64,{landscape_image_base64}" alt="{translate('landscape_certificate_alt', language)}" style="width: 100%;">
     </div>
     """, unsafe_allow_html=True)
