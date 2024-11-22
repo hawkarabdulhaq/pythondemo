@@ -1,21 +1,24 @@
 import streamlit as st
+from dictionary import translate  # Import the centralized translate function
 
 def show():
+    language = st.session_state.language  # Retrieve the selected language
+
     # Title
-    st.markdown("### Discount Opportunities")
+    st.markdown(f"### {translate('discount_title', language)}")
     
     # Description and Discount Details
-    st.markdown("""
-        Take advantage of our discount options to make learning more affordable and rewarding!
+    st.markdown(f"""
+        {translate('discount_description', language)}
         
-        - **Earn Discounts with Friend Referrals**: Invite a friend, and they receive a **15% discount** on the course fee. You also receive a **15% discount** as a thank-you!
-        - **Refer Three, Get Your Course Free**: Successfully refer three friends who enroll in the course, and your entire course fee will be **completely waived**.
-        - **Student Discount for 3rd and 4th-Year Students**: If you're a 3rd or 4th-year student, you’re eligible for an **80% discount** on the total course price.
+        - **{translate('friend_referral_title', language)}**: {translate('friend_referral_description', language)}
+        - **{translate('refer_three_title', language)}**: {translate('refer_three_description', language)}
+        - **{translate('student_discount_title', language)}**: {translate('student_discount_description', language)}
     """)
 
     # Contact Information
-    st.markdown("""
-        For more information, reach out to us at [connect@habdulhaq.com](mailto:connect@habdulhaq.com).
+    st.markdown(f"""
+        {translate('discount_contact', language)}
     """)
 
 # Display content on the Streamlit page
