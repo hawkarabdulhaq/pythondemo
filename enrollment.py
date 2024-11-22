@@ -1,9 +1,9 @@
-# enrollment.py
 import streamlit as st
 import gspread
 import price  # Import price for displaying pricing information
 import discounts  # Import discounts for displaying discount information
 from google.oauth2.service_account import Credentials
+from dictionary import translate  # Import the centralized translate function
 
 # Function to connect to Google Sheets
 def connect_to_google_sheet(sheet_name):
@@ -14,15 +14,20 @@ def connect_to_google_sheet(sheet_name):
     return sheet.worksheet(sheet_name)
 
 def show():
-    st.markdown('<div class="title">Enrollment</div>', unsafe_allow_html=True)
-    st.markdown("""
+    language = st.session_state.language  # Retrieve the selected language
+
+    st.markdown(f'<div class="title">{translate("enrollment_title", language)}</div>', unsafe_allow_html=True)
+    st.markdown(f"""
         <div class="content">
-            If you would like to enroll in the course, please select your preferred training type below and review the pricing and discounts. Once you decide, complete the enrollment form as directed. You will receive a bill with payment instructions after submission.
+            {translate("enrollment_description", language)}
         </div>
     """, unsafe_allow_html=True)
 
     # Tabs for Prices and Discounts
-    tab1, tab2 = st.tabs(["Prices", "Discounts"])
+    tab1, tab2 = st.tabs([
+        translate("prices_tab", language),
+        translate("discounts_tab", language),
+    ])
 
     # Prices Tab
     with tab1:
