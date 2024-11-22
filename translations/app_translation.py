@@ -1,4 +1,4 @@
-# dictionary/app_translation.py
+# translations/app_translation.py
 
 app_translations = {
     "home_title": {
@@ -24,30 +24,6 @@ app_translations = {
     "about_title": {
         "EN": "About",
         "KU": "دەربارەی",
-    },
-    "contact": {
-        "EN": "Contact",
-        "KU": "پەیوەندی",
-    },
-    "email": {
-        "EN": "Email",
-        "KU": "ئیمەیڵ",
-    },
-    "website": {
-        "EN": "Website",
-        "KU": "ماڵپەڕ",
-    },
-    "discord": {
-        "EN": "Discord Server",
-        "KU": "ڕاژەی دیسکۆرد",
-    },
-    "book_demo": {
-        "EN": "Book a Free Demo Session",
-        "KU": "کاتێکی ڕەگەزکردن بۆ ئەمشانە",
-    },
-    "schedule_demo": {
-        "EN": "Schedule a Demo on Calendly",
-        "KU": "هەڵبژاردنی دیمۆ لە Calendly",
     },
     "footer": {
         "EN": "All rights reserved to",
