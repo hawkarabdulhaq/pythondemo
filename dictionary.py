@@ -6,8 +6,9 @@ from translations.home_translation import home_translations
 from translations.fit_translation import fit_translations
 from translations.learning_platform_translation import learning_platform_translations
 from translations.enrollment_translation import enrollment_translations
-from translations.price_translation import price_translations  # Import price translations
-from translations.discount_translation import discount_translations  # Import discount translations
+from translations.price_translation import price_translations
+from translations.discount_translation import discount_translations
+from translations.certificate_translation import certificate_translations  # Import certificate translations
 
 # Combine all translations into a single dictionary
 translations = {
@@ -16,8 +17,9 @@ translations = {
     **fit_translations,
     **learning_platform_translations,
     **enrollment_translations,
-    **price_translations,  # Include price translations
-    **discount_translations,  # Include discount translations
+    **price_translations,
+    **discount_translations,
+    **certificate_translations,  # Include certificate translations
 }
 
 # Centralized translate function
