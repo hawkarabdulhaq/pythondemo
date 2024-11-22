@@ -1,44 +1,48 @@
-import streamlit as st
-from dictionary import translations
+# translations/home_translation.py
 
-def translate(key):
-    return translations.get(key, {}).get(st.session_state.language, key)
-
-def show():
-    # Welcome section
-    st.markdown(f"""
-    <div class="title">{translate("welcome_title")}</div>
-    <div class="subtitle"><strong>{translate("subtitle")}</strong></div>
-    """, unsafe_allow_html=True)
-    
-    # Perfect for beginners
-    st.markdown(f"""
-    <div class="content"><strong>{translate("perfect_for_beginners")}</strong></div>
-    """, unsafe_allow_html=True)
-
-    # Embed YouTube video
-    st.markdown(f"""
-    <div class="video-container">
-        <h3>{translate("watch_demo")}</h3>
-        <iframe width="853" height="600" src="https://www.youtube.com/embed/G8BC2NIfpAs" 
-        title="ڕاهێنانی کۆدینگ لەگەڵ هاوکار" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-        encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen></iframe>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # What We Offer section
-    st.markdown(f'<div class="section-title" style="color: #1ABC9C;">{translate("what_we_offer_title")}</div>', unsafe_allow_html=True)
-    st.markdown(f"""
-    <div class="content">
-    - <strong>{translate("offer_1")}</strong><br><br>
-    - <strong>{translate("offer_2")}</strong><br><br>
-    - <strong>{translate("offer_3")}</strong><br><br>
-    - <strong>{translate("offer_4")}</strong><br><br>
-    - <strong>{translate("offer_5")}</strong>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Enrollment Button
-    if st.button(translate("enroll_button")):
-        st.session_state.page = "Enrollment"
+home_translations = {
+    "welcome_title": {
+        "EN": "Welcome to Code for Impact By Hawkar Ali Abdulhaq",
+        "KU": "بەخێربێن بۆ کۆدی کارە سەربەخۆ لەگەڵ هاوکار علی عەبدوڵحەق",
+    },
+    "subtitle": {
+        "EN": "We offer a Personalized Python Programming and Automating Training",
+        "KU": "ئێمە ڕاهێنانی تایبەتی پایتۆن و خۆکارکردن پێشکەش دەکەین",
+    },
+    "perfect_for_beginners": {
+        "EN": "Perfect for beginners looking to learn coding, programming, and automating in just one month and deploy their prototype projects.",
+        "KU": "سەربەخۆ بۆ نەوکەسانی تازە دەستپێکردوو، کۆدینگی پەروەردەی و خۆکارکردن بەیەک مانگ فێر دەبێت و پرۆژە تایبەتییان دەرەدەر بکەن.",
+    },
+    "watch_demo": {
+        "EN": "Watch the demo video and get to know about the course",
+        "KU": "بینینی ڤیدیۆی نیشانە و دەربارەی کۆرسەکە فێربن",
+    },
+    "what_we_offer_title": {
+        "EN": "What We Offer You",
+        "KU": "ئێمە چی پێشکەش دەکەین؟",
+    },
+    "offer_1": {
+        "EN": "Accelerated Learning Path: Quickly master Python programming with a focused curriculum.",
+        "KU": "هێڵی فێربوونی خێرا: بە خێرا پایتۆن فێر ببە لەگەڵ بەرنامە تایبەتی.",
+    },
+    "offer_2": {
+        "EN": "Automate Your Daily Tasks: Streamline workflows to save time and money.",
+        "KU": "خۆکارکردنی ئیشەکانت: ڕێڕەوی خێرا بەرز بکە بۆ خەرجکردنەکان و کاتەکانت.",
+    },
+    "offer_3": {
+        "EN": "Build Real-World Skills: Create projects to add directly to your CV, showcasing your problem-solving abilities.",
+        "KU": "توانای تایبەتی دیکە: پرۆژەکان دروست بکە بۆ زیادکردنەوە بۆ CVی تایبەتی.",
+    },
+    "offer_4": {
+        "EN": "Enhance Your Professional Profile: Acquire in-demand skills that boost career potential across various fields.",
+        "KU": "زۆرکردنی توانای فەرمی: توانای کەوتنی بازارەوە و پەیوەندی بازاڕی.",
+    },
+    "offer_5": {
+        "EN": "Join the 'Code for Impact' Community: Access job opportunities, research co-authorship, and a broader market network.",
+        "KU": "بەشداربوون لە جوملەی کۆدی کارەسەربەخۆ: هەڵبژاردنی ئیش و ڕۆژی زانیاریەکان و بازاڕەکان.",
+    },
+    "enroll_button": {
+        "EN": "Enroll the Course",
+        "KU": "تۆماربوون بۆ کۆرسەکە",
+    },
+}
