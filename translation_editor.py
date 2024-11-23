@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 from github import Github  # PyGithub library for interacting with GitHub
+from io import StringIO  # Correct StringIO import
 
 # Define paths and constants
 CSV_FILE_PATH = "translations/csv/master_translation.csv"
@@ -28,7 +29,7 @@ def load_translations_from_github():
         repo = g.get_repo(GITHUB_REPO)
         file_content = repo.get_contents(CSV_GITHUB_PATH)
         csv_data = file_content.decoded_content.decode("utf-8")
-        return pd.read_csv(pd.compat.StringIO(csv_data))
+        return pd.read_csv(StringIO(csv_data))  # Corrected StringIO usage
     except Exception as e:
         st.error(f"Error loading translations from GitHub: {e}")
         return pd.DataFrame()
