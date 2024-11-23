@@ -19,10 +19,12 @@ def fetch_translations():
                     'EN': en_value,
                     'KU': ku_value,
                 }
+            print(f"Loaded Translations: {translations}")  # Debug loaded data
         return translations
     except Exception as e:
         print(f"Error reading translations from master CSV: {e}")
         return {}
+
 
 # Fetch translations and assign to the variable without changing its name
 app_translations = fetch_translations()
