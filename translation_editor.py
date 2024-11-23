@@ -12,7 +12,8 @@ def load_translation_module(module_name):
     """Load translations from the given module."""
     try:
         module = importlib.import_module(f"{TRANSLATION_DIR}.{module_name}")
-        return getattr(module, module_name.replace(".py", "").replace("_translation", "_translations"))
+        variable_name = module_name.replace("_translation", "_translations")
+        return getattr(module, variable_name)
     except AttributeError:
         st.error(f"Error: Module '{module_name}' does not contain the expected translations attribute.")
         return {}
@@ -20,21 +21,16 @@ def load_translation_module(module_name):
         st.error(f"Error loading module '{module_name}': {e}")
         return {}
 
-# Function to validate translation structure
-def validate_translations(module_name, translations):
-    """Ensure translations are in the correct format before saving."""
-    expected_variable = module_name.replace(".py", "_translations")
-    if not isinstance(translations, dict):
-        raise ValueError(f"Translations for {module_name} must be a dictionary.")
-    return expected_variable
-
 # Function to save updated translations back to the module file
 def save_translation_file(file_path, translations):
     """Save translations to the module file."""
     try:
         # Validate translations structure
-        module_name = os.path.basename(file_path)
-        variable_name = validate_translations(module_name, translations)
+        module_name = os.path.basename(file_path).replace('.py', '')
+        variable_name = module_name.replace("_translation", "_translations")
+        if not isinstance(translations, dict):
+            st.error("Invalid translation structure. Please ensure translations are a dictionary.")
+            return
 
         # Create a backup of the file
         backup_path = f"{file_path}.backup"
@@ -43,7 +39,7 @@ def save_translation_file(file_path, translations):
         # Save updated translations
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(f"{variable_name} = {json.dumps(translations, ensure_ascii=False, indent=4)}\n")
-        
+
         st.success(f"Translations for {os.path.basename(file_path)} have been saved successfully!")
     except Exception as e:
         st.error(f"Failed to save translations: {e}")
