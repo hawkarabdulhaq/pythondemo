@@ -31,23 +31,19 @@ def translate(key):
 
 # Sidebar Navigation with Logo, Course Title, and Language Options
 with st.sidebar:
-    # Language options at the top, rendered inline
-    st.markdown(
-        """
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <button style="background-color: #1ABC9C; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;" onclick="window.location.href='?language=EN';">EN</button>
-            <button style="background-color: #1ABC9C; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;" onclick="window.location.href='?language=KU';">KU</button>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    # Language options at the top
+    lang_col1, lang_col2 = st.columns([1, 1])  # Ensure equal width for both language buttons
+    with lang_col1:
+        st.button("EN", on_click=set_language, args=("EN",))
+    with lang_col2:
+        st.button("KU", on_click=set_language, args=("KU",))
 
     # Display the course code image at the top
     st.image("input/code.png", width=200)
-
+    
     # Display the main logo image
     st.image("input/logo.jpg", width=200)
-
+    
     # Navigation buttons
     st.button(translate("home_title"), on_click=set_page, args=("Home",))
     st.button(translate("fit_assessment_title"), on_click=set_page, args=("Fit Assessment",))
@@ -58,7 +54,7 @@ with st.sidebar:
 
     # Contact Information with Discord Link
     st.markdown(f"""
-        <div style="margin-top: 20px; font-size: 1.1em; color: #2C3E50;">
+        <div style="margin-top: 30px; font-size: 1.1em; color: #2C3E50;">
             <p><strong>{translate("contact")}:</strong></p>
             <p>{translate("email")}: <a href="mailto:connect@habdulhaq.com" target="_blank" style="color: #1ABC9C;">connect@habdulhaq.com</a></p>
             <p>{translate("website")}: <a href="https://www.habdulhaq.com" target="_blank" style="color: #1ABC9C;">www.habdulhaq.com</a></p>
