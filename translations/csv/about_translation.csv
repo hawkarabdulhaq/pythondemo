@@ -98,5 +98,41 @@ week_1_assignments,"- Assignment 1: ""Week 1 – Mapping Coordinates"" – Write
 testimonials_title,Participant Testimonials,بەڵگەنامەکانی بەشداربووان
 testimonials_description,"These testimonials were gathered from participants who have completed the course. Each story reflects their unique journey, goals, and achievements in mastering Python and applying it to their personal or professional projects.","ئەم بەڵگەنامانە لە بەشداربووانی کۆرسەکە هەڵگیراون. هەر چیرۆکی تایبەتییەکیان لەخۆ دەگرێت."
 student_projects_title,Student Projects,پڕۆژەکانی خوێندکار
+course_pricing_title,Course Pricing Options,هەڵبژاردنەکانی نرخەکانی کۆرس
+enroll_button,Enroll Now,تۆماربوون
+student_offer_title,Student,خوێندکار
+student_offer_price,39,000 IQD,٣٩،٠٠٠ IQD
+student_feature_1,Full access to the platform,چاوپێچکردنی تەواوی پلاتفۆڕم
+student_feature_2,Generalized live coding,کۆدینگی ڕاستەوخۆ
+student_feature_3,5 interactive group sessions,٥ كۆبونەوەی ڕووبەڕوو
+student_feature_4,Pre-defined final project,پڕۆژەی کۆتایی دیاریکراو
+student_feature_5,Course certificate,بەڵگەنامەی کۆرس
+student_feature_6,Code for Impact membership,ئەندامبوون لە Code for Impact
+group_offer_title,Group,کۆمەڵە
+group_offer_price,195,000 IQD per person,١٩٥،٠٠٠ IQD بۆ هەر کەسێک
+group_feature_1,Full access to the platform,چاوپێچکردنی تەواوی پلاتفۆڕم
+group_feature_2,Generalized live coding,کۆدینگی ڕاستەوخۆ
+group_feature_3,5 group sessions,٥ كۆبونەوەی گروپ
+group_feature_4,Pre-defined final project,پڕۆژەی کۆتایی دیاریکراو
+group_feature_5,Course certificate,بەڵگەنامەی کۆرس
+group_feature_6,Code for Impact membership,ئەندامبوون لە Code for Impact
+one_on_one_offer_title,One-on-One,بە شەخصی
+one_on_one_offer_price,395,000 IQD,٣٩٥،٠٠٠ IQD
+one_on_one_feature_1,Full access to the platform,چاوپێچکردنی تەواوی پلاتفۆڕم
+one_on_one_feature_2,5 one-on-one sessions,٥ كۆبونەوەی بە شەخصی
+one_on_one_feature_3,Personalized live coding,کۆدینگی تایبەتی ڕاستەوخۆ
+one_on_one_feature_4,Custom final project,پڕۆژەی تایبەتی کۆتایی
+one_on_one_feature_5,Course certificate,بەڵگەنامەی کۆرس
+one_on_one_feature_6,LinkedIn reference,پەیوەندی LinkedIn
+one_on_one_feature_7,Follow-up support,پشتیوانی بەردەوام
+enterprise_offer_title,Enterprise,کۆمپانیا
+enterprise_offer_price,950,000 IQD (3-5 participants),٩٥٠،٠٠٠ IQD (٣-٥ بەشداربووان)
+enterprise_feature_1,Exclusive one-on-one sessions,کۆبونەوەی تایبەتی بە شەخصی
+enterprise_feature_2,Full access to the platform,چاوپێچکردنی تەواوی پلاتفۆڕم
+enterprise_feature_3,5 personalized sessions per participant,٥ كۆبونەوەی تایبەتی بۆ هەر بەشداربووێک
+enterprise_feature_4,Custom live coding guidance,ڕاهێنان لە کۆدینگی ڕاستەوخۆی تایبەتی
+enterprise_feature_5,Custom final project,پڕۆژەی تایبەتی کۆتایی
+enterprise_feature_6,Course certificate,بەڵگەنامەی کۆرس
+enterprise_feature_7,Ongoing follow-up support,پشتیوانی بەردەوام
 
 
