@@ -35,6 +35,7 @@ def load_translations_from_github():
         return pd.DataFrame()
 
 # Save translations back to the GitHub repository
+# Save translations back to the GitHub repository
 def save_translations_to_github(updated_df):
     """Save the updated translations to the GitHub repository."""
     try:
@@ -42,27 +43,35 @@ def save_translations_to_github(updated_df):
         if g is None:
             return
         repo = g.get_repo(GITHUB_REPO)
+        
         # Fetch the latest file content to get the correct SHA
         file_content = repo.get_contents(CSV_GITHUB_PATH)
         latest_csv_data = file_content.decoded_content.decode("utf-8")
         latest_df = pd.read_csv(StringIO(latest_csv_data))
-
+        
         # Merge updated_df with latest_df to ensure no conflicts
         merged_df = updated_df.copy()
-
+        
         # Convert DataFrame back to CSV format
         csv_data = merged_df.to_csv(index=False, encoding="utf-8")
-
+        
         # Commit the updated file to GitHub
-        repo.update_file(
+        commit_response = repo.update_file(
             path=CSV_GITHUB_PATH,
             message="Updated translations via Streamlit app",
             content=csv_data,
             sha=file_content.sha,  # Required to identify the file version being updated
         )
+
+        # Debug log for successful update
         st.sidebar.success("Translations updated successfully on GitHub!")
+        st.sidebar.write("Updated CSV:")
+        st.sidebar.dataframe(updated_df)  # Show the updated DataFrame as confirmation
+        print(f"Commit Response: {commit_response}")  # Log the commit response for debugging
     except Exception as e:
         st.sidebar.error(f"Error saving translations to GitHub: {e}")
+        print(f"Error Details: {e}")
+
 
 # Authentication for access
 if "authenticated" not in st.session_state:
