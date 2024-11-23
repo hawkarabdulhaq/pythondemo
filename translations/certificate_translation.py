@@ -1,38 +1,28 @@
-# translations/certificate_translation.py
+import csv
+import os
 
-certificate_translations = {
-    # Titles and descriptions
-    "certificate_title": {
-        "EN": "Course Completion Certificates",
-        "KU": "بەڵگەنامەکانی تەواوبوونی کۆرس",
-    },
-    "certificate_description": {
-        "EN": (
-            "Trainees will receive a certificate upon successfully completing all course requirements. This certificate is a testament to your "
-            "dedication, hard work, and mastery of Python programming and automation. Below are the two styles of certificates available:"
-        ),
-        "KU": (
-            "خوێندکاران بەڵگەنامەی وەرە دەگرن کاتێک هەموو پێویستەکانی کۆرسەکە بە سەرکەوتوویی تەواوبکەن. "
-            "ئەم بەڵگەنامە بەرزبوونی کەوشا، هەوڵ، و توانایان لە کۆدینگی پایتۆن و خۆکارکردن دیار دەکات. "
-            "خوارەوە دوو شێوەی بەڵگەنامە بەردەستە:"
-        ),
-    },
-    
-    # Certificate types
-    "portrait_certificate_title": {
-        "EN": "Portrait Certificate",
-        "KU": "بەڵگەنامەی پەیژە",
-    },
-    "portrait_certificate_alt": {
-        "EN": "Portrait Certificate",
-        "KU": "بەڵگەنامەی پەیژە",
-    },
-    "landscape_certificate_title": {
-        "EN": "Landscape Certificate",
-        "KU": "بەڵگەنامەی ڕووبەر",
-    },
-    "landscape_certificate_alt": {
-        "EN": "Landscape Certificate",
-        "KU": "بەڵگەنامەی ڕووبەر",
-    },
-}
+def fetch_translations():
+    """
+    Fetch translations specific to certificate keys from the master_translation.csv file.
+    """
+    translations = {}
+    csv_file_path = os.path.join('translations', 'csv', 'master_translation.csv')
+
+    try:
+        with open(csv_file_path, mode='r', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                key = row['Key'].strip()  # Use exact key from CSV
+                en_value = row['EN'].strip()
+                ku_value = row['KU'].strip()
+                translations[key] = {
+                    'EN': en_value,
+                    'KU': ku_value,
+                }
+        return translations
+    except Exception as e:
+        print(f"Error reading translations from master CSV: {e}")
+        return {}
+
+# Fetch translations and assign to the variable without changing its name
+certificate_translations = fetch_translations()
