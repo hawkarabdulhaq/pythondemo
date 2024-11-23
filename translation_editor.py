@@ -1,102 +1,81 @@
 import streamlit as st
+import csv
 import os
-import importlib
-import json
-import shutil
+import pandas as pd
 
-# Directory where all translation modules are stored
-TRANSLATION_DIR = "translations"
+# Path to the CSV file
+TRANSLATION_CSV_PATH = os.path.join("translations", "csv", "master_translation.csv")
 
-# Function to load translations from a module
-def load_translation_module(module_name):
-    """Load translations from the given module."""
+# Load CSV into a DataFrame
+@st.cache_data
+def load_translations_csv():
+    """Load translations from the master CSV file into a DataFrame."""
     try:
-        module = importlib.import_module(f"{TRANSLATION_DIR}.{module_name}")
-        variable_name = module_name.replace("_translation", "_translations")
-        return getattr(module, variable_name)
-    except AttributeError:
-        st.error(f"Error: Module '{module_name}' does not contain the expected translations attribute.")
-        return {}
+        return pd.read_csv(TRANSLATION_CSV_PATH, encoding="utf-8")
     except Exception as e:
-        st.error(f"Error loading module '{module_name}': {e}")
-        return {}
+        st.error(f"Error loading CSV file: {e}")
+        return pd.DataFrame()
 
-# Function to save updated translations back to the module file
-def save_translation_file(file_path, translations):
-    """Save translations to the module file."""
+# Save the updated DataFrame back to CSV
+def save_translations_csv(df):
+    """Save updated translations back to the CSV file."""
     try:
-        # Validate translations structure
-        if not isinstance(translations, dict):
-            st.error("Invalid translation structure. Please ensure translations are a dictionary.")
-            return
-
-        # Create a backup of the file
-        backup_path = f"{file_path}.backup"
-        shutil.copy(file_path, backup_path)
-
-        # Save updated translations
-        with open(file_path, "w", encoding="utf-8") as f:
-            module_name = os.path.basename(file_path).replace('.py', '')
-            variable_name = module_name.replace("_translation", "_translations")
-            f.write(f"{variable_name} = {json.dumps(translations, ensure_ascii=False, indent=4)}\n")
-
-        st.success(f"Translations for {os.path.basename(file_path)} have been saved successfully!")
+        df.to_csv(TRANSLATION_CSV_PATH, index=False, encoding="utf-8")
+        st.success("Translations have been saved successfully!")
     except Exception as e:
-        st.error(f"Failed to save translations: {e}")
+        st.error(f"Error saving CSV file: {e}")
         st.exception(e)
 
-# Load all translation files dynamically
-translation_files = [f for f in os.listdir(TRANSLATION_DIR) if f.endswith("_translation.py")]
-translations_data = {}
-for file in translation_files:
-    module_name = file.replace(".py", "")
-    translations_data[module_name] = load_translation_module(module_name)
+# Initialize app state
+if "selected_category" not in st.session_state:
+    st.session_state.selected_category = None
 
-# Initialize App State
-if "selected_file" not in st.session_state:
-    st.session_state.selected_file = None
-if "updated_translations" not in st.session_state:
-    st.session_state.updated_translations = {}
+# Load translations
+translations_df = load_translations_csv()
 
-# Sidebar Navigation with Buttons
+# Sidebar Navigation
 st.sidebar.title("Translation Management")
-st.sidebar.markdown("### Select a file to edit:")
-
-for file in translation_files:
-    if st.sidebar.button(file):
-        st.session_state.selected_file = file  # Set the selected file
+st.sidebar.markdown("### Select a category to edit:")
+if not translations_df.empty:
+    categories = translations_df["Key"].str.split("_", expand=True)[0].unique()
+    for category in categories:
+        if st.sidebar.button(category):
+            st.session_state.selected_category = category
 
 # Main Content
-if st.session_state.selected_file:
-    selected_file = st.session_state.selected_file
-    st.title(f"Editing Translations: {selected_file}")
-    module_name = selected_file.replace(".py", "")
-    translations = translations_data.get(module_name, {})
+if st.session_state.selected_category:
+    category = st.session_state.selected_category
+    st.title(f"Editing Translations for Category: {category}")
 
-    if translations:
-        # Display translations in a two-column table
-        updated_translations = {}
+    # Filter translations for the selected category
+    category_df = translations_df[translations_df["Key"].str.startswith(category)].copy()
+
+    if not category_df.empty:
+        updated_translations = []
+
+        # Display translations in a table
         st.markdown("### Translation Table")
-        for key, langs in translations.items():
+        for idx, row in category_df.iterrows():
+            key = row["Key"]
             st.write(f"**{key}**")
             col1, col2 = st.columns([1, 1])
-            col1.text_input("English", value=langs.get("EN", ""), disabled=True, key=f"{selected_file}_{key}_EN")
-            new_kurdish = col2.text_input("Kurdish", value=langs.get("KU", ""), key=f"{selected_file}_{key}_KU")
-            updated_translations[key] = {"EN": langs.get("EN", ""), "KU": new_kurdish}
+            col1.text_input("English", value=row["EN"], disabled=True, key=f"{key}_EN")
+            new_kurdish = col2.text_input("Kurdish", value=row["KU"], key=f"{key}_KU")
+            updated_translations.append({"Key": key, "EN": row["EN"], "KU": new_kurdish})
 
         # Save button with callback
         def on_save_click():
-            file_path = os.path.join(TRANSLATION_DIR, selected_file)
-            save_translation_file(file_path, updated_translations)
+            updated_df = pd.DataFrame(updated_translations)
+            save_translations_csv(updated_df)
 
         st.button("Save Changes", on_click=on_save_click)
     else:
-        st.error(f"No translations found for the selected file: {selected_file}")
+        st.error(f"No translations found for the selected category: {category}")
 else:
     st.title("Welcome to the Translation Management Tool")
     st.markdown("""
     This tool allows you to manage translations for your app.
-    - Select a translation file from the sidebar to start editing.
+    - Select a category from the sidebar to start editing.
     - Edit Kurdish translations and save your changes.
     """)
 
