@@ -25,6 +25,7 @@ def load_translation_module(module_name):
 def save_translation_file(file_path, translations):
     """Save translations to the module file."""
     try:
+        st.write("Saving translations...")  # Debug statement
         # Validate translations structure
         module_name = os.path.basename(file_path).replace('.py', '')
         variable_name = module_name.replace("_translation", "_translations")
@@ -54,6 +55,8 @@ for file in translation_files:
 # Initialize App State
 if "selected_file" not in st.session_state:
     st.session_state.selected_file = None
+if "updated_translations" not in st.session_state:
+    st.session_state.updated_translations = {}
 
 # Sidebar Navigation with Buttons
 st.sidebar.title("Translation Management")
@@ -72,19 +75,22 @@ if st.session_state.selected_file:
 
     if translations:
         # Display translations in a two-column table
-        updated_translations = {}
         st.markdown("### Translation Table")
         for key, langs in translations.items():
             st.write(f"**{key}**")
             col1, col2 = st.columns([1, 1])
-            col1.text_input("English", value=langs.get("EN", ""), disabled=True, key=f"{key}_EN")
-            new_kurdish = col2.text_input("Kurdish", value=langs.get("KU", ""), key=f"{key}_KU")
-            updated_translations[key] = {"EN": langs.get("EN", ""), "KU": new_kurdish}
+            col1.text_input("English", value=langs.get("EN", ""), disabled=True, key=f"{selected_file}_{key}_EN")
+            new_kurdish = col2.text_input("Kurdish", value=langs.get("KU", ""), key=f"{selected_file}_{key}_KU")
+            st.session_state.updated_translations[key] = {"EN": langs.get("EN", ""), "KU": new_kurdish}
 
-        # Save button
-        if st.button("Save Changes"):
+        # Save button with callback
+        def on_save_click():
+            st.write("Save button clicked")  # Debug statement
             file_path = os.path.join(TRANSLATION_DIR, selected_file)
-            save_translation_file(file_path, updated_translations)
+            st.write(f"Saving to {file_path}")  # Debug statement
+            save_translation_file(file_path, st.session_state.updated_translations)
+
+        st.button("Save Changes", on_click=on_save_click)
     else:
         st.error(f"No translations found for the selected file: {selected_file}")
 else:
