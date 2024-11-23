@@ -1,33 +1,64 @@
 import streamlit as st
 import pandas as pd
 import os
+from github import Github  # PyGithub library for interacting with GitHub
 
-# Define paths
+# Define paths and constants
 CSV_FILE_PATH = "translations/csv/master_translation.csv"
+GITHUB_REPO = "hawkarabdulhaq/pythondemo"
+CSV_GITHUB_PATH = "translations/csv/master_translation.csv"
 
-# Function to load translations from the CSV file
-def load_translations_csv():
-    """Load translations from the master CSV file."""
+# Authenticate with GitHub
+def authenticate_github():
+    """Authenticate with GitHub using the token from .streamlit/config.toml."""
     try:
-        if not os.path.exists(CSV_FILE_PATH):
-            st.error("Translation CSV file not found!")
+        token = st.secrets["github_token"]  # Token stored in .streamlit/secrets.toml
+        return Github(token)
+    except KeyError:
+        st.error("GitHub token not found in secrets!")
+        return None
+
+# Load translations from the GitHub repository
+def load_translations_from_github():
+    """Load translations CSV from the GitHub repository."""
+    try:
+        g = authenticate_github()
+        if g is None:
             return pd.DataFrame()
-        return pd.read_csv(CSV_FILE_PATH)
+        repo = g.get_repo(GITHUB_REPO)
+        file_content = repo.get_contents(CSV_GITHUB_PATH)
+        csv_data = file_content.decoded_content.decode("utf-8")
+        return pd.read_csv(pd.compat.StringIO(csv_data))
     except Exception as e:
-        st.error(f"Error loading translations: {e}")
+        st.error(f"Error loading translations from GitHub: {e}")
         return pd.DataFrame()
 
-# Function to save updated translations to the CSV file
-def save_translations_csv(updated_df):
-    """Save the updated translations to the master CSV file."""
+# Save translations back to the GitHub repository
+def save_translations_to_github(updated_df):
+    """Save the updated translations to the GitHub repository."""
     try:
-        updated_df.to_csv(CSV_FILE_PATH, index=False, encoding="utf-8")
-        st.success("Translations saved successfully!")
+        g = authenticate_github()
+        if g is None:
+            return
+        repo = g.get_repo(GITHUB_REPO)
+        file_content = repo.get_contents(CSV_GITHUB_PATH)
+
+        # Convert DataFrame back to CSV format
+        csv_data = updated_df.to_csv(index=False, encoding="utf-8")
+
+        # Commit the updated file to GitHub
+        repo.update_file(
+            path=CSV_GITHUB_PATH,
+            message="Updated translations via Streamlit app",
+            content=csv_data,
+            sha=file_content.sha,  # Required to identify the file version being updated
+        )
+        st.success("Translations updated successfully on GitHub!")
     except Exception as e:
-        st.error(f"Error saving translations: {e}")
+        st.error(f"Error saving translations to GitHub: {e}")
 
 # Load translations into a DataFrame
-df = load_translations_csv()
+df = load_translations_from_github()
 
 # Display the app title
 st.title("Translation Management")
@@ -55,9 +86,9 @@ if not df.empty:
     # Save button with callback
     def on_save_click():
         updated_df = pd.DataFrame(updated_translations)
-        save_translations_csv(updated_df)
+        save_translations_to_github(updated_df)
 
     st.button("Save Changes", on_click=on_save_click)
 
 else:
-    st.error("No translations found in the CSV file. Please upload a valid file.")
+    st.error("No translations found in the GitHub repository. Please check your configuration.")
