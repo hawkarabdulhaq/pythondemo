@@ -40,7 +40,7 @@ if not df.empty:
     for index, row in df.iterrows():
         st.write(f"**{row['Key']}**")
         col1, col2 = st.columns(2)
-        en_value = col1.text_input("English", value=row["EN"], key=f"{row['Key']}_EN", disabled=True)
+        en_value = col1.text_input("English", value=row["EN"], key=f"{row['Key']}_EN")
         ku_value = col2.text_input("Kurdish", value=row["KU"], key=f"{row['Key']}_KU")
         updated_translations.append({"Key": row["Key"], "EN": en_value, "KU": ku_value})
 
