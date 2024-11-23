@@ -29,13 +29,16 @@ def fetch_translations():
 
         translations = {}
         for row in rows:
-            key = row[0]  # Key column
-            en_value = row[1] if len(row) > 1 else ""  # English translation
-            ku_value = row[2] if len(row) > 2 else ""  # Kurdish translation
+            if not row or not row[0].strip():
+                continue  # Skip empty rows or rows without a key
+
+            key = row[0].strip()  # Key column
+            en_value = row[1].strip() if len(row) > 1 else ""  # English translation
+            ku_value = row[2].strip() if len(row) > 2 else ""  # Kurdish translation
 
             translations[key] = {
-                "EN": en_value.strip(),
-                "KU": ku_value.strip(),
+                "EN": en_value,
+                "KU": ku_value,
             }
 
         return translations
