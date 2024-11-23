@@ -83,8 +83,9 @@ if not st.session_state.authenticated:
     if st.button("Submit"):
         if code == ACCESS_CODE:
             st.session_state.authenticated = True
-            st.success("Access granted!")
-            st.experimental_rerun()
+            st.success("Access granted! Please reload the page.")
+            # Inform the user to reload the page
+            st.info("Refresh the page to load translations.")
         else:
             st.error("Incorrect access code. Please try again.")
 else:
