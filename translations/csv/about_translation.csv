@@ -83,5 +83,20 @@ offer_3,Build Real-World Skills: Create projects to add directly to your CV show
 offer_4,Enhance Your Professional Profile: Acquire in-demand skills that boost career potential across various fields.,زۆرکردنی توانای فەرمی: توانای کەوتنی بازارەوە و پەیوەندی بازاڕی.
 offer_5,Join the 'Code for Impact' Community: Access job opportunities research co-authorship and a broader market network.,بەشداربوون لە جوملەی کۆدی کارەسەربەخۆ: هەڵبژاردنی ئیش و ڕۆژی زانیاریەکان و بازاڕەکان.
 enroll_button,Enroll the Course,تۆماربوون بۆ کۆرسەکە
+canvas_tab,Canvas,کانڤاس
+course_content_tab,Course Content,ناوەڕۆکی کۆرس
+testimonials_tab,Testimonials,بەڵگەنامەکان
+student_projects_tab,Student Projects,پڕۆژەکانی خوێندکار
+learning_platform_title,Learning Platform,پلاتفۆڕمی فێربوون
+canvas_image_caption,Canvas: Your Interactive Learning Platform,کانڤاس: پلاتفۆڕمی ڕووبەڕووی فێربوون
+learning_platform_description,"Our dedicated learning platform is hosted on <strong>Canvas</strong>, designed to guide you through a structured and interactive 5-week program. Each week includes: ...","پلاتفۆڕمی فێربوونە تایبەتیەکەمان لەسەر <strong>کانڤاس</strong> میزبانی دەکات، کە بۆ ڕێنوێنی تۆ بە فۆرماتێکی ڕێک و ڕووبەڕوو تایبەتی دروست کراوە. هەفتەیەکیان بەشێکی تێدایە: ..."
+course_content_title,Course Content,ناوەڕۆکی کۆرس
+week_1_title,Week 1: Introduction to Coding,هەفتەی ١: پەیوەندی بە کۆدینگی
+week_1_objectives,Introduce foundational coding concepts, set up Python, and use Google Colab.,پەیوەندی بە کۆنسەپتە سەرەکیەکانی کۆدینگ بکە، پایتۆن ڕێکبخە، و Google Colab بەکاربهێنە.
+week_1_content,"- **Video**: ""Week 1 Presentation: Learning Python with Hawkar"" – Introduction to Python basics. ...","- **ڤیدیۆ**: ""Week 1 Presentation: Learning Python with Hawkar"" – پەیوەندی بە سەرەتای پایتۆن."
+week_1_assignments,"- Assignment 1: ""Week 1 – Mapping Coordinates"" – Write a script to plot geographic coordinates and calculate distances. ...","- ئەرکە ١: ""Week 1 – Mapping Coordinates"" – کۆدی بنووسە بۆ ڕێنووسکردنی جیهان و ڕاکێشان."
+testimonials_title,Participant Testimonials,بەڵگەنامەکانی بەشداربووان
+testimonials_description,"These testimonials were gathered from participants who have completed the course. Each story reflects their unique journey, goals, and achievements in mastering Python and applying it to their personal or professional projects.","ئەم بەڵگەنامانە لە بەشداربووانی کۆرسەکە هەڵگیراون. هەر چیرۆکی تایبەتییەکیان لەخۆ دەگرێت."
+student_projects_title,Student Projects,پڕۆژەکانی خوێندکار
 
 
