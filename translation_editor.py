@@ -54,9 +54,9 @@ def save_translations_to_github(updated_df):
             content=csv_data,
             sha=file_content.sha,  # Required to identify the file version being updated
         )
-        st.success("Translations updated successfully on GitHub!")
+        st.sidebar.success("Translations updated successfully on GitHub!")
     except Exception as e:
-        st.error(f"Error saving translations to GitHub: {e}")
+        st.sidebar.error(f"Error saving translations to GitHub: {e}")
 
 # Authentication for access
 if "authenticated" not in st.session_state:
@@ -69,7 +69,7 @@ if not st.session_state.authenticated:
         if code == ACCESS_CODE:
             st.session_state.authenticated = True
             st.success("Access granted!")
-            st.experimental_rerun()  # Reload the app
+            st.rerun()  # Updated to st.rerun
         else:
             st.error("Incorrect access code. Please try again.")
 else:
@@ -101,12 +101,13 @@ else:
             )
             updated_translations.append({"Key": row["Key"], "EN": en_value, "KU": ku_value})
 
-        # Save button with callback
+        # Add Save button to the sidebar
         def on_save_click():
             updated_df = pd.DataFrame(updated_translations)
             save_translations_to_github(updated_df)
 
-        st.button("Save Changes", on_click=on_save_click)
+        st.sidebar.title("Save Changes")
+        st.sidebar.button("Save Translations", on_click=on_save_click)
 
     else:
         st.error("No translations found in the GitHub repository. Please check your configuration.")
