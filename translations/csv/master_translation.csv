@@ -25,7 +25,7 @@ footer,All rights reserved to,هەموو مافەکان پارێزراون بۆ
 about_overview,I am a PhD candidate and green entrepreneur committed to pioneering sustainable energy solutions and driving climate resilience.,من کاندیدی پەیەنجین و کاروباری سەوزم کە بەرز دەبم لە چارەسەرە ڕەواسانەی هێزی پایەدار و بەرپرسکەریەکی گەرمی.
 about_early_career_title,Early Career and Education,دەستپێکی خوێندن و کارکردن
 about_early_career_content,"My professional journey began in 2011 as a geologist in the Kurdistan Region of Iraq. In 2015, I transitioned to Hungary to study Earth Science Engineering...",سەفەری پەروەردەیەکەم لە ٢٠١١ بەسەرکردەوە بەوانەی زەوی ناس لە هەرێم کوردستانی عێراق...
-certificate_title,Course Completion Certificates,بەڵگەنامەکانی تەواوبوونی کۆرس
+certificate_title,Course Completion Certificates,بڕوانامە
 certificate_description,"Trainees will receive a certificate upon successfully completing all course requirements. This certificate is a testament to your dedication, hard work, and mastery of Python programming and automation. Below are the two styles of certificates available:",خوێندکاران بەڵگەنامەی وەرە دەگرن کاتێک هەموو پێویستەکانی کۆرسەکە بە سەرکەوتوویی تەواوبکەن. ئەم بەڵگەنامە بەرزبوونی کەوشا، هەوڵ، و توانایان لە کۆدینگی پایتۆن و خۆکارکردن دیار دەکات. خوارەوە دوو شێوەی بەڵگەنامە بەردەستە:
 portrait_certificate_title,Portrait Certificate,بڕوانامەی دیوار
 portrait_certificate_alt,Portrait Certificate,بڕوانامەی دیوار
@@ -70,12 +70,12 @@ workflow_step_1,Complete the Survey: Share your goals and interests.,پرسە پ
 workflow_step_2,Receive Your Results by Email: Get your tailored class placement and insights for the course.,ئەنجامەکانت وەرگرە لە ڕێگەی ئیمەیڵ: فێری هاوبەشی تایبەتی دەبیت بۆ کەلاسی.
 individual_button,Take the Individual Fit Assessment,هەڵسەنگاندنی فیت تایبەتی بەڕێوبەبە
 enterprise_button,Take the Enterprise Fit Assessment,هەڵسەنگاندنی دامەزراندن بەڕێوەببە
-welcome_title,Welcome to Code for Impact By Hawkar Ali Abdulhaq,بەخێربێن بۆ کۆدی کارە سەربەخۆ لەگەڵ هاوکار علی عەبدوڵحەق
-subtitle,We offer a Personalized Python Programming and Automating Training,ئێمە ڕاهێنانی تایبەتی پایتۆن و خۆکارکردن پێشکەش دەکەین
-perfect_for_beginners,Perfect for beginners looking to learn coding programming and automating in just one month and deploy their prototype projects.,سەربەخۆ بۆ نەوکەسانی تازە دەستپێکردوو، کۆدینگی پەروەردەی و خۆکارکردن بەیەک مانگ فێر دەبێت و پرۆژە تایبەتییان دەرەدەر بکەن.
-watch_demo,Watch the demo video and get to know about the course,بینینی ڤیدیۆی نیشانە و دەربارەی کۆرسەکە فێربن
+welcome_title,Welcome to Code for Impact By Hawkar Ali Abdulhaq,بەخێربێن بۆ پلاتفۆرمی کۆد بۆ کاریگەری لەلایەن هاوکار علی عبدالحق
+subtitle,We offer a Simplified and Personalized Python Programming  Training,ئێمە ڕاهێنانی تایبەتی پایتۆن پێشکەش دەکەین بەشێوەیەکی سادە و ئاسان
+perfect_for_beginners,Perfect for beginners looking to learn coding programming and automating in just one month and deploy their prototype projects.,باشترین دەرفەتە بۆ فێربوونی کۆدینگ و پرۆگرامینگ و دروستکردنی پڕۆژە تایبەتەکەت تەنها لە مانگێکدا
+watch_demo,Watch the demo video and get to know about the course,ڤیدیۆیەکی کورت دەربارەی کۆرسەکە
 what_we_offer_title,What We Offer You,چی پێشکەش دەکەین؟
-offer_1,Accelerated Learning Path: Quickly master Python programming with a focused curriculum.,هێڵی فێربوونی خێرا: بە خێرا پایتۆن فێر ببە لەگەڵ بەرنامە تایبەتی.
+offer_1,Accelerated Learning Path: Quickly master Python programming with a focused curriculum.,ڕێگایەکی فێربوونی خێرا: بەشێوەیەکی بەرنامەداڕێژراو کۆرسێکی فێربوونی تێروتەسەل
 offer_2,Automate Your Daily Tasks: Streamline workflows to save time and money.,خۆکارکردنی ئیشەکانت: ڕێڕەوی خێرا بەرز بکە بۆ خەرجکردنەکان و کاتەکانت.
 offer_3,Build Real-World Skills: Create projects to add directly to your CV showcasing your problem-solving abilities.,توانای تایبەتی دیکە: پرۆژەکان دروست بکە بۆ زیادکردنەوە بۆ CVی تایبەتی.
 offer_4,Enhance Your Professional Profile: Acquire in-demand skills that boost career potential across various fields.,زۆرکردنی توانای فەرمی: توانای کەوتنی بازارەوە و پەیوەندی بازاڕی.
@@ -130,5 +130,5 @@ enterprise_feature_2,Full access to the platform,چاوپێچکردنی تەوا
 enterprise_feature_3,5 personalized sessions per participant,٥ كۆبونەوەی تایبەتی بۆ هەر بەشداربووێک
 enterprise_feature_4,Custom live coding guidance,ڕاهێنان لە کۆدینگی ڕاستەوخۆی تایبەتی
 enterprise_feature_5,Custom final project,پڕۆژەی تایبەتی کۆتایی
-enterprise_feature_6,Course certificate,بەڵگەنامەی کۆرس
+enterprise_feature_6,Course certificate,بڕوانامەی کۆرس
 enterprise_feature_7,Ongoing follow-up support,پشتیوانی بەردەوام
