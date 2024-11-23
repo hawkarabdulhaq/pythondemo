@@ -42,4 +42,8 @@ refer_three_description,"Successfully refer three friends who enroll in the cour
 student_discount_title,Student Discount for 3rd and 4th-Year Students,داشکاندنی خوێندکار بۆ خوێندکارانی ساڵی ٣ و ٤,discount_translation.py
 student_discount_description,If you're a 3rd or 4th-year student, you’re eligible for an **80% discount** on the total course price.,ئەگەر تۆ خوێندکاری ساڵی ٣ یان ٤ بیت، تۆ چاوپێچ بۆ **٨٠% داشکاندن** لەسەر نرخە گشتی کۆرسەکە.,discount_translation.py
 discount_contact,For more information, reach out to us at [connect@habdulhaq.com](mailto:connect@habdulhaq.com).,بۆ زانیاری زیاتر، پەیوەندی بکە بە [connect@habdulhaq.com](mailto:connect@habdulhaq.com).,discount_translation.py
+enrollment_title,Enrollment,تۆماربوون,enrollment_translation.py
+enrollment_description,"If you would like to enroll in the course, please select your preferred training type below and review the pricing and discounts. Once you decide, complete the enrollment form as directed. You will receive a bill with payment instructions after submission.","ئەگەر حەزت بە تۆماربوون لە کۆرسەکە دەبێت، تکایە جۆری ڕاهێنانی خۆت هەڵبژێرە و نرخەکان و داگرتنەکان بڕەوپیش بکە. دوای هەڵبژاردن، فۆڕمی تۆمارکردن پڕ بکە و فاکتورەکە بەرز دەبێت بە ڕێنماییەکانی پارەدان.",enrollment_translation.py
+prices_tab,Prices,نرخەکان,enrollment_translation.py
+discounts_tab,Discounts,داگرتنەکان,enrollment_translation.py
 
