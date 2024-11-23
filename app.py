@@ -29,21 +29,18 @@ def set_language(lang):
 def translate(key):
     return translations.get(key, {}).get(st.session_state.language, key).strip()  # Remove extra spaces
 
-# Sidebar Navigation with Logo, Course Title, and Language Options
+# Sidebar Navigation without Columns
 with st.sidebar:
-    # Language options at the top
-    lang_col1, lang_col2 = st.columns([1, 1])  # Ensure equal width for both language buttons
-    with lang_col1:
-        st.button("EN", on_click=set_language, args=("EN",))
-    with lang_col2:
-        st.button("KU", on_click=set_language, args=("KU",))
+    # Language options
+    st.button("EN", on_click=set_language, args=("EN",))
+    st.button("KU", on_click=set_language, args=("KU",))
 
     # Display the course code image at the top
     st.image("input/code.png", width=200)
-    
+
     # Display the main logo image
     st.image("input/logo.jpg", width=200)
-    
+
     # Navigation buttons
     st.button(translate("home_title"), on_click=set_page, args=("Home",))
     st.button(translate("fit_assessment_title"), on_click=set_page, args=("Fit Assessment",))
@@ -54,7 +51,7 @@ with st.sidebar:
 
     # Contact Information with Discord Link
     st.markdown(f"""
-        <div style="margin-top: 30px; font-size: 1.1em; color: #2C3E50;">
+        <div style="margin-top: 20px; font-size: 1.1em; color: #2C3E50;">
             <p><strong>{translate("contact")}:</strong></p>
             <p>{translate("email")}: <a href="mailto:connect@habdulhaq.com" target="_blank" style="color: #1ABC9C;">connect@habdulhaq.com</a></p>
             <p>{translate("website")}: <a href="https://www.habdulhaq.com" target="_blank" style="color: #1ABC9C;">www.habdulhaq.com</a></p>
