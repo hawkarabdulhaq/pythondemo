@@ -29,11 +29,18 @@ def set_language(lang):
 def translate(key):
     return translations.get(key, {}).get(st.session_state.language, key).strip()  # Remove extra spaces
 
-# Sidebar Navigation without Columns
+# Sidebar Navigation with Logo, Course Title, and Language Options
 with st.sidebar:
-    # Language options
-    st.button("EN", on_click=set_language, args=("EN",))
-    st.button("KU", on_click=set_language, args=("KU",))
+    # Language options at the top, rendered inline
+    st.markdown(
+        """
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <button style="background-color: #1ABC9C; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;" onclick="window.location.href='?language=EN';">EN</button>
+            <button style="background-color: #1ABC9C; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;" onclick="window.location.href='?language=KU';">KU</button>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     # Display the course code image at the top
     st.image("input/code.png", width=200)
