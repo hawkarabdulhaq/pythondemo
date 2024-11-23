@@ -1,26 +1,28 @@
-# translations/enrollment_translation.py
+import csv
+import os
 
-enrollment_translations = {
-    "enrollment_title": {
-        "EN": "Enrollment",
-        "KU": "تۆماربوون",
-    },
-    "enrollment_description": {
-        "EN": (
-            "If you would like to enroll in the course, please select your preferred training type below and review the pricing "
-            "and discounts. Once you decide, complete the enrollment form as directed. You will receive a bill with payment instructions after submission."
-        ),
-        "KU": (
-            "ئەگەر حەزت بە تۆماربوون لە کۆرسەکە دەبێت، تکایە جۆری ڕاهێنانی خۆت هەڵبژێرە و نرخەکان و داگرتنەکان بڕەوپیش بکە. "
-            "دوای هەڵبژاردن، فۆڕمی تۆمارکردن پڕ بکە و فاکتورەکە بەرز دەبێت بە ڕێنماییەکانی پارەدان."
-        ),
-    },
-    "prices_tab": {
-        "EN": "Prices",
-        "KU": "نرخەکان",
-    },
-    "discounts_tab": {
-        "EN": "Discounts",
-        "KU": "داگرتنەکان",
-    },
-}
+def fetch_translations():
+    """
+    Fetch translations specific to enrollment keys from the master_translation.csv file.
+    """
+    translations = {}
+    csv_file_path = os.path.join('translations', 'csv', 'master_translation.csv')
+
+    try:
+        with open(csv_file_path, mode='r', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                key = row['Key'].strip()  # Use exact key from CSV
+                en_value = row['EN'].strip()
+                ku_value = row['KU'].strip()
+                translations[key] = {
+                    'EN': en_value,
+                    'KU': ku_value,
+                }
+        return translations
+    except Exception as e:
+        print(f"Error reading translations from master CSV: {e}")
+        return {}
+
+# Fetch translations and assign to the variable without changing its name
+enrollment_translations = fetch_translations()
