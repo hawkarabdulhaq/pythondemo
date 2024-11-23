@@ -44,5 +44,5 @@ def fetch_translations():
         print(f"Error fetching translations: {e}")
         return {}
 
-# Fetch translations from the sheet and assign to the variable
+# Fetch translations and assign to the variable without changing its name
 about_translations = fetch_translations()
