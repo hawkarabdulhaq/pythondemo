@@ -16,34 +16,33 @@ about_coding_content,"Coding has become integral to my research, allowing for ad
 about_ventures_title,"Entrepreneurial Ventures","کاروبارەکانی نوێکردنەوە"
 about_ventures_content,"Beyond academia, I co-founded <a href='https://releafs.co' target='_blank' style='color: #1ABC9C;'><strong>Releafs.co</strong></a> and <a href='https://gridx.cc' target='_blank' style='color: #1ABC9C;'><strong>Gridx</strong></a>. Recently, I launched a Python programming and automation course, part of my broader goal to cultivate a network of programmers who can contribute to our community's digital and sustainable transformation.","دوورتر لە ئاکادیمیا، من هاوپەیمانم <a href='https://releafs.co' target='_blank' style='color: #1ABC9C;'><strong>Releafs.co</strong></a> و <a href='https://gridx.cc' target='_blank' style='color: #1ABC9C;'><strong>Gridx</strong></a>. کۆرسی کۆدینگ و خۆکارکردن زانیاری تایبەتی بەرز دەبێت بەرزبوونی."
 about_call_to_action,"Through my work, I aim to bridge research and practical applications, providing insights and inspiring actionable solutions for a resilient future.","بە بەرهەمی کارەکانم، ئەوە بەرز دەبێت بەرزبوونی تاقیکردنەوەکان و چارەکان، زانیاری زیاتر بەرز دەبێت بەرزبوونی."
-home_title,Home,ماڵەوە,app_translation.py
-fit_assessment_title,Fit Assessment,تاقیکردنەوەی گەواستنەوە,app_translation.py
-learning_title,Learning,فێربوون,app_translation.py
-certificate_title,Certificate,بەڵگەنامە,app_translation.py
-prices_title,Prices,نرخەکان,app_translation.py
-about_title,About,دەربارەی,app_translation.py
-footer,All rights reserved to,هەموو مافەکان پارێزراون بۆ,app_translation.py
-about_caption,Hawkar Ali Abdulhaq – PhD Candidate, Founder & Entrepreneur,هاوکار عەلی عەبدولحەق - کاندیدی پەیەنجین، دامەزرێنەر و کاروباری,about_translation.py
-about_overview,"I am a PhD candidate and green entrepreneur committed to pioneering sustainable energy solutions and driving climate resilience.","من کاندیدی پەیەنجین و کاروباری سەوزم کە بەرز دەبم لە چارەسەرە ڕەواسانەی هێزی پایەدار و بەرپرسکەریەکی گەرمی.",about_translation.py
-about_early_career_title,Early Career and Education,پەیوەندی سەرەتایی و پەروەردە,about_translation.py
-about_early_career_content,"My professional journey began in 2011 as a geologist in the Kurdistan Region of Iraq. In 2015, I transitioned to Hungary to study Earth Science Engineering...","سەفەری پەروەردەیەکەم لە ٢٠١١ بەسەرکردەوە بەوانەی زەوی ناس لە هەرێم کوردستانی عێراق...",about_translation.py
-certificate_title,Course Completion Certificates,بەڵگەنامەکانی تەواوبوونی کۆرس,certificate_translation.py
-certificate_description,"Trainees will receive a certificate upon successfully completing all course requirements. This certificate is a testament to your dedication, hard work, and mastery of Python programming and automation. Below are the two styles of certificates available:","خوێندکاران بەڵگەنامەی وەرە دەگرن کاتێک هەموو پێویستەکانی کۆرسەکە بە سەرکەوتوویی تەواوبکەن. ئەم بەڵگەنامە بەرزبوونی کەوشا، هەوڵ، و توانایان لە کۆدینگی پایتۆن و خۆکارکردن دیار دەکات. خوارەوە دوو شێوەی بەڵگەنامە بەردەستە:",certificate_translation.py
-portrait_certificate_title,Portrait Certificate,بەڵگەنامەی پەیژە,certificate_translation.py
-portrait_certificate_alt,Portrait Certificate,بەڵگەنامەی پەیژە,certificate_translation.py
-landscape_certificate_title,Landscape Certificate,بەڵگەنامەی ڕووبەر,certificate_translation.py
-landscape_certificate_alt,Landscape Certificate,بەڵگەنامەی ڕووبەر,certificate_translation.py
-discount_title,Discount Opportunities,هەڵبژاردنی داشکاندنەکان,discount_translation.py
-discount_description,Take advantage of our discount options to make learning more affordable and rewarding!,بەشداری لە هەڵبژاردنی داشکاندنەکان بکە تا فێربوون بە ئەرزانتر و گەشەپێدارتر بکەیت!,discount_translation.py
-friend_referral_title,Earn Discounts with Friend Referrals,داشکاندنەکان بە ناردنی هاوڕێ بەدەست بهێنە,discount_translation.py
-friend_referral_description,"Invite a friend, and they receive a **15% discount** on the course fee. You also receive a **15% discount** as a thank-you!","هاوڕێکت بانگ بکە، و ئەوان **١٥% داشکاندن** لە نرخی کۆرس وەردەگرن. تۆش **١٥% داشکاندن** وەردەگریت وەکوو سوپاس بۆ.",discount_translation.py
-refer_three_title,Refer Three, Get Your Course Free,سێ کەس بنێرە، کۆرست بەخۆڕایی بەدەست بهێنە,discount_translation.py
-refer_three_description,"Successfully refer three friends who enroll in the course, and your entire course fee will be **completely waived**.","ئەگەر سێ هاوڕێی سەرکەوتوو بنێریت کە بەشداربنە لە کۆرسەکە، نرخی تەواوی کۆرسەکەت **بە کامڵیەوە لابردراوە**.",discount_translation.py
-student_discount_title,Student Discount for 3rd and 4th-Year Students,داشکاندنی خوێندکار بۆ خوێندکارانی ساڵی ٣ و ٤,discount_translation.py
-student_discount_description,If you're a 3rd or 4th-year student, you’re eligible for an **80% discount** on the total course price.,ئەگەر تۆ خوێندکاری ساڵی ٣ یان ٤ بیت، تۆ چاوپێچ بۆ **٨٠% داشکاندن** لەسەر نرخە گشتی کۆرسەکە.,discount_translation.py
-discount_contact,For more information, reach out to us at [connect@habdulhaq.com](mailto:connect@habdulhaq.com).,بۆ زانیاری زیاتر، پەیوەندی بکە بە [connect@habdulhaq.com](mailto:connect@habdulhaq.com).,discount_translation.py
-enrollment_title,Enrollment,تۆماربوون,enrollment_translation.py
-enrollment_description,"If you would like to enroll in the course, please select your preferred training type below and review the pricing and discounts. Once you decide, complete the enrollment form as directed. You will receive a bill with payment instructions after submission.","ئەگەر حەزت بە تۆماربوون لە کۆرسەکە دەبێت، تکایە جۆری ڕاهێنانی خۆت هەڵبژێرە و نرخەکان و داگرتنەکان بڕەوپیش بکە. دوای هەڵبژاردن، فۆڕمی تۆمارکردن پڕ بکە و فاکتورەکە بەرز دەبێت بە ڕێنماییەکانی پارەدان.",enrollment_translation.py
-prices_tab,Prices,نرخەکان,enrollment_translation.py
-discounts_tab,Discounts,داگرتنەکان,enrollment_translation.py
-
+home_title,Home,ماڵەوە
+fit_assessment_title,Fit Assessment,تاقیکردنەوەی گەواستنەوە
+learning_title,Learning,فێربوون
+certificate_title,Certificate,بەڵگەنامە
+prices_title,Prices,نرخەکان
+about_title,About,دەربارەی
+footer,All rights reserved to,هەموو مافەکان پارێزراون بۆ
+about_caption,"Hawkar Ali Abdulhaq – PhD Candidate, Founder & Entrepreneur","هاوکار عەلی عەبدولحەق - کاندیدی پەیەنجین، دامەزرێنەر و کاروباری"
+about_overview,"I am a PhD candidate and green entrepreneur committed to pioneering sustainable energy solutions and driving climate resilience.","من کاندیدی پەیەنجین و کاروباری سەوزم کە بەرز دەبم لە چارەسەرە ڕەواسانەی هێزی پایەدار و بەرپرسکەریەکی گەرمی."
+about_early_career_title,"Early Career and Education","پەیوەندی سەرەتایی و پەروەردە"
+about_early_career_content,"My professional journey began in 2011 as a geologist in the Kurdistan Region of Iraq. In 2015, I transitioned to Hungary to study Earth Science Engineering...","سەفەری پەروەردەیەکەم لە ٢٠١١ بەسەرکردەوە بەوانەی زەوی ناس لە هەرێم کوردستانی عێراق..."
+certificate_title,Course Completion Certificates,بەڵگەنامەکانی تەواوبوونی کۆرس
+certificate_description,"Trainees will receive a certificate upon successfully completing all course requirements. This certificate is a testament to your dedication, hard work, and mastery of Python programming and automation. Below are the two styles of certificates available:","خوێندکاران بەڵگەنامەی وەرە دەگرن کاتێک هەموو پێویستەکانی کۆرسەکە بە سەرکەوتوویی تەواوبکەن. ئەم بەڵگەنامە بەرزبوونی کەوشا، هەوڵ، و توانایان لە کۆدینگی پایتۆن و خۆکارکردن دیار دەکات. خوارەوە دوو شێوەی بەڵگەنامە بەردەستە:"
+portrait_certificate_title,Portrait Certificate,بەڵگەنامەی پەیژە
+portrait_certificate_alt,Portrait Certificate,بەڵگەنامەی پەیژە
+landscape_certificate_title,Landscape Certificate,بەڵگەنامەی ڕووبەر
+landscape_certificate_alt,Landscape Certificate,بەڵگەنامەی ڕووبەر
+discount_title,Discount Opportunities,هەڵبژاردنی داشکاندنەکان
+discount_description,Take advantage of our discount options to make learning more affordable and rewarding!,بەشداری لە هەڵبژاردنی داشکاندنەکان بکە تا فێربوون بە ئەرزانتر و گەشەپێدارتر بکەیت!
+friend_referral_title,Earn Discounts with Friend Referrals,داشکاندنەکان بە ناردنی هاوڕێ بەدەست بهێنە
+friend_referral_description,"Invite a friend, and they receive a **15% discount** on the course fee. You also receive a **15% discount** as a thank-you!","هاوڕێکت بانگ بکە، و ئەوان **١٥% داشکاندن** لە نرخی کۆرس وەردەگرن. تۆش **١٥% داشکاندن** وەردەگریت وەکوو سوپاس بۆ."
+refer_three_title,"Refer Three, Get Your Course Free","سێ کەس بنێرە، کۆرست بەخۆڕایی بەدەست بهێنە"
+refer_three_description,"Successfully refer three friends who enroll in the course, and your entire course fee will be **completely waived**.","ئەگەر سێ هاوڕێی سەرکەوتوو بنێریت کە بەشداربنە لە کۆرسەکە، نرخی تەواوی کۆرسەکەت **بە کامڵیەوە لابردراوە**."
+student_discount_title,"Student Discount for 3rd and 4th-Year Students","داشکاندنی خوێندکار بۆ خوێندکارانی ساڵی ٣ و ٤"
+student_discount_description,"If you're a 3rd or 4th-year student, you’re eligible for an **80% discount** on the total course price.","ئەگەر تۆ خوێندکاری ساڵی ٣ یان ٤ بیت، تۆ چاوپێچ بۆ **٨٠% داشکاندن** لەسەر نرخە گشتی کۆرسەکە."
+discount_contact,"For more information, reach out to us at [connect@habdulhaq.com](mailto:connect@habdulhaq.com).","بۆ زانیاری زیاتر، پەیوەندی بکە بە [connect@habdulhaq.com](mailto:connect@habdulhaq.com)."
+enrollment_title,Enrollment,تۆماربوون
+enrollment_description,"If you would like to enroll in the course, please select your preferred training type below and review the pricing and discounts. Once you decide, complete the enrollment form as directed. You will receive a bill with payment instructions after submission.","ئەگەر حەزت بە تۆماربوون لە کۆرسەکە دەبێت، تکایە جۆری ڕاهێنانی خۆت هەڵبژێرە و نرخەکان و داگرتنەکان بڕەوپیش بکە. دوای هەڵبژاردن، فۆڕمی تۆمارکردن پڕ بکە و فاکتورەکە بەرز دەبێت بە ڕێنماییەکانی پارەدان."
+prices_tab,Prices,نرخەکان
+discounts_tab,Discounts,داگرتنەکان
