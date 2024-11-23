@@ -23,38 +23,40 @@ def authenticate_github():
 def load_translations_from_github():
     """Load translations CSV from the GitHub repository."""
     try:
+        st.sidebar.info("Loading translations from GitHub...")
         g = authenticate_github()
         if g is None:
             return pd.DataFrame()
         repo = g.get_repo(GITHUB_REPO)
         file_content = repo.get_contents(CSV_GITHUB_PATH)
         csv_data = file_content.decoded_content.decode("utf-8")
+        st.sidebar.success("Translations loaded successfully!")
         return pd.read_csv(StringIO(csv_data))
     except Exception as e:
         st.error(f"Error loading translations from GitHub: {e}")
         return pd.DataFrame()
 
 # Save translations back to the GitHub repository
-# Save translations back to the GitHub repository
 def save_translations_to_github(updated_df):
     """Save the updated translations to the GitHub repository."""
     try:
+        st.sidebar.info("Saving translations to GitHub...")
         g = authenticate_github()
         if g is None:
             return
         repo = g.get_repo(GITHUB_REPO)
-        
+
         # Fetch the latest file content to get the correct SHA
         file_content = repo.get_contents(CSV_GITHUB_PATH)
         latest_csv_data = file_content.decoded_content.decode("utf-8")
         latest_df = pd.read_csv(StringIO(latest_csv_data))
-        
+
         # Merge updated_df with latest_df to ensure no conflicts
         merged_df = updated_df.copy()
-        
+
         # Convert DataFrame back to CSV format
         csv_data = merged_df.to_csv(index=False, encoding="utf-8")
-        
+
         # Commit the updated file to GitHub
         commit_response = repo.update_file(
             path=CSV_GITHUB_PATH,
@@ -63,15 +65,13 @@ def save_translations_to_github(updated_df):
             sha=file_content.sha,  # Required to identify the file version being updated
         )
 
-        # Debug log for successful update
         st.sidebar.success("Translations updated successfully on GitHub!")
-        st.sidebar.write("Updated CSV:")
+        st.sidebar.write("Updated CSV Preview:")
         st.sidebar.dataframe(updated_df)  # Show the updated DataFrame as confirmation
         print(f"Commit Response: {commit_response}")  # Log the commit response for debugging
     except Exception as e:
         st.sidebar.error(f"Error saving translations to GitHub: {e}")
         print(f"Error Details: {e}")
-
 
 # Authentication for access
 if "authenticated" not in st.session_state:
@@ -84,7 +84,7 @@ if not st.session_state.authenticated:
         if code == ACCESS_CODE:
             st.session_state.authenticated = True
             st.success("Access granted!")
-            st.rerun()
+            st.experimental_rerun()
         else:
             st.error("Incorrect access code. Please try again.")
 else:
