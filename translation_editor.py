@@ -29,65 +29,71 @@ def save_translations_csv(updated_df):
 # Load translations into a DataFrame
 df = load_translations_csv()
 
-# Initialize App State
-if "selected_category" not in st.session_state:
-    st.session_state.selected_category = None
-
-# Sidebar Navigation
-st.sidebar.title("Translation Management")
-st.sidebar.markdown("### Select a category to edit:")
-categories = df["Category"].unique() if not df.empty else []
-
-# Create buttons for each category
-for category in categories:
-    if st.sidebar.button(category):
-        st.session_state.selected_category = category
-
-# Main Content
-if st.session_state.selected_category:
-    selected_category = st.session_state.selected_category
-    st.title(f"Editing Translations for: {selected_category}")
-    
-    # Filter rows by the selected category
-    category_df = df[df["Category"] == selected_category].reset_index(drop=True)
-
-    if not category_df.empty:
-        updated_translations = []
-
-        # Display translations in a table
-        st.markdown("### Translation Table")
-        for idx, row in category_df.iterrows():
-            key = row["Key"]
-            st.write(f"**{key}**")
-            col1, col2 = st.columns([1, 1])
-            
-            # Use unique keys for text_input widgets
-            col1.text_input(
-                "English",
-                value=row["EN"],
-                disabled=True,
-                key=f"{key}_EN_{idx}"  # Unique key
-            )
-            new_kurdish = col2.text_input(
-                "Kurdish",
-                value=row["KU"],
-                key=f"{key}_KU_{idx}"  # Unique key
-            )
-            updated_translations.append({"Category": selected_category, "Key": key, "EN": row["EN"], "KU": new_kurdish})
-
-        # Save button with callback
-        def on_save_click():
-            updated_df = pd.DataFrame(updated_translations)
-            save_translations_csv(updated_df)
-
-        st.button("Save Changes", on_click=on_save_click)
-    else:
-        st.error("No translations found for this category.")
+# Check if the "Category" column exists
+if "Category" not in df.columns:
+    st.error(
+        "The 'Category' column is missing in the master CSV file. "
+        "Please add a 'Category' column and reload."
+    )
 else:
-    st.title("Welcome to the Translation Management Tool")
-    st.markdown("""
-    This tool allows you to manage translations for your app.
-    - Select a category from the sidebar to start editing.
-    - Edit Kurdish translations and save your changes.
-    """)
+    # Initialize App State
+    if "selected_category" not in st.session_state:
+        st.session_state.selected_category = None
 
+    # Sidebar Navigation
+    st.sidebar.title("Translation Management")
+    st.sidebar.markdown("### Select a category to edit:")
+    categories = df["Category"].unique()
+
+    # Create buttons for each category
+    for category in categories:
+        if st.sidebar.button(category):
+            st.session_state.selected_category = category
+
+    # Main Content
+    if st.session_state.selected_category:
+        selected_category = st.session_state.selected_category
+        st.title(f"Editing Translations for: {selected_category}")
+        
+        # Filter rows by the selected category
+        category_df = df[df["Category"] == selected_category].reset_index(drop=True)
+
+        if not category_df.empty:
+            updated_translations = []
+
+            # Display translations in a table
+            st.markdown("### Translation Table")
+            for idx, row in category_df.iterrows():
+                key = row["Key"]
+                st.write(f"**{key}**")
+                col1, col2 = st.columns([1, 1])
+                
+                # Use unique keys for text_input widgets
+                col1.text_input(
+                    "English",
+                    value=row["EN"],
+                    disabled=True,
+                    key=f"{key}_EN_{idx}"  # Unique key
+                )
+                new_kurdish = col2.text_input(
+                    "Kurdish",
+                    value=row["KU"],
+                    key=f"{key}_KU_{idx}"  # Unique key
+                )
+                updated_translations.append({"Category": selected_category, "Key": key, "EN": row["EN"], "KU": new_kurdish})
+
+            # Save button with callback
+            def on_save_click():
+                updated_df = pd.DataFrame(updated_translations)
+                save_translations_csv(updated_df)
+
+            st.button("Save Changes", on_click=on_save_click)
+        else:
+            st.error("No translations found for this category.")
+    else:
+        st.title("Welcome to the Translation Management Tool")
+        st.markdown("""
+        This tool allows you to manage translations for your app.
+        - Select a category from the sidebar to start editing.
+        - Edit Kurdish translations and save your changes.
+        """)
