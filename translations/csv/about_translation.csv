@@ -33,3 +33,13 @@ portrait_certificate_title,Portrait Certificate,بەڵگەنامەی پەیژە,
 portrait_certificate_alt,Portrait Certificate,بەڵگەنامەی پەیژە,certificate_translation.py
 landscape_certificate_title,Landscape Certificate,بەڵگەنامەی ڕووبەر,certificate_translation.py
 landscape_certificate_alt,Landscape Certificate,بەڵگەنامەی ڕووبەر,certificate_translation.py
+discount_title,Discount Opportunities,هەڵبژاردنی داشکاندنەکان,discount_translation.py
+discount_description,Take advantage of our discount options to make learning more affordable and rewarding!,بەشداری لە هەڵبژاردنی داشکاندنەکان بکە تا فێربوون بە ئەرزانتر و گەشەپێدارتر بکەیت!,discount_translation.py
+friend_referral_title,Earn Discounts with Friend Referrals,داشکاندنەکان بە ناردنی هاوڕێ بەدەست بهێنە,discount_translation.py
+friend_referral_description,"Invite a friend, and they receive a **15% discount** on the course fee. You also receive a **15% discount** as a thank-you!","هاوڕێکت بانگ بکە، و ئەوان **١٥% داشکاندن** لە نرخی کۆرس وەردەگرن. تۆش **١٥% داشکاندن** وەردەگریت وەکوو سوپاس بۆ.",discount_translation.py
+refer_three_title,Refer Three, Get Your Course Free,سێ کەس بنێرە، کۆرست بەخۆڕایی بەدەست بهێنە,discount_translation.py
+refer_three_description,"Successfully refer three friends who enroll in the course, and your entire course fee will be **completely waived**.","ئەگەر سێ هاوڕێی سەرکەوتوو بنێریت کە بەشداربنە لە کۆرسەکە، نرخی تەواوی کۆرسەکەت **بە کامڵیەوە لابردراوە**.",discount_translation.py
+student_discount_title,Student Discount for 3rd and 4th-Year Students,داشکاندنی خوێندکار بۆ خوێندکارانی ساڵی ٣ و ٤,discount_translation.py
+student_discount_description,If you're a 3rd or 4th-year student, you’re eligible for an **80% discount** on the total course price.,ئەگەر تۆ خوێندکاری ساڵی ٣ یان ٤ بیت، تۆ چاوپێچ بۆ **٨٠% داشکاندن** لەسەر نرخە گشتی کۆرسەکە.,discount_translation.py
+discount_contact,For more information, reach out to us at [connect@habdulhaq.com](mailto:connect@habdulhaq.com).,بۆ زانیاری زیاتر، پەیوەندی بکە بە [connect@habdulhaq.com](mailto:connect@habdulhaq.com).,discount_translation.py
+
