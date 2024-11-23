@@ -1,25 +1,32 @@
 import csv
 import os
 
-def fetch_translations():
+def fetch_translations(module_key_prefix):
+    """
+    Fetch translations for a specific module key prefix from the master CSV file.
+
+    :param module_key_prefix: Prefix of keys for the desired module, e.g., "about_".
+    :return: Dictionary containing translations for the specified module.
+    """
     translations = {}
-    csv_file_path = os.path.join('translations', 'csv', 'about_translation.csv')
+    csv_file_path = os.path.join('translations', 'csv', 'master_translation.csv')
 
     try:
         with open(csv_file_path, mode='r', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 key = row['Key'].strip()
-                en_value = row['EN'].strip()
-                ku_value = row['KU'].strip()
-                translations[key] = {
-                    'EN': en_value,
-                    'KU': ku_value,
-                }
+                if key.startswith(module_key_prefix):  # Filter keys by the prefix
+                    en_value = row['EN'].strip()
+                    ku_value = row['KU'].strip()
+                    translations[key] = {
+                        'EN': en_value,
+                        'KU': ku_value,
+                    }
         return translations
     except Exception as e:
-        print(f"Error reading translations from CSV: {e}")
+        print(f"Error reading translations from master CSV: {e}")
         return {}
 
-# Fetch translations and assign to the variable without changing its name
-about_translations = fetch_translations()
+# Fetch translations specific to the "about" module and assign to the variable
+about_translations = fetch_translations("about_")
