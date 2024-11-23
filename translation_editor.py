@@ -25,10 +25,7 @@ def load_translation_module(module_name):
 def save_translation_file(file_path, translations):
     """Save translations to the module file."""
     try:
-        st.write("Saving translations...")  # Debug statement
         # Validate translations structure
-        module_name = os.path.basename(file_path).replace('.py', '')
-        variable_name = module_name.replace("_translation", "_translations")
         if not isinstance(translations, dict):
             st.error("Invalid translation structure. Please ensure translations are a dictionary.")
             return
@@ -39,11 +36,14 @@ def save_translation_file(file_path, translations):
 
         # Save updated translations
         with open(file_path, "w", encoding="utf-8") as f:
+            module_name = os.path.basename(file_path).replace('.py', '')
+            variable_name = module_name.replace("_translation", "_translations")
             f.write(f"{variable_name} = {json.dumps(translations, ensure_ascii=False, indent=4)}\n")
 
         st.success(f"Translations for {os.path.basename(file_path)} have been saved successfully!")
     except Exception as e:
         st.error(f"Failed to save translations: {e}")
+        st.exception(e)
 
 # Load all translation files dynamically
 translation_files = [f for f in os.listdir(TRANSLATION_DIR) if f.endswith("_translation.py")]
@@ -75,20 +75,19 @@ if st.session_state.selected_file:
 
     if translations:
         # Display translations in a two-column table
+        updated_translations = {}
         st.markdown("### Translation Table")
         for key, langs in translations.items():
             st.write(f"**{key}**")
             col1, col2 = st.columns([1, 1])
             col1.text_input("English", value=langs.get("EN", ""), disabled=True, key=f"{selected_file}_{key}_EN")
             new_kurdish = col2.text_input("Kurdish", value=langs.get("KU", ""), key=f"{selected_file}_{key}_KU")
-            st.session_state.updated_translations[key] = {"EN": langs.get("EN", ""), "KU": new_kurdish}
+            updated_translations[key] = {"EN": langs.get("EN", ""), "KU": new_kurdish}
 
         # Save button with callback
         def on_save_click():
-            st.write("Save button clicked")  # Debug statement
             file_path = os.path.join(TRANSLATION_DIR, selected_file)
-            st.write(f"Saving to {file_path}")  # Debug statement
-            save_translation_file(file_path, st.session_state.updated_translations)
+            save_translation_file(file_path, updated_translations)
 
         st.button("Save Changes", on_click=on_save_click)
     else:
@@ -100,3 +99,4 @@ else:
     - Select a translation file from the sidebar to start editing.
     - Edit Kurdish translations and save your changes.
     """)
+
