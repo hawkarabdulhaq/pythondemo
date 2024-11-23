@@ -1,10 +1,10 @@
+import streamlit as st
 import gspread
 from google.oauth2.service_account import Credentials
 
 # Google Sheets configuration
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
-CREDENTIALS_FILE = "service_account.json"  # Path to your service account JSON file
-SHEET_ID = "1BHQV2bmeSMMhmjdzajjH6A_FwnBMEqq3G6PqqM2fmMQ"  # Replace with your sheet's ID
+SHEET_ID = "1BHQV2bmeSMMhmjdzajjH6A_FwnBMEqq3G6PqqM2fmMQ"  # Your sheet's ID
 TAB_NAME = "about_translation.py"  # Tab name in the Google Sheet
 
 def fetch_translations():
@@ -12,8 +12,10 @@ def fetch_translations():
     Fetch translations from the specified Google Sheet tab and return as a dictionary.
     """
     try:
-        # Authenticate and initialize the gspread client
-        credentials = Credentials.from_service_account_file(CREDENTIALS_FILE, scopes=SCOPES)
+        # Authenticate using st.secrets
+        credentials = Credentials.from_service_account_info(
+            st.secrets["gcp_service_account"], scopes=SCOPES
+        )
         client = gspread.authorize(credentials)
 
         # Open the Google Sheet and the specific tab
@@ -44,8 +46,12 @@ def fetch_translations():
         return translations
 
     except Exception as e:
-        print(f"Error fetching translations: {e}")
+        st.error(f"Error fetching translations: {e}")
+        st.exception(e)
         return {}
 
 # Fetch translations and assign to the variable without changing its name
 about_translations = fetch_translations()
+
+# For debugging: display the translations
+st.write("about_translations:", about_translations)
