@@ -1,13 +1,13 @@
 import streamlit as st
 import pandas as pd
-import os
-from github import Github  # PyGithub library for interacting with GitHub
-from io import StringIO  # Correct StringIO import
+from github import Github
+from io import StringIO
 
 # Define paths and constants
 CSV_FILE_PATH = "translations/csv/master_translation.csv"
 GITHUB_REPO = "hawkarabdulhaq/pythondemo"
 CSV_GITHUB_PATH = "translations/csv/master_translation.csv"
+ACCESS_CODE = "demo2024"  # Define your access code here
 
 # Authenticate with GitHub
 def authenticate_github():
@@ -58,38 +58,55 @@ def save_translations_to_github(updated_df):
     except Exception as e:
         st.error(f"Error saving translations to GitHub: {e}")
 
-# Load translations into a DataFrame
-df = load_translations_from_github()
+# Authentication for access
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
 
-# Display the app title
-st.title("Translation Management")
-
-if not df.empty:
-    # Create editable table for translations
-    st.markdown("### Edit Translations Below")
-    updated_translations = []
-
-    for index, row in df.iterrows():
-        st.write(f"**{row['Key']}**")
-        col1, col2 = st.columns(2)
-        en_value = col1.text_input(
-            "English",
-            value=row["EN"],
-            key=f"{row['Key']}_EN_{index}"  # Unique key
-        )
-        ku_value = col2.text_input(
-            "Kurdish",
-            value=row["KU"],
-            key=f"{row['Key']}_KU_{index}"  # Unique key
-        )
-        updated_translations.append({"Key": row["Key"], "EN": en_value, "KU": ku_value})
-
-    # Save button with callback
-    def on_save_click():
-        updated_df = pd.DataFrame(updated_translations)
-        save_translations_to_github(updated_df)
-
-    st.button("Save Changes", on_click=on_save_click)
-
+if not st.session_state.authenticated:
+    st.title("Authentication Required")
+    code = st.text_input("Enter Access Code", type="password")
+    if st.button("Submit"):
+        if code == ACCESS_CODE:
+            st.session_state.authenticated = True
+            st.success("Access granted!")
+            st.experimental_rerun()  # Reload the app
+        else:
+            st.error("Incorrect access code. Please try again.")
 else:
-    st.error("No translations found in the GitHub repository. Please check your configuration.")
+    # Load translations into a DataFrame
+    df = load_translations_from_github()
+
+    # Display the app title
+    st.title("Translation Management")
+
+    if not df.empty:
+        # Create editable table for translations
+        st.markdown("### Edit Translations Below")
+        updated_translations = []
+
+        for index, row in df.iterrows():
+            st.write(f"**{row['Key']}**")
+            col1, col2 = st.columns(2)
+            en_value = col1.text_area(
+                "English",
+                value=row["EN"],
+                height=100,  # Adjust height if needed
+                key=f"{row['Key']}_EN_{index}"  # Unique key
+            )
+            ku_value = col2.text_area(
+                "Kurdish",
+                value=row["KU"],
+                height=100,  # Adjust height if needed
+                key=f"{row['Key']}_KU_{index}"  # Unique key
+            )
+            updated_translations.append({"Key": row["Key"], "EN": en_value, "KU": ku_value})
+
+        # Save button with callback
+        def on_save_click():
+            updated_df = pd.DataFrame(updated_translations)
+            save_translations_to_github(updated_df)
+
+        st.button("Save Changes", on_click=on_save_click)
+
+    else:
+        st.error("No translations found in the GitHub repository. Please check your configuration.")
