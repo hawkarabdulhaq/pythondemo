@@ -51,14 +51,27 @@ def save_translations_to_github(updated_df):
         latest_csv_data = file_content.decoded_content.decode("utf-8")
         latest_df = pd.read_csv(StringIO(latest_csv_data))
 
-        # Merge updated_df with latest_df to ensure no conflicts
-        merged_df = updated_df.copy()
+        # Ensure no new rows are added by verifying the keys
+        updated_keys = set(updated_df['Key'])
+        existing_keys = set(latest_df['Key'])
+
+        # Check for any new keys in the updated DataFrame
+        new_keys = updated_keys - existing_keys
+        if new_keys:
+            st.sidebar.error(f"New keys detected: {new_keys}. Adding new keys is not allowed.")
+            return
+
+        # Merge updated values back into the latest DataFrame
+        merged_df = latest_df.set_index('Key')
+        updated_df = updated_df.set_index('Key')
+        merged_df.update(updated_df)  # Update only existing rows
+        merged_df.reset_index(inplace=True)
 
         # Convert DataFrame back to CSV format
         csv_data = merged_df.to_csv(index=False, encoding="utf-8")
 
         # Commit the updated file to GitHub
-        commit_response = repo.update_file(
+        repo.update_file(
             path=CSV_GITHUB_PATH,
             message="Updated translations via Streamlit app",
             content=csv_data,
@@ -67,11 +80,11 @@ def save_translations_to_github(updated_df):
 
         st.sidebar.success("Translations updated successfully on GitHub!")
         st.sidebar.write("Updated CSV Preview:")
-        st.sidebar.dataframe(updated_df)  # Show the updated DataFrame as confirmation
-        print(f"Commit Response: {commit_response}")  # Log the commit response for debugging
+        st.sidebar.dataframe(merged_df)  # Show the updated DataFrame as confirmation
     except Exception as e:
         st.sidebar.error(f"Error saving translations to GitHub: {e}")
         print(f"Error Details: {e}")
+
 
 # Authentication for access
 if "authenticated" not in st.session_state:
