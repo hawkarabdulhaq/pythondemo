@@ -20,23 +20,30 @@ def load_translation_module(module_name):
         st.error(f"Error loading module '{module_name}': {e}")
         return {}
 
+# Function to validate translation structure
+def validate_translations(module_name, translations):
+    """Ensure translations are in the correct format before saving."""
+    expected_variable = module_name.replace(".py", "_translations")
+    if not isinstance(translations, dict):
+        raise ValueError(f"Translations for {module_name} must be a dictionary.")
+    return expected_variable
+
 # Function to save updated translations back to the module file
 def save_translation_file(file_path, translations):
     """Save translations to the module file."""
     try:
         # Validate translations structure
-        if not isinstance(translations, dict):
-            st.error("Invalid translation structure. Please ensure translations are a dictionary.")
-            return
-        
+        module_name = os.path.basename(file_path)
+        variable_name = validate_translations(module_name, translations)
+
         # Create a backup of the file
         backup_path = f"{file_path}.backup"
         shutil.copy(file_path, backup_path)
-        
+
         # Save updated translations
-        variable_name = os.path.basename(file_path).replace(".py", "_translations")
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(f"{variable_name} = {json.dumps(translations, ensure_ascii=False, indent=4)}\n")
+        
         st.success(f"Translations for {os.path.basename(file_path)} have been saved successfully!")
     except Exception as e:
         st.error(f"Failed to save translations: {e}")
