@@ -3,4 +3,3 @@ gspread
 pandas
 numpy
 requests
-github
