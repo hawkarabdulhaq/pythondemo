@@ -16,3 +16,14 @@ about_coding_content,"Coding has become integral to my research, allowing for ad
 about_ventures_title,"Entrepreneurial Ventures","کاروبارەکانی نوێکردنەوە"
 about_ventures_content,"Beyond academia, I co-founded <a href='https://releafs.co' target='_blank' style='color: #1ABC9C;'><strong>Releafs.co</strong></a> and <a href='https://gridx.cc' target='_blank' style='color: #1ABC9C;'><strong>Gridx</strong></a>. Recently, I launched a Python programming and automation course, part of my broader goal to cultivate a network of programmers who can contribute to our community's digital and sustainable transformation.","دوورتر لە ئاکادیمیا، من هاوپەیمانم <a href='https://releafs.co' target='_blank' style='color: #1ABC9C;'><strong>Releafs.co</strong></a> و <a href='https://gridx.cc' target='_blank' style='color: #1ABC9C;'><strong>Gridx</strong></a>. کۆرسی کۆدینگ و خۆکارکردن زانیاری تایبەتی بەرز دەبێت بەرزبوونی."
 about_call_to_action,"Through my work, I aim to bridge research and practical applications, providing insights and inspiring actionable solutions for a resilient future.","بە بەرهەمی کارەکانم، ئەوە بەرز دەبێت بەرزبوونی تاقیکردنەوەکان و چارەکان، زانیاری زیاتر بەرز دەبێت بەرزبوونی."
+home_title,Home,ماڵەوە,app_translation.py
+fit_assessment_title,Fit Assessment,تاقیکردنەوەی گەواستنەوە,app_translation.py
+learning_title,Learning,فێربوون,app_translation.py
+certificate_title,Certificate,بەڵگەنامە,app_translation.py
+prices_title,Prices,نرخەکان,app_translation.py
+about_title,About,دەربارەی,app_translation.py
+footer,All rights reserved to,هەموو مافەکان پارێزراون بۆ,app_translation.py
+about_caption,Hawkar Ali Abdulhaq – PhD Candidate, Founder & Entrepreneur,هاوکار عەلی عەبدولحەق - کاندیدی پەیەنجین، دامەزرێنەر و کاروباری,about_translation.py
+about_overview,"I am a PhD candidate and green entrepreneur committed to pioneering sustainable energy solutions and driving climate resilience.","من کاندیدی پەیەنجین و کاروباری سەوزم کە بەرز دەبم لە چارەسەرە ڕەواسانەی هێزی پایەدار و بەرپرسکەریەکی گەرمی.",about_translation.py
+about_early_career_title,Early Career and Education,پەیوەندی سەرەتایی و پەروەردە,about_translation.py
+about_early_career_content,"My professional journey began in 2011 as a geologist in the Kurdistan Region of Iraq. In 2015, I transitioned to Hungary to study Earth Science Engineering...","سەفەری پەروەردەیەکەم لە ٢٠١١ بەسەرکردەوە بەوانەی زەوی ناس لە هەرێم کوردستانی عێراق...",about_translation.py
