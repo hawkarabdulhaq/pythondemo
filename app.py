@@ -27,7 +27,7 @@ def set_language(lang):
 
 # Function to get translated text
 def translate(key):
-    return translations.get(key, {}).get(st.session_state.language, key)
+    return translations.get(key, {}).get(st.session_state.language, key).strip()  # Remove extra spaces
 
 # Sidebar Navigation with Logo, Course Title, and Language Options
 with st.sidebar:
@@ -37,7 +37,7 @@ with st.sidebar:
         st.button("EN", on_click=set_language, args=("EN",))
     with lang_col2:
         st.button("KU", on_click=set_language, args=("KU",))
-    
+
     # Display the course code image at the top
     st.image("input/code.png", width=200)
     
