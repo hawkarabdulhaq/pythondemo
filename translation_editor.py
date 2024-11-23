@@ -2,24 +2,41 @@ import streamlit as st
 import os
 import importlib
 import json
+import shutil
 
 # Directory where all translation modules are stored
 TRANSLATION_DIR = "translations"
 
 # Function to load translations from a module
 def load_translation_module(module_name):
+    """Load translations from the given module."""
     try:
         module = importlib.import_module(f"{TRANSLATION_DIR}.{module_name}")
         return getattr(module, module_name.replace(".py", "").replace("_translation", "_translations"))
     except AttributeError:
-        st.error(f"Error: Module '{module_name}' does not contain expected translations attribute.")
+        st.error(f"Error: Module '{module_name}' does not contain the expected translations attribute.")
+        return {}
+    except Exception as e:
+        st.error(f"Error loading module '{module_name}': {e}")
         return {}
 
 # Function to save updated translations back to the module file
 def save_translation_file(file_path, translations):
+    """Save translations to the module file."""
     try:
+        # Validate translations structure
+        if not isinstance(translations, dict):
+            st.error("Invalid translation structure. Please ensure translations are a dictionary.")
+            return
+        
+        # Create a backup of the file
+        backup_path = f"{file_path}.backup"
+        shutil.copy(file_path, backup_path)
+        
+        # Save updated translations
+        variable_name = os.path.basename(file_path).replace(".py", "_translations")
         with open(file_path, "w", encoding="utf-8") as f:
-            f.write(f"translations = {json.dumps(translations, ensure_ascii=False, indent=4)}\n")
+            f.write(f"{variable_name} = {json.dumps(translations, ensure_ascii=False, indent=4)}\n")
         st.success(f"Translations for {os.path.basename(file_path)} have been saved successfully!")
     except Exception as e:
         st.error(f"Failed to save translations: {e}")
@@ -37,7 +54,7 @@ if "selected_file" not in st.session_state:
 
 # Sidebar Navigation with Buttons
 st.sidebar.title("Translation Management")
-st.sidebar.markdown("Select a file to edit:")
+st.sidebar.markdown("### Select a file to edit:")
 
 for file in translation_files:
     if st.sidebar.button(file):
@@ -69,5 +86,8 @@ if st.session_state.selected_file:
         st.error(f"No translations found for the selected file: {selected_file}")
 else:
     st.title("Welcome to the Translation Management Tool")
-    st.markdown("Select a file from the sidebar to start editing translations.")
-
+    st.markdown("""
+    This tool allows you to manage translations for your app.
+    - Select a translation file from the sidebar to start editing.
+    - Edit Kurdish translations and save your changes.
+    """)
