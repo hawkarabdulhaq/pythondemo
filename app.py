@@ -32,7 +32,7 @@ def translate(key):
 # Sidebar Navigation with Logo, Course Title, and Language Options
 with st.sidebar:
     # Language options at the top
-    lang_col1, lang_col2 = st.columns(2)
+    lang_col1, lang_col2 = st.columns([1, 1])  # Ensure equal width for both language buttons
     with lang_col1:
         st.button("EN", on_click=set_language, args=("EN",))
     with lang_col2:
