@@ -2,44 +2,44 @@ import streamlit as st
 import pandas as pd
 
 def show():
-    st.title("Freelance Opportunities")
-    st.write("Explore the latest freelance opportunities available. Click on an opportunity to see full details.")
+    st.title("💼 Freelance Opportunities")
+    st.write("Explore the latest freelance opportunities available. Below are detailed listings for you to consider.")
 
     # Load freelance opportunities from CSV
     try:
         # Update the path to your CSV file if necessary
         df = pd.read_csv("input/freelance_opportunities.csv")
     except FileNotFoundError:
-        st.error("The opportunities file is missing. Please upload the `freelance_opportunities.csv` file.")
+        st.error("The opportunities file is missing. Please ensure the `freelance_opportunities.csv` file exists in the `input` directory.")
         return
 
     # Check if the CSV contains the required columns
     required_columns = {"title", "description", "requirements", "deliverables", "timeline", "budget", "contact"}
     if not required_columns.issubset(df.columns):
-        st.error("The CSV file does not contain the required columns.")
+        st.error("The CSV file does not contain the required columns. Please check the file format.")
         return
 
-    # Iterate over rows in the DataFrame and display opportunities
+    # Iterate over rows in the DataFrame and display opportunities as cards
     for _, row in df.iterrows():
-        with st.expander(row["title"]):  # Collapsible section for each opportunity
-            st.markdown(f"**Description:** {row['description']}")
-            st.markdown(f"**Requirements:** {row['requirements']}")
-            st.markdown(f"**Deliverables:** {row['deliverables']}")
-            st.markdown(f"**Timeline:** {row['timeline']}")
-            st.markdown(f"**Budget:** {row['budget']}")
-            st.markdown(f"**Contact:** [Email Us](mailto:{row['contact']})")
+        st.markdown(
+            f"""
+            <div style="border: 1px solid #e1e4e8; border-radius: 10px; padding: 20px; margin-bottom: 20px; background-color: #f9f9f9;">
+                <h4 style="color: #1abc9c;">{row['title']}</h4>
+                <p><strong>Description:</strong> {row['description']}</p>
+                <p><strong>Requirements:</strong> {row['requirements']}</p>
+                <p><strong>Deliverables:</strong> {row['deliverables']}</p>
+                <p><strong>Timeline:</strong> {row['timeline']}</p>
+                <p><strong>Budget:</strong> {row['budget']}</p>
+                <p><strong>Contact:</strong> <a href="mailto:{row['contact']}" style="color: #3498db;">{row['contact']}</a></p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
-    # Optionally add an upload feature for CSV
-    uploaded_file = st.file_uploader("Update Freelance Opportunities", type="csv")
-    if uploaded_file:
-        try:
-            new_df = pd.read_csv(uploaded_file)
-            # Validate the uploaded file
-            if required_columns.issubset(new_df.columns):
-                new_df.to_csv("input/freelance_opportunities.csv", index=False)
-                st.success("Opportunities updated successfully!")
-            else:
-                st.error("The uploaded CSV does not have the required columns.")
-        except Exception as e:
-            st.error(f"Error reading the uploaded file: {e}")
-
+    # Optional footer with instructions
+    st.markdown(
+        """
+        ---
+        **Need help or have questions?** Reach out to us at [connect@habdulhaq.com](mailto:connect@habdulhaq.com).
+        """
+    )
