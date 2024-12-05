@@ -14,7 +14,7 @@ def show():
         return
 
     # Check if the CSV contains the required columns
-    required_columns = {"title", "description", "requirements", "deliverables", "timeline", "budget", "contact"}
+    required_columns = {"title", "description", "requirements", "deliverables", "timeline", "budget", "contact", "type", "location"}
     if not required_columns.issubset(df.columns):
         st.error("The CSV file does not contain the required columns. Please check the file format.")
         return
@@ -30,6 +30,8 @@ def show():
                 <p><strong>Deliverables:</strong> {row['deliverables']}</p>
                 <p><strong>Timeline:</strong> {row['timeline']}</p>
                 <p><strong>Budget:</strong> {row['budget']}</p>
+                <p><strong>Type:</strong> {row['type']}</p>
+                <p><strong>Location:</strong> {row['location']}</p>
                 <p><strong>Contact:</strong> <a href="mailto:{row['contact']}" style="color: #3498db;">{row['contact']}</a></p>
             </div>
             """,
