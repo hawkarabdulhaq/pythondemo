@@ -5,6 +5,7 @@ import learning_platform
 import enrollment
 import certificate
 import about
+import freelance  # Import Freelance module
 import style
 from dictionary import translations  # Import translations dictionary
 
@@ -51,6 +52,7 @@ with st.sidebar:
     st.button(translate("certificate_title"), on_click=set_page, args=("Certificate",))
     st.button(translate("prices_title"), on_click=set_page, args=("Prices",))
     st.button(translate("about_title"), on_click=set_page, args=("About",))
+    st.button(translate("freelance_title"), on_click=set_page, args=("Freelance",))  # New Freelance button
 
     # Contact Information with Discord Link
     st.markdown(f"""
@@ -79,6 +81,8 @@ elif st.session_state.page == "Prices":
     enrollment.show()
 elif st.session_state.page == "About":
     about.show()
+elif st.session_state.page == "Freelance":  # New Freelance page logic
+    freelance.show()
 
 # Footer
 st.markdown(f"""
