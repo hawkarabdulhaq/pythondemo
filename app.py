@@ -33,16 +33,16 @@ def translate(key):
 # Sidebar Navigation with Logo, Course Title, and Language Options
 with st.sidebar:
     # Language options at the top
-    lang_col1, lang_col2 = st.columns([1, 1])  # Ensure equal width for both language buttons
+    lang_col1, lang_col2 = st.columns([1, 1])  # Equal width for language buttons
     with lang_col1:
         st.button("EN", on_click=set_language, args=("EN",))
     with lang_col2:
         st.button("KU", on_click=set_language, args=("KU",))
 
-    # Display the course code image at the top
+    # Display course code image
     st.image("input/code.png", width=200)
     
-    # Display the main logo image
+    # Display main logo
     st.image("input/logo.jpg", width=200)
     
     # Navigation buttons
@@ -52,7 +52,7 @@ with st.sidebar:
     st.button(translate("certificate_title"), on_click=set_page, args=("Certificate",))
     st.button(translate("prices_title"), on_click=set_page, args=("Prices",))
     st.button(translate("about_title"), on_click=set_page, args=("About",))
-    st.button(translate("freelance_title"), on_click=set_page, args=("Freelance",))  # New Freelance button
+    st.button(translate("freelance_title"), on_click=set_page, args=("Freelance",))  # Freelance page button
 
     # Contact Information with Discord Link
     st.markdown(f"""
@@ -81,7 +81,7 @@ elif st.session_state.page == "Prices":
     enrollment.show()
 elif st.session_state.page == "About":
     about.show()
-elif st.session_state.page == "Freelance":  # New Freelance page logic
+elif st.session_state.page == "Freelance":  # Display Freelance page
     freelance.show()
 
 # Footer
