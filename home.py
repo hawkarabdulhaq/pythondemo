@@ -27,7 +27,10 @@ def show():
     """, unsafe_allow_html=True)
 
     # What We Offer Section
-    st.markdown(f'<div class="section-title" style="color: #1ABC9C;">{translate("what_we_offer_title", language)}</div>', unsafe_allow_html=True)
+    st.markdown(
+        f'<div class="section-title" style="color: #1ABC9C;">{translate("what_we_offer_title", language)}</div>', 
+        unsafe_allow_html=True
+    )
     st.markdown(f"""
     <div class="content">
     - {translate("offer_1", language)}<br><br>
@@ -38,6 +41,6 @@ def show():
     </div>
     """, unsafe_allow_html=True)
     
-    # Enrollment Button
+    # Enrollment Button - Clicking this should take the user to the "Prices" page
     if st.button(translate("enroll_button", language)):
-        st.session_state.page = "Enrollment"
+        st.session_state.page = "Prices"
