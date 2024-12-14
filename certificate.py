@@ -1,5 +1,6 @@
 import streamlit as st
 import base64
+import pandas as pd
 from dictionary import translate  # Import the centralized translate function
 
 def load_image_as_base64(image_path):
@@ -10,13 +11,12 @@ def load_image_as_base64(image_path):
 def show():
     language = st.session_state.language  # Retrieve the selected language
 
-    # Create tabs
-    tab1, tab2 = st.tabs([translate("tab1_title", language), translate("tab2_title", language)])
+    # Create tabs with the specified titles
+    tab1, tab2 = st.tabs(["Our Certificate System", "Certificate database"])
 
     # First Tab: Existing Certificate Display Functionality
     with tab1:
         st.markdown(f'<div class="title">{translate("certificate_title", language)}</div>', unsafe_allow_html=True)
-
         st.markdown(f"""
         <div class="content">
             {translate("certificate_description", language)}
@@ -44,7 +44,7 @@ def show():
             }}
 
             .zoom-container:hover img {{
-                transform: scale(1.2); /* Adjust zoom level */
+                transform: scale(1.2);
             }}
 
             /* Disable right-click on images */
@@ -70,13 +70,36 @@ def show():
         </div>
         """, unsafe_allow_html=True)
 
-    # Second Tab: Placeholder Content
+    # Second Tab: Certificate Database
     with tab2:
-        st.markdown(f'<div class="title">{translate("temporary_tab_title", language)}</div>', unsafe_allow_html=True)
-        st.markdown(f"""
-        <div class="content">
-            {translate("temporary_tab_description", language)}
-        </div>
-        """, unsafe_allow_html=True)
-        st.info(translate("temporary_tab_message", language))
+        # Load the CSV data
+        df = pd.read_csv("input/certificate.csv")
 
+        # Filter rows where the participant has completed the course.
+        # Assuming "date of completion" is not empty if the course is completed.
+        completed_df = df[df["date of completion"].notna() & (df["date of completion"] != "")]
+
+        if completed_df.empty:
+            st.write("No participants have completed the course yet.")
+        else:
+            # Let the user select a participant to view their certificate
+            participant_names = completed_df["name"].unique().tolist()
+            selected_name = st.selectbox("Select a participant to view their certificate:", participant_names)
+
+            # Get the selected participant's info
+            participant_info = completed_df[completed_df["name"] == selected_name].iloc[0]
+            cert_path = participant_info["certificate"]
+
+            # Display the participant's completion details
+            st.write(f"**Name:** {participant_info['name']}")
+            st.write(f"**Date of Joining:** {participant_info['date of joining']}")
+            st.write(f"**Date of Completion:** {participant_info['date of completion']}")
+            st.write(f"**Credential:** {participant_info['credential']}")
+
+            # Load and display their certificate
+            cert_base64 = load_image_as_base64(cert_path)
+            st.markdown(f"""
+            <div class="zoom-container">
+                <img src="data:image/jpeg;base64,{cert_base64}" alt="Certificate" style="width: 100%;">
+            </div>
+            """, unsafe_allow_html=True)
