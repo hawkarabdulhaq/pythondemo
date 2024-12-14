@@ -6,12 +6,24 @@ def show():
 
     st.markdown(f'<div class="title">{translate("course_pricing_title", language)}</div>', unsafe_allow_html=True)
     
-    # Define columns for the four pricing options
-    col1, col2, col3, col4 = st.columns(4)
-
-    # Style adjustments for readability
+    # Define a single-column section for the Free Week Demo
+    free_demo_col = st.columns(1)
     feature_style = "font-size: 0.95em; margin-bottom: 8px;"
     button_style = "background-color: #1ABC9C; color: white; padding: 8px 12px; border-radius: 5px; font-size: 0.9em; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 10px;"
+
+    with free_demo_col[0]:
+        st.markdown(f"""
+        <div style="background-color: #f4f8fb; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); margin-bottom: 30px;">
+            <h3 style="color: #1ABC9C; font-size: 1.5em;">Free Week Demo</h3>
+            <div style="{feature_style}">Full Access to Week 1</div>
+            <div style="{feature_style}">1 Online Session</div>
+            <div style="{feature_style}">Available for one week</div>
+            <a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="{button_style}">Enroll Now</a>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Define columns for the four pricing options
+    col1, col2, col3, col4 = st.columns(4)
 
     # Student Offer
     with col1:
