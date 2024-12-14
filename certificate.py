@@ -88,17 +88,11 @@ def show():
                 st.markdown(f"### {participant_info['name']}")
 
                 col1, col2 = st.columns([1, 2])
-
-                # Add inline CSS to center the details vertically within col1
                 with col1:
-                    st.markdown(f"""
-                    <div style="display:flex; flex-direction:column; justify-content:center; height:200px;">
-                        <p><strong>Name:</strong> {participant_info['name']}</p>
-                        <p><strong>Date of Joining:</strong> {participant_info['date of joining']}</p>
-                        <p><strong>Date of Completion:</strong> {participant_info['date of completion']}</p>
-                        <p><strong>Credential:</strong> {participant_info['credential']}</p>
-                    </div>
-                    """, unsafe_allow_html=True)
+                    st.write(f"**Name:** {participant_info['name']}")
+                    st.write(f"**Date of Joining:** {participant_info['date of joining']}")
+                    st.write(f"**Date of Completion:** {participant_info['date of completion']}")
+                    st.write(f"**Credential:** {participant_info['credential']}")
 
                 with col2:
                     # Load and display their certificate
