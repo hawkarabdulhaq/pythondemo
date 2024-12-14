@@ -81,7 +81,7 @@ elif st.session_state.page == "Prices":
     enrollment.show()
 elif st.session_state.page == "About":
     about.show()
-elif st.session_state.page == "Freelance":  # Display Freelance page
+elif st.session_state.page == "Freelance":
     freelance.show()
 
 # Footer
