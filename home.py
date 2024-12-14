@@ -1,6 +1,12 @@
 import streamlit as st
 from dictionary import translate  # Import the centralized translate function
 
+def go_to_prices():
+    # This function sets the page to "Prices" and then forces a rerun
+    # so that the navigation happens immediately upon a single click.
+    st.session_state.page = "Prices"
+    st.experimental_rerun()
+
 def show():
     language = st.session_state.language  # Retrieve the selected language
 
@@ -41,6 +47,5 @@ def show():
     </div>
     """, unsafe_allow_html=True)
     
-    # Enrollment Button - Clicking this should take the user to the "Prices" page
-    if st.button(translate("enroll_button", language)):
-        st.session_state.page = "Prices"
+    # Enrollment Button - Use the callback function to navigate to Prices page immediately
+    st.button(translate("enroll_button", language), on_click=go_to_prices)
