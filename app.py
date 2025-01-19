@@ -4,7 +4,7 @@ import certificate
 import enrollment
 import about
 import freelance  # Import Freelance module
-import trainings  # Import Trainings module
+import trainings   # Import Trainings module
 import style
 from dictionary import translations  # Import translations dictionary
 
@@ -73,12 +73,6 @@ with st.sidebar:
 # Display the selected page content based on the sidebar navigation
 if st.session_state.page == "Home":
     home.show()
-# Removed Fit Assessment page
-# elif st.session_state.page == "Fit Assessment":
-#     fit.show()
-# Removed Learning page
-# elif st.session_state.page == "Learning":
-#     learning_platform.show()
 elif st.session_state.page == "Certificate":
     certificate.show()
 elif st.session_state.page == "Prices":
