@@ -23,7 +23,7 @@ translations = {
     **discount_translations,
     **certificate_translations,
     **about_translations,
-    **trainings_translations,  # Include Trainings translations
+    **trainings_translations,
 }
 
 def translate(key, language):
