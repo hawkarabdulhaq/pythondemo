@@ -1,9 +1,7 @@
 import streamlit as st
 import home
-import fit
-import learning_platform
-import enrollment
 import certificate
+import enrollment
 import about
 import freelance  # Import Freelance module
 import style
@@ -38,7 +36,7 @@ with st.sidebar:
         st.button("EN", on_click=set_language, args=("EN",))
     with lang_col2:
         st.button("KU", on_click=set_language, args=("KU",))
-
+    
     # Display course code image
     st.image("input/code.png", width=200)
     
@@ -47,8 +45,10 @@ with st.sidebar:
     
     # Navigation buttons
     st.button(translate("home_title"), on_click=set_page, args=("Home",))
-    st.button(translate("fit_assessment_title"), on_click=set_page, args=("Fit Assessment",))
-    st.button(translate("learning_title"), on_click=set_page, args=("Learning",))
+    # Removed Fit Assessment button
+    # st.button(translate("fit_assessment_title"), on_click=set_page, args=("Fit Assessment",))
+    # Removed Learning button
+    # st.button(translate("learning_title"), on_click=set_page, args=("Learning",))
     st.button(translate("certificate_title"), on_click=set_page, args=("Certificate",))
     st.button(translate("prices_title"), on_click=set_page, args=("Prices",))
     st.button(translate("about_title"), on_click=set_page, args=("About",))
@@ -71,10 +71,12 @@ with st.sidebar:
 # Display the selected page content based on the sidebar navigation
 if st.session_state.page == "Home":
     home.show()
-elif st.session_state.page == "Fit Assessment":
-    fit.show()
-elif st.session_state.page == "Learning":
-    learning_platform.show()
+# Removed Fit Assessment page
+# elif st.session_state.page == "Fit Assessment":
+#     fit.show()
+# Removed Learning page
+# elif st.session_state.page == "Learning":
+#     learning_platform.show()
 elif st.session_state.page == "Certificate":
     certificate.show()
 elif st.session_state.page == "Prices":
