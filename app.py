@@ -1,10 +1,8 @@
 import streamlit as st
 import home
-import certificate
 import enrollment
 import about
-import freelance  # Import Freelance module
-import trainings   # Import Trainings module
+import trainings  # Import Trainings module
 import style
 from dictionary import translations  # Import translations dictionary
 
@@ -46,15 +44,8 @@ with st.sidebar:
     
     # Navigation buttons
     st.button(translate("home_title"), on_click=set_page, args=("Home",))
-    # Removed Fit Assessment button
-    # st.button(translate("fit_assessment_title"), on_click=set_page, args=("Fit Assessment",))
-    # Removed Learning button
-    # st.button(translate("learning_title"), on_click=set_page, args=("Learning",))
-    st.button(translate("certificate_title"), on_click=set_page, args=("Certificate",))
-    st.button(translate("prices_title"), on_click=set_page, args=("Prices",))
     st.button(translate("about_title"), on_click=set_page, args=("About",))
-    st.button(translate("freelance_title"), on_click=set_page, args=("Freelance",))  # Freelance page button
-    st.button(translate("trainings_title"), on_click=set_page, args=("Trainings",))    # Trainings page button
+    st.button(translate("trainings_title"), on_click=set_page, args=("Trainings",))  # Trainings page button
     
     # Contact Information with Discord Link
     st.markdown(f"""
@@ -73,14 +64,8 @@ with st.sidebar:
 # Display the selected page content based on the sidebar navigation
 if st.session_state.page == "Home":
     home.show()
-elif st.session_state.page == "Certificate":
-    certificate.show()
-elif st.session_state.page == "Prices":
-    enrollment.show()
 elif st.session_state.page == "About":
     about.show()
-elif st.session_state.page == "Freelance":
-    freelance.show()
 elif st.session_state.page == "Trainings":
     trainings.show()  # Trainings page display
 
