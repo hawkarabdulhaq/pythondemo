@@ -10,7 +10,7 @@ from translations.price_translation import price_translations
 from translations.discount_translation import discount_translations
 from translations.certificate_translation import certificate_translations
 from translations.about_translation import about_translations
-from translations.trainings_translation import trainings_translations  # Add Trainings translations
+from translations.trainings_translation import trainings_translations  # Import Trainings translations
 
 # Combine all translations into a single dictionary
 translations = {
@@ -23,9 +23,10 @@ translations = {
     **discount_translations,
     **certificate_translations,
     **about_translations,
-    **trainings_translations,
+    **trainings_translations,  # Include Trainings translations
 }
 
+# Centralized translate function
 def translate(key, language):
     """
     Retrieve a translated string for the given key and language.
