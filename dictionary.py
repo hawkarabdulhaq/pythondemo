@@ -39,12 +39,12 @@ for t_dict in translation_dicts:
 def translate(key):
     """
     Retrieve a translated string for the given key based on the current language.
-    
+
     Args:
         key (str): The translation key.
-    
+
     Returns:
-        str: The translated string if found; otherwise, returns the key itself.
+        str: The translated string if found; otherwise, returns a placeholder indicating a missing translation.
     """
     language = st.session_state.get('language', 'EN')  # Default to English if not set
-    return translations.get(key, {}).get(language, key).strip()
+    return translations.get(key, {}).get(language, f"[Missing translation for '{key}']").strip()
