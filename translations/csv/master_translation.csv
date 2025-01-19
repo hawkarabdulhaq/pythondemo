@@ -133,6 +133,14 @@ enterprise_feature_5,Custom final project,پڕۆژەی تایبەتی کۆتای
 enterprise_feature_6,Course certificate,بڕوانامەی کۆرس
 enterprise_feature_7,Ongoing follow-up support,پشتیوانی بەردەوام
 freelance_title, Freelance, فری لانس
+enterprise_feature_1,Exclusive one-on-one sessions,کۆبونەوەی تایبەتی بە شەخصی
+enterprise_feature_2,Full access to the platform,چاوپێچکردنی تەواوی پلاتفۆڕم
+enterprise_feature_3,5 personalized sessions per participant,٥ كۆبونەوەی تایبەتی بۆ هەر بەشداربووێک
+enterprise_feature_4,Custom live coding guidance,ڕاهێنان لە کۆدینگی ڕاستەوخۆی تایبەتی
+enterprise_feature_5,Custom final project,پڕۆژەی تایبەتی کۆتایی
+enterprise_feature_6,Course certificate,بڕوانامەی کۆرس
+enterprise_feature_7,Ongoing follow-up support,پشتیوانی بەردەوام
+freelance_title,Freelance,فری لانس
 certificate_title,Certificate,گواهی
 certificate_description,Our certificate system ensures the authenticity and credibility of our training programs.,سیستەمی گواهیەکانمان پشتڕاستی و دڵنیایی فێرکاریە پەیوەندیدارەکانمان دەبێتە سەرەکی.
 portrait_certificate_title,Portrait Certificate,گواهی پرۆتڕەیت
@@ -148,4 +156,10 @@ credential,Credential,ڕەزامەندی
 certificate_alt,Certificate,گواهی
 our_certificate_system_tab_title,Our Certificate System,سیستەمی گواهیەکانمان
 certificate_database_tab_title,Certificate Database,داتابەیسێ گواهی
+trainings_tab_title,Trainings,فێرکاریەکان
+trainings_description,Explore our comprehensive training programs designed to enhance your skills.,فێرکاریە پەیوەندیدارەکانمان بگرە بۆ پەرەپێدانی تواناکانت.
+training_python_programming,Python Programming through Generative AI for Beginners,بەرنامەنووسی پایتۆن بە ڕێگەی AI دروستکراو بۆ سەرەتاوان
+training_micro_master_ml,Micro Master Machine Learning and Data Driven System,مایکرۆ مستەری فێرکاریی مەشین لێرنینگ و سیستەمی داتاکراو
+training_business_optimization,Business Optimization through Advanced Automating,باشترکردنی کارگێڕی کاروبار بە ڕێگەی خۆکارکردنەوەی پێشکەوتوو
+
 
