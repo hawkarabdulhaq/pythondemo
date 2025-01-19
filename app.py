@@ -4,6 +4,7 @@ import certificate
 import enrollment
 import about
 import freelance  # Import Freelance module
+import trainings  # Import Trainings module
 import style
 from dictionary import translations  # Import translations dictionary
 
@@ -53,7 +54,8 @@ with st.sidebar:
     st.button(translate("prices_title"), on_click=set_page, args=("Prices",))
     st.button(translate("about_title"), on_click=set_page, args=("About",))
     st.button(translate("freelance_title"), on_click=set_page, args=("Freelance",))  # Freelance page button
-
+    st.button(translate("trainings_title"), on_click=set_page, args=("Trainings",))    # Trainings page button
+    
     # Contact Information with Discord Link
     st.markdown(f"""
         <div style="margin-top: 30px; font-size: 1.1em; color: #2C3E50;">
@@ -85,6 +87,8 @@ elif st.session_state.page == "About":
     about.show()
 elif st.session_state.page == "Freelance":
     freelance.show()
+elif st.session_state.page == "Trainings":
+    trainings.show()  # Trainings page display
 
 # Footer
 st.markdown(f"""
