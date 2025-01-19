@@ -133,3 +133,24 @@ enterprise_feature_5,Custom final project,پڕۆژەی تایبەتی کۆتای
 enterprise_feature_6,Course certificate,بڕوانامەی کۆرس
 enterprise_feature_7,Ongoing follow-up support,پشتیوانی بەردەوام
 freelance_title, Freelance, فری لانس
+trainings_title,Trainings,فێرکاریەکان
+trainings_tab_title,Trainings,فێرکاریەکان
+our_certificate_system_tab_title,Our Certificate System,سیستەمی گواهیەکانمان
+certificate_database_tab_title,Certificate Database,داتابەیسێ گواهی
+trainings_description,Explore our comprehensive training programs designed to enhance your skills.,فێرکاریە پەیوەندیدارەکانمان بگرە بۆ پەرەپێدانی تواناکانت.
+training_python_programming,Python Programming through Generative AI for Beginners,بەرنامەنووسی پایتۆن بە ڕێگەی AI دروستکراو بۆ سەرەتاوان
+training_micro_master_ml,Micro Master Machine Learning and Data Driven System,مایکرۆ مستەری فێرکاریی مەشین لێرنینگ و سیستەمی داتاکراو
+training_business_optimization,Business Optimization through Advanced Automating,باشترکردنی کارگێڕی کاروبار بە ڕێگەی خۆکارکردنەوەی پێشکەوتوو
+certificate_description,Our certificate system ensures the authenticity and credibility of our training programs.,سیستەمی گواهیەکانمان پشتڕاستی و دڵنیایی فێرکاریە پەیوەندیدارەکانمان دەبێتە سەرەکی.
+portrait_certificate_title,Portrait Certificate,گواهی پرۆتڕەیت
+landscape_certificate_title,Landscape Certificate,گواهی لەندسکیپ
+portrait_certificate_alt,Portrait Certificate,گواهی پرۆتڕەیت
+landscape_certificate_alt,Landscape Certificate,گواهی لەندسکیپ
+certificate_database_title,Certificate Database,داتابەیسێ گواهی
+no_participants_message,No participants have completed the course yet.,هەتا ئێستا هیچ بەشدارێک فێرکاری تەواوکراویان نەکراوە.
+name,Name,ناو
+date_of_joining,Date of Joining,بەروارێک بۆ سەربەخۆبونی
+date_of_completion,Date of Completion,بەروارێک بۆ تەواوکردن
+credential,Credential,ڕەزامەندی
+certificate_alt,Certificate,گواهی
+
