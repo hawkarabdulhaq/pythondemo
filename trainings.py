@@ -1,5 +1,3 @@
-# certificate.py
-
 import streamlit as st
 import base64
 import pandas as pd
@@ -17,6 +15,21 @@ def load_image_as_base64(image_path):
 def translate(key):
     """Retrieve the translated text based on the current language."""
     return translations.get(key, {}).get(st.session_state.language, key).strip()
+
+def show_trainings():
+    """Display the 'Our Trainings' tab content."""
+    language = st.session_state.language  # Retrieve the selected language
+    st.title(translate("our_trainings_tab_title"))
+
+    trainings = [
+        "Python Programming through Generative AI for Beginners",
+        "Micro Master Machine Learning and Data-Driven Systems",
+        "Business Optimization through Advanced Automation",
+    ]
+
+    st.markdown("<h3>Our Trainings</h3>", unsafe_allow_html=True)
+    for training in trainings:
+        st.markdown(f"- {training}")
 
 def show_certificate_system():
     language = st.session_state.language  # Retrieve the selected language
@@ -122,11 +135,18 @@ def show_certificate_database():
             st.markdown("---")  # Divider between participants
 
 def show():
-    """Maintain compatibility in app.py by displaying the original tabs."""
-    tab1, tab2 = st.tabs([translate("our_certificate_system_tab_title"), translate("certificate_database_tab_title")])
+    """Display the tabs for the Streamlit app."""
+    tab1, tab2, tab3 = st.tabs([
+        translate("our_trainings_tab_title"),
+        translate("our_certificate_system_tab_title"),
+        translate("certificate_database_tab_title")
+    ])
 
     with tab1:
-        show_certificate_system()
+        show_trainings()
 
     with tab2:
+        show_certificate_system()
+
+    with tab3:
         show_certificate_database()
