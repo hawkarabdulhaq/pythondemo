@@ -1,26 +1,25 @@
 import streamlit as st
-from dictionary import translate  # Import the centralized translate function
 
 def show():
-    language = st.session_state.language  # Retrieve the selected language
+    language = "EN"  # Set default language
 
     # Welcome section
-    st.markdown(f"""
-    <div class="title">{translate("welcome_title", language)}</div>
-    <div class="subtitle">{translate("subtitle", language)}</div>
+    st.markdown("""
+    <div class="title">Welcome to Our Platform</div>
+    <div class="subtitle">Your gateway to innovative learning!</div>
     """, unsafe_allow_html=True)
     
     # Perfect for beginners
-    st.markdown(f"""
-    <div class="content"><strong>{translate("perfect_for_beginners", language)}</strong></div>
+    st.markdown("""
+    <div class="content"><strong>Perfect for beginners!</strong></div>
     """, unsafe_allow_html=True)
 
     # Embed YouTube video
-    st.markdown(f"""
+    st.markdown("""
     <div class="video-container">
-        <h3>{translate("watch_demo", language)}</h3>
+        <h3>Watch Demo</h3>
         <iframe width="853" height="600" src="https://www.youtube.com/embed/G8BC2NIfpAs" 
-        title="ڕاهێنانی کۆدینگ لەگەڵ هاوکار" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+        title="Coding Training with Hawkar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
         encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
         allowfullscreen></iframe>
     </div>
@@ -28,20 +27,20 @@ def show():
 
     # What We Offer Section
     st.markdown(
-        f'<div class="section-title" style="color: #1ABC9C;">{translate("what_we_offer_title", language)}</div>', 
+        '<div class="section-title" style="color: #1ABC9C;">What We Offer</div>', 
         unsafe_allow_html=True
     )
-    st.markdown(f"""
+    st.markdown("""
     <div class="content">
-    - {translate("offer_1", language)}<br><br>
-    - {translate("offer_2", language)}<br><br>
-    - {translate("offer_3", language)}<br><br>
-    - {translate("offer_4", language)}<br><br>
-    - {translate("offer_5", language)}
+    - Comprehensive Coding Courses<br><br>
+    - Live and Interactive Sessions<br><br>
+    - Dedicated Mentorship<br><br>
+    - Career Development Guidance<br><br>
+    - Flexible and Affordable Options
     </div>
     """, unsafe_allow_html=True)
     
     # Enrollment Button
-    if st.button(translate("enroll_button", language)):
+    if st.button("Enroll Now"):
         st.session_state.page = "Prices"
-        st.rerun()  # Force an immediate rerun
+        st.experimental_rerun()  # Force an immediate rerun
