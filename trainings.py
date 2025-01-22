@@ -1,72 +1,59 @@
 import streamlit as st
+import home
+import enrollment
+import about
+import trainings  # Import Trainings module
+import style
 
-def show():
-    # Display the title
-    st.markdown('<div class="title">About Us</div>', unsafe_allow_html=True)
+# Apply custom styles from style.py
+style.apply_custom_styles()
 
-    # Display the profile photo
-    st.image(
-        "input/me.jpg",
-        width=250,
-        caption="Our story and journey to excellence.",
-        use_column_width="auto",
-    )
+# Initialize session state for page tracking
+if 'page' not in st.session_state:
+    st.session_state.page = "Home"
 
-    # Profile Overview
+# Function to update page state
+def set_page(page):
+    st.session_state.page = page
+
+# Sidebar Navigation with Logo, Course Title, and Options
+with st.sidebar:
+    # Display course code image
+    st.image("input/code.png", width=200)
+    
+    # Display main logo
+    st.image("input/logo.jpg", width=200)
+    
+    # Navigation buttons
+    st.button("Home", on_click=set_page, args=("Home",))
+    st.button("About", on_click=set_page, args=("About",))
+    st.button("Trainings", on_click=set_page, args=("Trainings",))  # Trainings page button
+    
+    # Contact Information with Discord Link
     st.markdown("""
-    <div class="content">
-        Learn about our team, mission, and dedication to empowering learners worldwide with the best resources and mentorship.
-    </div>
+        <div style="margin-top: 30px; font-size: 1.1em; color: #2C3E50;">
+            <p><strong>Contact:</strong></p>
+            <p>Email: <a href="mailto:connect@habdulhaq.com" target="_blank" style="color: #1ABC9C;">connect@habdulhaq.com</a></p>
+            <p>Website: <a href="https://www.habdulhaq.com" target="_blank" style="color: #1ABC9C;">www.habdulhaq.com</a></p>
+            <p>Discord: <a href="https://discord.gg/wcypuxhF" target="_blank" style="color: #1ABC9C;">Join Discord</a></p>
+        </div>
+        <div style="margin-top: 20px; font-size: 1.1em;">
+            <p><strong>Book a Demo:</strong></p>
+            <p><a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="color: #1ABC9C;">Schedule a Demo</a></p>
+        </div>
     """, unsafe_allow_html=True)
 
-    # Section: Early Career and Education
-    st.markdown("""
-    <div class="section-title">Early Career and Education</div>
-    <div class="content">
-        Our journey began with a strong foundation in technology and education, driven by a passion for innovation.
-    </div>
-    """, unsafe_allow_html=True)
+# Display the selected page content based on the sidebar navigation
+if st.session_state.page == "Home":
+    home.show()
+elif st.session_state.page == "About":
+    about.show()
+elif st.session_state.page == "Trainings":
+    trainings.show()  # Trainings page display
 
-    # Section: Hasar Organization and PhD Studies
-    st.markdown("""
-    <div class="section-title">Hasar Organization and PhD Studies</div>
-    <div class="content">
-        We partnered with leading organizations to advance research and technology for real-world impact.
+# Footer
+st.markdown("""
+    <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
+        habdulhaq.com © 2024
     </div>
-    """, unsafe_allow_html=True)
-
-    # Section: Research and Publications
-    st.markdown("""
-    <div class="section-title">Research and Publications</div>
-    <div class="content">
-        Our team has contributed to groundbreaking research in technology and education:
-        <ul>
-            <li><strong>Publication 1: Exploring AI in Education</strong></li>
-            <li><strong>Publication 2: Advancing Learning Platforms</strong></li>
-            <li><strong>Publication 3: Innovations in Digital Transformation</strong></li>
-        </ul>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Section: A Passion for Coding and Innovation
-    st.markdown("""
-    <div class="section-title">A Passion for Coding and Innovation</div>
-    <div class="content">
-        Our commitment to coding excellence and creative problem-solving drives every aspect of our work.
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Section: Entrepreneurial Ventures
-    st.markdown("""
-    <div class="section-title">Entrepreneurial Ventures</div>
-    <div class="content">
-        From startups to large-scale projects, we bring innovative ideas to life through technology and collaboration.
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Section: Call to Action
-    st.markdown("""
-    <div class="content" style="margin-top: 40px;">
-        <p>Join us on this journey and become part of a community passionate about learning and innovation.</p>
-    </div>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
