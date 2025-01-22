@@ -1,65 +1,66 @@
 import streamlit as st
-from dictionary import translate  # Import the centralized translate function
 import pstudent  # Import the new Student Projects module
 
 def show():
-    language = st.session_state.language  # Retrieve the selected language
-
     # Define four tabs for Canvas, Course Content, Testimonials, and Student Projects
     tab1, tab2, tab3, tab4 = st.tabs([
-        translate("canvas_tab", language),
-        translate("course_content_tab", language),
-        translate("testimonials_tab", language),
-        translate("student_projects_tab", language),
+        "Canvas",
+        "Course Content",
+        "Testimonials",
+        "Student Projects",
     ])
 
     # Canvas Tab Content
     with tab1:
-        st.markdown(f'<div class="title">{translate("learning_platform_title", language)}</div>', unsafe_allow_html=True)
+        st.markdown('<div class="title">Learning Platform</div>', unsafe_allow_html=True)
         
         # Display the image for the learning platform
         st.image(
             "https://i.imgur.com/sLdcUzF.jpg", 
-            caption=translate("canvas_image_caption", language), 
+            caption="Explore our advanced learning platform tailored for modern learners.", 
             use_column_width=True
         )
 
         # Platform description
-        st.markdown(f"""
+        st.markdown("""
         <div class="content">
-            {translate("learning_platform_description", language)}
+            Our learning platform is designed to provide a seamless and engaging educational experience, 
+            offering tools and resources for interactive and effective learning.
         </div>
         """, unsafe_allow_html=True)
 
     # Course Content Tab Content
     with tab2:
-        st.markdown(f'<div class="title">{translate("course_content_title", language)}</div>', unsafe_allow_html=True)
+        st.markdown('<div class="title">Course Content</div>', unsafe_allow_html=True)
 
         # Weekly content with expanders for each week
         for week in range(1, 6):
-            with st.expander(translate(f"week_{week}_title", language)):
-                st.write(f"**{translate('learning_objectives', language)}**: {translate(f'week_{week}_objectives', language)}")
-                st.write(f"**{translate('content', language)}:**")
-                st.write(translate(f"week_{week}_content", language))
-                st.write(f"**{translate('assignments', language)}:**")
-                st.write(translate(f"week_{week}_assignments", language))
-                additional_resources = translate(f"week_{week}_resources", language)
+            with st.expander(f"Week {week}: Topics Overview"):
+                st.write(f"**Learning Objectives**: Learn key concepts and skills for Week {week}.")
+                st.write("**Content:** Detailed lessons and examples covering the week's topics.")
+                st.write("**Assignments:** Hands-on assignments to reinforce learning.")
+                additional_resources = f"Additional resources for Week {week}."
                 if additional_resources:
-                    st.write(f"**{translate('additional_resources', language)}:**")
+                    st.write("**Additional Resources:**")
                     st.write(additional_resources)
 
     # Testimonials Tab Content
     with tab3:
-        st.markdown(f'<div class="title">{translate("testimonials_title", language)}</div>', unsafe_allow_html=True)
-        st.markdown(f"""
+        st.markdown('<div class="title">Testimonials</div>', unsafe_allow_html=True)
+        st.markdown("""
         <div class="content">
-            {translate("testimonials_description", language)}
+            Here's what our students have to say about their experience with us:
         </div>
         """, unsafe_allow_html=True)
 
-        # Testimonials are included here.
+        # Placeholder for testimonials
+        st.markdown("""
+        - "This course was life-changing!" - A. Student  
+        - "I gained so much confidence in coding." - B. Learner  
+        - "The hands-on projects were the best part!" - C. Developer
+        """)
 
     # Student Projects Tab Content
     with tab4:
-        st.markdown(f'<div class="title">{translate("student_projects_title", language)}</div>', unsafe_allow_html=True)
+        st.markdown('<div class="title">Student Projects</div>', unsafe_allow_html=True)
         pstudent.show()  # Display content from the pstudent.py file
