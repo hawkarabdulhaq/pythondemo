@@ -1,59 +1,141 @@
 import streamlit as st
-import home
-import enrollment
-import about
-import trainings  # Import Trainings module
-import style
+import base64
+import pandas as pd
 
-# Apply custom styles from style.py
-style.apply_custom_styles()
+def load_image_as_base64(image_path):
+    """Load an image and return it as a Base64 encoded string."""
+    try:
+        with open(image_path, "rb") as img_file:
+            return base64.b64encode(img_file.read()).decode()
+    except FileNotFoundError:
+        st.error(f"Image at path {image_path} not found.")
+        return ""
 
-# Initialize session state for page tracking
-if 'page' not in st.session_state:
-    st.session_state.page = "Home"
+def show_trainings():
+    """Display the 'Our Trainings' tab content."""
+    st.title("Our Trainings")
 
-# Function to update page state
-def set_page(page):
-    st.session_state.page = page
+    trainings = [
+        "Python Programming through Generative AI for Beginners",
+        "Micro Master Machine Learning and Data-Driven Systems",
+        "Business Optimization through Advanced Automation",
+    ]
 
-# Sidebar Navigation with Logo, Course Title, and Options
-with st.sidebar:
-    # Display course code image
-    st.image("input/code.png", width=200)
-    
-    # Display main logo
-    st.image("input/logo.jpg", width=200)
-    
-    # Navigation buttons
-    st.button("Home", on_click=set_page, args=("Home",))
-    st.button("About", on_click=set_page, args=("About",))
-    st.button("Trainings", on_click=set_page, args=("Trainings",))  # Trainings page button
-    
-    # Contact Information with Discord Link
+    st.markdown("<h3>Our Trainings</h3>", unsafe_allow_html=True)
+    for training in trainings:
+        st.markdown(f"- {training}")
+
+def show_certificate_system():
+    """Display the 'Our Certificate System' tab content."""
+    st.markdown('<div class="title">Certificate System</div>', unsafe_allow_html=True)
     st.markdown("""
-        <div style="margin-top: 30px; font-size: 1.1em; color: #2C3E50;">
-            <p><strong>Contact:</strong></p>
-            <p>Email: <a href="mailto:connect@habdulhaq.com" target="_blank" style="color: #1ABC9C;">connect@habdulhaq.com</a></p>
-            <p>Website: <a href="https://www.habdulhaq.com" target="_blank" style="color: #1ABC9C;">www.habdulhaq.com</a></p>
-            <p>Discord: <a href="https://discord.gg/wcypuxhF" target="_blank" style="color: #1ABC9C;">Join Discord</a></p>
-        </div>
-        <div style="margin-top: 20px; font-size: 1.1em;">
-            <p><strong>Book a Demo:</strong></p>
-            <p><a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="color: #1ABC9C;">Schedule a Demo</a></p>
-        </div>
+    <div class="content">
+        Explore how our certificate system works and recognize your achievements in learning.
+    </div>
     """, unsafe_allow_html=True)
 
-# Display the selected page content based on the sidebar navigation
-if st.session_state.page == "Home":
-    home.show()
-elif st.session_state.page == "About":
-    about.show()
-elif st.session_state.page == "Trainings":
-    trainings.show()  # Trainings page display
+    # Load images as Base64
+    portrait_image_base64 = load_image_as_base64("input/p.jpg")
+    landscape_image_base64 = load_image_as_base64("input/l.jpg")
 
-# Footer
-st.markdown("""
-    <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
-        habdulhaq.com © 2024
-    </div>
-""", unsafe_allow_html=True)
+    # Apply custom CSS for secure display and zoom effect
+    st.markdown("""
+    <style>
+        .zoom-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .zoom-container img {
+            transition: transform 0.3s ease-in-out;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .zoom-container:hover img {
+            transform: scale(1.2);
+        }
+
+        .zoom-container img {
+            pointer-events: none;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Portrait Certificate
+    st.markdown("<h3>Portrait Certificate</h3>", unsafe_allow_html=True)
+    if portrait_image_base64:
+        st.markdown(f"""
+        <div class="zoom-container">
+            <img src="data:image/jpeg;base64,{portrait_image_base64}" alt="Portrait Certificate" style="width: 100%;">
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Landscape Certificate
+    st.markdown("<h3>Landscape Certificate</h3>", unsafe_allow_html=True)
+    if landscape_image_base64:
+        st.markdown(f"""
+        <div class="zoom-container">
+            <img src="data:image/jpeg;base64,{landscape_image_base64}" alt="Landscape Certificate" style="width: 100%;">
+        </div>
+        """, unsafe_allow_html=True)
+
+def show_certificate_database():
+    """Display the 'Certificate Database' tab content."""
+    st.title("Certificate Database")
+
+    # Load the CSV data
+    try:
+        df = pd.read_csv("input/certificate.csv")
+    except FileNotFoundError:
+        st.error("Certificate database file not found.")
+        return
+
+    # Filter rows where the participant has completed the course.
+    completed_df = df[df["date of completion"].notna() & (df["date of completion"] != "")]
+
+    if completed_df.empty:
+        st.write("No participants have completed the course yet.")
+    else:
+        # Display each completed participant's info and certificate
+        for _, participant_info in completed_df.iterrows():
+            st.markdown(f"### {participant_info['name']}")
+
+            col1, col2 = st.columns([1, 2])
+            with col1:
+                st.write(f"**Name:** {participant_info['name']}")
+                st.write(f"**Date of Joining:** {participant_info['date of joining']}")
+                st.write(f"**Date of Completion:** {participant_info['date of completion']}")
+                st.write(f"**Credential:** {participant_info['credential']}")
+
+            with col2:
+                # Load and display their certificate
+                cert_path = participant_info["certificate"]
+                cert_base64 = load_image_as_base64(cert_path)
+                if cert_base64:
+                    st.markdown(f"""
+                    <div class="zoom-container" style="margin-top: 10px;">
+                        <img src="data:image/jpeg;base64,{cert_base64}" alt="Certificate" style="width: 100%;">
+                    </div>
+                    """, unsafe_allow_html=True)
+
+            st.markdown("---")  # Divider between participants
+
+def show():
+    """Display the tabs for the Streamlit app."""
+    tab1, tab2, tab3 = st.tabs([
+        "Our Trainings",
+        "Our Certificate System",
+        "Certificate Database"
+    ])
+
+    with tab1:
+        show_trainings()
+
+    with tab2:
+        show_certificate_system()
+
+    with tab3:
+        show_certificate_database()
