@@ -4,38 +4,20 @@ import enrollment
 import about
 import trainings  # Import Trainings module
 import style
-from dictionary import translations  # Import translations dictionary
 
 # Apply custom styles from style.py
 style.apply_custom_styles()
 
-# Initialize session state for page tracking and language
+# Initialize session state for page tracking
 if 'page' not in st.session_state:
     st.session_state.page = "Home"
-if 'language' not in st.session_state:
-    st.session_state.language = "EN"  # Default language is English
 
 # Function to update page state
 def set_page(page):
     st.session_state.page = page
 
-# Function to update language state
-def set_language(lang):
-    st.session_state.language = lang
-
-# Function to get translated text
-def translate(key):
-    return translations.get(key, {}).get(st.session_state.language, key).strip()  # Remove extra spaces
-
-# Sidebar Navigation with Logo, Course Title, and Language Options
+# Sidebar Navigation with Logo, Course Title, and Options
 with st.sidebar:
-    # Language options at the top
-    lang_col1, lang_col2 = st.columns([1, 1])  # Equal width for language buttons
-    with lang_col1:
-        st.button("EN", on_click=set_language, args=("EN",))
-    with lang_col2:
-        st.button("KU", on_click=set_language, args=("KU",))
-    
     # Display course code image
     st.image("input/code.png", width=200)
     
@@ -43,21 +25,21 @@ with st.sidebar:
     st.image("input/logo.jpg", width=200)
     
     # Navigation buttons
-    st.button(translate("home_title"), on_click=set_page, args=("Home",))
-    st.button(translate("about_title"), on_click=set_page, args=("About",))
-    st.button(translate("trainings_title"), on_click=set_page, args=("Trainings",))  # Trainings page button
+    st.button("Home", on_click=set_page, args=("Home",))
+    st.button("About", on_click=set_page, args=("About",))
+    st.button("Trainings", on_click=set_page, args=("Trainings",))  # Trainings page button
     
     # Contact Information with Discord Link
-    st.markdown(f"""
+    st.markdown("""
         <div style="margin-top: 30px; font-size: 1.1em; color: #2C3E50;">
-            <p><strong>{translate("contact")}:</strong></p>
-            <p>{translate("email")}: <a href="mailto:connect@habdulhaq.com" target="_blank" style="color: #1ABC9C;">connect@habdulhaq.com</a></p>
-            <p>{translate("website")}: <a href="https://www.habdulhaq.com" target="_blank" style="color: #1ABC9C;">www.habdulhaq.com</a></p>
-            <p>{translate("discord")}: <a href="https://discord.gg/wcypuxhF" target="_blank" style="color: #1ABC9C;">{translate("discord")}</a></p>
+            <p><strong>Contact:</strong></p>
+            <p>Email: <a href="mailto:connect@habdulhaq.com" target="_blank" style="color: #1ABC9C;">connect@habdulhaq.com</a></p>
+            <p>Website: <a href="https://www.habdulhaq.com" target="_blank" style="color: #1ABC9C;">www.habdulhaq.com</a></p>
+            <p>Discord: <a href="https://discord.gg/wcypuxhF" target="_blank" style="color: #1ABC9C;">Join Discord</a></p>
         </div>
         <div style="margin-top: 20px; font-size: 1.1em;">
-            <p><strong>{translate("book_demo")}:</strong></p>
-            <p><a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="color: #1ABC9C;">{translate("schedule_demo")}</a></p>
+            <p><strong>Book a Demo:</strong></p>
+            <p><a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="color: #1ABC9C;">Schedule a Demo</a></p>
         </div>
     """, unsafe_allow_html=True)
 
@@ -70,8 +52,8 @@ elif st.session_state.page == "Trainings":
     trainings.show()  # Trainings page display
 
 # Footer
-st.markdown(f"""
+st.markdown("""
     <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
-        {translate("footer")} <a href="https://www.habdulhaq.com" target="_blank" style="color: #1ABC9C;">habdulhaq.com</a> © 2024
+        habdulhaq.com © 2024
     </div>
 """, unsafe_allow_html=True)
