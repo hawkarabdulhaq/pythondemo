@@ -8,7 +8,7 @@ def show():
         text-align: center;
         color: white;
         height: 300px;
-        background-image: url('input/waves.jpg');
+        background-image: url('https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/waves.jpg');
         background-size: cover;
         background-position: center;
         display: flex;
