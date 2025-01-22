@@ -1,46 +1,72 @@
 import streamlit as st
 
 def show():
-    language = "EN"  # Set default language
+    # Display the title
+    st.markdown('<div class="title">About Us</div>', unsafe_allow_html=True)
 
-    # Welcome section
-    st.markdown("""
-    <div class="title">Welcome to Our Platform</div>
-    <div class="subtitle">Your gateway to innovative learning!</div>
-    """, unsafe_allow_html=True)
-    
-    # Perfect for beginners
-    st.markdown("""
-    <div class="content"><strong>Perfect for beginners!</strong></div>
-    """, unsafe_allow_html=True)
-
-    # Embed YouTube video
-    st.markdown("""
-    <div class="video-container">
-        <h3>Watch Demo</h3>
-        <iframe width="853" height="600" src="https://www.youtube.com/embed/G8BC2NIfpAs" 
-        title="Coding Training with Hawkar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-        encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen></iframe>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # What We Offer Section
-    st.markdown(
-        '<div class="section-title" style="color: #1ABC9C;">What We Offer</div>', 
-        unsafe_allow_html=True
+    # Display the profile photo
+    st.image(
+        "input/me.jpg",
+        width=250,
+        caption="Our story and journey to excellence.",
+        use_column_width="auto",
     )
+
+    # Profile Overview
     st.markdown("""
     <div class="content">
-    - Comprehensive Coding Courses<br><br>
-    - Live and Interactive Sessions<br><br>
-    - Dedicated Mentorship<br><br>
-    - Career Development Guidance<br><br>
-    - Flexible and Affordable Options
+        Learn about our team, mission, and dedication to empowering learners worldwide with the best resources and mentorship.
     </div>
     """, unsafe_allow_html=True)
-    
-    # Enrollment Button
-    if st.button("Enroll Now"):
-        st.session_state.page = "Prices"
-        st.experimental_rerun()  # Force an immediate rerun
+
+    # Section: Early Career and Education
+    st.markdown("""
+    <div class="section-title">Early Career and Education</div>
+    <div class="content">
+        Our journey began with a strong foundation in technology and education, driven by a passion for innovation.
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Section: Hasar Organization and PhD Studies
+    st.markdown("""
+    <div class="section-title">Hasar Organization and PhD Studies</div>
+    <div class="content">
+        We partnered with leading organizations to advance research and technology for real-world impact.
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Section: Research and Publications
+    st.markdown("""
+    <div class="section-title">Research and Publications</div>
+    <div class="content">
+        Our team has contributed to groundbreaking research in technology and education:
+        <ul>
+            <li><strong>Publication 1: Exploring AI in Education</strong></li>
+            <li><strong>Publication 2: Advancing Learning Platforms</strong></li>
+            <li><strong>Publication 3: Innovations in Digital Transformation</strong></li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Section: A Passion for Coding and Innovation
+    st.markdown("""
+    <div class="section-title">A Passion for Coding and Innovation</div>
+    <div class="content">
+        Our commitment to coding excellence and creative problem-solving drives every aspect of our work.
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Section: Entrepreneurial Ventures
+    st.markdown("""
+    <div class="section-title">Entrepreneurial Ventures</div>
+    <div class="content">
+        From startups to large-scale projects, we bring innovative ideas to life through technology and collaboration.
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Section: Call to Action
+    st.markdown("""
+    <div class="content" style="margin-top: 40px;">
+        <p>Join us on this journey and become part of a community passionate about learning and innovation.</p>
+    </div>
+    """, unsafe_allow_html=True)
