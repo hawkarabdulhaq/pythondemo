@@ -5,7 +5,7 @@ def show():
 
     # Welcome section
     st.markdown("""
-    <div class="title">Welcome to Our Platform</div>
+    <div class="title">We Introduced a Fast Way to Learn AI and Machine Learning</div>
     <div class="subtitle">Your gateway to innovative learning!</div>
     """, unsafe_allow_html=True)
     
