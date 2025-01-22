@@ -1,75 +1,46 @@
 import streamlit as st
-from dictionary import translate  # Import the centralized translate function
 
 def show():
-    language = st.session_state.language  # Retrieve the selected language
+    language = "EN"  # Set default language
 
-    # Display the title
-    st.markdown(f'<div class="title">{translate("about_title", language)}</div>', unsafe_allow_html=True)
+    # Welcome section
+    st.markdown("""
+    <div class="title">Welcome to Our Platform</div>
+    <div class="subtitle">Your gateway to innovative learning!</div>
+    """, unsafe_allow_html=True)
+    
+    # Perfect for beginners
+    st.markdown("""
+    <div class="content"><strong>Perfect for beginners!</strong></div>
+    """, unsafe_allow_html=True)
 
-    # Display the profile photo
-    st.image(
-        "input/me.jpg",
-        width=250,
-        caption=translate("about_caption", language),
-        use_column_width="auto",
+    # Embed YouTube video
+    st.markdown("""
+    <div class="video-container">
+        <h3>Watch Demo</h3>
+        <iframe width="853" height="600" src="https://www.youtube.com/embed/G8BC2NIfpAs" 
+        title="Coding Training with Hawkar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+        encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen></iframe>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # What We Offer Section
+    st.markdown(
+        '<div class="section-title" style="color: #1ABC9C;">What We Offer</div>', 
+        unsafe_allow_html=True
     )
-
-    # Profile Overview
-    st.markdown(f"""
+    st.markdown("""
     <div class="content">
-        {translate("about_overview", language)}
+    - Comprehensive Coding Courses<br><br>
+    - Live and Interactive Sessions<br><br>
+    - Dedicated Mentorship<br><br>
+    - Career Development Guidance<br><br>
+    - Flexible and Affordable Options
     </div>
     """, unsafe_allow_html=True)
-
-    # Section: Early Career and Education
-    st.markdown(f"""
-    <div class="section-title">{translate("about_early_career_title", language)}</div>
-    <div class="content">
-        {translate("about_early_career_content", language)}
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Section: Hasar Organization and PhD Studies
-    st.markdown(f"""
-    <div class="section-title">{translate("about_hasar_title", language)}</div>
-    <div class="content">
-        {translate("about_hasar_content", language)}
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Section: Research and Publications
-    st.markdown(f"""
-    <div class="section-title">{translate("about_research_title", language)}</div>
-    <div class="content">
-        {translate("about_research_content", language)}
-        <ul>
-            <li><strong>{translate("about_publication_1", language)}</strong></li>
-            <li><strong>{translate("about_publication_2", language)}</strong></li>
-            <li><strong>{translate("about_publication_3", language)}</strong></li>
-        </ul>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Section: A Passion for Coding and Innovation
-    st.markdown(f"""
-    <div class="section-title">{translate("about_coding_title", language)}</div>
-    <div class="content">
-        {translate("about_coding_content", language)}
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Section: Entrepreneurial Ventures
-    st.markdown(f"""
-    <div class="section-title">{translate("about_ventures_title", language)}</div>
-    <div class="content">
-        {translate("about_ventures_content", language)}
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Section: Call to Action
-    st.markdown(f"""
-    <div class="content" style="margin-top: 40px;">
-        <p>{translate("about_call_to_action", language)}</p>
-    </div>
-    """, unsafe_allow_html=True)
+    
+    # Enrollment Button
+    if st.button("Enroll Now"):
+        st.session_state.page = "Prices"
+        st.experimental_rerun()  # Force an immediate rerun
