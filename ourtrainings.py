@@ -92,7 +92,7 @@ def show_trainings():
 
     st.markdown("---")
     
-    # Display courses in a card-like layout
+    # Display courses in a card-like layout with enroll buttons
     st.subheader("📚 Courses in the Program")
     for course in training_data["courses"]:
         with st.container():
@@ -101,16 +101,6 @@ def show_trainings():
             st.write("**Course Chapters:**")
             for chapter in course["chapters"]:
                 st.write(f"- {chapter}")
+            if st.button(f"Enroll in {course['name']}"):
+                st.success(f"You have successfully enrolled in {course['name']}!")
             st.markdown("---")
-
-    # Closing section
-    st.markdown(
-        """
-        ### Why Enroll?
-        - Gain hands-on experience with industry-standard tools like Python, GitHub, and Streamlit.
-        - Develop practical machine learning and database management skills.
-        - Build AI-driven solutions for real-world applications.
-        
-        📧 **Contact us**: For more details, email us at [info@mlmaster.com](mailto:info@mlmaster.com).
-        """
-    )
