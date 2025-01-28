@@ -1,6 +1,7 @@
 import streamlit as st
 import base64
 import pandas as pd
+from ourtrainings import get_trainings  # Import the function from the module
 
 def load_image_as_base64(image_path):
     """Load an image and return it as a Base64 encoded string."""
@@ -15,11 +16,8 @@ def show_trainings():
     """Display the 'Our Trainings' tab content."""
     st.title("Our Trainings")
 
-    trainings = [
-        "Python Programming through Generative AI for Beginners",
-        "Micro Master Machine Learning and Data-Driven Systems",
-        "Business Optimization through Advanced Automation",
-    ]
+    # Get the list of trainings from the module
+    trainings = get_trainings()
 
     st.markdown("<h3>Our Trainings</h3>", unsafe_allow_html=True)
     for training in trainings:
@@ -139,3 +137,6 @@ def show():
 
     with tab3:
         show_certificate_database()
+
+if __name__ == "__main__":
+    show()
