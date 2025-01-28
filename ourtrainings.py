@@ -1,74 +1,61 @@
-from typing import List, Dict
-from shadcn.ui import Card, CardContent
-from shadcn.ui.button import Button
+# ourtrainings.py
 
-# Function to return available trainings with detailed content
-def get_trainings() -> List[Dict[str, any]]:
+def get_trainings():
     """
-    Returns a detailed list of available trainings, including their titles, descriptions, and weeks.
+    Returns a list of available trainings in the Micro Master Program, including impacts, target audience, and course format.
     """
     trainings = [
         {
-            "title": "Python Programming through Generative AI for Beginners",
-            "description": "Learn Python programming fundamentals with a focus on leveraging generative AI tools.",
-            "weeks": [
-                "Week 1: Python Basics and Generative AI Overview",
-                "Week 2: Advanced Python Concepts",
-                "Week 3: Building Your First AI-Powered Application"
-            ]
-        },
-        {
             "title": "Micro Master in Machine Learning and AI",
-            "description": "Comprehensive training in coding, databases, machine learning, and real-time AI app deployment.",
-            "weeks": [
-                "Week 1: Introduction to Coding",
-                "Week 2: Generate Comprehensive Codings",
-                "Week 3: Deploy App through GitHub and Streamlit",
-                "Week 4: Data Week",
-                "Course 2: Advanced SQL and Databases",
-                "Course 3: Supervised and Unsupervised Machine Learning",
-                "Course 4: Deploying AI Models with Streamlit",
-                "Course 5: Real-Time Deployment with GitHub and Cloud Integration",
-                "Capstone Project"
-            ]
+            "description": (
+                "A comprehensive program designed for learners to build expertise in Python programming, "
+                "machine learning, AI, databases, and real-time app deployment using industry-standard tools."
+            ),
+            "impact": (
+                "By completing this program, participants will become trusted professionals in data analysis, "
+                "capable of building data-driven systems and creating interactive web applications. Graduates will "
+                "be well-equipped to lead data-related projects and deliver insights that drive business success."
+            ),
+            "target_audience": (
+                "Ideal for professionals working with data, businesses dealing with ERP systems, and anyone "
+                "looking to leverage data for decision-making. Also suited for organizations aiming to adopt "
+                "AI-powered solutions to optimize operations."
+            ),
+            "format": (
+                "The course is personalized to fit your career development. It includes two sessions per week: "
+                "one focused on theoretical concepts and one dedicated to hands-on practical exercises. "
+                "This blended approach ensures participants can immediately apply their learning to real-world challenges."
+            ),
+            "courses": [
+                {
+                    "name": "Course 1: Foundations of Python Programming and Applied Coding",
+                    "chapters": [
+                        "Week 1: Introduction to Coding",
+                        "Week 2: Generate Comprehensive Codings",
+                        "Week 3: Deploy Apps with GitHub and Streamlit",
+                        "Week 4: Data Week",
+                    ],
+                    "impact": (
+                        "Participants will gain foundational skills in Python programming and learn to create robust "
+                        "scripts, work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners "
+                        "to automate tasks, process data, and build basic web applications."
+                    ),
+                },
+                {
+                    "name": "Course 2: Advanced Machine Learning and Real-Time Deployment",
+                    "chapters": [
+                        "Week 1: Advanced SQL and Databases",
+                        "Week 2: Supervised and Unsupervised Machine Learning",
+                        "Week 3: Deploying AI Models with Streamlit",
+                        "Week 4: Real-Time Deployment with GitHub and Cloud Integration",
+                    ],
+                    "impact": (
+                        "Participants will develop advanced skills in database management, machine learning, and real-time "
+                        "application deployment. This course focuses on practical implementations, enabling learners to create "
+                        "AI-driven solutions, deploy them in real-world scenarios, and integrate apps with cloud and database systems."
+                    ),
+                },
+            ],
         },
-        {
-            "title": "Business Optimization through Advanced Automation",
-            "description": "Master automation tools to streamline business processes and increase efficiency.",
-            "weeks": [
-                "Week 1: Automation Basics",
-                "Week 2: Workflow Optimization",
-                "Week 3: Advanced Business Automation Tools"
-            ]
-        }
     ]
     return trainings
-
-# UI rendering function for displaying trainings in Streamlit
-import streamlit as st
-
-def render_trainings_ui():
-    """
-    Renders a detailed, user-friendly UI for the available trainings using Streamlit.
-    """
-    st.title("Our Trainings")
-    trainings = get_trainings()
-
-    for training in trainings:
-        with st.container():
-            st.subheader(training["title"])
-            st.write(training["description"])
-
-            # Render the weeks in a collapsible format
-            with st.expander("Course Details"):
-                for week in training["weeks"]:
-                    st.write(f"- {week}")
-
-            # Add a button for enrollment or more details
-            if st.button(f"Enroll in {training['title']}"):
-                st.success(f"You have enrolled in {training['title']}!")
-
-# Run the app if this file is executed
-if __name__ == "__main__":
-    st.set_page_config(page_title="Our Trainings", layout="wide")
-    render_trainings_ui()
