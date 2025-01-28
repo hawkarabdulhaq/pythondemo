@@ -5,7 +5,7 @@ import streamlit as st
 def get_trainings():
     """
     Returns a list of available trainings in the Micro Master Program, structured to highlight courses first,
-    followed by program details, impacts, target audience, and format.
+    followed by program details, vision, target audience, and format.
     """
     trainings = {
         "courses": [
@@ -44,10 +44,10 @@ def get_trainings():
                 "A comprehensive program designed for learners to build expertise in Python programming, "
                 "machine learning, AI, databases, and real-time app deployment using industry-standard tools."
             ),
-            "impact": (
-                "By completing this program, participants will become trusted professionals in data analysis, "
-                "capable of building data-driven systems and creating interactive web applications. Graduates will "
-                "be well-equipped to lead data-related projects and deliver insights that drive business success."
+            "vision": (
+                "Our vision is to empower learners to become pioneers in data science and artificial intelligence, "
+                "capable of transforming raw data into actionable insights and innovative solutions. Participants will "
+                "lead the future of AI-driven systems, bridging the gap between data and decision-making."
             ),
             "target_audience": (
                 "Ideal for professionals working with data, businesses dealing with ERP systems, and anyone "
@@ -85,6 +85,6 @@ def show_trainings():
     program = training_data["program"]
     st.subheader(program["title"])
     st.write(f"**Description:** {program['description']}")
-    st.write(f"**Impact:** {program['impact']}")
+    st.write(f"**Vision:** {program['vision']}")
     st.write(f"**Target Audience:** {program['target_audience']}")
     st.write(f"**Format:** {program['format']}")
