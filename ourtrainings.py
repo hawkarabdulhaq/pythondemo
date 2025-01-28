@@ -66,9 +66,9 @@ def get_trainings():
 
 def show_trainings():
     """
-    Display the 'Our Trainings' page content in the Streamlit app.
+    Display the 'Micro Master in Machine Learning and AI' page content in the Streamlit app.
     """
-    st.title("Our Trainings")
+    st.title("Micro Master in Machine Learning and AI")
 
     # Fetch training data
     training_data = get_trainings()
@@ -83,7 +83,7 @@ def show_trainings():
 
     # Display program-wide details
     program = training_data["program"]
-    st.subheader(program["title"])
+    st.subheader("Program Details")
     st.write(f"**Description:** {program['description']}")
     st.write(f"**Vision:** {program['vision']}")
     st.write(f"**Target Audience:** {program['target_audience']}")
