@@ -1,6 +1,8 @@
 import streamlit as st
 import base64
 import pandas as pd
+from ourtrainings import get_trainings  # Import the function from ourtrainings.py
+
 
 def load_image_as_base64(image_path):
     """Load an image and return it as a Base64 encoded string."""
@@ -11,19 +13,32 @@ def load_image_as_base64(image_path):
         st.error(f"Image at path {image_path} not found.")
         return ""
 
+
 def show_trainings():
     """Display the 'Our Trainings' tab content."""
     st.title("Our Trainings")
 
-    trainings = [
-        "Python Programming through Generative AI for Beginners",
-        "Micro Master Machine Learning and Data-Driven Systems",
-        "Business Optimization through Advanced Automation",
-    ]
+    # Fetch dynamic training data
+    training_data = get_trainings()
 
-    st.markdown("<h3>Our Trainings</h3>", unsafe_allow_html=True)
-    for training in trainings:
-        st.markdown(f"- {training}")
+    # Loop through each training program and display content
+    for training in training_data:
+        st.markdown(f"## {training['title']}")
+        st.markdown(training["description"])
+        st.markdown(f"**Impact:** {training['impact']}")
+        st.markdown(f"**Target Audience:** {training['target_audience']}")
+        st.markdown(f"**Format:** {training['format']}")
+
+        # Display courses within the program
+        for course in training["courses"]:
+            st.markdown(f"### {course['name']}")
+            st.markdown(f"**Impact:** {course['impact']}")
+
+            # Display chapters (weeks) in each course
+            st.markdown("#### Chapters:")
+            for chapter in course["chapters"]:
+                st.markdown(f"- {chapter}")
+
 
 def show_certificate_system():
     """Display the 'Our Certificate System' tab content."""
@@ -82,6 +97,7 @@ def show_certificate_system():
         </div>
         """, unsafe_allow_html=True)
 
+
 def show_certificate_database():
     """Display the 'Certificate Database' tab content."""
     st.title("Certificate Database")
@@ -122,6 +138,7 @@ def show_certificate_database():
                     """, unsafe_allow_html=True)
 
             st.markdown("---")  # Divider between participants
+
 
 def show():
     """Display the tabs for the Streamlit app."""
