@@ -7,40 +7,38 @@ def get_trainings():
     Returns a list of available trainings in the Micro Master Program, structured to highlight courses first,
     followed by program details, impacts, target audience, and format.
     """
-    trainings = [
-        {
-            "courses": [
-                {
-                    "name": "Course 1: Foundations of Python Programming and Applied Coding",
-                    "impact": (
-                        "Participants will gain foundational skills in Python programming and learn to create robust "
-                        "scripts, work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners "
-                        "to automate tasks, process data, and build basic web applications."
-                    ),
-                    "chapters": [
-                        "Week 1: Introduction to Coding",
-                        "Week 2: Generate Comprehensive Codings",
-                        "Week 3: Deploy Apps with GitHub and Streamlit",
-                        "Week 4: Data Week",
-                    ],
-                },
-                {
-                    "name": "Course 2: Advanced Machine Learning and Real-Time Deployment",
-                    "impact": (
-                        "Participants will develop advanced skills in database management, machine learning, and real-time "
-                        "application deployment. This course focuses on practical implementations, enabling learners to create "
-                        "AI-driven solutions, deploy them in real-world scenarios, and integrate apps with cloud and database systems."
-                    ),
-                    "chapters": [
-                        "Week 1: Advanced SQL and Databases",
-                        "Week 2: Supervised and Unsupervised Machine Learning",
-                        "Week 3: Deploying AI Models with Streamlit",
-                        "Week 4: Real-Time Deployment with GitHub and Cloud Integration",
-                    ],
-                },
-            ],
-        },
-        {
+    trainings = {
+        "courses": [
+            {
+                "name": "Course 1: Foundations of Python Programming and Applied Coding",
+                "impact": (
+                    "Participants will gain foundational skills in Python programming and learn to create robust "
+                    "scripts, work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners "
+                    "to automate tasks, process data, and build basic web applications."
+                ),
+                "chapters": [
+                    "Week 1: Introduction to Coding",
+                    "Week 2: Generate Comprehensive Codings",
+                    "Week 3: Deploy Apps with GitHub and Streamlit",
+                    "Week 4: Data Week",
+                ],
+            },
+            {
+                "name": "Course 2: Advanced Machine Learning and Real-Time Deployment",
+                "impact": (
+                    "Participants will develop advanced skills in database management, machine learning, and real-time "
+                    "application deployment. This course focuses on practical implementations, enabling learners to create "
+                    "AI-driven solutions, deploy them in real-world scenarios, and integrate apps with cloud and database systems."
+                ),
+                "chapters": [
+                    "Week 1: Advanced SQL and Databases",
+                    "Week 2: Supervised and Unsupervised Machine Learning",
+                    "Week 3: Deploying AI Models with Streamlit",
+                    "Week 4: Real-Time Deployment with GitHub and Cloud Integration",
+                ],
+            },
+        ],
+        "program": {
             "title": "Micro Master in Machine Learning and AI",
             "description": (
                 "A comprehensive program designed for learners to build expertise in Python programming, "
@@ -62,7 +60,7 @@ def get_trainings():
                 "This blended approach ensures participants can immediately apply their learning to real-world challenges."
             ),
         },
-    ]
+    }
     return trainings
 
 
@@ -75,18 +73,18 @@ def show_trainings():
     # Fetch training data
     training_data = get_trainings()
 
-    # Display course details
-    for course in training_data[0]["courses"]:
-        st.header(course["name"])
+    # Display each course with its impact and chapters
+    for course in training_data["courses"]:
+        st.subheader(course["name"])
         st.write(f"**Impact:** {course['impact']}")
         st.write("**Chapters:**")
         for chapter in course["chapters"]:
             st.write(f"- {chapter}")
 
     # Display program-wide details
-    program_details = training_data[1]
-    st.header(program_details["title"])
-    st.write(f"**Description:** {program_details['description']}")
-    st.write(f"**Impact:** {program_details['impact']}")
-    st.write(f"**Target Audience:** {program_details['target_audience']}")
-    st.write(f"**Format:** {program_details['format']}")
+    program = training_data["program"]
+    st.subheader(program["title"])
+    st.write(f"**Description:** {program['description']}")
+    st.write(f"**Impact:** {program['impact']}")
+    st.write(f"**Target Audience:** {program['target_audience']}")
+    st.write(f"**Format:** {program['format']}")
