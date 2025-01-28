@@ -97,7 +97,7 @@ def show_trainings():
         """
         <style>
         .enroll-button {
-            background-color: #d3d3d3; /* Light green */
+            background-color: #90EE90; /* Light green */
             border: none;
             color: white;
             padding: 10px 20px;
@@ -114,7 +114,7 @@ def show_trainings():
         unsafe_allow_html=True,
     )
 
-    # Display courses in a card-like layout with styled enroll buttons
+    # Display courses in a card-like layout with simplified enroll buttons
     st.subheader("📚 Courses in the Program")
     for course in training_data["courses"]:
         with st.container():
@@ -123,8 +123,8 @@ def show_trainings():
             st.write("**Course Chapters:**")
             for chapter in course["chapters"]:
                 st.write(f"- {chapter}")
-            enroll_html = f"""
-            <a class="enroll-button" href="#">Enroll in {course['name']}</a>
+            enroll_html = """
+            <a class="enroll-button" href="#">Enroll</a>
             """
             st.markdown(enroll_html, unsafe_allow_html=True)
             st.markdown("---")
