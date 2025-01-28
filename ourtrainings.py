@@ -1,5 +1,28 @@
 # ourtrainings.py
+def show_trainings():
+    """Display the 'Our Trainings' tab content."""
+    st.title("Our Trainings")
 
+    # Fetch dynamic training data
+    training_data = get_trainings()
+
+    # Loop through each training program and display content
+    for training in training_data:
+        st.markdown(f"## {training['title']}")
+        st.markdown(training["description"])
+        st.markdown(f"**Impact:** {training['impact']}")
+        st.markdown(f"**Target Audience:** {training['target_audience']}")
+        st.markdown(f"**Format:** {training['format']}")
+
+        # Display courses within the program
+        for course in training["courses"]:
+            st.markdown(f"### {course['name']}")
+            st.markdown(f"**Impact:** {course['impact']}")
+
+            # Display chapters (weeks) in each course
+            st.markdown("#### Chapters:")
+            for chapter in course["chapters"]:
+                st.markdown(f"- {chapter}")
 def get_trainings():
     """
     Returns a list of available trainings in the Micro Master Program, structured to highlight courses first,
