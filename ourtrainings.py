@@ -97,9 +97,10 @@ def show_trainings():
         """
         <style>
         .enroll-button {
-            background-color: #0a6f44; /* Light green */
+            background-color: #90EE90; /* Light green */
             border: none;
             color: white;
+            font-weight: bold;
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
@@ -114,7 +115,7 @@ def show_trainings():
         unsafe_allow_html=True,
     )
 
-    # Display courses in a card-like layout with simplified enroll buttons
+    # Display courses in a card-like layout with styled enroll buttons
     st.subheader("📚 Courses in the Program")
     for course in training_data["courses"]:
         with st.container():
