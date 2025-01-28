@@ -1,7 +1,7 @@
 import streamlit as st
 import base64
 import pandas as pd
-from ourtrainings import get_trainings  # Import the function from ourtrainings.py
+from ourtrainings import get_trainings, show_trainings
 
 
 def load_image_as_base64(image_path):
@@ -13,31 +13,6 @@ def load_image_as_base64(image_path):
         st.error(f"Image at path {image_path} not found.")
         return ""
 
-
-def show_trainings():
-    """Display the 'Our Trainings' tab content."""
-    st.title("Our Trainings")
-
-    # Fetch dynamic training data
-    training_data = get_trainings()
-
-    # Loop through each training program and display content
-    for training in training_data:
-        st.markdown(f"## {training['title']}")
-        st.markdown(training["description"])
-        st.markdown(f"**Impact:** {training['impact']}")
-        st.markdown(f"**Target Audience:** {training['target_audience']}")
-        st.markdown(f"**Format:** {training['format']}")
-
-        # Display courses within the program
-        for course in training["courses"]:
-            st.markdown(f"### {course['name']}")
-            st.markdown(f"**Impact:** {course['impact']}")
-
-            # Display chapters (weeks) in each course
-            st.markdown("#### Chapters:")
-            for chapter in course["chapters"]:
-                st.markdown(f"- {chapter}")
 
 
 def show_certificate_system():
