@@ -66,25 +66,51 @@ def get_trainings():
 
 def show_trainings():
     """
-    Display the 'Micro Master in Machine Learning and AI' page content in the Streamlit app.
+    Display the 'Micro Master in Machine Learning and AI' page content in the Streamlit app with a professional UI.
     """
-    st.title("Micro Master in Machine Learning and AI")
+    st.title("🎓 Micro Master in Machine Learning and AI")
+    st.markdown("---")
+    st.markdown(
+        """
+        ### Program Overview
+        This program is designed to transform learners into skilled professionals, equipping them with cutting-edge tools 
+        and techniques to excel in data analysis, machine learning, and AI-driven solutions.
+        """
+    )
 
     # Fetch training data
     training_data = get_trainings()
 
-    # Display each course with its impact and chapters
-    for course in training_data["courses"]:
-        st.subheader(course["name"])
-        st.write(f"**Impact:** {course['impact']}")
-        st.write("**Chapters:**")
-        for chapter in course["chapters"]:
-            st.write(f"- {chapter}")
-
-    # Display program-wide details
+    # Display program-wide details in an appealing layout
     program = training_data["program"]
-    st.subheader("Program Details")
-    st.write(f"**Description:** {program['description']}")
-    st.write(f"**Vision:** {program['vision']}")
-    st.write(f"**Target Audience:** {program['target_audience']}")
-    st.write(f"**Format:** {program['format']}")
+    with st.container():
+        st.subheader("📋 Program Details")
+        st.write(f"**Description:** {program['description']}")
+        st.markdown(f"**🎯 Vision:** {program['vision']}")
+        st.markdown(f"**👥 Target Audience:** {program['target_audience']}")
+        st.markdown(f"**🕒 Format:** {program['format']}")
+
+    st.markdown("---")
+    
+    # Display courses in a card-like layout
+    st.subheader("📚 Courses in the Program")
+    for course in training_data["courses"]:
+        with st.container():
+            st.markdown(f"### {course['name']}")
+            st.write(f"**Impact:** {course['impact']}")
+            st.write("**Course Chapters:**")
+            for chapter in course["chapters"]:
+                st.write(f"- {chapter}")
+            st.markdown("---")
+
+    # Closing section
+    st.markdown(
+        """
+        ### Why Enroll?
+        - Gain hands-on experience with industry-standard tools like Python, GitHub, and Streamlit.
+        - Develop practical machine learning and database management skills.
+        - Build AI-driven solutions for real-world applications.
+        
+        📧 **Contact us**: For more details, email us at [info@mlmaster.com](mailto:info@mlmaster.com).
+        """
+    )
