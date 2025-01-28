@@ -1,28 +1,7 @@
 # ourtrainings.py
-def show_trainings():
-    """Display the 'Our Trainings' tab content."""
-    st.title("Our Trainings")
 
-    # Fetch dynamic training data
-    training_data = get_trainings()
+import streamlit as st
 
-    # Loop through each training program and display content
-    for training in training_data:
-        st.markdown(f"## {training['title']}")
-        st.markdown(training["description"])
-        st.markdown(f"**Impact:** {training['impact']}")
-        st.markdown(f"**Target Audience:** {training['target_audience']}")
-        st.markdown(f"**Format:** {training['format']}")
-
-        # Display courses within the program
-        for course in training["courses"]:
-            st.markdown(f"### {course['name']}")
-            st.markdown(f"**Impact:** {course['impact']}")
-
-            # Display chapters (weeks) in each course
-            st.markdown("#### Chapters:")
-            for chapter in course["chapters"]:
-                st.markdown(f"- {chapter}")
 def get_trainings():
     """
     Returns a list of available trainings in the Micro Master Program, structured to highlight courses first,
@@ -85,3 +64,29 @@ def get_trainings():
         },
     ]
     return trainings
+
+
+def show_trainings():
+    """
+    Display the 'Our Trainings' page content in the Streamlit app.
+    """
+    st.title("Our Trainings")
+
+    # Fetch training data
+    training_data = get_trainings()
+
+    # Display course details
+    for course in training_data[0]["courses"]:
+        st.header(course["name"])
+        st.write(f"**Impact:** {course['impact']}")
+        st.write("**Chapters:**")
+        for chapter in course["chapters"]:
+            st.write(f"- {chapter}")
+
+    # Display program-wide details
+    program_details = training_data[1]
+    st.header(program_details["title"])
+    st.write(f"**Description:** {program_details['description']}")
+    st.write(f"**Impact:** {program_details['impact']}")
+    st.write(f"**Target Audience:** {program_details['target_audience']}")
+    st.write(f"**Format:** {program_details['format']}")
