@@ -1,61 +1,141 @@
-# ourtrainings.py
+import streamlit as st
+import base64
+import pandas as pd
 
-def get_trainings():
-    """
-    Returns a list of available trainings in the Micro Master Program, including impacts, target audience, and course format.
-    """
+def load_image_as_base64(image_path):
+    """Load an image and return it as a Base64 encoded string."""
+    try:
+        with open(image_path, "rb") as img_file:
+            return base64.b64encode(img_file.read()).decode()
+    except FileNotFoundError:
+        st.error(f"Image at path {image_path} not found.")
+        return ""
+
+def show_trainings():
+    """Display the 'Our Trainings' tab content."""
+    st.title("Our Trainings")
+
     trainings = [
-        {
-            "title": "Micro Master in Machine Learning and AI",
-            "description": (
-                "A comprehensive program designed for learners to build expertise in Python programming, "
-                "machine learning, AI, databases, and real-time app deployment using industry-standard tools."
-            ),
-            "impact": (
-                "By completing this program, participants will become trusted professionals in data analysis, "
-                "capable of building data-driven systems and creating interactive web applications. Graduates will "
-                "be well-equipped to lead data-related projects and deliver insights that drive business success."
-            ),
-            "target_audience": (
-                "Ideal for professionals working with data, businesses dealing with ERP systems, and anyone "
-                "looking to leverage data for decision-making. Also suited for organizations aiming to adopt "
-                "AI-powered solutions to optimize operations."
-            ),
-            "format": (
-                "The course is personalized to fit your career development. It includes two sessions per week: "
-                "one focused on theoretical concepts and one dedicated to hands-on practical exercises. "
-                "This blended approach ensures participants can immediately apply their learning to real-world challenges."
-            ),
-            "courses": [
-                {
-                    "name": "Course 1: Foundations of Python Programming and Applied Coding",
-                    "chapters": [
-                        "Week 1: Introduction to Coding",
-                        "Week 2: Generate Comprehensive Codings",
-                        "Week 3: Deploy Apps with GitHub and Streamlit",
-                        "Week 4: Data Week",
-                    ],
-                    "impact": (
-                        "Participants will gain foundational skills in Python programming and learn to create robust "
-                        "scripts, work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners "
-                        "to automate tasks, process data, and build basic web applications."
-                    ),
-                },
-                {
-                    "name": "Course 2: Advanced Machine Learning and Real-Time Deployment",
-                    "chapters": [
-                        "Week 1: Advanced SQL and Databases",
-                        "Week 2: Supervised and Unsupervised Machine Learning",
-                        "Week 3: Deploying AI Models with Streamlit",
-                        "Week 4: Real-Time Deployment with GitHub and Cloud Integration",
-                    ],
-                    "impact": (
-                        "Participants will develop advanced skills in database management, machine learning, and real-time "
-                        "application deployment. This course focuses on practical implementations, enabling learners to create "
-                        "AI-driven solutions, deploy them in real-world scenarios, and integrate apps with cloud and database systems."
-                    ),
-                },
-            ],
-        },
+        "Python Programming through Generative AI for Beginners",
+        "Micro Master Machine Learning and Data-Driven Systems",
+        "Business Optimization through Advanced Automation",
     ]
-    return trainings
+
+    st.markdown("<h3>Our Trainings</h3>", unsafe_allow_html=True)
+    for training in trainings:
+        st.markdown(f"- {training}")
+
+def show_certificate_system():
+    """Display the 'Our Certificate System' tab content."""
+    st.markdown('<div class="title">Certificate System</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="content">
+        Explore how our certificate system works and recognize your achievements in learning.
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Load images as Base64
+    portrait_image_base64 = load_image_as_base64("input/p.jpg")
+    landscape_image_base64 = load_image_as_base64("input/l.jpg")
+
+    # Apply custom CSS for secure display and zoom effect
+    st.markdown("""
+    <style>
+        .zoom-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .zoom-container img {
+            transition: transform 0.3s ease-in-out;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .zoom-container:hover img {
+            transform: scale(1.2);
+        }
+
+        .zoom-container img {
+            pointer-events: none;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Portrait Certificate
+    st.markdown("<h3>Portrait Certificate</h3>", unsafe_allow_html=True)
+    if portrait_image_base64:
+        st.markdown(f"""
+        <div class="zoom-container">
+            <img src="data:image/jpeg;base64,{portrait_image_base64}" alt="Portrait Certificate" style="width: 100%;">
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Landscape Certificate
+    st.markdown("<h3>Landscape Certificate</h3>", unsafe_allow_html=True)
+    if landscape_image_base64:
+        st.markdown(f"""
+        <div class="zoom-container">
+            <img src="data:image/jpeg;base64,{landscape_image_base64}" alt="Landscape Certificate" style="width: 100%;">
+        </div>
+        """, unsafe_allow_html=True)
+
+def show_certificate_database():
+    """Display the 'Certificate Database' tab content."""
+    st.title("Certificate Database")
+
+    # Load the CSV data
+    try:
+        df = pd.read_csv("input/certificate.csv")
+    except FileNotFoundError:
+        st.error("Certificate database file not found.")
+        return
+
+    # Filter rows where the participant has completed the course.
+    completed_df = df[df["date of completion"].notna() & (df["date of completion"] != "")]
+
+    if completed_df.empty:
+        st.write("No participants have completed the course yet.")
+    else:
+        # Display each completed participant's info and certificate
+        for _, participant_info in completed_df.iterrows():
+            st.markdown(f"### {participant_info['name']}")
+
+            col1, col2 = st.columns([1, 2])
+            with col1:
+                st.write(f"**Name:** {participant_info['name']}")
+                st.write(f"**Date of Joining:** {participant_info['date of joining']}")
+                st.write(f"**Date of Completion:** {participant_info['date of completion']}")
+                st.write(f"**Credential:** {participant_info['credential']}")
+
+            with col2:
+                # Load and display their certificate
+                cert_path = participant_info["certificate"]
+                cert_base64 = load_image_as_base64(cert_path)
+                if cert_base64:
+                    st.markdown(f"""
+                    <div class="zoom-container" style="margin-top: 10px;">
+                        <img src="data:image/jpeg;base64,{cert_base64}" alt="Certificate" style="width: 100%;">
+                    </div>
+                    """, unsafe_allow_html=True)
+
+            st.markdown("---")  # Divider between participants
+
+def show():
+    """Display the tabs for the Streamlit app."""
+    tab1, tab2, tab3 = st.tabs([
+        "Our Trainings",
+        "Our Certificate System",
+        "Certificate Database"
+    ])
+
+    with tab1:
+        show_trainings()
+
+    with tab2:
+        show_certificate_system()
+
+    with tab3:
+        show_certificate_database()
