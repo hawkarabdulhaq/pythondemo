@@ -2,9 +2,42 @@
 
 def get_trainings():
     """
-    Returns a list of available trainings in the Micro Master Program, including impacts, target audience, and course format.
+    Returns a list of available trainings in the Micro Master Program, structured to highlight courses first,
+    followed by program details, impacts, target audience, and format.
     """
     trainings = [
+        {
+            "courses": [
+                {
+                    "name": "Course 1: Foundations of Python Programming and Applied Coding",
+                    "impact": (
+                        "Participants will gain foundational skills in Python programming and learn to create robust "
+                        "scripts, work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners "
+                        "to automate tasks, process data, and build basic web applications."
+                    ),
+                    "chapters": [
+                        "Week 1: Introduction to Coding",
+                        "Week 2: Generate Comprehensive Codings",
+                        "Week 3: Deploy Apps with GitHub and Streamlit",
+                        "Week 4: Data Week",
+                    ],
+                },
+                {
+                    "name": "Course 2: Advanced Machine Learning and Real-Time Deployment",
+                    "impact": (
+                        "Participants will develop advanced skills in database management, machine learning, and real-time "
+                        "application deployment. This course focuses on practical implementations, enabling learners to create "
+                        "AI-driven solutions, deploy them in real-world scenarios, and integrate apps with cloud and database systems."
+                    ),
+                    "chapters": [
+                        "Week 1: Advanced SQL and Databases",
+                        "Week 2: Supervised and Unsupervised Machine Learning",
+                        "Week 3: Deploying AI Models with Streamlit",
+                        "Week 4: Real-Time Deployment with GitHub and Cloud Integration",
+                    ],
+                },
+            ],
+        },
         {
             "title": "Micro Master in Machine Learning and AI",
             "description": (
@@ -26,36 +59,6 @@ def get_trainings():
                 "one focused on theoretical concepts and one dedicated to hands-on practical exercises. "
                 "This blended approach ensures participants can immediately apply their learning to real-world challenges."
             ),
-            "courses": [
-                {
-                    "name": "Course 1: Foundations of Python Programming and Applied Coding",
-                    "chapters": [
-                        "Week 1: Introduction to Coding",
-                        "Week 2: Generate Comprehensive Codings",
-                        "Week 3: Deploy Apps with GitHub and Streamlit",
-                        "Week 4: Data Week",
-                    ],
-                    "impact": (
-                        "Participants will gain foundational skills in Python programming and learn to create robust "
-                        "scripts, work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners "
-                        "to automate tasks, process data, and build basic web applications."
-                    ),
-                },
-                {
-                    "name": "Course 2: Advanced Machine Learning and Real-Time Deployment",
-                    "chapters": [
-                        "Week 1: Advanced SQL and Databases",
-                        "Week 2: Supervised and Unsupervised Machine Learning",
-                        "Week 3: Deploying AI Models with Streamlit",
-                        "Week 4: Real-Time Deployment with GitHub and Cloud Integration",
-                    ],
-                    "impact": (
-                        "Participants will develop advanced skills in database management, machine learning, and real-time "
-                        "application deployment. This course focuses on practical implementations, enabling learners to create "
-                        "AI-driven solutions, deploy them in real-world scenarios, and integrate apps with cloud and database systems."
-                    ),
-                },
-            ],
         },
     ]
     return trainings
