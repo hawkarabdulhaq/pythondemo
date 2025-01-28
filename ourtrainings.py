@@ -97,10 +97,10 @@ def show_trainings():
         """
         <style>
         .enroll-button {
-            background-color: #90EE90; /* Light green */
+            background-color: #90EE90 !important; /* Light green */
             border: none;
-            color: #ffffff;
-            font-weight: bold;
+            color: white !important; /* White text */
+            font-weight: bold !important; /* Bold text */
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
