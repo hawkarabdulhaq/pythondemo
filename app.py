@@ -6,6 +6,23 @@ import solutions  # Import Solutions module
 import about
 import style
 
+# Function to toggle the theme
+def toggle_theme():
+    current_theme = st.session_state.get("theme", "light")
+    new_theme = "dark" if current_theme == "light" else "light"
+    st.session_state.theme = new_theme
+    st.experimental_set_query_params(theme=new_theme)
+
+# Initialize session state for theme
+if "theme" not in st.session_state:
+    # Get the theme from query parameters (if available)
+    query_params = st.experimental_get_query_params()
+    theme = query_params.get("theme", ["light"])[0]
+    st.session_state.theme = theme
+
+# Set the page config with the current theme
+st.set_page_config(page_title="My App", page_icon="🌙", layout="wide", initial_sidebar_state="expanded", theme=st.session_state.theme)
+
 # Apply custom styles from style.py
 style.apply_custom_styles()
 
@@ -31,6 +48,9 @@ with st.sidebar:
     st.button("Business Analysis", on_click=set_page, args=("Business",))  
     st.button("Solutions", on_click=set_page, args=("Solutions",))  
     st.button("About", on_click=set_page, args=("About",))  
+
+    # Add a button to toggle the theme
+    st.button("Toggle Theme", on_click=toggle_theme)
 
     # Contact Information with Discord Link
     st.markdown("""
