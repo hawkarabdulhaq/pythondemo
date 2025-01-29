@@ -6,7 +6,7 @@ def show():
     <div style="
         position: relative;
         text-align: center;
-        color: white;
+        color: Black;
         height: 300px;
         background-image: url('https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/waves.jpg');
         background-size: cover;
