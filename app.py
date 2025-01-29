@@ -24,7 +24,7 @@ with st.sidebar:
     st.image("input/code.png", width=200)
     
     # Display main logo
-    st.image("input/logo.jpg", width=200)
+    st.image("input/solution.jpg", width=200)
     
     # Navigation buttons
     st.button("Home", on_click=set_page, args=("Home",))
