@@ -2,7 +2,8 @@ import streamlit as st
 import home
 import enrollment
 import about
-import trainings  # Import Trainings module
+import trainings
+import business  # Import Business Analysis module
 import style
 
 # Apply custom styles from style.py
@@ -27,7 +28,8 @@ with st.sidebar:
     # Navigation buttons
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("About", on_click=set_page, args=("About",))
-    st.button("Trainings", on_click=set_page, args=("Trainings",))  # Trainings page button
+    st.button("Trainings", on_click=set_page, args=("Trainings",))  
+    st.button("Business Analysis", on_click=set_page, args=("Business",))  # New Business Analysis Page
     
     # Contact Information with Discord Link
     st.markdown("""
@@ -49,7 +51,9 @@ if st.session_state.page == "Home":
 elif st.session_state.page == "About":
     about.show()
 elif st.session_state.page == "Trainings":
-    trainings.show()  # Trainings page display
+    trainings.show()
+elif st.session_state.page == "Business":
+    business.show()  # Show Business Analysis Page
 
 # Footer
 st.markdown("""
