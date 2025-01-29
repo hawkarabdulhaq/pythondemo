@@ -19,7 +19,7 @@ def show():
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     ">
         <h1 style="margin: 0; font-size: 2.5em; font-weight: bold;">Utilize AI and Machine Learning Faster and Smarter</h1>
-        <p style="margin-top: 10px; font-size: 1.2em;">Empower your business with cutting-edge skills and insights!</p>
+        <p style="margin-top: 10px; font-size: 1.2em;">Transform your business into a data-driven, more resilient enterprise with us!</p>
     </div>
     <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
     """, unsafe_allow_html=True)
