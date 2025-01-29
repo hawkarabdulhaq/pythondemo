@@ -1,10 +1,9 @@
 import streamlit as st
 import home
-import enrollment
-import about
 import trainings
 import business  # Import Business Analysis module
 import solutions  # Import Solutions module
+import about
 import style
 
 # Apply custom styles from style.py
@@ -26,13 +25,13 @@ with st.sidebar:
     # Display main logo
     st.image("input/logo.jpg", width=200)
     
-    # Navigation buttons
+    # Navigation buttons (Updated Order)
     st.button("Home", on_click=set_page, args=("Home",))
-    st.button("About", on_click=set_page, args=("About",))
     st.button("Trainings", on_click=set_page, args=("Trainings",))  
-    st.button("Business Analysis", on_click=set_page, args=("Business",))  # Business Analysis Page
-    st.button("Solutions", on_click=set_page, args=("Solutions",))  # New Solutions Page
-    
+    st.button("Business Analysis", on_click=set_page, args=("Business",))  
+    st.button("Solutions", on_click=set_page, args=("Solutions",))  
+    st.button("About", on_click=set_page, args=("About",))  
+
     # Contact Information with Discord Link
     st.markdown("""
         <div style="margin-top: 30px; font-size: 1.1em; color: #2C3E50;">
@@ -50,14 +49,14 @@ with st.sidebar:
 # Display the selected page content based on the sidebar navigation
 if st.session_state.page == "Home":
     home.show()
-elif st.session_state.page == "About":
-    about.show()
 elif st.session_state.page == "Trainings":
     trainings.show()
 elif st.session_state.page == "Business":
     business.show()  # Show Business Analysis Page
 elif st.session_state.page == "Solutions":
     solutions.show()  # Show Solutions Page
+elif st.session_state.page == "About":
+    about.show()
 
 # Footer
 st.markdown("""
