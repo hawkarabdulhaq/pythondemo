@@ -1,72 +1,57 @@
 import streamlit as st
 
 def show():
-    # Display the title
-    st.markdown('<div class="title">About Us</div>', unsafe_allow_html=True)
+    """Display the About Us page."""
 
-    # Display the profile photo
-    st.image(
-        "input/me.jpg",
-        width=250,
-        caption="Our story and journey to excellence.",
-        use_column_width="auto",
-    )
+    # Banner Section with Background Image
+    st.markdown(f"""
+    <div style="
+        position: relative;
+        text-align: center;
+        color: white;
+        height: 300px;
+        background-image: url('https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/about.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    ">
+        <h1 style="margin: 0; font-size: 2.5em; font-weight: bold;">About Us</h1>
+        <p style="margin-top: 10px; font-size: 1.2em;">Transforming businesses into data-driven, resilient, and sustainable enterprises.</p>
+    </div>
+    <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
+    """, unsafe_allow_html=True)
 
-    # Profile Overview
+    # Introduction Section
     st.markdown("""
-    <div class="content">
-        Learn about our team, mission, and dedication to empowering learners worldwide with the best resources and mentorship.
+    <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #1ABC9C; margin-bottom: 10px;">
+        Who We Are
+    </div>
+    <div style="text-align: center; font-size: 1.2em; color: #34495E; margin-bottom: 30px;">
+        We are an **AI and Sustainability startup**, leveraging expertise in **Climate Action, Environmental Sustainability, and Business Optimization** to create **Code for Impact**.
     </div>
     """, unsafe_allow_html=True)
 
-    # Section: Early Career and Education
+    # Our Goal
     st.markdown("""
-    <div class="section-title">Early Career and Education</div>
-    <div class="content">
-        Our journey began with a strong foundation in technology and education, driven by a passion for innovation.
+    <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #1ABC9C; margin-top: 40px;">
+        Our Goal
+    </div>
+    <div style="text-align: center; font-size: 1.2em; color: #34495E; margin-bottom: 30px;">
+        Our mission is to **help businesses transition into data-driven, resilient, and sustainable organizations** by integrating advanced AI solutions and data analytics.
     </div>
     """, unsafe_allow_html=True)
 
-    # Section: Hasar Organization and PhD Studies
+    # Call to Action
     st.markdown("""
-    <div class="section-title">Hasar Organization and PhD Studies</div>
-    <div class="content">
-        We partnered with leading organizations to advance research and technology for real-world impact.
+    <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #1ABC9C; margin-top: 40px;">
+        Ready to make your business data-driven?
     </div>
-    """, unsafe_allow_html=True)
-
-    # Section: Research and Publications
-    st.markdown("""
-    <div class="section-title">Research and Publications</div>
-    <div class="content">
-        Our team has contributed to groundbreaking research in technology and education:
-        <ul>
-            <li><strong>Publication 1: Exploring AI in Education</strong></li>
-            <li><strong>Publication 2: Advancing Learning Platforms</strong></li>
-            <li><strong>Publication 3: Innovations in Digital Transformation</strong></li>
-        </ul>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Section: A Passion for Coding and Innovation
-    st.markdown("""
-    <div class="section-title">A Passion for Coding and Innovation</div>
-    <div class="content">
-        Our commitment to coding excellence and creative problem-solving drives every aspect of our work.
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Section: Entrepreneurial Ventures
-    st.markdown("""
-    <div class="section-title">Entrepreneurial Ventures</div>
-    <div class="content">
-        From startups to large-scale projects, we bring innovative ideas to life through technology and collaboration.
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Section: Call to Action
-    st.markdown("""
-    <div class="content" style="margin-top: 40px;">
-        <p>Join us on this journey and become part of a community passionate about learning and innovation.</p>
+    <div style="text-align: center; font-size: 1.2em; color: #34495E; margin-bottom: 30px;">
+        Let’s collaborate to drive impact with AI-powered sustainability solutions.
     </div>
     """, unsafe_allow_html=True)
