@@ -39,19 +39,16 @@ def show():
     # Solutions We Offer
     st.markdown("""
     <div style="display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center;">
-        <div style="width: 30%; background-color: #f4f8fb; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/mapping.jpg" alt="Mapping Solutions" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-            <h3 style="color: #34495E;">Mapping & GIS Solutions</h3>
+        <div style="width: 30%; background-image: url('https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/GIS.jpg'); background-size: cover; background-position: center; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); color: white;">
+            <h3 style="color: white;">Mapping & GIS Solutions</h3>
             <p>Developing spatial intelligence solutions to visualize and analyze geographic data for better decision-making.</p>
         </div>
-        <div style="width: 30%; background-color: #f4f8fb; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/machine_learning.jpg" alt="Machine Learning" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-            <h3 style="color: #34495E;">Machine Learning Solutions</h3>
+        <div style="width: 30%; background-image: url('https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/machine learning.jpg'); background-size: cover; background-position: center; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); color: white;">
+            <h3 style="color: white;">Machine Learning Solutions</h3>
             <p>Leveraging AI-driven models to analyze data, predict trends, and automate processes for smarter business operations.</p>
         </div>
-        <div style="width: 30%; background-color: #f4f8fb; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/business_data.jpg" alt="Business Data Solutions" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-            <h3 style="color: #34495E;">Business Data Solutions</h3>
+        <div style="width: 30%; background-image: url('https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/businesses.jpg'); background-size: cover; background-position: center; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); color: white;">
+            <h3 style="color: white;">Business Data Solutions</h3>
             <p>Developing real-time data pipelines, dashboards, and automation tools to optimize business decision-making.</p>
         </div>
     </div>
