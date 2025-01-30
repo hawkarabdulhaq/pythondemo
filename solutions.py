@@ -31,7 +31,7 @@ def show():
     <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #1ABC9C; margin-bottom: 10px;">
         Tailored Data Solutions for Businesses & Organizations
     </div>
-    <div style="text-align: center; font-size: 1.2em; color: #34495E; margin-bottom: 30px;">
+    <div style="text-align: center; font-size: 1.2em; color: #eeeeee; margin-bottom: 30px;">
         We design, develop, and implement data-driven solutions to optimize decision-making, efficiency, and automation.
     </div>
     """, unsafe_allow_html=True)
@@ -59,7 +59,7 @@ def show():
     <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #1ABC9C; margin-top: 40px;">
         Need a Custom Data Solution?
     </div>
-    <div style="text-align: center; font-size: 1.2em; color: #34495E; margin-bottom: 30px;">
+    <div style="text-align: center; font-size: 1.2em; color: #eeeeee; margin-bottom: 30px;">
         Whether you need AI-driven models, mapping tools, or business automation, we tailor solutions to your needs.
     </div>
     """, unsafe_allow_html=True)
