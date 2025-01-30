@@ -34,7 +34,7 @@ with st.sidebar:
 
     # Contact Information with Discord Link
     st.markdown("""
-        <div style="margin-top: 30px; font-size: 1.1em; color: #2C3E50;">
+        <div style="margin-top: 30px; font-size: 1.1em; color: #eeeeee;">
             <p><strong>Contact:</strong></p>
             <p>Email: <a href="mailto:connect@habdulhaq.com" target="_blank" style="color: #1ABC9C;">connect@habdulhaq.com</a></p>
             <p>Website: <a href="https://www.habdulhaq.com" target="_blank" style="color: #1ABC9C;">www.habdulhaq.com</a></p>
