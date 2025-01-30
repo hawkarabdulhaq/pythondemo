@@ -26,7 +26,7 @@ def show():
 
     # Subtitle
     st.markdown("""
-    <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #FFFFF; margin-bottom: 20px;">
+    <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #eeeeee; margin-bottom: 20px;">
         Perfect for Beginners and Professionals Alike!
     </div>
     """, unsafe_allow_html=True)
@@ -43,17 +43,17 @@ def show():
     <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
         <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Training" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-            <h3 style="color: #34495E;">Training</h3>
+            <h3 style="color: #eeeeee;">Training</h3>
             <p>Learn AI, Machine Learning, and Automation quickly and effectively.</p>
         </div>
         <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Analysis" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-            <h3 style="color: #34495E;">Analysis</h3>
+            <h3 style="color: #eeeeee;">Analysis</h3>
             <p>We analyze your business and provide a custom data-driven improvement plan.</p>
         </div>
         <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-            <h3 style="color: #34495E;">Solutions</h3>
+            <h3 style="color: #eeeeee;">Solutions</h3>
             <p>Custom-built tools to solve problems and streamline your operations.</p>
         </div>
     </div>
