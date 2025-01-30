@@ -34,7 +34,7 @@ with st.sidebar:
     st.markdown("""
         <div style="margin-top: 30px; font-size: 1.1em; color: #eeeeee;">
             <p><strong>Contact:</strong></p>
-            <p>Email: <a href="mailto:ha@releafs.co" target="_blank" style="color: #1ABC9C;">connect@habdulhaq.com</a></p>
+            <p>Email: <a href="mailto:ha@releafs.co" target="_blank" style="color: #1ABC9C;">ha@releafs.co</a></p>
         </div>
         <div style="margin-top: 20px; font-size: 1.1em;">
             <p><strong>Book a Demo:</strong></p>
