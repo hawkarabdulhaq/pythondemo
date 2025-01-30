@@ -57,6 +57,6 @@ elif st.session_state.page == "About":
 # Footer
 st.markdown("""
     <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
-        habdulhaq.com © 2024
+        releafs.co © 2024
     </div>
 """, unsafe_allow_html=True)
