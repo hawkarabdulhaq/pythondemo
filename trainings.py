@@ -2,6 +2,7 @@ import streamlit as st
 import base64
 import pandas as pd
 from ourtrainings import get_trainings, show_trainings
+import os
 
 
 def load_image_as_base64(image_path):
