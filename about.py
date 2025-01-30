@@ -31,7 +31,7 @@ def show():
     <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #1ABC9C; margin-bottom: 10px;">
         Who We Are
     </div>
-    <div style="text-align: center; font-size: 1.2em; color: #34495E; margin-bottom: 30px;">
+    <div style="text-align: center; font-size: 1.2em; color: #eeeeee; margin-bottom: 30px;">
         We are an **AI and Sustainability startup**, leveraging expertise in **Climate Action, Environmental Sustainability, and Business Optimization** to create **Code for Impact**.
     </div>
     """, unsafe_allow_html=True)
@@ -41,7 +41,7 @@ def show():
     <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #1ABC9C; margin-top: 40px;">
         Our Goal
     </div>
-    <div style="text-align: center; font-size: 1.2em; color: #34495E; margin-bottom: 30px;">
+    <div style="text-align: center; font-size: 1.2em; color: #eeeeee; margin-bottom: 30px;">
         Our mission is to **help businesses transition into data-driven, resilient, and sustainable organizations** by integrating advanced AI solutions and data analytics.
     </div>
     """, unsafe_allow_html=True)
@@ -51,7 +51,7 @@ def show():
     <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #1ABC9C; margin-top: 40px;">
         Ready to make your business data-driven?
     </div>
-    <div style="text-align: center; font-size: 1.2em; color: #34495E; margin-bottom: 30px;">
+    <div style="text-align: center; font-size: 1.2em; color: #eeeeee; margin-bottom: 30px;">
         Let’s collaborate to drive impact with AI-powered sustainability solutions.
     </div>
     """, unsafe_allow_html=True)
