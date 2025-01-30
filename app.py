@@ -19,8 +19,6 @@ def set_page(page):
 
 # Sidebar Navigation with Logo, Course Title, and Options
 with st.sidebar:
-    # Display course code image
-    st.image("input/code.png", width=200)
     
     # Display main logo
     st.image("input/logo.jpg", width=200)
