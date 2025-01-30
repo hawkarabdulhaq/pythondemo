@@ -55,17 +55,15 @@ def show_certificate_database():
                 if cert_path.startswith("certificates/"):
                     # Load from GitHub raw URL
                     cert_url = GITHUB_BASE_URL + cert_path
-                    st.image(cert_url, caption="Certificate", use_column_width=True)
+                    st.image(cert_url, caption="Certificate", use_container_width=True)
                 else:
                     # Load from local file
                     if os.path.exists(cert_path):
-                        st.image(cert_path, caption="Certificate", use_column_width=True)
+                        st.image(cert_path, caption="Certificate", use_container_width=True)
                     else:
                         st.warning(f"Certificate not found: {cert_path}")
 
             st.markdown("---")  # Divider between participants
-
-
 
 def show():
     """Display the tabs for the Streamlit app."""
