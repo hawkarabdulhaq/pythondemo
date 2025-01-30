@@ -45,7 +45,7 @@ def show():
                 if cert_base64:
                     st.markdown(f"""
                     <div class="zoom-container" style="margin-top: 10px;">
-                        <img src="data:image/jpeg;base64,{cert_base64}" alt="Certificate" style="width: 100%;">
+                        <img src="data:image/jpg;base64,{cert_base64}" alt="Certificate" style="width: 100%;">
                     </div>
                     """, unsafe_allow_html=True)
 
