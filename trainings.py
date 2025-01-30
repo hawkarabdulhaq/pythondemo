@@ -62,7 +62,6 @@ def show():
     """Display the tabs for the Streamlit app."""
     tab1, tab2, tab3 = st.tabs([
         "Our Trainings",
-        "Our Certificate System",
         "Certificate Database"
     ])
 
