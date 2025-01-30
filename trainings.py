@@ -13,9 +13,12 @@ def load_image_as_base64(image_path):
     except FileNotFoundError:
         st.error(f"Image at path {image_path} not found.")
         return ""
+import streamlit as st
+import pandas as pd
+import os
 
-
-GITHUB_BASE_URL = "https://github.com/hawkarabdulhaq/pythondemo/blob/main/"
+# GitHub raw base URL
+GITHUB_BASE_URL = "https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/"
 
 def show_certificate_database():
     """Display the 'Certificate Database' tab content."""
@@ -50,7 +53,7 @@ def show_certificate_database():
                 cert_path = str(participant_info["certificate"])
 
                 if cert_path.startswith("certificates/"):
-                    # Load from GitHub URL
+                    # Load from GitHub raw URL
                     cert_url = GITHUB_BASE_URL + cert_path
                     st.image(cert_url, caption="Certificate", use_column_width=True)
                 else:
@@ -61,6 +64,7 @@ def show_certificate_database():
                         st.warning(f"Certificate not found: {cert_path}")
 
             st.markdown("---")  # Divider between participants
+
 
 
 def show():
