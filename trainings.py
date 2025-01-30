@@ -15,6 +15,8 @@ def load_image_as_base64(image_path):
         return ""
 
 
+GITHUB_BASE_URL = "https://github.com/hawkarabdulhaq/pythondemo/blob/main/"
+
 def show_certificate_database():
     """Display the 'Certificate Database' tab content."""
     st.title("Certificate Database")
@@ -44,15 +46,21 @@ def show_certificate_database():
                 st.write(f"**Credential:** {participant_info['credential']}")
 
             with col2:
-                # Load and display their certificate using st.image()
-                cert_path = participant_info["certificate"]
-                if os.path.exists(cert_path):
-                    st.image(cert_path, caption="Certificate", use_column_width=True)
+                # Get certificate path
+                cert_path = str(participant_info["certificate"])
+
+                if cert_path.startswith("certificates/"):
+                    # Load from GitHub URL
+                    cert_url = GITHUB_BASE_URL + cert_path
+                    st.image(cert_url, caption="Certificate", use_column_width=True)
                 else:
-                    st.warning(f"Certificate not found: {cert_path}")
+                    # Load from local file
+                    if os.path.exists(cert_path):
+                        st.image(cert_path, caption="Certificate", use_column_width=True)
+                    else:
+                        st.warning(f"Certificate not found: {cert_path}")
 
             st.markdown("---")  # Divider between participants
-
 
 
 def show():
