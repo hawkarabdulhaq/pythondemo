@@ -15,63 +15,6 @@ def load_image_as_base64(image_path):
 
 
 
-def show_certificate_system():
-    """Display the 'Our Certificate System' tab content."""
-    st.markdown('<div class="title">Certificate System</div>', unsafe_allow_html=True)
-    st.markdown("""
-    <div class="content">
-        Explore how our certificate system works and recognize your achievements in learning.
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Load images as Base64
-    portrait_image_base64 = load_image_as_base64("input/p.jpg")
-    landscape_image_base64 = load_image_as_base64("input/l.jpg")
-
-    # Apply custom CSS for secure display and zoom effect
-    st.markdown("""
-    <style>
-        .zoom-container {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .zoom-container img {
-            transition: transform 0.3s ease-in-out;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            max-width: 100%;
-            height: auto;
-        }
-
-        .zoom-container:hover img {
-            transform: scale(1.2);
-        }
-
-        .zoom-container img {
-            pointer-events: none;
-        }
-    </style>
-    """, unsafe_allow_html=True)
-
-    # Portrait Certificate
-    st.markdown("<h3>Portrait Certificate</h3>", unsafe_allow_html=True)
-    if portrait_image_base64:
-        st.markdown(f"""
-        <div class="zoom-container">
-            <img src="data:image/jpeg;base64,{portrait_image_base64}" alt="Portrait Certificate" style="width: 100%;">
-        </div>
-        """, unsafe_allow_html=True)
-
-    # Landscape Certificate
-    st.markdown("<h3>Landscape Certificate</h3>", unsafe_allow_html=True)
-    if landscape_image_base64:
-        st.markdown(f"""
-        <div class="zoom-container">
-            <img src="data:image/jpeg;base64,{landscape_image_base64}" alt="Landscape Certificate" style="width: 100%;">
-        </div>
-        """, unsafe_allow_html=True)
-
 
 def show_certificate_database():
     """Display the 'Certificate Database' tab content."""
