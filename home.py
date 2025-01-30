@@ -26,7 +26,7 @@ def show():
 
     # Subtitle
     st.markdown("""
-    <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #34495E; margin-bottom: 20px;">
+    <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #FFFFF; margin-bottom: 20px;">
         Perfect for Beginners and Professionals Alike!
     </div>
     """, unsafe_allow_html=True)
