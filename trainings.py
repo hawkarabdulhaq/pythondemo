@@ -60,7 +60,7 @@ def show_certificate_database():
 
 def show():
     """Display the tabs for the Streamlit app."""
-    tab1, tab2, tab3 = st.tabs([
+    tab1, tab3 = st.tabs([
         "Our Trainings",
         "Certificate Database"
     ])
