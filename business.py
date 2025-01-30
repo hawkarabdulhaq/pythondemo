@@ -31,7 +31,7 @@ def show():
     <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #1ABC9C; margin-bottom: 10px;">
         What is a Data-Driven Business?
     </div>
-    <div style="text-align: center; font-size: 1.2em; color: #34495E; margin-bottom: 30px;">
+    <div style="text-align: center; font-size: 1.2em; color: #eeeeee; margin-bottom: 30px;">
         A data-driven business makes decisions based on insights, not guesswork. Here's why it matters:
     </div>
     """, unsafe_allow_html=True)
@@ -39,15 +39,15 @@ def show():
     st.markdown("""
     <div style="display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center;">
         <div style="width: 30%; background-color: #000000; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
-            <h3 style="color: #34495E;">Higher Efficiency</h3>
+            <h3 style="color: #eeeeee;">Higher Efficiency</h3>
             <p>Automate processes and optimize workflows to save time.</p>
         </div>
         <div style="width: 30%; background-color: #000000; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
-            <h3 style="color: #34495E;">Lower Costs</h3>
+            <h3 style="color: #eeeeee;">Lower Costs</h3>
             <p>Cut unnecessary expenses by improving resource management.</p>
         </div>
         <div style="width: 30%; background-color: #000000; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
-            <h3 style="color: #34495E;">Smarter Decisions</h3>
+            <h3 style="color: #eeeeee;">Smarter Decisions</h3>
             <p>Leverage real-time data to stay ahead of the competition.</p>
         </div>
     </div>
