@@ -14,8 +14,6 @@ def load_image_as_base64(image_path):
         return ""
 
 
-
-
 def show_certificate_database():
     """Display the 'Certificate Database' tab content."""
     st.title("Certificate Database")
@@ -45,17 +43,15 @@ def show_certificate_database():
                 st.write(f"**Credential:** {participant_info['credential']}")
 
             with col2:
-                # Load and display their certificate
+                # Load and display their certificate using st.image()
                 cert_path = participant_info["certificate"]
-                cert_base64 = load_image_as_base64(cert_path)
-                if cert_base64:
-                    st.markdown(f"""
-                    <div class="zoom-container" style="margin-top: 10px;">
-                        <img src="data:image/jpeg;base64,{cert_base64}" alt="Certificate" style="width: 100%;">
-                    </div>
-                    """, unsafe_allow_html=True)
+                if os.path.exists(cert_path):
+                    st.image(cert_path, caption="Certificate", use_column_width=True)
+                else:
+                    st.warning(f"Certificate not found: {cert_path}")
 
             st.markdown("---")  # Divider between participants
+
 
 
 def show():
