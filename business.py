@@ -58,7 +58,7 @@ def show():
     <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #1ABC9C; margin-top: 40px;">
         Can Your Business Become Data-Driven?
     </div>
-    <div style="text-align: center; font-size: 1.2em; color: #34495E; margin-bottom: 30px;">
+    <div style="text-align: center; font-size: 1.2em; color: #eeeeee; margin-bottom: 30px;">
         Whether you're a startup or a well-established company, data-driven strategies can revolutionize your business.
     </div>
     """, unsafe_allow_html=True)
@@ -73,7 +73,7 @@ def show():
     <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #1ABC9C; margin-top: 40px;">
         Do You Need a Data-Driven System?
     </div>
-    <div style="text-align: center; font-size: 1.2em; color: #34495E; margin-bottom: 30px;">
+    <div style="text-align: center; font-size: 1.2em; color: #eeeeee; margin-bottom: 30px;">
         We can develop a data-driven strategy and implement it for you.
     </div>
     """, unsafe_allow_html=True)
