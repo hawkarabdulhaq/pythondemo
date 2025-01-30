@@ -69,8 +69,6 @@ def show():
     with tab1:
         show_trainings()
 
-    with tab2:
-        show_certificate_system()
 
     with tab3:
         show_certificate_database()
