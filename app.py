@@ -5,7 +5,6 @@ import business
 import solutions
 import about
 import contact
-import products  # Import the new Products module
 import style
 
 # Apply custom styles from style.py
@@ -29,7 +28,6 @@ with st.sidebar:
     st.button("Trainings", on_click=set_page, args=("Trainings",))
     st.button("Business Analysis", on_click=set_page, args=("Business",))
     st.button("Solutions", on_click=set_page, args=("Solutions",))
-    st.button("Products", on_click=set_page, args=("Products",))  # New Products Page
     st.button("About", on_click=set_page, args=("About",))
     st.button("Contact", on_click=set_page, args=("Contact",))
 
@@ -57,8 +55,6 @@ elif st.session_state.page == "Business":
     business.show()
 elif st.session_state.page == "Solutions":
     solutions.show()
-elif st.session_state.page == "Products":  # New Products Page
-    products.show()
 elif st.session_state.page == "About":
     about.show()
 elif st.session_state.page == "Contact":
