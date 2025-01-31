@@ -27,7 +27,6 @@ def show():
 
     # Pro Plan
     with col2:
-        st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/pro.jpg", use_container_width=True)
         st.markdown("### 🚀 Pro Plan ($350)")
         st.write("""
         ✅ 6 weeks of training  
@@ -40,7 +39,6 @@ def show():
 
     # VIP Plan
     with col3:
-        st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/vip.jpg", use_container_width=True)
         st.markdown("### 👑 VIP Plan ($900 - $1200)")
         st.write("""
         ✅ 12 months of private coaching  
