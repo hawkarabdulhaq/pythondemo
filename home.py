@@ -1,9 +1,5 @@
 import streamlit as st
 
-def set_page(page):
-    """Function to update the page session state."""
-    st.session_state.page = page
-
 def show():
     """Display the home page with interactive navigation."""
     
@@ -44,38 +40,29 @@ def show():
     </div>
     """, unsafe_allow_html=True)
 
-    # Columns for Interactive Sections
+    # Offer Details with Clickable Navigation
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        # Training Section
-        if st.button("", key="trainings_button", on_click=set_page, args=("Trainings",)):
-            pass  # Button click triggers page change
-        st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg", use_column_width=True)
-        st.markdown(
-            '<h3 style="text-align: center; color: #eeeeee; cursor: pointer;">Training</h3>', 
-            unsafe_allow_html=True
-        )
-        st.write("Learn AI, Machine Learning, and Automation quickly and effectively.")
+        if st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg", use_column_width=True):
+            st.session_state.page = "Trainings"
+        if st.markdown("### Training"):
+            st.session_state.page = "Trainings"
+        if st.markdown("Learn AI, Machine Learning, and Automation quickly and effectively."):
+            st.session_state.page = "Trainings"
 
     with col2:
-        # Business Analysis Section
-        if st.button("", key="business_button", on_click=set_page, args=("Business",)):
-            pass  # Button click triggers page change
-        st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg", use_column_width=True)
-        st.markdown(
-            '<h3 style="text-align: center; color: #eeeeee; cursor: pointer;">Analysis</h3>', 
-            unsafe_allow_html=True
-        )
-        st.write("We analyze your business and provide a custom data-driven improvement plan.")
+        if st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg", use_column_width=True):
+            st.session_state.page = "Business"
+        if st.markdown("### Analysis"):
+            st.session_state.page = "Business"
+        if st.markdown("We analyze your business and provide a custom data-driven improvement plan."):
+            st.session_state.page = "Business"
 
     with col3:
-        # Solutions Section
-        if st.button("", key="solutions_button", on_click=set_page, args=("Solutions",)):
-            pass  # Button click triggers page change
-        st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg", use_column_width=True)
-        st.markdown(
-            '<h3 style="text-align: center; color: #eeeeee; cursor: pointer;">Solutions</h3>', 
-            unsafe_allow_html=True
-        )
-        st.write("Custom-built tools to solve problems and streamline your operations.")
+        if st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg", use_column_width=True):
+            st.session_state.page = "Solutions"
+        if st.markdown("### Solutions"):
+            st.session_state.page = "Solutions"
+        if st.markdown("Custom-built tools to solve problems and streamline your operations."):
+            st.session_state.page = "Solutions"
