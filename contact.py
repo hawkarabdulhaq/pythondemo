@@ -15,13 +15,13 @@ def show():
     </div>
     """, unsafe_allow_html=True)
 
-    # Booking Section
+    # Booking Section with Embedded Calendly Widget
     st.markdown("""
     <div style="margin-top: 40px; text-align: center; font-size: 1.1em;">
         <p><strong>Schedule a Meeting:</strong></p>
-        <p><a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" 
-        style="background-color: #1ABC9C; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Book a Demo</a></p>
     </div>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/hawkar_abdulhaq/ai-for-impact?background_color=010000&text_color=fcf8f8&primary_color=129729" style="min-width:320px;height:700px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     """, unsafe_allow_html=True)
     
     # Address Section
