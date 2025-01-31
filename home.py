@@ -1,5 +1,13 @@
 import streamlit as st
 
+# Initialize session state for navigation
+if "page" not in st.session_state:
+    st.session_state.page = "Home"
+
+# Function to update the page state
+def set_page(page):
+    st.session_state.page = page
+
 def show():
     # Banner Section with Image Background
     st.markdown(f"""
@@ -38,23 +46,21 @@ def show():
     </div>
     """, unsafe_allow_html=True)
 
-    # Offer Details
-    st.markdown("""
-    <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-        <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Training" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-            <h3 style="color: #eeeeee;">Training</h3>
-            <p>Learn AI, Machine Learning, and Automation quickly and effectively.</p>
-        </div>
-        <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Analysis" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-            <h3 style="color: #eeeeee;">Analysis</h3>
-            <p>We analyze your business and provide a custom data-driven improvement plan.</p>
-        </div>
-        <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-            <h3 style="color: #eeeeee;">Solutions</h3>
-            <p>Custom-built tools to solve problems and streamline your operations.</p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    # Display clickable sections for Training, Analysis, and Solutions
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg", use_column_width=True)
+        if st.button("📚 Training"):
+            set_page("Trainings")
+
+    with col2:
+        st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg", use_column_width=True)
+        if st.button("📊 Analysis"):
+            set_page("Business")
+
+    with col3:
+        st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg", use_column_width=True)
+        if st.button("🛠 Solutions"):
+            set_page("Solutions")
+
