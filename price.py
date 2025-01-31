@@ -1,84 +1,143 @@
 import streamlit as st
 
 def show():
-    # Set styles for consistent layout
-    feature_style = "font-size: 0.95em; margin-bottom: 8px;"
-    button_style = "background-color: #1ABC9C; color: white; padding: 8px 12px; border-radius: 5px; font-size: 0.9em; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 10px;"
+    """Display the Pricing page in the Streamlit app."""
 
-    # Page title
-    st.markdown('<div class="title">Course Pricing</div>', unsafe_allow_html=True)
+    # Page Title
+    st.title("💰 Pricing Plans")
+    st.markdown("""
+    <div style="text-align: center; font-size: 1.3em; color: #1ABC9C; margin-bottom: 20px;">
+        Find the best plan for your AI learning journey. Choose based on your needs!
+    </div>
+    """, unsafe_allow_html=True)
 
-    # Free Week Demo section
-    free_demo_col = st.columns(1)
-    with free_demo_col[0]:
-        st.markdown(f"""
-        <div style="background-color: #f4f8fb; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); margin-bottom: 30px;">
-            <h3 style="color: #1ABC9C; font-size: 1.5em;">Free Week Demo</h3>
-            <div style="{feature_style}">Full Access to Week 1</div>
-            <div style="{feature_style}">1 Online Session</div>
-            <div style="{feature_style}">Available for one week</div>
-            <a href="https://calendly.com/hawkar_abdulhaq/introduction-to-coding-training-with-hawkar" target="_blank" style="{button_style}">Enroll Now</a>
-        </div>
-        """, unsafe_allow_html=True)
+    # Pricing Table with Visuals
+    col1, col2, col3 = st.columns(3)
 
-    # Define pricing options in columns
-    col1, col2, col3, col4 = st.columns(4)
-
-    # Student Offer
+    # Basic Plan
     with col1:
-        st.markdown(f"""
-        <div style="background-color: #f4f8fb; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
-            <h3 style="color: #1ABC9C; font-size: 1.5em;">Student Offer</h3>
-            <h4 style="color: #333; font-size: 1.1em; margin-top: 5px;">$100</h4>
-            <div style="{feature_style}">Interactive Classes</div>
-            <div style="{feature_style}">Hands-On Projects</div>
-            <div style="{feature_style}">24/7 Support</div>
-            <div style="{feature_style}">Flexible Schedule</div>
-            <div style="{feature_style}">Certification</div>
-            <div style="{feature_style}">Exclusive Resources</div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfolc_O8_QIn25TylAOwTIKOpHpBV3gG_V4bja79B0EopRLVQ/viewform?usp=sf_link" target="_blank" style="{button_style}">Enroll Now</a>
-        </div>
-        """, unsafe_allow_html=True)
+        st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/basic.jpg", use_column_width=True)
+        st.markdown("### 🎓 Basic Plan ($250)")
+        st.write("""
+        ✅ 4 weeks of training  
+        ✅ 4 theoretical + 4 practical sessions  
+        ✅ Hands-on projects  
+        ✅ Certification  
+        """)
+        st.markdown('<a href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>', unsafe_allow_html=True)
 
-    # Group Offer
+    # Pro Plan
     with col2:
-        st.markdown(f"""
-        <div style="background-color: #f4f8fb; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
-            <h3 style="color: #1ABC9C; font-size: 1.5em;">Group Offer</h3>
-            <h4 style="color: #333; font-size: 1.1em; margin-top: 5px;">$80 per person</h4>
-            <div style="{feature_style}">For Groups of 5+</div>
-            <div style="{feature_style}">Custom Schedules</div>
-            <div style="{feature_style}">Group Discounts</div>
-            <div style="{feature_style}">Certification for All</div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfolc_O8_QIn25TylAOwTIKOpHpBV3gG_V4bja79B0EopRLVQ/viewform?usp=sf_link" target="_blank" style="{button_style}">Enroll Now</a>
-        </div>
-        """, unsafe_allow_html=True)
+        st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/pro.jpg", use_column_width=True)
+        st.markdown("### 🚀 Pro Plan ($350)")
+        st.write("""
+        ✅ 6 weeks of training  
+        ✅ 6 theoretical + 6 practical sessions  
+        ✅ 3 private mentorship sessions  
+        ✅ Hands-on AI project support  
+        ✅ Certification  
+        """)
+        st.markdown('<a href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>', unsafe_allow_html=True)
 
-    # One-on-One Offer
+    # VIP Plan
     with col3:
-        st.markdown(f"""
-        <div style="background-color: #f4f8fb; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
-            <h3 style="color: #1ABC9C; font-size: 1.5em;">One-on-One Offer</h3>
-            <h4 style="color: #333; font-size: 1.1em; margin-top: 5px;">$200</h4>
-            <div style="{feature_style}">Personalized Classes</div>
-            <div style="{feature_style}">Mentorship</div>
-            <div style="{feature_style}">Flexible Schedule</div>
-            <div style="{feature_style}">Premium Support</div>
-            <div style="{feature_style}">Certification</div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfolc_O8_QIn25TylAOwTIKOpHpBV3gG_V4bja79B0EopRLVQ/viewform?usp=sf_link" target="_blank" style="{button_style}">Enroll Now</a>
-        </div>
-        """, unsafe_allow_html=True)
+        st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/vip.jpg", use_column_width=True)
+        st.markdown("### 👑 VIP Plan ($900 - $1200)")
+        st.write("""
+        ✅ 12 months of private coaching  
+        ✅ Monthly 1-on-1 mentorship  
+        ✅ Career guidance & networking  
+        ✅ Personalized AI learning roadmap  
+        ✅ Certification  
+        """)
+        st.markdown('<a href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>', unsafe_allow_html=True)
 
-    # Enterprise Offer
-    with col4:
-        st.markdown(f"""
-        <div style="background-color: #f4f8fb; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
-            <h3 style="color: #1ABC9C; font-size: 1.5em;">Enterprise Offer</h3>
-            <h4 style="color: #333; font-size: 1.1em; margin-top: 5px;">Custom Pricing</h4>
-            <div style="{feature_style}">Tailored Training</div>
-            <div style="{feature_style}">Team Access</div>
-            <div style="{feature_style}">Exclusive Resources</div>
-            <div style="{feature_style}">Flexible Timelines</div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfolc_O8_QIn25TylAOwTIKOpHpBV3gG_V4bja79B0EopRLVQ/viewform?usp=sf_link" target="_blank" style="{button_style}">Contact Us</a>
-        </div>
-        """, unsafe_allow_html=True)
+    # Detailed Feature Comparison Table
+    st.markdown("### 📊 Compare Plans")
+    st.markdown("""
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.1em;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 10px;
+        }
+        th {
+            background-color: #1ABC9C;
+            color: white;
+        }
+    </style>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Basic ($250)</th>
+            <th>Pro ($350)</th>
+            <th>VIP ($900 - $1200)</th>
+        </tr>
+        <tr>
+            <td><strong>Duration</strong></td>
+            <td>4 Weeks</td>
+            <td>6 Weeks</td>
+            <td>12 Months</td>
+        </tr>
+        <tr>
+            <td><strong>Live Theoretical Sessions</strong></td>
+            <td>✅ 4</td>
+            <td>✅ 6</td>
+            <td>✅ 6</td>
+        </tr>
+        <tr>
+            <td><strong>Live Practical Sessions</strong></td>
+            <td>✅ 4</td>
+            <td>✅ 6</td>
+            <td>✅ 6</td>
+        </tr>
+        <tr>
+            <td><strong>Project-Based Learning</strong></td>
+            <td>✅ Yes</td>
+            <td>✅ Yes</td>
+            <td>✅ Yes</td>
+        </tr>
+        <tr>
+            <td><strong>Mentorship Sessions</strong></td>
+            <td>❌ No</td>
+            <td>✅ 3</td>
+            <td>✅ Ongoing</td>
+        </tr>
+        <tr>
+            <td><strong>Private Coaching</strong></td>
+            <td>❌ No</td>
+            <td>❌ No</td>
+            <td>✅ Monthly 1-on-1</td>
+        </tr>
+        <tr>
+            <td><strong>Career Guidance</strong></td>
+            <td>❌ No</td>
+            <td>❌ No</td>
+            <td>✅ Personalized</td>
+        </tr>
+        <tr>
+            <td><strong>Certification</strong></td>
+            <td>✅ Yes</td>
+            <td>✅ Yes</td>
+            <td>✅ Yes</td>
+        </tr>
+        <tr>
+            <td><strong>Best For</strong></td>
+            <td>Beginners who want structured learning</td>
+            <td>Learners who need mentorship</td>
+            <td>Professionals seeking career coaching</td>
+        </tr>
+    </table>
+    """, unsafe_allow_html=True)
+
+    # Footer
+    st.markdown("""
+    <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
+        releafs.co © 2024
+    </div>
+    """, unsafe_allow_html=True)
