@@ -2,7 +2,7 @@ import streamlit as st
 
 def show():
     """Display the home page with interactive navigation."""
-
+    
     # Banner Section with Image Background
     st.markdown(f"""
     <div style="
@@ -64,47 +64,40 @@ def show():
         width: 100%; 
         height: auto;
     }
-    /* Remove underline and keep text color on links */
-    .no-decor {
-        text-decoration: none;
-        color: inherit;
-    }
     </style>
-
     <div class="offer-container">
-      <!-- TRAINING -->
-      <a href="?page=Trainings" class="no-decor">
-        <div class="offer-box">
+        <div class="offer-box" onclick="setTraining()">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Training">
             <h3 style="color: #eeeeee;">Training</h3>
             <p>Learn AI, Machine Learning, and Automation quickly and effectively.</p>
         </div>
-      </a>
-
-      <!-- ANALYSIS -->
-      <a href="?page=Business" class="no-decor">
-        <div class="offer-box">
+        <div class="offer-box" onclick="setBusiness()">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Analysis">
             <h3 style="color: #eeeeee;">Analysis</h3>
             <p>We analyze your business and provide a custom data-driven improvement plan.</p>
         </div>
-      </a>
-
-      <!-- SOLUTIONS -->
-      <a href="?page=Solutions" class="no-decor">
-        <div class="offer-box">
+        <div class="offer-box" onclick="setSolutions()">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions">
             <h3 style="color: #eeeeee;">Solutions</h3>
             <p>Custom-built tools to solve problems and streamline your operations.</p>
         </div>
-      </a>
     </div>
+    <script>
+        function setTraining() {{
+            window.location.href = "?page=Trainings";
+        }}
+        function setBusiness() {{
+            window.location.href = "?page=Business";
+        }}
+        function setSolutions() {{
+            window.location.href = "?page=Solutions";
+        }}
+    </script>
     """, unsafe_allow_html=True)
 
     # Handle Navigation using Session State
-    query_params = st.experimental_get_query_params()
-    if "page" in query_params:
-        selected_page = query_params["page"][0]  # query_params["page"] is usually a list
+    if st.query_params.get("page"):
+        selected_page = st.query_params["page"]
         if selected_page == "Trainings":
             st.session_state.page = "Trainings"
         elif selected_page == "Business":
