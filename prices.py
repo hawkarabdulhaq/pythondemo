@@ -16,7 +16,6 @@ def show():
 
     # Basic Plan
     with col1:
-        st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/basic.jpg", use_container_width=True)
         st.markdown("### 🎓 Basic Plan ($250)")
         st.write("""
         ✅ 4 weeks of training  
