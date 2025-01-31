@@ -2,19 +2,7 @@ import streamlit as st
 import base64
 import pandas as pd
 from ourtrainings import get_trainings, show_trainings
-import os
-
-
-def load_image_as_base64(image_path):
-    """Load an image and return it as a Base64 encoded string."""
-    try:
-        with open(image_path, "rb") as img_file:
-            return base64.b64encode(img_file.read()).decode()
-    except FileNotFoundError:
-        st.error(f"Image at path {image_path} not found.")
-        return ""
-import streamlit as st
-import pandas as pd
+import prices  # Import Prices Module
 import os
 
 # GitHub raw base URL
@@ -67,14 +55,17 @@ def show_certificate_database():
 
 def show():
     """Display the tabs for the Streamlit app."""
-    tab1, tab3 = st.tabs([
+    tab1, tab2, tab3 = st.tabs([
         "Our Trainings",
+        "Pricing Plans",
         "Certificate Database"
     ])
 
     with tab1:
         show_trainings()
 
+    with tab2:
+        prices.show()  # Calls the Pricing Page
 
     with tab3:
         show_certificate_database()
