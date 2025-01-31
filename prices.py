@@ -135,3 +135,8 @@ def show():
     </table>
     """, unsafe_allow_html=True)
 
+    # Footer
+    st.markdown("""
+
+    </div>
+    """, unsafe_allow_html=True)
