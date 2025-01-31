@@ -18,6 +18,11 @@ if "page" not in st.session_state:
 def set_page(page):
     st.session_state.page = page
 
+# Check if a navigation event has been triggered
+if "navigate_to" in st.session_state:
+    st.session_state.page = st.session_state.navigate_to
+    del st.session_state.navigate_to  # Remove trigger after navigation
+
 # Sidebar Navigation
 with st.sidebar:
     # Display logo
