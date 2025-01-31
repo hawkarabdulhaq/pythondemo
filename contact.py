@@ -22,4 +22,4 @@ def show():
     </div>
     """
     
-    html(calendly_html, height=700)
+    html(calendly_html, height=2500)
