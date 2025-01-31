@@ -20,6 +20,7 @@ def get_trainings():
                     "Week 3: Deploy Apps with GitHub and Streamlit",
                     "Week 4: Data Week",
                 ],
+                "availability": "✅ Included in Basic, Pro, and VIP Plans",
             },
             {
                 "name": "Course 2: Advanced Machine Learning and Real-Time Deployment",
@@ -34,6 +35,7 @@ def get_trainings():
                     "Week 3: Deploying AI Models with Streamlit",
                     "Week 4: Real-Time Deployment with GitHub and Cloud Integration",
                 ],
+                "availability": "✅ Included in Pro and VIP Plans (Not available in Basic Plan)",
             },
         ],
         "program": {
@@ -123,6 +125,9 @@ def show_trainings():
             for chapter in course["chapters"]:
                 st.write(f"- {chapter}")
             
+            # Availability based on pricing plans
+            st.markdown(f"**📌 Availability:** {course['availability']}")
+
             # Request button linking to Calendly
             request_html = f"""
             <a class="request-button" href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank">Request</a>
