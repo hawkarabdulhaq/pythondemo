@@ -1,8 +1,22 @@
+This are the pages that I have on the sidebar
+# Main Page Content
+if st.session_state.page == "Home":
+    home.show()
+elif st.session_state.page == "Trainings":
+    trainings.show()
+elif st.session_state.page == "Business":
+    business.show()
+elif st.session_state.page == "Solutions":
+    solutions.show()
+elif st.session_state.page == "About":
+    about.show()
+elif st.session_state.page == "Contact":
+    contact.show()
+
+
 import streamlit as st
 
 def show():
-    """Display the home page with interactive navigation."""
-    
     # Banner Section with Image Background
     st.markdown(f"""
     <div style="
@@ -40,67 +54,23 @@ def show():
     </div>
     """, unsafe_allow_html=True)
 
-    # Offer Details with Clickable Navigation
+    # Offer Details
     st.markdown("""
-    <style>
-    .offer-container {
-        display: flex; 
-        justify-content: space-around; 
-        flex-wrap: wrap; 
-        text-align: center;
-    }
-    .offer-box {
-        background-color: ##000000; 
-        padding: 20px; 
-        border-radius: 10px; 
-        width: 30%; 
-        margin-bottom: 20px; 
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-    }
-    .offer-box img {
-        border-radius: 10px; 
-        margin-bottom: 15px; 
-        width: 100%; 
-        height: auto;
-    }
-    </style>
-    <div class="offer-container">
-        <div class="offer-box" onclick="setTraining()">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Training">
+    <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Training" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
             <h3 style="color: #eeeeee;">Training</h3>
             <p>Learn AI, Machine Learning, and Automation quickly and effectively.</p>
         </div>
-        <div class="offer-box" onclick="setBusiness()">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Analysis">
+        <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Analysis" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
             <h3 style="color: #eeeeee;">Analysis</h3>
             <p>We analyze your business and provide a custom data-driven improvement plan.</p>
         </div>
-        <div class="offer-box" onclick="setSolutions()">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions">
+        <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
             <h3 style="color: #eeeeee;">Solutions</h3>
             <p>Custom-built tools to solve problems and streamline your operations.</p>
         </div>
     </div>
-    <script>
-        function setTraining() {{
-            window.location.href = "?page=Trainings";
-        }}
-        function setBusiness() {{
-            window.location.href = "?page=Business";
-        }}
-        function setSolutions() {{
-            window.location.href = "?page=Solutions";
-        }}
-    </script>
     """, unsafe_allow_html=True)
-
-    # Handle Navigation using Session State
-    if st.query_params.get("page"):
-        selected_page = st.query_params["page"]
-        if selected_page == "Trainings":
-            st.session_state.page = "Trainings"
-        elif selected_page == "Business":
-            st.session_state.page = "Business"
-        elif selected_page == "Solutions":
-            st.session_state.page = "Solutions"
