@@ -2,7 +2,7 @@ import streamlit as st
 
 def show():
     """Display the home page with interactive navigation."""
-    
+
     # Banner Section with Image Background
     st.markdown(f"""
     <div style="
@@ -41,28 +41,55 @@ def show():
     """, unsafe_allow_html=True)
 
     # Offer Details with Clickable Navigation
-    col1, col2, col3 = st.columns(3)
+    st.markdown("""
+    <style>
+    .offer-container {
+        display: flex; 
+        justify-content: space-around; 
+        flex-wrap: wrap; 
+        text-align: center;
+    }
+    .offer-box {
+        background-color: ##000000; 
+        padding: 20px; 
+        border-radius: 10px; 
+        width: 30%; 
+        margin-bottom: 20px; 
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+    .offer-box img {
+        border-radius: 10px; 
+        margin-bottom: 15px; 
+        width: 100%; 
+        height: auto;
+    }
+    </style>
+    <div class="offer-container">
+        <div class="offer-box" onclick="location.href='?page=Trainings'">
+            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Training">
+            <h3 style="color: #eeeeee;">Training</h3>
+            <p>Learn AI, Machine Learning, and Automation quickly and effectively.</p>
+        </div>
+        <div class="offer-box" onclick="location.href='?page=Business'">
+            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Analysis">
+            <h3 style="color: #eeeeee;">Analysis</h3>
+            <p>We analyze your business and provide a custom data-driven improvement plan.</p>
+        </div>
+        <div class="offer-box" onclick="location.href='?page=Solutions'">
+            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions">
+            <h3 style="color: #eeeeee;">Solutions</h3>
+            <p>Custom-built tools to solve problems and streamline your operations.</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
-    with col1:
-        if st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg", use_column_width=True):
+    # Handle Navigation using Session State
+    if st.query_params.get("page"):
+        selected_page = st.query_params["page"]
+        if selected_page == "Trainings":
             st.session_state.page = "Trainings"
-        if st.markdown("### Training"):
-            st.session_state.page = "Trainings"
-        if st.markdown("Learn AI, Machine Learning, and Automation quickly and effectively."):
-            st.session_state.page = "Trainings"
-
-    with col2:
-        if st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg", use_column_width=True):
+        elif selected_page == "Business":
             st.session_state.page = "Business"
-        if st.markdown("### Analysis"):
-            st.session_state.page = "Business"
-        if st.markdown("We analyze your business and provide a custom data-driven improvement plan."):
-            st.session_state.page = "Business"
-
-    with col3:
-        if st.image("https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg", use_column_width=True):
-            st.session_state.page = "Solutions"
-        if st.markdown("### Solutions"):
-            st.session_state.page = "Solutions"
-        if st.markdown("Custom-built tools to solve problems and streamline your operations."):
+        elif selected_page == "Solutions":
             st.session_state.page = "Solutions"
