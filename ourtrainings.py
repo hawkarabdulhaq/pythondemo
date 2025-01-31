@@ -122,8 +122,10 @@ def show_trainings():
             st.write("**Course Chapters:**")
             for chapter in course["chapters"]:
                 st.write(f"- {chapter}")
-            request_html = """
-            <a class="request-button" href="#">Request</a>
+            
+            # Request button linking to Calendly
+            request_html = f"""
+            <a class="request-button" href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank">Request</a>
             """
             st.markdown(request_html, unsafe_allow_html=True)
             st.markdown("---")
