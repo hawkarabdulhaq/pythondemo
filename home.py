@@ -1,9 +1,9 @@
 import streamlit as st
 
 def show():
-    """Display the home page with interactive navigation."""
+    """Display the home page with clickable cards for navigation."""
     
-    # Banner Section with Image Background
+    # Banner Section
     st.markdown(f"""
     <div style="
         position: relative;
@@ -33,14 +33,14 @@ def show():
     </div>
     """, unsafe_allow_html=True)
 
-    # What We Offer Section
+    # Heading
     st.markdown("""
     <div style="text-align: center; font-size: 2em; font-weight: bold; color: #1ABC9C; margin-bottom: 20px;">
         What We Offer
     </div>
     """, unsafe_allow_html=True)
 
-    # Offer Details with Clickable Navigation
+    # Custom CSS for removing link underlines and ensuring clickable cards
     st.markdown("""
     <style>
     .offer-container {
@@ -50,13 +50,12 @@ def show():
         text-align: center;
     }
     .offer-box {
-        background-color: ##000000; 
+        background-color: #000000; 
         padding: 20px; 
         border-radius: 10px; 
         width: 30%; 
         margin-bottom: 20px; 
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
     }
     .offer-box img {
         border-radius: 10px; 
@@ -64,43 +63,51 @@ def show():
         width: 100%; 
         height: auto;
     }
+    a {
+        text-decoration: none; /* remove underline */
+        color: inherit;        /* inherit text color */
+    }
+    a:hover {
+        opacity: 0.9;         /* subtle hover effect */
+    }
     </style>
-    <div class="offer-container">
-        <div class="offer-box" onclick="setTraining()">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Training">
-            <h3 style="color: #eeeeee;">Training</h3>
-            <p>Learn AI, Machine Learning, and Automation quickly and effectively.</p>
-        </div>
-        <div class="offer-box" onclick="setBusiness()">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Analysis">
-            <h3 style="color: #eeeeee;">Analysis</h3>
-            <p>We analyze your business and provide a custom data-driven improvement plan.</p>
-        </div>
-        <div class="offer-box" onclick="setSolutions()">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions">
-            <h3 style="color: #eeeeee;">Solutions</h3>
-            <p>Custom-built tools to solve problems and streamline your operations.</p>
-        </div>
-    </div>
-    <script>
-        function setTraining() {{
-            window.location.href = "?page=Trainings";
-        }}
-        function setBusiness() {{
-            window.location.href = "?page=Business";
-        }}
-        function setSolutions() {{
-            window.location.href = "?page=Solutions";
-        }}
-    </script>
     """, unsafe_allow_html=True)
 
-    # Handle Navigation using Session State
-    if st.query_params.get("page"):
-        selected_page = st.query_params["page"]
-        if selected_page == "Trainings":
-            st.session_state.page = "Trainings"
-        elif selected_page == "Business":
-            st.session_state.page = "Business"
-        elif selected_page == "Solutions":
-            st.session_state.page = "Solutions"
+    # Offer Details (3 Cards) with anchor tags to set ?page=...
+    st.markdown("""
+    <div class="offer-container">
+    
+        <!-- Training Card -->
+        <a href="?page=Trainings">
+            <div class="offer-box">
+                <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Training">
+                <h3 style="color: #eeeeee;">Training</h3>
+                <p style="color: #cccccc;">Learn AI, Machine Learning, and Automation quickly and effectively.</p>
+            </div>
+        </a>
+        
+        <!-- Analysis Card -->
+        <a href="?page=Business">
+            <div class="offer-box">
+                <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Analysis">
+                <h3 style="color: #eeeeee;">Analysis</h3>
+                <p style="color: #cccccc;">We analyze your business and provide a custom data-driven improvement plan.</p>
+            </div>
+        </a>
+        
+        <!-- Solutions Card -->
+        <a href="?page=Solutions">
+            <div class="offer-box">
+                <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions">
+                <h3 style="color: #eeeeee;">Solutions</h3>
+                <p style="color: #cccccc;">Custom-built tools to solve problems and streamline your operations.</p>
+            </div>
+        </a>
+
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Sync with session_state if a ?page=... param is present
+    query_params = st.experimental_get_query_params()
+    if "page" in query_params:
+        st.session_state.page = query_params["page"][0]
