@@ -36,7 +36,7 @@ with st.sidebar:
         """
         <div style="margin-top: 30px; font-size: 1.1em; color: #eeeeee;">
             <p><strong>Contact:</strong></p>
-            <p>Email: <a href="mailto:ha@releafs.co" target="_blank" style="color: #1ABC9C;">ha@releafs.co</a></p>
+            <p>Email: <a href="mailto:connect@habdulhaq.com" target="_blank" style="color: #1ABC9C;">connect@habdulhaq.com</a></p>
         </div>
         <div style="margin-top: 20px; font-size: 1.1em;">
             <p><strong>Book a Demo:</strong></p>
@@ -64,7 +64,7 @@ elif st.session_state.page == "Contact":
 st.markdown(
     """
     <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
-        releafs.co © 2024
+        aiforimpact © 2024
     </div>
     """,
     unsafe_allow_html=True,
