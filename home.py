@@ -64,29 +64,47 @@ def show():
         width: 100%; 
         height: auto;
     }
+    /* Remove underline and keep text color on links */
+    .no-decor {
+        text-decoration: none;
+        color: inherit;
+    }
     </style>
+
     <div class="offer-container">
-        <div class="offer-box" onclick="location.href='?page=Trainings'">
+      <!-- TRAINING -->
+      <a href="?page=Trainings" class="no-decor">
+        <div class="offer-box">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Training">
             <h3 style="color: #eeeeee;">Training</h3>
             <p>Learn AI, Machine Learning, and Automation quickly and effectively.</p>
         </div>
-        <div class="offer-box" onclick="location.href='?page=Business'">
+      </a>
+
+      <!-- ANALYSIS -->
+      <a href="?page=Business" class="no-decor">
+        <div class="offer-box">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Analysis">
             <h3 style="color: #eeeeee;">Analysis</h3>
             <p>We analyze your business and provide a custom data-driven improvement plan.</p>
         </div>
-        <div class="offer-box" onclick="location.href='?page=Solutions'">
+      </a>
+
+      <!-- SOLUTIONS -->
+      <a href="?page=Solutions" class="no-decor">
+        <div class="offer-box">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions">
             <h3 style="color: #eeeeee;">Solutions</h3>
             <p>Custom-built tools to solve problems and streamline your operations.</p>
         </div>
+      </a>
     </div>
     """, unsafe_allow_html=True)
 
     # Handle Navigation using Session State
-    if st.query_params.get("page"):
-        selected_page = st.query_params["page"]
+    query_params = st.experimental_get_query_params()
+    if "page" in query_params:
+        selected_page = query_params["page"][0]  # query_params["page"] is usually a list
         if selected_page == "Trainings":
             st.session_state.page = "Trainings"
         elif selected_page == "Business":
