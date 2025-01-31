@@ -10,25 +10,25 @@ import style
 # Apply custom styles from style.py
 style.apply_custom_styles()
 
-# Initialize session state for page tracking
+# 1) Check if 'page' exists in session_state
 if "page" not in st.session_state:
     st.session_state.page = "Home"
 
-# Function to update the page state
+# 2) Parse any query param ?page=...
+query_params = st.experimental_get_query_params()
+if "page" in query_params:
+    # e.g. ?page=Trainings
+    st.session_state.page = query_params["page"][0]
+
+# 3) Navigation helper for sidebar buttons
 def set_page(page):
     st.session_state.page = page
+    # Also set the query param so the URL updates accordingly
+    st.experimental_set_query_params(page=page)
 
-# Check if a navigation event has been triggered
-if "navigate_to" in st.session_state:
-    st.session_state.page = st.session_state.navigate_to
-    del st.session_state.navigate_to  # Remove trigger after navigation
-
-# Sidebar Navigation
+# ---- SIDEBAR ----
 with st.sidebar:
-    # Display logo
     st.image("input/logo.jpg", width=200)
-
-    # Navigation buttons
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Trainings", on_click=set_page, args=("Trainings",))
     st.button("Business Analysis", on_click=set_page, args=("Business",))
@@ -36,7 +36,6 @@ with st.sidebar:
     st.button("About", on_click=set_page, args=("About",))
     st.button("Contact", on_click=set_page, args=("Contact",))
 
-    # Contact Information with email and demo link
     st.markdown(
         """
         <div style="margin-top: 30px; font-size: 1.1em; color: #eeeeee;">
@@ -51,7 +50,7 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
 
-# Main Page Content
+# ---- MAIN PAGE CONTENT ----
 if st.session_state.page == "Home":
     home.show()
 elif st.session_state.page == "Trainings":
@@ -65,7 +64,7 @@ elif st.session_state.page == "About":
 elif st.session_state.page == "Contact":
     contact.show()
 
-# Footer
+# ---- FOOTER ----
 st.markdown(
     """
     <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
