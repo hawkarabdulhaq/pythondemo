@@ -77,4 +77,30 @@ def show():
             <p>We analyze your business and provide a custom data-driven improvement plan.</p>
         </div>
         <div class="offer-box" onclick="setSolutions()">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions
+            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions">
+            <h3 style="color: #eeeeee;">Solutions</h3>
+            <p>Custom-built tools to solve problems and streamline your operations.</p>
+        </div>
+    </div>
+    <script>
+        function setTraining() {{
+            window.location.href = "?page=Trainings";
+        }}
+        function setBusiness() {{
+            window.location.href = "?page=Business";
+        }}
+        function setSolutions() {{
+            window.location.href = "?page=Solutions";
+        }}
+    </script>
+    """, unsafe_allow_html=True)
+
+    # Handle Navigation using Session State
+    if st.query_params.get("page"):
+        selected_page = st.query_params["page"]
+        if selected_page == "Trainings":
+            st.session_state.page = "Trainings"
+        elif selected_page == "Business":
+            st.session_state.page = "Business"
+        elif selected_page == "Solutions":
+            st.session_state.page = "Solutions"
