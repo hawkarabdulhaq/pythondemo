@@ -125,7 +125,7 @@ def show_trainings():
             for chapter in course["chapters"]:
                 st.write(f"- {chapter}")
             enroll_html = """
-            <a class="enroll-button" href="#">Enroll</a>
+            <a class="enroll-button" href="#">Request</a>
             """
             st.markdown(enroll_html, unsafe_allow_html=True)
             st.markdown("---")
