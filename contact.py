@@ -1,57 +1,17 @@
 import streamlit as st
 
 def show():
-    """Display the Contact page."""
-    
-    # Page Title
-    st.title("Contact Us")
-    
-    # Contact Information Section
+    """Redirect to Calendly scheduling page."""
     st.markdown("""
-    <div style="margin-top: 20px; font-size: 1.2em; color: #1ABC9C; text-align: center;">
-        <p>We'd love to hear from you!</p>
-        <p><strong>Email:</strong> <a href="mailto:ha@releafs.co" target="_blank" style="color: #1ABC9C;">ha@releafs.co</a></p>
-        <p><strong>Phone:</strong> +123 456 789</p>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Booking Section with Embedded Calendly Widget
-    st.markdown("""
-    <div style="margin-top: 40px; text-align: center; font-size: 1.1em;">
-        <p><strong>Schedule a Meeting:</strong></p>
-    </div>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/hawkar_abdulhaq/ai-for-impact?background_color=010000&text_color=fcf8f8&primary_color=129729" style="min-width:320px;height:700px;"></div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    """, unsafe_allow_html=True)
-    
-    # Address Section
-    st.markdown("""
-    <div style="margin-top: 40px; text-align: center; font-size: 1.1em;">
-        <p><strong>Our Office:</strong></p>
-        <p>Releafs Co.</p>
-        <p>Szeged, Hungary</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Social Media Links
-    st.markdown("""
-    <div style="margin-top: 50px; text-align: center; font-size: 1.1em;">
-        <p>Follow us on:</p>
-        <a href="https://www.linkedin.com" target="_blank" style="margin-right: 10px;">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/linkedin.png" width="40">
+    <div style="text-align: center; margin-top: 50px;">
+        <a href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank" style="
+            background-color: #129729; 
+            color: white; 
+            padding: 15px 25px; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-size: 1.2em;">
+            Schedule a Meeting
         </a>
-        <a href="https://twitter.com" target="_blank" style="margin-right: 10px;">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/twitter.png" width="40">
-        </a>
-        <a href="https://www.facebook.com" target="_blank">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/facebook.png" width="40">
-        </a>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Footer Note
-    st.markdown("""
-    <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
-        releafs.co © 2024
     </div>
     """, unsafe_allow_html=True)
