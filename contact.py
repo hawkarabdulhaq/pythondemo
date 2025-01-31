@@ -7,7 +7,7 @@ def show():
     <iframe 
         src="https://calendly.com/hawkar_abdulhaq/ai-for-impact?embed=true&background_color=373737&text_color=fcf8f8&primary_color=129729"
         width="100%" 
-        height="2000" 
+        height="700" 
         frameborder="0"
     ></iframe>
     """
