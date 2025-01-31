@@ -1,5 +1,3 @@
-# ourtrainings.py
-
 import streamlit as st
 
 def get_trainings():
@@ -92,11 +90,11 @@ def show_trainings():
 
     st.markdown("---")
     
-    # Custom CSS for the Enroll button
+    # Custom CSS for the Request button
     st.markdown(
         """
         <style>
-        .enroll-button {
+        .request-button {
             background-color: #286942 !important; /* Light green */
             border: none;
             color: white !important; /* White text */
@@ -115,7 +113,7 @@ def show_trainings():
         unsafe_allow_html=True,
     )
 
-    # Display courses in a card-like layout with styled enroll buttons
+    # Display courses in a card-like layout with styled Request buttons
     st.subheader("📚 Courses in the Program")
     for course in training_data["courses"]:
         with st.container():
@@ -124,8 +122,8 @@ def show_trainings():
             st.write("**Course Chapters:**")
             for chapter in course["chapters"]:
                 st.write(f"- {chapter}")
-            enroll_html = """
-            <a class="enroll-button" href="#">Request</a>
+            request_html = """
+            <a class="request-button" href="#">Request</a>
             """
-            st.markdown(enroll_html, unsafe_allow_html=True)
+            st.markdown(request_html, unsafe_allow_html=True)
             st.markdown("---")
