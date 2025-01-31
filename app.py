@@ -10,25 +10,20 @@ import style
 # Apply custom styles from style.py
 style.apply_custom_styles()
 
-# 1) Ensure page is in session state
+# Initialize session state for page tracking
 if "page" not in st.session_state:
     st.session_state.page = "Home"
 
-# 2) Check if ?page= is present in query_params
-params = st.query_params
-if "page" in params:
-    st.session_state.page = params["page"]
-
-# 3) Define a helper to set session_state + update query params
+# Function to update the page state
 def set_page(page):
     st.session_state.page = page
-    st.query_params = {"page": page}  # this updates the URL to ?page=...
 
-# ---- SIDEBAR ----
+# Sidebar Navigation
 with st.sidebar:
+    # Display logo
     st.image("input/logo.jpg", width=200)
 
-    # Buttons that change session state AND query params
+    # Navigation buttons
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Trainings", on_click=set_page, args=("Trainings",))
     st.button("Business Analysis", on_click=set_page, args=("Business",))
@@ -36,7 +31,7 @@ with st.sidebar:
     st.button("About", on_click=set_page, args=("About",))
     st.button("Contact", on_click=set_page, args=("Contact",))
 
-    # Contact & Demo Info
+    # Contact Information with email and demo link
     st.markdown(
         """
         <div style="margin-top: 30px; font-size: 1.1em; color: #eeeeee;">
@@ -51,7 +46,7 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
 
-# ---- MAIN PAGE CONTENT ----
+# Main Page Content
 if st.session_state.page == "Home":
     home.show()
 elif st.session_state.page == "Trainings":
@@ -65,7 +60,7 @@ elif st.session_state.page == "About":
 elif st.session_state.page == "Contact":
     contact.show()
 
-# ---- FOOTER ----
+# Footer
 st.markdown(
     """
     <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
