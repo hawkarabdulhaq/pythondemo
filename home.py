@@ -1,19 +1,3 @@
-This are the pages that I have on the sidebar
-# Main Page Content
-if st.session_state.page == "Home":
-    home.show()
-elif st.session_state.page == "Trainings":
-    trainings.show()
-elif st.session_state.page == "Business":
-    business.show()
-elif st.session_state.page == "Solutions":
-    solutions.show()
-elif st.session_state.page == "About":
-    about.show()
-elif st.session_state.page == "Contact":
-    contact.show()
-
-
 import streamlit as st
 
 def show():
