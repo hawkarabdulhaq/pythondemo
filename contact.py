@@ -11,4 +11,4 @@ def show():
         frameborder="0"
     ></iframe>
     """
-    html(calendly_embed, height=700)
+    html(calendly_embed, height=2000)
