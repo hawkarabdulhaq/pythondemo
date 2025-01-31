@@ -1,10 +1,14 @@
 import streamlit as st
+from streamlit.components.v1 import html
 
 def show():
-    """Display the embedded Calendly widget."""
-    st.markdown("""
-    <!-- Calendly inline widget begin -->
-    <div class="calendly-inline-widget" data-url="https://calendly.com/hawkar_abdulhaq/ai-for-impact?background_color=010000&text_color=fcf8f8&primary_color=129729" style="min-width:320px;height:700px;"></div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    <!-- Calendly inline widget end -->
-    """, unsafe_allow_html=True)
+    """Display the embedded Calendly widget using an iframe."""
+    calendly_embed = """
+    <iframe 
+        src="https://calendly.com/hawkar_abdulhaq/ai-for-impact?embed=true&background_color=373737&text_color=fcf8f8&primary_color=129729"
+        width="100%" 
+        height="700" 
+        frameborder="0"
+    ></iframe>
+    """
+    html(calendly_embed, height=700)
