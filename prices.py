@@ -22,6 +22,7 @@ def show():
         ✅ 4 theoretical + 4 practical sessions  
         ✅ Hands-on projects  
         ✅ Certification  
+        ✅ **Covers Course 1 only**  
         """)
         st.markdown('<a href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>', unsafe_allow_html=True)
 
@@ -34,6 +35,7 @@ def show():
         ✅ 3 private mentorship sessions  
         ✅ Hands-on AI project support  
         ✅ Certification  
+        ✅ **Covers both Course 1 & Course 2**  
         """)
         st.markdown('<a href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>', unsafe_allow_html=True)
 
@@ -46,6 +48,7 @@ def show():
         ✅ Career guidance & networking  
         ✅ Personalized AI learning roadmap  
         ✅ Certification  
+        ✅ **Covers both Course 1 & Course 2**  
         """)
         st.markdown('<a href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>', unsafe_allow_html=True)
 
@@ -124,6 +127,12 @@ def show():
             <td>✅ Yes</td>
         </tr>
         <tr>
+            <td><strong>Course Access</strong></td>
+            <td>✅ **Only Course 1**</td>
+            <td>✅ **Course 1 & Course 2**</td>
+            <td>✅ **Course 1 & Course 2**</td>
+        </tr>
+        <tr>
             <td><strong>Best For</strong></td>
             <td>Beginners who want structured learning</td>
             <td>Learners who need mentorship</td>
@@ -134,6 +143,7 @@ def show():
 
     # Footer
     st.markdown("""
-
+    <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
+        releafs.co © 2024
     </div>
     """, unsafe_allow_html=True)
