@@ -31,13 +31,16 @@ def get_trainings():
                 ),
                 "chapters": [
                     "Week 1: Advanced SQL and Databases",
-                    "Week 2: Supervised and Unsupervised Machine Learning",
-                    "Week 3: Deploying AI Models with Streamlit",
-                    "Week 4: Real-Time Deployment with GitHub and Cloud Integration",
+                    "Week 2: Deploy Database",
+                    "Week 3: Unsupervised Machine Learning",
+                    "Week 4: Supervised Machine Learning",
+                    "Week 5: Processing Data in Real-Time for Decision-Making",
+                    "Week 6: Capstone Project",
                 ],
                 "availability": "✅ Included in Pro and VIP Plans (Not available in Basic Plan)",
             },
         ],
+
         "program": {
             "title": "Micro Master in Machine Learning and AI",
             "description": (
