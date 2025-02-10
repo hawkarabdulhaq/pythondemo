@@ -1,10 +1,39 @@
 import streamlit as st
 import streamlit.components.v1 as components
+from theme import apply_dark_theme
+from style import apply_custom_styles
 
-def show():
-    svg_code = '''
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="width:100%; height:100%;">
-        <!-- Increased height to 450 -->
+def show_home():
+    apply_dark_theme()      # ensures background is dark
+    apply_custom_styles()   # ensures animated styles
+
+    # Inject custom CSS to remove top padding/margin of the main container.
+    st.markdown(
+        """
+        <style>
+            /* Remove top padding from the main block container */
+            .block-container {
+                padding-top: 0rem;
+                margin-top: 0rem;
+            }
+            /* Optionally, hide the Streamlit header if you want a full-screen experience */
+            header { 
+                visibility: hidden;
+                height: 0;
+            }
+            /* Remove body margin */
+            body {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Define the SVG code and force it to scale with its container.
+    svg_code = """
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" style="width: 100%; height: 100%;">
         <defs>
             <!-- Light Grey Wave Gradient -->
             <linearGradient id="impactWave" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -38,17 +67,17 @@ def show():
         </defs>
 
         <!-- Pure black background -->
-        <rect width="800" height="450" fill="#000000"/>
-        <rect width="800" height="450" fill="url(#techGrid)"/>
+        <rect width="800" height="400" fill="#000000"/>
+        <rect width="800" height="400" fill="url(#techGrid)"/>
 
-        <!-- Dynamic wave representation -->
+        <!-- Dynamic world map representation -->
         <g transform="translate(50, 50)" filter="url(#primaryGlow)" opacity="0.3">
-            <path d="M0 150 C150 100 250 200 400 150 S700 100 800 150" stroke="url(#impactWave)" stroke-width="2" fill="none">
+            <path d="M0 150 Q200 100 400 150 T800 150" stroke="url(#impactWave)" stroke-width="2" fill="none">
                 <animate attributeName="d" 
                          dur="8s" 
-                         values="M0 150 C150 100 250 200 400 150 S700 100 800 150;
-                                M0 170 C150 120 250 220 400 170 S700 120 800 170;
-                                M0 150 C150 100 250 200 400 150 S700 100 800 150"
+                         values="M0 150 Q200 100 400 150 T800 150;
+                                M0 170 Q200 120 400 170 T800 170;
+                                M0 150 Q200 100 400 150 T800 150"
                          repeatCount="indefinite"/>
             </path>
             <!-- Connection points representing global impact -->
@@ -106,8 +135,8 @@ def show():
 
         <!-- Course title with impact animation -->
         <g transform="translate(400, 80)" filter="url(#primaryGlow)">
-            <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="32" fill="#FFFFFF" font-weight="bold">
-                Utilize AI and Machine Learning Faster and Smarter
+            <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="56" fill="#FFFFFF" font-weight="bold">
+                AI for Impact
                 <animate attributeName="opacity" values="0.9;1;0.9" dur="4s" repeatCount="indefinite"/>
             </text>
         </g>
@@ -121,16 +150,9 @@ def show():
         </g>
 
         <!-- Technology stack with icons -->
-        <g transform="translate(400, 360)" filter="url(#primaryGlow)">
+        <g transform="translate(400, 370)" filter="url(#primaryGlow)">
             <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="16" fill="#6366F1">
                 Python • Web Apps • Machine Learning • Data Analysis • Google Colab
-            </text>
-        </g>
-
-        <!-- New subtitle at the bottom -->
-        <g transform="translate(400, 420)" filter="url(#primaryGlow)">
-            <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="22" fill="#FFFFFF">
-                Transform your business into a data-driven, more resilient enterprise with us!
             </text>
         </g>
 
@@ -147,6 +169,19 @@ def show():
             </circle>
         </g>
     </svg>
-    '''
-    
-    components.html(svg_code, width=800, height=450, scrolling=False)
+    """
+
+    # Wrap the SVG in a div with no extra margins and specify the width/height.
+    components.html(
+        f"""
+        <div style="margin:0; padding:0; width:800px; height:400px; overflow: hidden;">
+            {svg_code}
+        </div>
+        """,
+        width=800,
+        height=400,
+        scrolling=False,
+    )
+
+if __name__ == "__main__":
+    show_home()
