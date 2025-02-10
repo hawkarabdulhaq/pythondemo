@@ -164,13 +164,6 @@ def show():
     <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
     """, unsafe_allow_html=True)
 
-    ">
-        <h1 style="margin: 0; font-size: 2.5em; font-weight: bold;">Utilize AI and Machine Learning Faster and Smarter</h1>
-        <p style="margin-top: 10px; font-size: 1.2em;">Transform your business into a data-driven, more resilient enterprise with us!</p>
-    </div>
-    <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
-    """, unsafe_allow_html=True)
-
     # Subtitle
     st.markdown("""
     <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #eeeeee; margin-bottom: 20px;">
