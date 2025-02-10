@@ -1,21 +1,9 @@
-import streamlit as st
-
 def show():
-    # Banner Section with SVG Background
+    # SVG Banner Section
     st.markdown(f"""
-    <div style="
-        position: relative;
-        text-align: center;
-        color: White;
-        height: 450px;  <!-- Adjusted height to match SVG -->
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    ">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="width: 100%; height: 100%; border-radius: 10px;">
+    <div style="text-align: center; color: white;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+            <!-- SVG content goes here -->
             <defs>
                 <!-- Light Grey Wave Gradient -->
                 <linearGradient id="impactWave" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -162,20 +150,6 @@ def show():
         </svg>
     </div>
     <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
-    """, unsafe_allow_html=True)
-
-    # Subtitle
-    st.markdown("""
-    <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #eeeeee; margin-bottom: 20px;">
-        Optimizing businesses for resilience and sustainable growth with AI!
-    </div>
-    """, unsafe_allow_html=True)
-
-    # What We Offer Section
-    st.markdown("""
-    <div style="text-align: center; font-size: 2em; font-weight: bold; color: #1ABC9C; margin-bottom: 20px;">
-        What We Offer
-    </div>
     """, unsafe_allow_html=True)
 
     # Offer Details
