@@ -1,9 +1,6 @@
 import streamlit as st
 
 def show():
-    # Set up page layout
-    st.set_page_config(page_title="AI & Machine Learning", layout="wide")
-
     # Custom Styling
     st.markdown(
         """
