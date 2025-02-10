@@ -1,8 +1,9 @@
 import streamlit as st
+from streamlit.components.v1 import html
 
 def show():
     # SVG Banner Section
-    st.markdown(f"""
+    svg_banner = """
     <div style="text-align: center; color: white;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
             <!-- SVG content goes here -->
@@ -152,7 +153,10 @@ def show():
         </svg>
     </div>
     <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
-    """, unsafe_allow_html=True)
+    """
+
+    # Render the SVG banner using st.components.v1.html
+    html(svg_banner, height=500)
 
     # Subtitle
     st.markdown("""
