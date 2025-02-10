@@ -7,8 +7,8 @@ def show():
     # GitHub-hosted SVG URL (Ensure it's a direct raw URL)
     svg_url = "https://github.com/hawkarabdulhaq/pythondemo/blob/main/impact_wave.svg"
 
-    # Display SVG as an Image
-    st.image(svg_url, use_column_width=True)
+    # Display SVG as an Image (with correct parameter)
+    st.image(svg_url, use_container_width=True)
 
     # Subtitle
     st.markdown("""
