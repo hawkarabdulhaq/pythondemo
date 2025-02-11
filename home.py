@@ -1,6 +1,6 @@
 import streamlit as st
 
-def show_home():
+def show ():
     apply_dark_theme()      # ensures background is dark
     apply_custom_styles()   # ensures animated styles
 
