@@ -3,13 +3,15 @@ import requests
 import streamlit.components.v1 as components
 
 def show():
-    # Fetch the SVG content from your GitHub repository
     svg_url = "https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/impact_wave.svg"
-    response = requests.get(svg_url)
+    headers = {"User-Agent": "Mozilla/5.0"}  # Mimic a common browser user agent
+    response = requests.get(svg_url, headers=headers)
+    
+    # Debugging: display the status code
+    st.write("Status Code:", response.status_code)
+    
     if response.status_code == 200:
         svg_content = response.text
-        # Render the SVG using st.components.v1.html.
-        # Adjust the height as needed to fit your design.
         components.html(svg_content, height=500)
     else:
         st.error("Failed to load the impact wave graphic.")
