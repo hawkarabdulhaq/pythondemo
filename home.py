@@ -3,8 +3,13 @@ import streamlit.components.v1 as components
 
 def show():
     svg_code = """
-    <div style="width:100%; display:flex; justify-content:center;">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" style="display:block;">
+    <div style="width:800px; margin: 0 auto;">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 800 450"
+           width="800"
+           height="450"
+           preserveAspectRatio="xMidYMid meet"
+           style="display:block;">
           <defs>
               <!-- Light Grey Wave Gradient -->
               <linearGradient id="impactWave" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -67,9 +72,7 @@ def show():
 
           <!-- Advanced neural network visualization -->
           <g transform="translate(100, 100)" filter="url(#primaryGlow)">
-              <!-- Multiple interconnected layers -->
               <g class="neural-network">
-                  <!-- Layer connections with data flow -->
                   <path d="M0 100 C100 50 200 150 300 100" stroke="url(#impactWave)" stroke-width="1.5" fill="none" opacity="0.6">
                       <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="5s" repeatCount="indefinite"/>
                   </path>
@@ -100,15 +103,25 @@ def show():
           <!-- Web development elements -->
           <g transform="translate(500, 230)" filter="url(#primaryGlow)">
               <g class="web-elements" opacity="0.6">
-                  <text x="0" y="0" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">&lt;div class="impact"&gt;</text>
-                  <text x="20" y="25" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">&lt;App /&gt;</text>
-                  <text x="0" y="50" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">&lt;/div&gt;</text>
+                  <text x="0" y="0" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">
+                      &lt;div class="impact"&gt;
+                  </text>
+                  <text x="20" y="25" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">
+                      &lt;App /&gt;
+                  </text>
+                  <text x="0" y="50" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">
+                      &lt;/div&gt;
+                  </text>
               </g>
           </g>
 
           <!-- Course title with impact animation -->
           <g transform="translate(400, 80)" filter="url(#primaryGlow)">
-              <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="32" fill="#FFFFFF" font-weight="bold">
+              <text text-anchor="middle"
+                    font-family="Plus Jakarta Sans, sans-serif"
+                    font-size="32"
+                    fill="#FFFFFF"
+                    font-weight="bold">
                   Utilize AI and Machine Learning Faster and Smarter
                   <animate attributeName="opacity" values="0.9;1;0.9" dur="4s" repeatCount="indefinite"/>
               </text>
@@ -116,7 +129,10 @@ def show():
 
           <!-- Inspiring subtitle -->
           <g transform="translate(400, 330)" filter="url(#primaryGlow)">
-              <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="24" fill="#A5B4FC">
+              <text text-anchor="middle"
+                    font-family="Plus Jakarta Sans, sans-serif"
+                    font-size="24"
+                    fill="#A5B4FC">
                   Building Tomorrow's Solutions Today
                   <animate attributeName="fill" values="#A5B4FC;#818CF8;#A5B4FC" dur="6s" repeatCount="indefinite"/>
               </text>
@@ -124,14 +140,20 @@ def show():
 
           <!-- Technology stack with icons -->
           <g transform="translate(400, 360)" filter="url(#primaryGlow)">
-              <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="16" fill="#6366F1">
+              <text text-anchor="middle"
+                    font-family="Plus Jakarta Sans, sans-serif"
+                    font-size="16"
+                    fill="#6366F1">
                   Python • Web Apps • Machine Learning • Data Analysis • Google Colab
               </text>
           </g>
 
           <!-- New subtitle at the bottom -->
           <g transform="translate(400, 420)" filter="url(#primaryGlow)">
-              <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="22" fill="#FFFFFF">
+              <text text-anchor="middle"
+                    font-family="Plus Jakarta Sans, sans-serif"
+                    font-size="22"
+                    fill="#FFFFFF">
                   Transform your business into a data-driven, more resilient enterprise with us!
               </text>
           </g>
@@ -151,5 +173,5 @@ def show():
       </svg>
     </div>
     """
-    # Set a height that fully accommodates your SVG, and disable scrolling.
-    components.html(svg_code, height=500, scrolling=False)
+    # Use a height equal to the SVG's natural height (450) and disable scrolling.
+    components.html(svg_code, height=450, scrolling=False)
