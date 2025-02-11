@@ -153,7 +153,7 @@ def show():
     </div>
     """
     # Render the SVG container with fixed dimensions (no scrolling)
-    components.html(svg_code, height=450, width=800, scrolling=False)
+    components.html(svg_code, height=1000, width=800, scrolling=False)
 
 if __name__ == "__main__":
     show()
