@@ -151,5 +151,5 @@ def show():
       </svg>
     </div>
     """
-    # Adjust the height (e.g. 500 or 600) so the entire SVG is visible.
-    components.html(svg_code, height=500, scrolling=True)
+    # Set a height that fully accommodates your SVG, and disable scrolling.
+    components.html(svg_code, height=500, scrolling=False)
