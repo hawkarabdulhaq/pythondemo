@@ -1,8 +1,5 @@
+
 import streamlit as st
-
-# Must be the very first Streamlit command!
-st.set_page_config(page_title="Home", layout="wide")
-
 import home
 import trainings
 import business
