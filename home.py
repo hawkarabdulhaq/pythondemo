@@ -148,7 +148,7 @@ def show():
         </g>
     </svg>
     """
-    # The height parameter should match your viewBox height
+    # Render the SVG; the height parameter should match the viewBox height
     components.html(svg, height=450)
 
     # Banner Section with Image Background
