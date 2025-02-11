@@ -178,7 +178,7 @@ def show():
     </html>
     """
     # Set the iframe dimensions large enough to display the entire SVG without scrollbars.
-    components.html(html_code, height=1500, width=1500, scrolling=False)
+    components.html(html_code, height=2500, width=1500, scrolling=False)
     
     # Additional content below the SVG
     st.markdown("""
