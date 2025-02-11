@@ -1,28 +1,7 @@
 import streamlit as st
 
 def show():
-    # Banner Section with Image Background
-    st.markdown(f"""
-    <div style="
-        position: relative;
-        text-align: center;
-        color: White;
-        height: 300px;
-        background-image: url('https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/waves.jpg');
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    ">
-        <h1 style="margin: 0; font-size: 2.5em; font-weight: bold;">Utilize AI and Machine Learning Faster and Smarter</h1>
-        <p style="margin-top: 10px; font-size: 1.2em;">Transform your business into a data-driven, more resilient enterprise with us!</p>
-    </div>
-    <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
-    """, unsafe_allow_html=True)
+    # [Banner section removed]
 
     # Subtitle
     st.markdown("""
