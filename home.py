@@ -143,7 +143,7 @@ def show():
     </div>
     '''
     # Increase the height to ensure the entire SVG is visible (adjust as needed)
-    components.html(svg_code, height=600)
+    components.html(svg_code, height=1000)
 
     # The rest of your page content can go below
     st.markdown("""
