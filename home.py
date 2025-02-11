@@ -2,9 +2,9 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 def show():
-    # Embed the full SVG at the top of the page using st.components.v1.html
+    # Updated SVG with explicit width/height attributes in the <svg> tag.
     svg = """
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="450">
         <defs>
             <!-- Light Grey Wave Gradient -->
             <linearGradient id="impactWave" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -148,8 +148,8 @@ def show():
         </g>
     </svg>
     """
-    # Render the SVG; the height parameter should match the viewBox height
-    components.html(svg, height=450)
+    # Set both height and width for the iframe container.
+    components.html(svg, height=450, width=800, scrolling=True)
 
     # Banner Section with Image Background
     st.markdown("""
