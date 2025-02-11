@@ -160,7 +160,7 @@ def show():
             </svg>
         </div>
         """,
-        height=900,
+        height=1200,
     )
 
     # What We Offer Section
