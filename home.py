@@ -37,8 +37,8 @@ def show():
         </defs>
 
         <!-- Pure black background -->
-        <rect width="800" height="450" fill="#000000"/> <!-- Adjusted height to match viewBox -->
-        <rect width="800" height="450" fill="url(#techGrid)"/> <!-- Adjusted height to match viewBox -->
+        <rect width="800" height="450" fill="#000000"/>
+        <rect width="800" height="450" fill="url(#techGrid)"/>
 
         <!-- Dynamic wave representation -->
         <g transform="translate(50, 50)" filter="url(#primaryGlow)" opacity="0.3">
@@ -66,9 +66,7 @@ def show():
 
         <!-- Advanced neural network visualization -->
         <g transform="translate(100, 100)" filter="url(#primaryGlow)">
-            <!-- Multiple interconnected layers -->
             <g class="neural-network">
-                <!-- Layer connections with data flow -->
                 <path d="M0 100 C100 50 200 150 300 100" stroke="url(#impactWave)" stroke-width="1.5" fill="none" opacity="0.6">
                     <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="5s" repeatCount="indefinite"/>
                 </path>
