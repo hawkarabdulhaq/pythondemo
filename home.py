@@ -1,7 +1,8 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 def show():
-    # Embed the full SVG at the top of the page
+    # Embed the full SVG at the top of the page using st.components.v1.html
     svg = """
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
         <defs>
@@ -66,9 +67,7 @@ def show():
 
         <!-- Advanced neural network visualization -->
         <g transform="translate(100, 100)" filter="url(#primaryGlow)">
-            <!-- Multiple interconnected layers -->
             <g class="neural-network">
-                <!-- Layer connections with data flow -->
                 <path d="M0 100 C100 50 200 150 300 100" stroke="url(#impactWave)" stroke-width="1.5" fill="none" opacity="0.6">
                     <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="5s" repeatCount="indefinite"/>
                 </path>
@@ -149,14 +148,15 @@ def show():
         </g>
     </svg>
     """
-    st.markdown(svg, unsafe_allow_html=True)
+    # The height parameter should match your viewBox height
+    components.html(svg, height=450)
 
     # Banner Section with Image Background
-    st.markdown(f"""
+    st.markdown("""
     <div style="
         position: relative;
         text-align: center;
-        color: White;
+        color: white;
         height: 300px;
         background-image: url('https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/waves.jpg');
         background-size: cover;
@@ -191,17 +191,17 @@ def show():
     # Offer Details
     st.markdown("""
     <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-        <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="background-color: #000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Training" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
             <h3 style="color: #eeeeee;">Training</h3>
             <p>Learn AI, Machine Learning, and Automation quickly and effectively.</p>
         </div>
-        <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="background-color: #000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Analysis" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
             <h3 style="color: #eeeeee;">Analysis</h3>
             <p>We analyze your business and provide a custom data-driven improvement plan.</p>
         </div>
-        <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="background-color: #000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions" style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
             <h3 style="color: #eeeeee;">Solutions</h3>
             <p>Custom-built tools to solve problems and streamline your operations.</p>
