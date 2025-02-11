@@ -1,6 +1,6 @@
 import streamlit as st
 
-# st.set_page_config must be the very first Streamlit command!
+# Must be the very first Streamlit command!
 st.set_page_config(page_title="Home", layout="wide")
 
 import home
