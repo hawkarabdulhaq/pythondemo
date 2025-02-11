@@ -3,8 +3,7 @@ import streamlit.components.v1 as components
 from theme import apply_dark_theme
 from style import apply_custom_styles
 
-def show_home():
-    # Apply dark theme and custom styles
+def show():
     apply_dark_theme()      # ensures background is dark
     apply_custom_styles()   # ensures animated styles
 
@@ -17,7 +16,7 @@ def show_home():
                 padding-top: 0rem;
                 margin-top: 0rem;
             }
-            /* Optionally, hide the Streamlit header for a full-screen experience */
+            /* Optionally, hide the Streamlit header if you want a full-screen experience */
             header { 
                 visibility: hidden;
                 height: 0;
@@ -189,6 +188,5 @@ def show_home():
         scrolling=False,
     )
 
-
 if __name__ == "__main__":
-    show_home()
+    show()
