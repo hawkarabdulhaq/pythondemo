@@ -2,13 +2,14 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 def show():
-    # Remove top padding and margins
+    # Remove top padding and margins and ensure full width
     st.markdown(
         """
         <style>
             .block-container {
                 padding-top: 0rem;
                 margin-top: 0rem;
+                max-width: 100% !important;
             }
             header { 
                 visibility: hidden;
@@ -18,9 +19,31 @@ def show():
                 margin: 0;
                 padding: 0;
             }
+            /* Ensure the SVG container takes full width */
+            .stHtmlContainer {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
         </style>
         """,
         unsafe_allow_html=True,
+    )
+
+    # SVG Animation with adjusted container
+    svg_code = """
+    <div style="width: 100%; height: 100vh; overflow: hidden;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" style="width: 100%; height: auto;">
+        <!-- Your existing SVG content here -->
+        </svg>
+    </div>
+    """
+
+    # Render the SVG with increased height
+    components.html(
+        svg_code,
+        height=600,  # Increased height
+        width=None   # Allow full width
     )
 
     # SVG Animation
