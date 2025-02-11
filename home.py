@@ -1,13 +1,9 @@
 import streamlit as st
 
 def show():
-    # Ensure the content is at the top of the page
-    st.set_page_config(page_title="Home", layout="wide")
-
-    # Custom HTML & CSS for top banner
+    # Banner Section with Image Background
     st.markdown(f"""
     <style>
-        /* Ensures full-width banner */
         .banner-container {{
             position: relative;
             text-align: center;
@@ -25,7 +21,6 @@ def show():
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             padding: 20px;
         }}
-        /* Responsive adjustments */
         @media screen and (max-width: 768px) {{
             .banner-container {{
                 height: 280px;
@@ -54,7 +49,7 @@ def show():
     </div>
     """, unsafe_allow_html=True)
 
-    # Offer Details (Improved responsive layout)
+    # Offer Details
     st.markdown("""
     <style>
         .offer-container {
