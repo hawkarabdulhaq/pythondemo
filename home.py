@@ -1,6 +1,5 @@
 import streamlit as st
 import streamlit.components.v1 as components
-from style import apply_custom_styles
 
 def show_home():
     apply_dark_theme()      # ensures background is dark
