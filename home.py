@@ -1,7 +1,7 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 def show():
-    # Render the SVG at the top of the page
     svg = """
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
         <!-- Increased height to 450 -->
@@ -148,23 +148,22 @@ def show():
         </g>
     </svg>
     """
-    st.markdown(svg, unsafe_allow_html=True)
+    # Use the HTML component to embed the SVG directly
+    components.html(svg, height=450, width=800)
     
-    # Subtitle Section (after SVG)
+    # Additional content can follow here (e.g., subtitles, sections, etc.)
     st.markdown("""
     <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #eeeeee; margin-top: 20px; margin-bottom: 20px;">
         Optimizing businesses for resilience and sustainable growth with AI!
     </div>
     """, unsafe_allow_html=True)
     
-    # "What We Offer" Section Header
     st.markdown("""
     <div style="text-align: center; font-size: 2em; font-weight: bold; color: #1ABC9C; margin-bottom: 20px;">
         What We Offer
     </div>
     """, unsafe_allow_html=True)
     
-    # Offer Details Section
     st.markdown("""
     <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
         <div style="background-color: #000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
