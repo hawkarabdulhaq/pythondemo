@@ -33,7 +33,7 @@ def show():
     components.html(
         """
         <div style="width: 100%; display: flex; justify-content: center; align-items: center; background-color: black;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="width: 100%; height: auto;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" style="width: 100%; height: auto;">
                 <defs>
                     <linearGradient id="impactWave" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop offset="0%" style="stop-color:#d3d3d3"/>
