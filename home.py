@@ -1,9 +1,9 @@
 import streamlit as st
 import streamlit.components.v1 as components
+
 def show():
-    # Display SVG header at the very top of the page using the HTML component
     svg_code = '''
-    <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+    <div style="display: flex; justify-content: center; margin-bottom: 20px; overflow: visible;">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" style="max-width: 100%; height: auto;">
         <defs>
             <!-- Light Grey Wave Gradient -->
@@ -142,12 +142,11 @@ def show():
       </svg>
     </div>
     '''
-    
-    # Adjust the height parameter as needed for your SVG
-    components.html(svg_code, height=400)
-    
-    # ... (rest of your content, e.g., banner, subtitles, etc.)
-    st.markdown(f"""
+    # Increase the height to ensure the entire SVG is visible (adjust as needed)
+    components.html(svg_code, height=600)
+
+    # The rest of your page content can go below
+    st.markdown("""
     <div style="
         position: relative;
         text-align: center;
@@ -174,3 +173,7 @@ def show():
     <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
     """, unsafe_allow_html=True)
 
+    # ... (rest of your page content)
+
+if __name__ == "__main__":
+    show()
