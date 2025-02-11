@@ -3,7 +3,7 @@ import streamlit.components.v1 as components
 
 def show():
     svg_code = """
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200">
         <!-- Increased height to 450 -->
         <defs>
             <!-- Light Grey Wave Gradient -->
