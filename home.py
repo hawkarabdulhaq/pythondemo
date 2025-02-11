@@ -4,7 +4,7 @@ import streamlit.components.v1 as components
 def show():
     svg_code = """
     <div style="width:800px; height:450px; margin:0 auto;">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="width:100%; height:100%;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" style="width:100%; height:100%;">
         <!-- Increased height to 450 -->
         <defs>
             <!-- Light Grey Wave Gradient -->
