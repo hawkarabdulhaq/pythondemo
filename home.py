@@ -1,23 +1,10 @@
 import streamlit as st
 
 def show():
-    # Remove extra padding/margin from Streamlit's main container
-    st.markdown(
-        """
-        <style>
-            .block-container {
-                padding-top: 0 !important;
-                margin-top: 0 !important;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    # Define your SVG code inside a centered container
-    svg_code = """
-    <div style="width:800px; margin: 0 auto;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+    # Display SVG header at the very top of the page
+    st.markdown('''
+    <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" style="max-width: 100%; height: auto;">
         <defs>
             <!-- Light Grey Wave Gradient -->
             <linearGradient id="impactWave" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -113,15 +100,9 @@ def show():
         <!-- Web development elements -->
         <g transform="translate(500, 230)" filter="url(#primaryGlow)">
             <g class="web-elements" opacity="0.6">
-                <text x="0" y="0" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">
-                    &lt;div class="impact"&gt;
-                </text>
-                <text x="20" y="25" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">
-                    &lt;App /&gt;
-                </text>
-                <text x="0" y="50" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">
-                    &lt;/div&gt;
-                </text>
+                <text x="0" y="0" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">&lt;div class="impact"&gt;</text>
+                <text x="20" y="25" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">&lt;App /&gt;</text>
+                <text x="0" y="50" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">&lt;/div&gt;</text>
             </g>
         </g>
 
@@ -160,8 +141,105 @@ def show():
                 <animate attributeName="cy" values="150;170;150" dur="4s" begin="2s" repeatCount="indefinite"/>
             </circle>
         </g>
-    </svg>
+      </svg>
     </div>
-    """
+    ''', unsafe_allow_html=True)
 
-    st.markdown(svg_code, unsafe_allow_html=True)
+    # Banner Section with Image Background
+    st.markdown(f"""
+    <div style="
+        position: relative;
+        text-align: center;
+        color: white;
+        height: 300px;
+        background-image: url('https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/waves.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+    ">
+        <h1 style="margin: 0; font-size: 2.5em; font-weight: bold;">
+            Utilize AI and Machine Learning Faster and Smarter
+        </h1>
+        <p style="margin-top: 10px; font-size: 1.2em;">
+            Transform your business into a data-driven, more resilient enterprise with us!
+        </p>
+    </div>
+    <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
+    """, unsafe_allow_html=True)
+
+    # Subtitle
+    st.markdown("""
+    <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #dddddd; margin-bottom: 20px;">
+        Optimizing businesses for resilience and sustainable growth with AI!
+    </div>
+    """, unsafe_allow_html=True)
+
+    # What We Offer Section
+    st.markdown("""
+    <div style="text-align: center; font-size: 2em; font-weight: bold; color: #1ABC9C; margin-bottom: 20px;">
+        What We Offer
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Offer Details (with fixed background color and improved responsiveness)
+    st.markdown("""
+    <style>
+        .offer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .offer-box {
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            min-width: 280px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .offer-box img {
+            border-radius: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+            height: auto;
+        }
+        .offer-box h3 {
+            color: #1ABC9C;
+        }
+        @media screen and (max-width: 768px) {
+            .offer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .offer-box {
+                width: 90%;
+            }
+        }
+    </style>
+
+    <div class="offer-container">
+        <div class="offer-box">
+            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Training">
+            <h3>Training</h3>
+            <p>Learn AI, Machine Learning, and Automation quickly and effectively.</p>
+        </div>
+        <div class="offer-box">
+            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Analysis">
+            <h3>Analysis</h3>
+            <p>We analyze your business and provide a custom data-driven improvement plan.</p>
+        </div>
+        <div class="offer-box">
+            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions">
+            <h3>Solutions</h3>
+            <p>Custom-built tools to solve problems and streamline your operations.</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
