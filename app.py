@@ -14,8 +14,8 @@ style.apply_custom_styles()
 if "page" not in st.session_state:
     st.session_state.page = "Home"
 
-# Function to update the page state
 def set_page(page):
+    """Update the session state's page value."""
     st.session_state.page = page
 
 # Sidebar Navigation
@@ -23,7 +23,7 @@ with st.sidebar:
     # Display logo
     st.image("input/logo.jpg", width=200)
 
-    # Navigation buttons
+    # Navigation buttons (each button sets a different page)
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Trainings", on_click=set_page, args=("Trainings",))
     st.button("Business Analysis", on_click=set_page, args=("Business",))
@@ -44,17 +44,35 @@ with st.sidebar:
 
 # Main Page Content
 if st.session_state.page == "Home":
-    home.show()
+    try:
+        home.show()
+    except AttributeError:
+        st.error("Error: The Home page is not defined properly. Please ensure home.py contains a top-level 'show()' function.")
 elif st.session_state.page == "Trainings":
-    trainings.show()
+    try:
+        trainings.show()
+    except AttributeError:
+        st.error("Error: The Trainings page is not defined properly. Please ensure trainings.py contains a top-level 'show()' function.")
 elif st.session_state.page == "Business":
-    business.show()
+    try:
+        business.show()
+    except AttributeError:
+        st.error("Error: The Business page is not defined properly. Please ensure business.py contains a top-level 'show()' function.")
 elif st.session_state.page == "Solutions":
-    solutions.show()
+    try:
+        solutions.show()
+    except AttributeError:
+        st.error("Error: The Solutions page is not defined properly. Please ensure solutions.py contains a top-level 'show()' function.")
 elif st.session_state.page == "About":
-    about.show()
+    try:
+        about.show()
+    except AttributeError:
+        st.error("Error: The About page is not defined properly. Please ensure about.py contains a top-level 'show()' function.")
 elif st.session_state.page == "Contact":
-    contact.show()
+    try:
+        contact.show()
+    except AttributeError:
+        st.error("Error: The Contact page is not defined properly. Please ensure contact.py contains a top-level 'show()' function.")
 
 # Footer
 st.markdown(
