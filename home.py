@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 def show():
     svg_code = """
@@ -149,7 +150,8 @@ def show():
         </g>
     </svg>
     """
-    st.markdown(svg_code, unsafe_allow_html=True)
+    # Use components.html to embed the SVG
+    components.html(svg_code, height=450)
 
 if __name__ == "__main__":
     show()
