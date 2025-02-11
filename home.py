@@ -2,6 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 def show():
+    # The full SVG code
     svg = """
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
         <!-- Increased height to 450 -->
@@ -148,10 +149,11 @@ def show():
         </g>
     </svg>
     """
-    # Use the HTML component to embed the SVG directly
-    components.html(svg, height=450, width=800)
+    # Embed the SVG using the HTML component with increased dimensions and scrolling enabled.
+    # Adjust height/width as needed to show the entire SVG.
+    components.html(svg, height=800, width=850, scrolling=True)
     
-    # Additional content can follow here (e.g., subtitles, sections, etc.)
+    # Additional content below the SVG
     st.markdown("""
     <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #eeeeee; margin-top: 20px; margin-bottom: 20px;">
         Optimizing businesses for resilience and sustainable growth with AI!
