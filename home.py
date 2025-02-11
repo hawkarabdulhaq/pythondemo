@@ -29,7 +29,7 @@ def show():
       </head>
       <body>
         <div class="container">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 900">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1100">
             <!-- Increased height to 450 -->
             <defs>
               <!-- Light Grey Wave Gradient -->
