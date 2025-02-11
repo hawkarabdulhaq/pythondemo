@@ -151,6 +151,6 @@ def show():
     </svg>
     """
     # Use components.html to embed the SVG
-    components.html(svg_code, height=600, width=500)
+    components.html(svg_code, height=400, width=200)
 if __name__ == "__main__":
     show()
