@@ -42,7 +42,7 @@ def show():
     # Render the SVG with increased height
     components.html(
         svg_code,
-        height=1000,  # Increased height
+        height=None,  # Increased height
         width=None   # Allow full width
     )
 
