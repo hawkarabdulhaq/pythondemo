@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import streamlit.components.v1 as components
 
 def show():
     # Fetch the SVG content from your GitHub repository
@@ -7,27 +8,25 @@ def show():
     response = requests.get(svg_url)
     if response.status_code == 200:
         svg_content = response.text
-        st.markdown(svg_content, unsafe_allow_html=True)
+        # Render the SVG using st.components.v1.html.
+        # Adjust the height as needed to fit your design.
+        components.html(svg_content, height=500)
     else:
         st.error("Failed to load the impact wave graphic.")
 
-    # The rest of your Home page content remains unchanged
-
-    # Subtitle
+    # The rest of your Home page content
     st.markdown("""
     <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #eeeeee; margin-bottom: 20px;">
         Optimizing businesses for resilience and sustainable growth with AI!
     </div>
     """, unsafe_allow_html=True)
 
-    # What We Offer Section
     st.markdown("""
     <div style="text-align: center; font-size: 2em; font-weight: bold; color: #1ABC9C; margin-bottom: 20px;">
         What We Offer
     </div>
     """, unsafe_allow_html=True)
 
-    # Offer Details
     st.markdown("""
     <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
         <div style="background-color: #000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
