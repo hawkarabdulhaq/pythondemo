@@ -1,20 +1,10 @@
 import streamlit as st
-import requests
 import streamlit.components.v1 as components
 
 def show():
-    svg_url = "https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/impact_wave.svg"
-    headers = {"User-Agent": "Mozilla/5.0"}  # Mimic a common browser user agent
-    response = requests.get(svg_url, headers=headers)
-    
-    # Debugging: display the status code
-    st.write("Status Code:", response.status_code)
-    
-    if response.status_code == 200:
-        svg_content = response.text
-        components.html(svg_content, height=500)
-    else:
-        st.error("Failed to load the impact wave graphic.")
+    with open("assets/impact_wave.svg", "r", encoding="utf-8") as f:
+        svg_content = f.read()
+    components.html(svg_content, height=500)
 
     # The rest of your Home page content
     st.markdown("""
