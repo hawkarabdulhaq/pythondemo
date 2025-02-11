@@ -1,8 +1,8 @@
 import streamlit as st
-
+import streamlit.components.v1 as components
 def show():
-    # Display SVG header at the very top of the page
-    st.markdown('''
+    # Display SVG header at the very top of the page using the HTML component
+    svg_code = '''
     <div style="display: flex; justify-content: center; margin-bottom: 20px;">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" style="max-width: 100%; height: auto;">
         <defs>
@@ -67,9 +67,7 @@ def show():
 
         <!-- Advanced neural network visualization -->
         <g transform="translate(100, 100)" filter="url(#primaryGlow)">
-            <!-- Multiple interconnected layers -->
             <g class="neural-network">
-                <!-- Layer connections with data flow -->
                 <path d="M0 100 C100 50 200 150 300 100" stroke="url(#impactWave)" stroke-width="1.5" fill="none" opacity="0.6">
                     <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="5s" repeatCount="indefinite"/>
                 </path>
@@ -143,9 +141,12 @@ def show():
         </g>
       </svg>
     </div>
-    ''', unsafe_allow_html=True)
-
-    # Banner Section with Image Background
+    '''
+    
+    # Adjust the height parameter as needed for your SVG
+    components.html(svg_code, height=400)
+    
+    # ... (rest of your content, e.g., banner, subtitles, etc.)
     st.markdown(f"""
     <div style="
         position: relative;
@@ -173,73 +174,3 @@ def show():
     <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
     """, unsafe_allow_html=True)
 
-    # Subtitle
-    st.markdown("""
-    <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #dddddd; margin-bottom: 20px;">
-        Optimizing businesses for resilience and sustainable growth with AI!
-    </div>
-    """, unsafe_allow_html=True)
-
-    # What We Offer Section
-    st.markdown("""
-    <div style="text-align: center; font-size: 2em; font-weight: bold; color: #1ABC9C; margin-bottom: 20px;">
-        What We Offer
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Offer Details (with fixed background color and improved responsiveness)
-    st.markdown("""
-    <style>
-        .offer-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .offer-box {
-            background-color: #000000;
-            padding: 20px;
-            border-radius: 10px;
-            width: 30%;
-            min-width: 280px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .offer-box img {
-            border-radius: 10px;
-            margin-bottom: 15px;
-            width: 100%;
-            height: auto;
-        }
-        .offer-box h3 {
-            color: #1ABC9C;
-        }
-        @media screen and (max-width: 768px) {
-            .offer-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .offer-box {
-                width: 90%;
-            }
-        }
-    </style>
-
-    <div class="offer-container">
-        <div class="offer-box">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Training">
-            <h3>Training</h3>
-            <p>Learn AI, Machine Learning, and Automation quickly and effectively.</p>
-        </div>
-        <div class="offer-box">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Analysis">
-            <h3>Analysis</h3>
-            <p>We analyze your business and provide a custom data-driven improvement plan.</p>
-        </div>
-        <div class="offer-box">
-            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Solutions">
-            <h3>Solutions</h3>
-            <p>Custom-built tools to solve problems and streamline your operations.</p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
