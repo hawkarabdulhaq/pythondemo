@@ -1,5 +1,5 @@
 import streamlit as st
-import home
+from home import show
 import trainings
 import business
 import solutions
