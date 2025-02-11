@@ -1,34 +1,15 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-def show_home():
-    # Remove extra padding/margins from the Streamlit app
-    st.markdown(
-        """
-        <style>
-            /* Remove top padding/margin from the main block container */
-            .block-container {
-                padding-top: 0rem;
-                margin-top: 0rem;
-            }
-            /* Hide the header for a full-screen look */
-            header { 
-                visibility: hidden;
-                height: 0;
-            }
-            /* Remove body margin */
-            body {
-                margin: 0;
-                padding: 0;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    # Your SVG code (make sure to update it with your full content)
+def show():
     svg_code = """
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="display:block;">
+    <div style="width:800px; height:450px; margin:0 auto; overflow: visible;">
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 800 450" 
+        preserveAspectRatio="xMidYMid meet"
+        style="width:100%; height:100%; overflow: visible;">
+        
         <!-- Increased height to 450 -->
         <defs>
             <!-- Light Grey Wave Gradient -->
@@ -92,7 +73,9 @@ def show_home():
 
         <!-- Advanced neural network visualization -->
         <g transform="translate(100, 100)" filter="url(#primaryGlow)">
+            <!-- Multiple interconnected layers -->
             <g class="neural-network">
+                <!-- Layer connections with data flow -->
                 <path d="M0 100 C100 50 200 150 300 100" stroke="url(#impactWave)" stroke-width="1.5" fill="none" opacity="0.6">
                     <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="5s" repeatCount="indefinite"/>
                 </path>
@@ -171,20 +154,11 @@ def show_home():
                 <animate attributeName="cy" values="150;170;150" dur="4s" begin="2s" repeatCount="indefinite"/>
             </circle>
         </g>
-    </svg>
+      </svg>
+    </div>
     """
-
-    # Wrap the SVG in a div that has fixed dimensions and render it.
-    components.html(
-        f"""
-        <div style="margin:0; padding:0; width:800px; height:450px;">
-            {svg_code}
-        </div>
-        """,
-        height=450,
-        width=800,
-        scrolling=False,
-    )
+    # Render the SVG container with fixed dimensions (no scrolling)
+    components.html(svg_code, height=450, width=800, scrolling=False)
 
 if __name__ == "__main__":
-    show_home()
+    show()
