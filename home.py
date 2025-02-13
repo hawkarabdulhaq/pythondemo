@@ -1,47 +1,13 @@
 import streamlit as st
 
 def show():
-    # --- Banner Section using SVG with overlay text ---
+    # --- Banner Section using SVG (no text overlay) ---
     st.markdown(
         """
-        <style>
-            .banner-container {
-                position: relative;
-                width: 100%;
-                color: white;
-                text-align: center;
-            }
-            .banner-image {
-                width: 100%;
-                height: auto;
-                display: block;
-            }
-            .banner-overlay {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 100%;
-                padding: 20px;
-            }
-            .banner-title {
-                margin: 0;
-                font-size: 2.5em;
-                font-weight: bold;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            }
-            .banner-subtitle {
-                margin-top: 10px;
-                font-size: 1.2em;
-                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            }
-        </style>
-        <div class="banner-container">
-            <img class="banner-image" src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/impact_wave.svg" alt="Impact Wave">
-            <div class="banner-overlay">
-                <h1 class="banner-title">Utilize AI and Machine Learning Faster and Smarter</h1>
-                <p class="banner-subtitle">Transform your business into a data-driven, more resilient enterprise with us!</p>
-            </div>
+        <div style="width: 100%; text-align: center;">
+            <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/impact_wave.svg"
+                 alt="Impact Wave"
+                 style="width: 100%; height: auto; display: block;">
         </div>
         <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
         """,
