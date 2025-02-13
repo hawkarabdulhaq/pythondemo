@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 def show():
-    # 1. Define your SVG code
+    # 1. SVG Banner (placed at the very top)
     svg_code = """
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
         <defs>
@@ -143,8 +143,6 @@ def show():
         </g>
     </svg>
     """
-
-    # 2. Embed SVG as the banner
     components.html(
         f"""
         <div style="margin:0; padding:0;">
@@ -154,60 +152,64 @@ def show():
         height=500,
     )
 
-    # 3. Divider after the banner
-    st.markdown("""<hr style="margin: 0; border: none; border-top: 2px solid #1ABC9C;">""", unsafe_allow_html=True)
-
-    # 4. Subtitle / Heading below the banner
-    st.markdown("""
-    <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #eeeeee; margin-top: 20px; margin-bottom: 20px;">
-        Utilize AI and Machine Learning Faster and Smarter
+    # 2. Original Banner Section (now follows the SVG)
+    st.markdown(f"""
+    <div style="
+        position: relative;
+        text-align: center;
+        color: White;
+        height: 300px;
+        background-image: url('https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/waves.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    ">
+        <h1 style="margin: 0; font-size: 2.5em; font-weight: bold;">Utilize AI and Machine Learning Faster and Smarter</h1>
+        <p style="margin-top: 10px; font-size: 1.2em;">Transform your business into a data-driven, more resilient enterprise with us!</p>
     </div>
-    <div style="text-align: center; color: #eeeeee; margin-bottom: 30px;">
-        Transform your business into a data-driven, more resilient enterprise with us!
-    </div>
+    <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
     """, unsafe_allow_html=True)
 
-    # 5. Another Divider
-    st.markdown("""<hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">""", unsafe_allow_html=True)
-
-    # 6. Additional subtitle
+    # 3. Subtitle
     st.markdown("""
     <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #eeeeee; margin-bottom: 20px;">
         Optimizing businesses for resilience and sustainable growth with AI!
     </div>
     """, unsafe_allow_html=True)
 
-    # 7. What We Offer Section
+    # 4. "What We Offer" Section Title
     st.markdown("""
     <div style="text-align: center; font-size: 2em; font-weight: bold; color: #1ABC9C; margin-bottom: 20px;">
         What We Offer
     </div>
     """, unsafe_allow_html=True)
 
-    # 8. Offer Details
+    # 5. Offer Details
     st.markdown("""
     <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-        
-        <div style="background-color: #000000; padding: 20px; border-radius: 10px; width: 30%; 
-                    margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; 
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" 
                  alt="Training" 
                  style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
             <h3 style="color: #eeeeee;">Training</h3>
             <p>Learn AI, Machine Learning, and Automation quickly and effectively.</p>
         </div>
-
-        <div style="background-color: #000000; padding: 20px; border-radius: 10px; width: 30%; 
-                    margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; 
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" 
                  alt="Analysis" 
                  style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
             <h3 style="color: #eeeeee;">Analysis</h3>
             <p>We analyze your business and provide a custom data-driven improvement plan.</p>
         </div>
-
-        <div style="background-color: #000000; padding: 20px; border-radius: 10px; width: 30%; 
-                    margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <div style="background-color: ##000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; 
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" 
                  alt="Solutions" 
                  style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
