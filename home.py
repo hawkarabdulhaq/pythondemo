@@ -1,10 +1,10 @@
 import streamlit as st
-import streamlit.components.v1 as components
 
 def show():
-    # 1. SVG Banner (placed at the very top)
+    # 1. SVG Banner as inline HTML
     svg_code = """
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+    <svg style="width: 100%; height: auto;" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet"
+         xmlns="http://www.w3.org/2000/svg">
         <defs>
             <!-- Light Grey Wave Gradient -->
             <linearGradient id="impactWave" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -43,12 +43,13 @@ def show():
 
         <!-- Dynamic world map representation -->
         <g transform="translate(50, 50)" filter="url(#primaryGlow)" opacity="0.3">
-            <path d="M0 150 Q200 100 400 150 T800 150" stroke="url(#impactWave)" stroke-width="2" fill="none">
+            <path d="M0 150 Q200 100 400 150 T800 150"
+                  stroke="url(#impactWave)" stroke-width="2" fill="none">
                 <animate attributeName="d" 
                          dur="8s" 
                          values="M0 150 Q200 100 400 150 T800 150;
-                                M0 170 Q200 120 400 170 T800 170;
-                                M0 150 Q200 100 400 150 T800 150"
+                                 M0 170 Q200 120 400 170 T800 170;
+                                 M0 150 Q200 100 400 150 T800 150"
                          repeatCount="indefinite"/>
             </path>
             <!-- Connection points representing global impact -->
@@ -70,10 +71,12 @@ def show():
             <!-- Multiple interconnected layers -->
             <g class="neural-network">
                 <!-- Layer connections with data flow -->
-                <path d="M0 100 C100 50 200 150 300 100" stroke="url(#impactWave)" stroke-width="1.5" fill="none" opacity="0.6">
+                <path d="M0 100 C100 50 200 150 300 100" stroke="url(#impactWave)"
+                      stroke-width="1.5" fill="none" opacity="0.6">
                     <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="5s" repeatCount="indefinite"/>
                 </path>
-                <path d="M0 150 C100 100 200 200 300 150" stroke="url(#impactWave)" stroke-width="1.5" fill="none" opacity="0.6">
+                <path d="M0 150 C100 100 200 200 300 150" stroke="url(#impactWave)"
+                      stroke-width="1.5" fill="none" opacity="0.6">
                     <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="5s" begin="0.5s" repeatCount="indefinite"/>
                 </path>
             </g>
@@ -100,9 +103,12 @@ def show():
         <!-- Web development elements -->
         <g transform="translate(500, 230)" filter="url(#primaryGlow)">
             <g class="web-elements" opacity="0.6">
-                <text x="0" y="0" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">&lt;div class="impact"&gt;</text>
-                <text x="20" y="25" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">&lt;App /&gt;</text>
-                <text x="0" y="50" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">&lt;/div&gt;</text>
+                <text x="0" y="0" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">
+                    &lt;div class="impact"&gt;</text>
+                <text x="20" y="25" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">
+                    &lt;App /&gt;</text>
+                <text x="0" y="50" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">
+                    &lt;/div&gt;</text>
             </g>
         </g>
 
@@ -144,16 +150,12 @@ def show():
     </svg>
     """
 
-    # Set the height a bit larger to ensure the entire SVG is visible
-    components.html(
-        f"""
-        <div style="margin:0; padding:0;">
-            {svg_code}
-        </div>
-        """,
-        height=600,  # Increased height to display the full banner
-        scrolling=False
-    )
+    # Display the SVG via st.markdown (inline)
+    st.markdown(f"""
+    <div style="text-align:center;">
+        {svg_code}
+    </div>
+    """, unsafe_allow_html=True)
 
     # 2. Original Banner Section (now follows the SVG)
     st.markdown(f"""
