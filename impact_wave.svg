@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450"> <!-- Increased height to 450 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
     <defs>
-        <!-- Light Grey Wave Gradient -->
+        <!-- Grey Wave Gradient -->
         <linearGradient id="impactWave" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:#d3d3d3"/>
-            <stop offset="50%" style="stop-color:#d3d3d3"/>
-            <stop offset="100%" style="stop-color:#d3d3d3"/>
+            <stop offset="0%" style="stop-color:#808080"/> <!-- Dark Grey -->
+            <stop offset="50%" style="stop-color:#A9A9A9"/> <!-- Medium Grey -->
+            <stop offset="100%" style="stop-color:#D3D3D3"/> <!-- Light Grey -->
         </linearGradient>
 
         <!-- Enhanced glow effects -->
         <filter id="primaryGlow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="4" result="blur"/>
-            <feFlood flood-color="#d3d3d3" flood-opacity="0.3" result="color"/>
+            <feFlood flood-color="#808080" flood-opacity="0.3" result="color"/> <!-- Dark Grey -->
             <feComposite in="color" in2="blur" operator="in" result="glow"/>
             <feMerge>
                 <feMergeNode in="glow"/>
@@ -18,10 +18,24 @@
             </feMerge>
         </filter>
 
+        <!-- Shine effect for text and lines -->
+        <filter id="textShine">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+            <feOffset in="blur" dx="2" dy="2" result="offsetBlur"/>
+            <feMerge>
+                <feMergeNode in="offsetBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+            <feColorMatrix type="matrix" values="1 0 0 0 0
+                                                0 1 0 0 0
+                                                0 0 1 0 0
+                                                0 0 0 1 0"/>
+        </filter>
+
         <!-- Tech pattern -->
         <pattern id="techGrid" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
-            <path d="M25 0 v50 M0 25 h50" stroke="#4B5563" stroke-width="0.5" opacity="0.15"/>
-            <circle cx="25" cy="25" r="1" fill="#4B5563" opacity="0.2"/>
+            <path d="M25 0 v50 M0 25 h50" stroke="#696969" stroke-width="0.5" opacity="0.15"/> <!-- Dim Grey -->
+            <circle cx="25" cy="25" r="1" fill="#696969" opacity="0.2"/> <!-- Dim Grey -->
         </pattern>
 
         <!-- Binary rain effect -->
@@ -32,11 +46,11 @@
     </defs>
 
     <!-- Pure black background -->
-    <rect width="800" height="450" fill="#000000"/> <!-- Adjusted height to match viewBox -->
-    <rect width="800" height="450" fill="url(#techGrid)"/> <!-- Adjusted height to match viewBox -->
+    <rect width="800" height="450" fill="#000000"/>
+    <rect width="800" height="450" fill="url(#techGrid)"/>
 
-    <!-- Dynamic wave representation -->
-    <g transform="translate(50, 50)" filter="url(#primaryGlow)" opacity="0.3">
+    <!-- Dynamic wave representation with shine effect -->
+    <g transform="translate(50, 50)" filter="url(#textShine)" opacity="0.3">
         <path d="M0 150 C150 100 250 200 400 150 S700 100 800 150" stroke="url(#impactWave)" stroke-width="2" fill="none">
             <animate attributeName="d" 
                      dur="8s" 
@@ -47,20 +61,20 @@
         </path>
         <!-- Connection points representing global impact -->
         <g class="impact-points">
-            <circle cx="100" cy="120" r="3" fill="#d3d3d3">
+            <circle cx="100" cy="120" r="3" fill="#808080"> <!-- Dark Grey -->
                 <animate attributeName="r" values="3;5;3" dur="3s" repeatCount="indefinite"/>
             </circle>
-            <circle cx="300" cy="140" r="3" fill="#d3d3d3">
+            <circle cx="300" cy="140" r="3" fill="#A9A9A9"> <!-- Medium Grey -->
                 <animate attributeName="r" values="3;5;3" dur="3s" begin="1s" repeatCount="indefinite"/>
             </circle>
-            <circle cx="500" cy="130" r="3" fill="#d3d3d3">
+            <circle cx="500" cy="130" r="3" fill="#D3D3D3"> <!-- Light Grey -->
                 <animate attributeName="r" values="3;5;3" dur="3s" begin="2s" repeatCount="indefinite"/>
             </circle>
         </g>
     </g>
 
-    <!-- Advanced neural network visualization -->
-    <g transform="translate(100, 100)" filter="url(#primaryGlow)">
+    <!-- Advanced neural network visualization with shine effect -->
+    <g transform="translate(100, 100)" filter="url(#textShine)">
         <!-- Multiple interconnected layers -->
         <g class="neural-network">
             <!-- Layer connections with data flow -->
@@ -73,18 +87,18 @@
         </g>
     </g>
 
-    <!-- Python code elements with impact focus -->
-    <g transform="translate(500, 140)" filter="url(#primaryGlow)">
+    <!-- Python code elements with impact focus and shine effect -->
+    <g transform="translate(500, 140)" filter="url(#textShine)">
         <g class="code-snippet" opacity="0.8">
-            <text x="0" y="0" font-family="JetBrains Mono, monospace" fill="#A5B4FC" font-size="14">
+            <text x="0" y="0" font-family="JetBrains Mono, monospace" fill="#A9A9A9" font-size="14"> <!-- Medium Grey -->
                 class KurdistanFuture:
                 <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite"/>
             </text>
-            <text x="20" y="25" font-family="JetBrains Mono, monospace" fill="#A5B4FC" font-size="14">
+            <text x="20" y="25" font-family="JetBrains Mono, monospace" fill="#A9A9A9" font-size="14"> <!-- Medium Grey -->
                 def innovate(self):
                 <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" begin="0.5s" repeatCount="indefinite"/>
             </text>
-            <text x="40" y="50" font-family="JetBrains Mono, monospace" fill="#A5B4FC" font-size="14">
+            <text x="40" y="50" font-family="JetBrains Mono, monospace" fill="#A9A9A9" font-size="14"> <!-- Medium Grey -->
                 return AI.transform_region()
                 <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" begin="1s" repeatCount="indefinite"/>
             </text>
@@ -94,51 +108,36 @@
     <!-- Web development elements -->
     <g transform="translate(500, 230)" filter="url(#primaryGlow)">
         <g class="web-elements" opacity="0.6">
-            <text x="0" y="0" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">&lt;div class="impact"&gt;</text>
-            <text x="20" y="25" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">&lt;App /&gt;</text>
-            <text x="0" y="50" font-family="JetBrains Mono, monospace" fill="#818CF8" font-size="14">&lt;/div&gt;</text>
+            <text x="0" y="0" font-family="JetBrains Mono, monospace" fill="#808080" font-size="14">&lt;div class="impact"&gt;</text> <!-- Dark Grey -->
+            <text x="20" y="25" font-family="JetBrains Mono, monospace" fill="#808080" font-size="14">&lt;App /&gt;</text> <!-- Dark Grey -->
+            <text x="0" y="50" font-family="JetBrains Mono, monospace" fill="#808080" font-size="14">&lt;/div&gt;</text> <!-- Dark Grey -->
         </g>
     </g>
 
     <!-- Course title with impact animation -->
     <g transform="translate(400, 80)" filter="url(#primaryGlow)">
-        <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="32" fill="#FFFFFF" font-weight="bold">
+        <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="32" fill="#D3D3D3" font-weight="bold"> <!-- Light Grey -->
             Utilize AI and Machine Learning Faster and Smarter
             <animate attributeName="opacity" values="0.9;1;0.9" dur="4s" repeatCount="indefinite"/>
         </text>
     </g>
 
-    <!-- Inspiring subtitle -->
-    <g transform="translate(400, 330)" filter="url(#primaryGlow)">
-        <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="24" fill="#A5B4FC">
-            Building Tomorrow's Solutions Today
-            <animate attributeName="fill" values="#A5B4FC;#818CF8;#A5B4FC" dur="6s" repeatCount="indefinite"/>
-        </text>
-    </g>
-
-    <!-- Technology stack with icons -->
-    <g transform="translate(400, 360)" filter="url(#primaryGlow)"> <!-- Moved up slightly -->
-        <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="16" fill="#6366F1">
-            Python • Web Apps • Machine Learning • Data Analysis • Google Colab
-        </text>
-    </g>
-
     <!-- New subtitle at the bottom -->
-    <g transform="translate(400, 420)" filter="url(#primaryGlow)"> <!-- Positioned at the bottom -->
-        <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="22" fill="#FFFFFF">
+    <g transform="translate(400, 420)" filter="url(#primaryGlow)">
+        <text text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="22" fill="#A9A9A9"> <!-- Medium Grey -->
             Transform your business into a data-driven, more resilient enterprise with us!
         </text>
     </g>
 
     <!-- Floating particles representing data points -->
     <g class="particles" filter="url(#binaryRain)">
-        <circle cx="150" cy="200" r="2" fill="#d3d3d3" opacity="0.5">
+        <circle cx="150" cy="200" r="2" fill="#808080" opacity="0.5"> <!-- Dark Grey -->
             <animate attributeName="cy" values="200;220;200" dur="4s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="650" cy="180" r="2" fill="#d3d3d3" opacity="0.5">
+        <circle cx="650" cy="180" r="2" fill="#A9A9A9" opacity="0.5"> <!-- Medium Grey -->
             <animate attributeName="cy" values="180;200;180" dur="4s" begin="1s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="400" cy="150" r="2" fill="#d3d3d3" opacity="0.5">
+        <circle cx="400" cy="150" r="2" fill="#D3D3D3" opacity="0.5"> <!-- Light Grey -->
             <animate attributeName="cy" values="150;170;150" dur="4s" begin="2s" repeatCount="indefinite"/>
         </circle>
     </g>
