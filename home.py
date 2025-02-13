@@ -143,13 +143,16 @@ def show():
         </g>
     </svg>
     """
+
+    # Set the height a bit larger to ensure the entire SVG is visible
     components.html(
         f"""
         <div style="margin:0; padding:0;">
             {svg_code}
         </div>
         """,
-        height=500,
+        height=600,  # Increased height to display the full banner
+        scrolling=False
     )
 
     # 2. Original Banner Section (now follows the SVG)
