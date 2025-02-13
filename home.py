@@ -1,16 +1,13 @@
 import streamlit as st
 
 def show():
-    # --- New Banner Section using the SVG ---
     st.markdown(
         """
         <div style="position: relative; text-align: center; color: white;">
-            <!-- Embed the SVG as a full-width image -->
             <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/impact_wave.svg"
                  alt="Impact Wave"
                  style="width: 100%; height: auto; display: block;" />
 
-            <!-- Overlay your original heading and text on top of the SVG -->
             <div style="
                 position: absolute;
                 top: 0; left: 0; right: 0; bottom: 0;
@@ -32,7 +29,7 @@ def show():
         unsafe_allow_html=True
     )
 
-    # --- Subtitle (unchanged) ---
+    # Subtitle
     st.markdown(
         """
         <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #eeeeee; margin-bottom: 20px;">
@@ -42,7 +39,7 @@ def show():
         unsafe_allow_html=True
     )
 
-    # --- What We Offer (unchanged) ---
+    # What We Offer Section
     st.markdown(
         """
         <div style="text-align: center; font-size: 2em; font-weight: bold; color: #1ABC9C; margin-bottom: 20px;">
