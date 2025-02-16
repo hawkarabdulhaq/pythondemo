@@ -65,6 +65,7 @@ def show_trainings():
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             flex: 1 1 calc(50% - 20px);
             max-width: calc(100% - 20px);
+            margin-bottom: 20px;  /* Added spacing between cards */
         }
         .card h3 {
             color: #ffffff;
@@ -79,7 +80,7 @@ def show_trainings():
             color: #cccccc;
         }
         .request-button {
-            background-color: #ffffff;
+            background-color: #286942;
             border: none;
             color: white;
             font-weight: bold;
