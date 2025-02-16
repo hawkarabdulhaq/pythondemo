@@ -81,7 +81,7 @@ def show_trainings():
         .request-button {
             background-color: #286942;
             border: none;
-            color: white;
+            color: #414141;
             font-weight: bold;
             padding: 10px 20px;
             text-align: center;
