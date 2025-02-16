@@ -42,7 +42,7 @@ def show():
                         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
                 <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Steps-to-Expert" 
                      style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-                <h3 style="color: #eeeeee;">Training</h3>
+                <h3 style="color: #eeeeee;">Steps-to-Expert</h3>
                 <p style="color: #eeeeee;">Learn AI, Machine Learning, and Automation quickly and effectively.</p>
             </div>
             <div style="background-color: #000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; 
