@@ -49,11 +49,11 @@ if st.session_state.page == "Home":
         home.show()
     except AttributeError:
         st.error("Error: The Home page is not defined properly. Please ensure home.py contains a top-level 'show()' function.")
-elif st.session_state.page == "Trainings":
+elif st.session_state.page == "steps-to-expert":
     try:
-        trainings.show()
+        steps-to-expert.show()
     except AttributeError:
-        st.error("Error: The Trainings page is not defined properly. Please ensure trainings.py contains a top-level 'show()' function.")
+        st.error("Error: The steps-to-expert page is not defined properly. Please ensure steps-to-expert.py contains a top-level 'show()' function.")
 elif st.session_state.page == "Business":
     try:
         business.show()
