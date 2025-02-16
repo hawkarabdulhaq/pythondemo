@@ -1,7 +1,7 @@
 
 import streamlit as st
 import home
-import steps-to-expert
+import stepstoexpert
 import business
 import solutions
 import about
