@@ -72,12 +72,12 @@ def show_trainings():
             margin-bottom: 10px;
         }
         .card p {
-            color: #2f2f2f;
+            color: #ffffff;
             line-height: 1.5;
         }
         .card ul {
             padding-left: 20px;
-            color: #2f2f2f;
+            color: #ffffff;
         }
         .request-button {
             background-color: #ffffff;
