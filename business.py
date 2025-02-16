@@ -1,7 +1,7 @@
 import streamlit as st
 
 def show():
-    """Display the Business Analysis page."""
+    """Display the Steps-to-Impact page."""
     
     # Banner Section with Background Image
     st.markdown(f"""
@@ -20,8 +20,8 @@ def show():
         border-radius: 10px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     ">
-        <h1 style="margin: 0; font-size: 2.5em; font-weight: bold;">Transform Your Business with Data</h1>
-        <p style="margin-top: 10px; font-size: 1.2em;">Make smarter decisions, reduce costs, and boost efficiency.</p>
+        <h1 style="margin: 0; font-size: 2.5em; font-weight: bold;">Steps-to-Impact: Transform Your Business with Data</h1>
+        <p style="margin-top: 10px; font-size: 1.2em;">Empower your decisions, reduce costs, and drive sustainable growth.</p>
     </div>
     <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
     """, unsafe_allow_html=True)
@@ -29,10 +29,10 @@ def show():
     # What is a Data-Driven Business?
     st.markdown("""
     <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #1ABC9C; margin-bottom: 10px;">
-        What is a Data-Driven Business?
+        Introducing Steps-to-Impact
     </div>
     <div style="text-align: center; font-size: 1.2em; color: #eeeeee; margin-bottom: 30px;">
-        A data-driven business makes decisions based on insights, not guesswork. Here's why it matters:
+        Our structured approach for guiding your business from guesswork to data-driven excellence.
     </div>
     """, unsafe_allow_html=True)
 
@@ -40,15 +40,15 @@ def show():
     <div style="display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center;">
         <div style="width: 30%; background-color: #000000; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
             <h3 style="color: #eeeeee;">Higher Efficiency</h3>
-            <p>Automate processes and optimize workflows to save time.</p>
-        </div>
-        <div style="width: 30%; background-color: #000000; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
-            <h3 style="color: #eeeeee;">Lower Costs</h3>
-            <p>Cut unnecessary expenses by improving resource management.</p>
+            <p>Optimize workflows, reduce manual tasks, and increase team productivity.</p>
         </div>
         <div style="width: 30%; background-color: #000000; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
             <h3 style="color: #eeeeee;">Smarter Decisions</h3>
-            <p>Leverage real-time data to stay ahead of the competition.</p>
+            <p>Base every choice on real-time insights, not gut feelings.</p>
+        </div>
+        <div style="width: 30%; background-color: #000000; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+            <h3 style="color: #eeeeee;">Lasting Impact</h3>
+            <p>Implement data strategies that deliver measurable, long-term results.</p>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -56,24 +56,24 @@ def show():
     # Can Your Business Become Data-Driven?
     st.markdown("""
     <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #1ABC9C; margin-top: 40px;">
-        Can Your Business Become Data-Driven?
+        Ready to Take the First Step?
     </div>
     <div style="text-align: center; font-size: 1.2em; color: #eeeeee; margin-bottom: 30px;">
-        Whether you're a startup or a well-established company, data-driven strategies can revolutionize your business.
+        From startups to established enterprises, our Steps-to-Impact framework can transform your organization's potential.
     </div>
     """, unsafe_allow_html=True)
 
-    # Quick Business Analysis Button
-    if st.button("Quick Business Analysis"):
-        st.session_state.page = "Business Analysis"  # Redirect to analysis page
+    # Quick Steps-to-Impact Analysis Button
+    if st.button("Quick Steps-to-Impact Analysis"):
+        st.session_state.page = "Business Analysis"  # Or any relevant page ID you want to navigate to
         st.experimental_rerun()
 
     # Need a Data-Driven System?
     st.markdown("""
     <div style="text-align: center; font-size: 1.8em; font-weight: bold; color: #1ABC9C; margin-top: 40px;">
-        Do You Need a Data-Driven System?
+        Want a Data-Driven System You Can Count On?
     </div>
     <div style="text-align: center; font-size: 1.2em; color: #eeeeee; margin-bottom: 30px;">
-        We can develop a data-driven strategy and implement it for you.
+        Let us design and implement your personalized Steps-to-Impact plan.
     </div>
     """, unsafe_allow_html=True)
