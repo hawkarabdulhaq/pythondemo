@@ -1,7 +1,6 @@
-
 import streamlit as st
 import home
-import stepstoexpert
+import stepstoexpert  # Notice the module name is stepstoexpert (no hyphens)
 import business
 import solutions
 import about
@@ -24,7 +23,7 @@ with st.sidebar:
     # Display logo
     st.image("input/logo.jpg", width=200)
 
-    # Navigation buttons (each button sets a different page)
+    # Notice we use the same exact string ("Steps-to-Expert") in the button and the check
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Steps-to-Expert", on_click=set_page, args=("Steps-to-Expert",))
     st.button("Business Analysis", on_click=set_page, args=("Business",))
@@ -32,7 +31,7 @@ with st.sidebar:
     st.button("About", on_click=set_page, args=("About",))
     st.button("Contact", on_click=set_page, args=("Contact",))
 
-    # Contact Information with email and demo link
+    # Contact Information
     st.markdown(
         """
         <div style="margin-top: 30px; font-size: 1.1em; color: #eeeeee;">
@@ -48,32 +47,33 @@ if st.session_state.page == "Home":
     try:
         home.show()
     except AttributeError:
-        st.error("Error: The Home page is not defined properly. Please ensure home.py contains a top-level 'show()' function.")
-elif st.session_state.page == "steps-to-expert":
+        st.error("Error: The Home page is not defined properly.")
+elif st.session_state.page == "Steps-to-Expert":
     try:
-        steps-to-expert.show()
+        # Must call stepstoexpert.show(), not steps-to-expert.show()
+        stepstoexpert.show()
     except AttributeError:
-        st.error("Error: The steps-to-expert page is not defined properly. Please ensure steps-to-expert.py contains a top-level 'show()' function.")
+        st.error("Error: The Steps-to-Expert page is not defined properly.")
 elif st.session_state.page == "Business":
     try:
         business.show()
     except AttributeError:
-        st.error("Error: The Business page is not defined properly. Please ensure business.py contains a top-level 'show()' function.")
+        st.error("Error: The Business page is not defined properly.")
 elif st.session_state.page == "Solutions":
     try:
         solutions.show()
     except AttributeError:
-        st.error("Error: The Solutions page is not defined properly. Please ensure solutions.py contains a top-level 'show()' function.")
+        st.error("Error: The Solutions page is not defined properly.")
 elif st.session_state.page == "About":
     try:
         about.show()
     except AttributeError:
-        st.error("Error: The About page is not defined properly. Please ensure about.py contains a top-level 'show()' function.")
+        st.error("Error: The About page is not defined properly.")
 elif st.session_state.page == "Contact":
     try:
         contact.show()
     except AttributeError:
-        st.error("Error: The Contact page is not defined properly. Please ensure contact.py contains a top-level 'show()' function.")
+        st.error("Error: The Contact page is not defined properly.")
 
 # Footer
 st.markdown(
