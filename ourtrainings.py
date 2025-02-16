@@ -79,7 +79,7 @@ def show_trainings():
             color: #cccccc;
         }
         .request-button {
-            background-color: #286942;
+            background-color: #ffffff;
             border: none;
             color: white;
             font-weight: bold;
