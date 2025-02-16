@@ -26,7 +26,7 @@ with st.sidebar:
     # Notice we use the same exact string ("Steps-to-Expert") in the button and the check
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Steps-to-Expert", on_click=set_page, args=("Steps-to-Expert",))
-    st.button("Business Analysis", on_click=set_page, args=("Business",))
+    st.button("Steps-to-Impact", on_click=set_page, args=("Steps-to-Impact",))
     st.button("Solutions", on_click=set_page, args=("Solutions",))
     st.button("About", on_click=set_page, args=("About",))
     st.button("Contact", on_click=set_page, args=("Contact",))
@@ -54,7 +54,7 @@ elif st.session_state.page == "Steps-to-Expert":
         stepstoexpert.show()
     except AttributeError:
         st.error("Error: The Steps-to-Expert page is not defined properly.")
-elif st.session_state.page == "Business":
+elif st.session_state.page == "Steps-to-Impact":
     try:
         business.show()
     except AttributeError:
