@@ -38,6 +38,22 @@ def get_trainings():
                 ],
                 "availability": "✅ Included in Pro and VIP Plans (Not available in Basic Plan)",
             },
+            {
+                "name": "Course 3: Mastering App Automation with Google Apps Script",
+                "impact": (
+                    "Participants will learn to leverage Google Apps Script to automate routine tasks, streamline workflows, "
+                    "and build custom applications that integrate with various Google services. This course empowers learners "
+                    "to create efficient and scalable automation solutions for data processing, communication, and collaboration."
+                ),
+                "chapters": [
+                    "Week 1: Introduction to Google Apps Script and Automation",
+                    "Week 2: Building Custom Functions and Triggers",
+                    "Week 3: Automating Data Collection and Processing",
+                    "Week 4: Integrating Google APIs and Third-Party Services",
+                    "Week 5: Capstone Project: Automating a Real-World Workflow",
+                ],
+                "availability": "✅ Included in Pro and VIP Plans (Not available in Basic Plan)",
+            },
         ]
     }
     return trainings
@@ -65,7 +81,7 @@ def show_trainings():
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             flex: 1 1 calc(50% - 20px);
             max-width: calc(100% - 20px);
-            margin-bottom: 20px;  /* Added spacing between cards */
+            margin-bottom: 20px;
         }
         .card h3 {
             color: #ffffff;
