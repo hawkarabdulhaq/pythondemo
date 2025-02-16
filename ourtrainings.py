@@ -18,6 +18,7 @@ def get_trainings():
                     "Week 2: Generate Comprehensive Codings",
                     "Week 3: Deploy Apps with GitHub and Streamlit",
                     "Week 4: Data Week",
+                    "Week 5: Project Capstone",
                 ],
                 "availability": "✅ Included in Basic, Pro, and VIP Plans",
             },
