@@ -64,7 +64,7 @@ def show_trainings():
             padding: 20px;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             flex: 1 1 calc(50% - 20px);
-            max-width: calc(50% - 20px);
+            max-width: calc(100% - 20px);
         }
         .card h3 {
             color: #333333;
