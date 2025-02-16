@@ -44,53 +44,87 @@ def get_trainings():
 
 def show_trainings():
     """
-    Display the training courses in the Streamlit app.
+    Display the training courses in a card-style layout.
     """
     st.title("Our Courses")
     st.markdown("---")
     
-    # Fetch training data
-    training_data = get_trainings()
-    
-    # Custom CSS for the Request button
+    # Custom CSS for card layout and button styling
     st.markdown(
         """
         <style>
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            flex: 1 1 calc(50% - 20px);
+            max-width: calc(50% - 20px);
+        }
+        .card h3 {
+            color: #333333;
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: #555555;
+            line-height: 1.5;
+        }
+        .card ul {
+            padding-left: 20px;
+            color: #555555;
+        }
         .request-button {
-            background-color: #286942 !important;
+            background-color: #286942;
             border: none;
-            color: white !important;
-            font-weight: bold !important;
+            color: white;
+            font-weight: bold;
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 10px 2px;
+            margin-top: 10px;
             cursor: pointer;
             border-radius: 12px;
+        }
+        @media screen and (max-width: 768px) {
+            .card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
         }
         </style>
         """,
         unsafe_allow_html=True,
     )
     
-    # Display courses in a card-like layout with styled Request buttons
-    st.subheader("📚 Courses")
-    for course in training_data["courses"]:
-        with st.container():
-            st.markdown(f"### {course['name']}")
-            st.write(f"**Impact:** {course['impact']}")
-            st.write("**Course Chapters:**")
-            for chapter in course["chapters"]:
-                st.write(f"- {chapter}")
-            
-            st.markdown(f"**📌 Availability:** {course['availability']}")
-            
-            # Request button linking to Calendly
-            request_html = (
-                '<a class="request-button" href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" '
-                'target="_blank">Request</a>'
-            )
-            st.markdown(request_html, unsafe_allow_html=True)
-            st.markdown("---")
+    training_data = get_trainings()
+    courses = training_data["courses"]
+    
+    # Container for card layout
+    st.markdown('<div class="card-container">', unsafe_allow_html=True)
+    
+    for course in courses:
+        course_html = f"""
+        <div class="card">
+            <h3>{course['name']}</h3>
+            <p><strong>Impact:</strong> {course['impact']}</p>
+            <p><strong>Course Chapters:</strong></p>
+            <ul>
+        """
+        for chapter in course["chapters"]:
+            course_html += f"<li>{chapter}</li>"
+        course_html += f"""
+            </ul>
+            <p><strong>Availability:</strong> {course['availability']}</p>
+            <a class="request-button" href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank">Request</a>
+        </div>
+        """
+        st.markdown(course_html, unsafe_allow_html=True)
+    
+    st.markdown('</div>', unsafe_allow_html=True)
