@@ -26,7 +26,7 @@ with st.sidebar:
 
     # Navigation buttons (each button sets a different page)
     st.button("Home", on_click=set_page, args=("Home",))
-    st.button("Trainings", on_click=set_page, args=("Steps-to-Expert",))
+    st.button("Steps-to-Expert", on_click=set_page, args=("Steps-to-Expert",))
     st.button("Business Analysis", on_click=set_page, args=("Business",))
     st.button("Solutions", on_click=set_page, args=("Solutions",))
     st.button("About", on_click=set_page, args=("About",))
