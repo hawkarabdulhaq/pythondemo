@@ -20,7 +20,7 @@ def show():
         border-radius: 10px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     ">
-        <h1 style="margin: 0; font-size: 2.5em; font-weight: bold;">Steps-to-Impact: Transform Your Business with Data</h1>
+        <h1 style="margin: 0; font-size: 2.5em; font-weight: bold;">Steps-to-Impact</h1>
         <p style="margin-top: 10px; font-size: 1.2em;">Empower your decisions, reduce costs, and drive sustainable growth.</p>
     </div>
     <hr style="margin: 30px 0; border: none; border-top: 2px solid #1ABC9C;">
