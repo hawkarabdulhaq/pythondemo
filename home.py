@@ -49,14 +49,14 @@ def show():
                         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
                 <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Steps-to-Impact" 
                      style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-                <h3 style="color: #eeeeee;">Analysis</h3>
+                <h3 style="color: #eeeeee;">Steps-to-Impact</h3>
                 <p style="color: #eeeeee;">We analyze your business and provide a custom data-driven improvement plan.</p>
             </div>
             <div style="background-color: #000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; 
                         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
                 <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Steps-to-Solutions" 
                      style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-                <h3 style="color: #eeeeee;">Solutions</h3>
+                <h3 style="color: #eeeeee;">Steps-to-Solutions</h3>
                 <p style="color: #eeeeee;">Custom-built tools to solve problems and streamline your operations.</p>
             </div>
         </div>
