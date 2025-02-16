@@ -27,7 +27,7 @@ with st.sidebar:
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Steps-to-Expert", on_click=set_page, args=("Steps-to-Expert",))
     st.button("Steps-to-Impact", on_click=set_page, args=("Steps-to-Impact",))
-    st.button("Solutions", on_click=set_page, args=("Solutions",))
+    st.button("Steps-to-Solutions", on_click=set_page, args=("Steps-to-Solutions",))
     st.button("About", on_click=set_page, args=("About",))
     st.button("Contact", on_click=set_page, args=("Contact",))
 
@@ -59,7 +59,7 @@ elif st.session_state.page == "Steps-to-Impact":
         business.show()
     except AttributeError:
         st.error("Error: The Business page is not defined properly.")
-elif st.session_state.page == "Solutions":
+elif st.session_state.page == "Steps-to-Solutions":
     try:
         solutions.show()
     except AttributeError:
