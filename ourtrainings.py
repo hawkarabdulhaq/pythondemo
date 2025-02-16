@@ -59,7 +59,7 @@ def show_trainings():
             gap: 20px;
         }
         .card {
-            background: #202020;
+            background: #2f2f2f;
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -72,12 +72,12 @@ def show_trainings():
             margin-bottom: 10px;
         }
         .card p {
-            color: #202020;
+            color: #2f2f2f;
             line-height: 1.5;
         }
         .card ul {
             padding-left: 20px;
-            color: #202020;
+            color: #2f2f2f;
         }
         .request-button {
             background-color: #ffffff;
