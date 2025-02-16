@@ -2,8 +2,7 @@ import streamlit as st
 
 def get_trainings():
     """
-    Returns a list of available trainings in the Micro Master Program, structured to highlight courses first,
-    followed by program details, vision, target audience, and format.
+    Returns a list of available training courses with details.
     """
     trainings = {
         "courses": [
@@ -39,71 +38,29 @@ def get_trainings():
                 ],
                 "availability": "✅ Included in Pro and VIP Plans (Not available in Basic Plan)",
             },
-        ],
-
-        "program": {
-            "title": "Micro Master in Machine Learning and AI",
-            "description": (
-                "A comprehensive program designed for learners to build expertise in Python programming, "
-                "machine learning, AI, databases, and real-time app deployment using industry-standard tools."
-            ),
-            "vision": (
-                "Our vision is to empower learners to become pioneers in data science and artificial intelligence, "
-                "capable of transforming raw data into actionable insights and innovative solutions. Participants will "
-                "lead the future of AI-driven systems, bridging the gap between data and decision-making."
-            ),
-            "target_audience": (
-                "Ideal for professionals working with data, businesses dealing with ERP systems, and anyone "
-                "looking to leverage data for decision-making. Also suited for organizations aiming to adopt "
-                "AI-powered solutions to optimize operations."
-            ),
-            "format": (
-                "The course is personalized to fit your career development. It includes two sessions per week: "
-                "one focused on theoretical concepts and one dedicated to hands-on practical exercises. "
-                "This blended approach ensures participants can immediately apply their learning to real-world challenges."
-            ),
-        },
+        ]
     }
     return trainings
 
-
 def show_trainings():
     """
-    Display the 'Micro Master in Machine Learning and AI' page content in the Streamlit app with a professional UI.
+    Display the training courses in the Streamlit app.
     """
-    st.title("🎓 Micro Master in Machine Learning and AI")
+    st.title("Our Courses")
     st.markdown("---")
-    st.markdown(
-        """
-        ### Program Overview
-        This program is designed to transform learners into skilled professionals, equipping them with cutting-edge tools 
-        and techniques to excel in data analysis, machine learning, and AI-driven solutions.
-        """
-    )
-
+    
     # Fetch training data
     training_data = get_trainings()
-
-    # Display program-wide details in an appealing layout
-    program = training_data["program"]
-    with st.container():
-        st.subheader("📋 Program Details")
-        st.write(f"**Description:** {program['description']}")
-        st.markdown(f"**🎯 Vision:** {program['vision']}")
-        st.markdown(f"**👥 Target Audience:** {program['target_audience']}")
-        st.markdown(f"**🕒 Format:** {program['format']}")
-
-    st.markdown("---")
     
     # Custom CSS for the Request button
     st.markdown(
         """
         <style>
         .request-button {
-            background-color: #286942 !important; /* Light green */
+            background-color: #286942 !important;
             border: none;
-            color: white !important; /* White text */
-            font-weight: bold !important; /* Bold text */
+            color: white !important;
+            font-weight: bold !important;
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
@@ -117,9 +74,9 @@ def show_trainings():
         """,
         unsafe_allow_html=True,
     )
-
+    
     # Display courses in a card-like layout with styled Request buttons
-    st.subheader("📚 Courses in the Program")
+    st.subheader("📚 Courses")
     for course in training_data["courses"]:
         with st.container():
             st.markdown(f"### {course['name']}")
@@ -128,12 +85,12 @@ def show_trainings():
             for chapter in course["chapters"]:
                 st.write(f"- {chapter}")
             
-            # Availability based on pricing plans
             st.markdown(f"**📌 Availability:** {course['availability']}")
-
+            
             # Request button linking to Calendly
-            request_html = f"""
-            <a class="request-button" href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank">Request</a>
-            """
+            request_html = (
+                '<a class="request-button" href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" '
+                'target="_blank">Request</a>'
+            )
             st.markdown(request_html, unsafe_allow_html=True)
             st.markdown("---")
