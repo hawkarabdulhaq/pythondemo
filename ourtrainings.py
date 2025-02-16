@@ -49,7 +49,7 @@ def show_trainings():
     st.title("Our Courses")
     st.markdown("---")
     
-    # Custom CSS for card layout and button styling
+    # Custom CSS for card layout and button styling with dark grey cards
     st.markdown(
         """
         <style>
@@ -59,7 +59,7 @@ def show_trainings():
             gap: 20px;
         }
         .card {
-            background: #ffffff;
+            background: #424242;
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -67,21 +67,21 @@ def show_trainings():
             max-width: calc(100% - 20px);
         }
         .card h3 {
-            color: #333333;
+            color: #ffffff;
             margin-bottom: 10px;
         }
         .card p {
-            color: #555555;
+            color: #cccccc;
             line-height: 1.5;
         }
         .card ul {
             padding-left: 20px;
-            color: #555555;
+            color: #cccccc;
         }
         .request-button {
             background-color: #286942;
             border: none;
-            color: #414141;
+            color: white;
             font-weight: bold;
             padding: 10px 20px;
             text-align: center;
