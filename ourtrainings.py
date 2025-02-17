@@ -140,7 +140,7 @@ def show_trainings():
         course_html += f"""
             </ul>
             <p><strong>Availability:</strong> {course['availability']}</p>
-            <a class="request-button" href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank">Request</a>
+            <a class="request-button" href="https://calendar.app.google/o6eQcsxCDwofXNn59" target="_blank">Request</a>
         </div>
         """
         st.markdown(course_html, unsafe_allow_html=True)
