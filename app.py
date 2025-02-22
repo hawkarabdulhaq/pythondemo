@@ -1,6 +1,6 @@
 import streamlit as st
 import home
-import stepstoexpert  # Notice the module name is stepstoexpert (no hyphens)
+import stepstoexpert  # Module name is stepstoexpert (no hyphens)
 import business
 import solutions
 import about
@@ -12,18 +12,18 @@ style.apply_custom_styles()
 
 # Initialize session state for page tracking
 if "page" not in st.session_state:
-    st.session_state.page = "Home"
+    st.session_state["page"] = "Home"
 
 def set_page(page):
     """Update the session state's page value."""
-    st.session_state.page = page
+    st.session_state["page"] = page
 
 # Sidebar Navigation
 with st.sidebar:
     # Display logo
     st.image("input/logo.jpg", width=200)
 
-    # Notice we use the same exact string ("Steps-to-Expert") in the button and the check
+    # Navigation buttons
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Steps-to-Expert", on_click=set_page, args=("Steps-to-Expert",))
     st.button("Steps-to-Impact", on_click=set_page, args=("Steps-to-Impact",))
@@ -43,43 +43,45 @@ with st.sidebar:
     )
 
 # Main Page Content
-if st.session_state.page == "Home":
+page = st.session_state.get("page", "Home")
+
+if page == "Home":
     try:
         home.show()
     except AttributeError:
         st.error("Error: The Home page is not defined properly.")
-elif st.session_state.page == "Steps-to-Expert":
+elif page == "Steps-to-Expert":
     try:
-        # Must call stepstoexpert.show(), not steps-to-expert.show()
         stepstoexpert.show()
     except AttributeError:
         st.error("Error: The Steps-to-Expert page is not defined properly.")
-elif st.session_state.page == "Steps-to-Impact":
+elif page == "Steps-to-Impact":
     try:
         business.show()
     except AttributeError:
         st.error("Error: The Business page is not defined properly.")
-elif st.session_state.page == "Steps-to-Solutions":
+elif page == "Steps-to-Solutions":
     try:
         solutions.show()
     except AttributeError:
         st.error("Error: The Solutions page is not defined properly.")
-elif st.session_state.page == "About":
+elif page == "About":
     try:
         about.show()
     except AttributeError:
         st.error("Error: The About page is not defined properly.")
-elif st.session_state.page == "Contact":
+elif page == "Contact":
     try:
         contact.show()
     except AttributeError:
         st.error("Error: The Contact page is not defined properly.")
 
-# Footer
+# Footer with powered-by message
 st.markdown(
     """
     <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
-        aiforimpact © 2024
+        aiforimpact © 2024<br>
+        Powered by Climate Resilience Fundraising Platform B.V.
     </div>
     """,
     unsafe_allow_html=True,
