@@ -128,6 +128,14 @@ def show_trainings():
     st.markdown('<div class="card-container">', unsafe_allow_html=True)
     
     for course in courses:
+        # Determine button text and link
+        if course["name"] == "Course 1: Foundations of Python Programming and Applied Coding":
+            button_text = "Basic Plan: 250$"
+            button_link = "https://checkout.revolut.com/pay/8236b9e9-36c4-4692-911b-735aba86a138"
+        else:
+            button_text = "Request"
+            button_link = "https://calendar.app.google/o6eQcsxCDwofXNn59"
+        
         course_html = f"""
         <div class="card">
             <h3>{course['name']}</h3>
@@ -140,7 +148,7 @@ def show_trainings():
         course_html += f"""
             </ul>
             <p><strong>Availability:</strong> {course['availability']}</p>
-            <a class="request-button" href="https://calendar.app.google/o6eQcsxCDwofXNn59" target="_blank">Request</a>
+            <a class="request-button" href="{button_link}" target="_blank">{button_text}</a>
         </div>
         """
         st.markdown(course_html, unsafe_allow_html=True)
