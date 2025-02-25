@@ -7,11 +7,11 @@ def get_trainings():
     trainings = {
         "courses": [
             {
-                "name": "Course 1: Foundations of Python Programming and Applied Coding",
+                "name": "Foundations of Python Programming and Applied Coding (Basic Plan)",
                 "impact": (
-                    "Participants will gain foundational skills in Python programming and learn to create robust "
-                    "scripts, work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners "
-                    "to automate tasks, process data, and build basic web applications."
+                    "Participants will gain foundational skills in Python programming and learn to create robust scripts, "
+                    "work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners to automate "
+                    "tasks, process data, and build basic web applications."
                 ),
                 "chapters": [
                     "Week 1: Introduction to Coding",
@@ -19,11 +19,46 @@ def get_trainings():
                     "Week 3: Deploy Apps with GitHub and Streamlit",
                     "Week 4: Data Week",
                     "Week 5: Project Capstone",
+                    "4 Weeks, each week contain a theorical and practical session",
                 ],
-                "availability": "✅ Included in Basic, Pro, and VIP Plans",
+                "availability": "Basic Plan",
             },
             {
-                "name": "Course 2: Advanced Machine Learning and Real-Time Deployment",
+                "name": "Foundations of Python Programming and Applied Coding (Basic Plan)",
+                "impact": (
+                    "Participants will gain foundational skills in Python programming and learn to create robust scripts, "
+                    "work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners to automate "
+                    "tasks, process data, and build basic web applications."
+                ),
+                "chapters": [
+                    "Week 1: Introduction to Coding",
+                    "Week 2: Generate Comprehensive Codings",
+                    "Week 3: Deploy Apps with GitHub and Streamlit",
+                    "Week 4: Data Week",
+                    "Week 5: Project Capstone",
+                    "4 Weeks, each week contain a theorical and practical session",
+                ],
+                "availability": "Basic Plan",
+            },
+            {
+                "name": "Foundations of Python Programming and Applied Coding (Pro Plan)",
+                "impact": (
+                    "Participants will gain foundational skills in Python programming and learn to create robust scripts, "
+                    "work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners to automate "
+                    "tasks, process data, and build basic web applications."
+                ),
+                "chapters": [
+                    "Week 1: Introduction to Coding",
+                    "Week 2: Generate Comprehensive Codings",
+                    "Week 3: Deploy Apps with GitHub and Streamlit",
+                    "Week 4: Data Week",
+                    "Week 5: Project Capstone",
+                    "4 Weeks, each week contain a theorical and practical session + 2 Project Mentorship Sessions",
+                ],
+                "availability": "Pro Plan",
+            },
+            {
+                "name": "Advanced Machine Learning and Real-Time Deployment",
                 "impact": (
                     "Participants will develop advanced skills in database management, machine learning, and real-time "
                     "application deployment. This course focuses on practical implementations, enabling learners to create "
@@ -31,16 +66,17 @@ def get_trainings():
                 ),
                 "chapters": [
                     "Week 1: Advanced SQL and Databases",
-                    "Week 2: Deploy Database",
+                    "Week 2: Fundumental of Statistics for Machine Learning",
                     "Week 3: Unsupervised Machine Learning",
                     "Week 4: Supervised Machine Learning",
                     "Week 5: Processing Data in Real-Time for Decision-Making",
                     "Week 6: Capstone Project",
+                    "6 Weeks, each week contain a theorical and practical sessions",
                 ],
-                "availability": "✅ Included in Pro and VIP Plans (Not available in Basic Plan)",
+                "availability": "Pro Plan",
             },
             {
-                "name": "Course 3: Mastering App Automation with Google Apps Script",
+                "name": "Mastering App Automation with Google Apps Script (Basic Plan)",
                 "impact": (
                     "Participants will learn to leverage Google Apps Script to automate routine tasks, streamline workflows, "
                     "and build custom applications that integrate with various Google services. This course empowers learners "
@@ -52,8 +88,26 @@ def get_trainings():
                     "Week 3: Automating Data Collection and Processing",
                     "Week 4: Integrating Google APIs and Third-Party Services",
                     "Week 5: Capstone Project: Automating a Real-World Workflow",
+                    "5 Weeks, each week contain a theorical and practical session",
                 ],
-                "availability": "✅ Included in Pro and VIP Plans (Not available in Basic Plan)",
+                "availability": "Basic Plan",
+            },
+            {
+                "name": "Mastering App Automation with Google Apps Script (Pro Plan)",
+                "impact": (
+                    "Participants will learn to leverage Google Apps Script to automate routine tasks, streamline workflows, "
+                    "and build custom applications that integrate with various Google services. This course empowers learners "
+                    "to create efficient and scalable automation solutions for data processing, communication, and collaboration."
+                ),
+                "chapters": [
+                    "Week 1: Introduction to Google Apps Script and Automation",
+                    "Week 2: Building Custom Functions and Triggers",
+                    "Week 3: Automating Data Collection and Processing",
+                    "Week 4: Integrating Google APIs and Third-Party Services",
+                    "Week 5: Capstone Project: Automating a Real-World Workflow",
+                    "5 Weeks, each week contain a theorical and practical session + 2 Project Mentorship Sessions",
+                ],
+                "availability": "Pro Plan",
             },
         ]
     }
@@ -146,4 +200,3 @@ def show_trainings():
         st.markdown(course_html, unsafe_allow_html=True)
     
     st.markdown('</div>', unsafe_allow_html=True)
-
