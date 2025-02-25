@@ -85,7 +85,7 @@ def get_trainings():
             },
             {
                 "name": "Mastering App Automation with Google Apps Script (Pro Plan)",
-                "image": "https://imgur.com/V5JuNm3",
+                "image": "https://i.imgur.com/V5JuNm3.jpeg",
                 "impact": (
                     "Participants will learn to leverage Google Apps Script to automate routine tasks, streamline workflows, "
                     "and build custom applications that integrate with various Google services. This course empowers learners "
