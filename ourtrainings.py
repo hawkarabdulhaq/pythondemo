@@ -107,13 +107,14 @@ def get_trainings():
     return trainings
 
 def show_trainings():
-    """
-    Display the training courses in a card-style layout, including prices and images.
-    """
     st.title("Our Courses")
     st.markdown("---")
-    
-    # Custom CSS for card layout and button styling with dark grey cards
+
+    # Initialize session state to handle form visibility
+    if "selected_course" not in st.session_state:
+        st.session_state["selected_course"] = None
+
+    # Custom CSS
     st.markdown(
         """
         <style>
@@ -173,13 +174,12 @@ def show_trainings():
         """,
         unsafe_allow_html=True,
     )
-    
+
     training_data = get_trainings()
     courses = training_data["courses"]
-    
-    # Container for card layout
+
+    # Display courses in a card layout
     st.markdown('<div class="card-container">', unsafe_allow_html=True)
-    
     for course in courses:
         course_html = f"""
         <div class="card">
@@ -191,13 +191,41 @@ def show_trainings():
         """
         for chapter in course["chapters"]:
             course_html += f"<li>{chapter}</li>"
+
         course_html += f"""
             </ul>
             <p><strong>Availability:</strong> {course['availability']}</p>
             <p><strong>Price:</strong> {course['price']}</p>
-            <a class="request-button" href="https://calendar.app.google/o6eQcsxCDwofXNn59" target="_blank">Request</a>
         </div>
         """
         st.markdown(course_html, unsafe_allow_html=True)
-    
+
+        # Instead of a direct link, we add a request button that sets session_state
+        request_btn = st.button(
+            f"Request {course['name']}",
+            key=f"btn_{course['name']}"
+        )
+        if request_btn:
+            # Record which course was requested
+            st.session_state.selected_course = course["name"]
     st.markdown('</div>', unsafe_allow_html=True)
+
+    # If a course has been selected, show the form
+    if st.session_state.selected_course:
+        st.subheader(f"Request for: {st.session_state.selected_course}")
+
+        with st.form("request_form"):
+            name = st.text_input("Your Name")
+            email = st.text_input("Your Email")
+            notes = st.text_area("Additional Info (optional)")
+
+            submitted = st.form_submit_button("Submit Request")
+            if submitted:
+                # Here is where you'd handle storing or sending the data
+                # For example, you could save to a database or send an email.
+                st.success(
+                    f"Thank you, {name}! Your request for {st.session_state.selected_course} has been received. "
+                    "We'll send you an invoice shortly."
+                )
+                # Clear the selected course from session state if you like
+                # st.session_state.selected_course = None
