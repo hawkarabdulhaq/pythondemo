@@ -36,7 +36,7 @@ with st.sidebar:
         """
         <div style="margin-top: 30px; font-size: 1.1em; color: #eeeeee;">
             <p><strong>Contact:</strong></p>
-            <p>Email: <a href="mailto:connect@habdulhaq.com" target="_blank" style="color: #1ABC9C;">connect@habdulhaq.com</a></p>
+            <p>Email: <a href="mailto:connect@aiforimpact.net" target="_blank" style="color: #1ABC9C;">connect@aiforimpact.net</a></p>
         </div>
         """,
         unsafe_allow_html=True,
