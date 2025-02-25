@@ -107,117 +107,97 @@ def get_trainings():
     return trainings
 
 def show_trainings():
+    """
+    Display the training courses in a card-style layout, including prices and images.
+    """
     st.title("Our Courses")
     st.markdown("---")
-
-    # --------------------------------------------------------
-    # 1) Handle session state for selected_course and scrolling
-    # --------------------------------------------------------
-    if "selected_course" not in st.session_state:
-        st.session_state.selected_course = None
-    if "scroll_to_form" not in st.session_state:
-        st.session_state.scroll_to_form = False
-
-    # --------------------------------------------------------
-    # 2) If we need to scroll, insert a small JS snippet at top
-    # --------------------------------------------------------
-    if st.session_state.scroll_to_form:
-        scroll_script = """
-        <script>
-            // Scroll to the form anchor
-            var element = document.getElementById("form_anchor");
-            if (element) {
-                element.scrollIntoView({behavior: 'smooth'});
-            }
-        </script>
+    
+    # Custom CSS for card layout and button styling with dark grey cards
+    st.markdown(
         """
-        st.markdown(scroll_script, unsafe_allow_html=True)
-        # Reset the flag
-        st.session_state.scroll_to_form = False
-
-    # --------------------------------------------------------
-    # 3) Display each course as a card
-    #    We'll put a placeholder for the form above the button
-    # --------------------------------------------------------
-
-    st.markdown('<div class="card-container">', unsafe_allow_html=True)
-
+        <style>
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background: #2f2f2f;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            flex: 1 1 calc(50% - 20px);
+            max-width: calc(100% - 20px);
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .card p {
+            color: #ffffff;
+            line-height: 1.5;
+        }
+        .card ul {
+            padding-left: 20px;
+            color: #ffffff;
+        }
+        .request-button {
+            background-color: #ffffff;
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+        @media screen and (max-width: 768px) {
+            .card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    
     training_data = get_trainings()
     courses = training_data["courses"]
-
+    
+    # Container for card layout
+    st.markdown('<div class="card-container">', unsafe_allow_html=True)
+    
     for course in courses:
-        # Container for the entire course card
-        with st.container():
-            st.markdown(
-                f"""
-                <div class="card">
-                    <h3>{course['name']}</h3>
-                    <img src="{course['image']}" alt="{course['name']}"/>
-                    <p><strong>Impact:</strong> {course['impact']}</p>
-                    <p><strong>Course Chapters:</strong></p>
-                    <ul>
-                """,
-                unsafe_allow_html=True,
-            )
-
-            for chapter in course["chapters"]:
-                st.markdown(f"<li>{chapter}</li>", unsafe_allow_html=True)
-
-            st.markdown(
-                f"""
-                    </ul>
-                    <p><strong>Availability:</strong> {course['availability']}</p>
-                    <p><strong>Price:</strong> {course['price']}</p>
-                """,
-                unsafe_allow_html=True,
-            )
-
-            # 4) The placeholder for the form is created above the button
-            form_placeholder = st.empty()
-
-            # If this is the selected course, fill the placeholder with the form
-            if st.session_state.selected_course == course["name"]:
-                # Insert an anchor to scroll to
-                st.markdown("<a id='form_anchor'></a>", unsafe_allow_html=True)
-
-                with form_placeholder.container():
-                    st.info(f"**Request for: {course['name']}**")
-                    with st.form(f"request_form_{course['name']}"):
-                        name = st.text_input("Your Name")
-                        email = st.text_input("Your Email")
-                        notes = st.text_area("Additional Info (optional)")
-                        submitted = st.form_submit_button("Submit Request")
-
-                        if submitted:
-                            st.success(
-                                f"Thank you, {name}! Your request for **{course['name']}** has been received. "
-                                "We'll send you an invoice shortly."
-                            )
-                            # Optionally reset the selected course
-                            # st.session_state.selected_course = None
-
-            # 5) Button to request the course
-            request_btn = st.button(
-                f"Request {course['name']}",
-                key=f"btn_{course['name']}"
-            )
-
-            if request_btn:
-                # Set the selected course in session state
-                st.session_state.selected_course = course["name"]
-                # Trigger the scroll script
-                st.session_state.scroll_to_form = True
-                # Rerun so that the form is created, and then we scroll to it
-                st.experimental_rerun()
-
-            # Close the HTML card
-            st.markdown("</div>", unsafe_allow_html=True)
-
+        course_html = f"""
+        <div class="card">
+            <h3>{course['name']}</h3>
+            <img src="{course['image']}" alt="{course['name']}"/>
+            <p><strong>Impact:</strong> {course['impact']}</p>
+            <p><strong>Course Chapters:</strong></p>
+            <ul>
+        """
+        for chapter in course["chapters"]:
+            course_html += f"<li>{chapter}</li>"
+        course_html += f"""
+            </ul>
+            <p><strong>Availability:</strong> {course['availability']}</p>
+            <p><strong>Price:</strong> {course['price']}</p>
+            <a class="request-button" href="https://calendar.app.google/o6eQcsxCDwofXNn59" target="_blank">Request</a>
+        </div>
+        """
+        st.markdown(course_html, unsafe_allow_html=True)
+    
     st.markdown('</div>', unsafe_allow_html=True)
-
-    # --------------------------------------------------------
-    # End of main function
-    # --------------------------------------------------------
-
-# ========== END OF SCRIPT ==========
-
