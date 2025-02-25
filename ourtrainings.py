@@ -95,7 +95,7 @@ def get_trainings():
                     "5 Weeks, each week contain a theorical and practical session + 2 Project Mentorship Sessions",
                 ],
                 "availability": "Pro Plan",
-                "price": "250$",
+                "price": "350$",
             },
         ]
     }
