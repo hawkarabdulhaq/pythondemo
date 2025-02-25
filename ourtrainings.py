@@ -2,7 +2,7 @@ import streamlit as st
 
 def get_trainings():
     """
-    Returns a list of available training courses with details, including prices.
+    Returns a list of available training courses with details.
     """
     trainings = {
         "courses": [
