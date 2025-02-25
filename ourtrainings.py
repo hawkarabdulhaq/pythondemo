@@ -20,7 +20,7 @@ def get_trainings():
                     "Week 4: Data Week",
                     "Week 5: Project Capstone",
                 ],
-                "availability": "✅ Included in Basic, Pro, and VIP Plans",
+                # "availability" key removed for Course 1
             },
             {
                 "name": "Course 2: Advanced Machine Learning and Real-Time Deployment",
@@ -145,12 +145,19 @@ def show_trainings():
         """
         for chapter in course["chapters"]:
             course_html += f"<li>{chapter}</li>"
-        course_html += f"""
-            </ul>
+        course_html += "</ul>"
+        
+        # Only show availability if it exists
+        if "availability" in course:
+            course_html += f"""
             <p><strong>Availability:</strong> {course['availability']}</p>
+            """
+        
+        course_html += f"""
             <a class="request-button" href="{button_link}" target="_blank">{button_text}</a>
         </div>
         """
+        
         st.markdown(course_html, unsafe_allow_html=True)
     
     st.markdown('</div>', unsafe_allow_html=True)
