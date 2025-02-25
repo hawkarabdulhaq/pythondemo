@@ -6,9 +6,8 @@ def get_trainings():
     """
     trainings = {
         "courses": [
-            # Course 1: Basic Plan
             {
-                "name": "Course 1: Foundations of Python Programming and Applied Coding (Basic Plan)",
+                "name": "Course 1: Foundations of Python Programming and Applied Coding",
                 "impact": (
                     "Participants will gain foundational skills in Python programming and learn to create robust "
                     "scripts, work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners "
@@ -21,25 +20,8 @@ def get_trainings():
                     "Week 4: Data Week",
                     "Week 5: Project Capstone",
                 ],
+                "availability": "✅ Included in Basic, Pro, and VIP Plans",
             },
-            # Course 1 Pro Plan
-            {
-                "name": "Course 1 Pro Plan: Foundations of Python Programming and Applied Coding (Project Mentorship)",
-                "impact": (
-                    "Participants will gain foundational skills in Python programming and learn to create robust "
-                    "scripts, work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners "
-                    "to automate tasks, process data, and build basic web applications."
-                ),
-                "chapters": [
-                    "Week 1: Introduction to Coding",
-                    "Week 2: Generate Comprehensive Codings",
-                    "Week 3: Deploy Apps with GitHub and Streamlit",
-                    "Week 4: Data Week",
-                    "Week 5: Project Capstone A",
-                    "Week 5: Project Capstone B",
-                ],
-            },
-            # Course 2
             {
                 "name": "Course 2: Advanced Machine Learning and Real-Time Deployment",
                 "impact": (
@@ -57,7 +39,6 @@ def get_trainings():
                 ],
                 "availability": "✅ Included in Pro and VIP Plans (Not available in Basic Plan)",
             },
-            # Course 3
             {
                 "name": "Course 3: Mastering App Automation with Google Apps Script",
                 "impact": (
@@ -147,17 +128,6 @@ def show_trainings():
     st.markdown('<div class="card-container">', unsafe_allow_html=True)
     
     for course in courses:
-        # Determine button text and link based on the course name
-        if course["name"] == "Course 1: Foundations of Python Programming and Applied Coding (Basic Plan)":
-            button_text = "Basic Plan: 250$"
-            button_link = "https://checkout.revolut.com/pay/8236b9e9-36c4-4692-911b-735aba86a138"
-        elif course["name"] == "Course 1 Pro Plan: Foundations of Python Programming and Applied Coding (Project Mentorship)":
-            button_text = "Buy Pro Plan 350$"
-            button_link = "https://checkout.revolut.com/payment-link/8c157d7f-8079-4359-9f66-db08e83f962e"
-        else:
-            button_text = "Request"
-            button_link = "https://calendar.app.google/o6eQcsxCDwofXNn59"
-        
         course_html = f"""
         <div class="card">
             <h3>{course['name']}</h3>
@@ -167,19 +137,13 @@ def show_trainings():
         """
         for chapter in course["chapters"]:
             course_html += f"<li>{chapter}</li>"
-        course_html += "</ul>"
-        
-        # Only show availability if it exists
-        if "availability" in course:
-            course_html += f"""
-            <p><strong>Availability:</strong> {course['availability']}</p>
-            """
-        
         course_html += f"""
-            <a class="request-button" href="{button_link}" target="_blank">{button_text}</a>
+            </ul>
+            <p><strong>Availability:</strong> {course['availability']}</p>
+            <a class="request-button" href="https://calendar.app.google/o6eQcsxCDwofXNn59" target="_blank">Request</a>
         </div>
         """
-        
         st.markdown(course_html, unsafe_allow_html=True)
     
     st.markdown('</div>', unsafe_allow_html=True)
+
