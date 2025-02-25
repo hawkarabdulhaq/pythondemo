@@ -8,7 +8,7 @@ def get_trainings():
         "courses": [
             {
                 "name": "Foundations of Python Programming and Applied Coding (Basic Plan)",
-                "image": "https://imgur.com/tITld9S",
+                "image": "https://i.imgur.com/tITld9S.jpeg",
                 "impact": (
                     "Participants will gain foundational skills in Python programming and learn to create robust scripts, "
                     "work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners to automate "
@@ -27,7 +27,7 @@ def get_trainings():
             },
             {
                 "name": "Foundations of Python Programming and Applied Coding (Pro Plan)",
-                "image": "https://imgur.com/NWELv8b",
+                "image": "https://i.imgur.com/NWELv8b.jpeg",
                 "impact": (
                     "Participants will gain foundational skills in Python programming and learn to create robust scripts, "
                     "work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners to automate "
@@ -46,7 +46,7 @@ def get_trainings():
             },
             {
                 "name": "Advanced Machine Learning and Real-Time Deployment (VIP Plan)",
-                "image": "https://imgur.com/iIMdWOn",
+                "image": "https://i.imgur.com/iIMdWOn.jpeg",
                 "impact": (
                     "Participants will develop advanced skills in database management, machine learning, and real-time "
                     "application deployment. This course focuses on practical implementations, enabling learners to create "
