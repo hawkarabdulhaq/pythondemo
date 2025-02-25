@@ -7,7 +7,7 @@ def get_trainings():
     trainings = {
         "courses": [
             {
-                "name": "Course 1: Foundations of Python Programming and Applied Coding",
+                "name": "Course 1 Basic Plan: Foundations of Python Programming and Applied Coding",
                 "impact": (
                     "Participants will gain foundational skills in Python programming and learn to create robust "
                     "scripts, work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners "
