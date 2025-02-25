@@ -24,7 +24,7 @@ def show():
         ✅ Certification  
         ✅ **Covers Course 1 only**  
         """)
-        st.markdown('<a href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>', unsafe_allow_html=True)
+        st.markdown('<a href="https://checkout.revolut.com/pay/8236b9e9-36c4-4692-911b-735aba86a138" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>', unsafe_allow_html=True)
 
     # Pro Plan
     with col2:
@@ -37,7 +37,7 @@ def show():
         ✅ Certification  
         ✅ **Covers both Course 1 & Course 2**  
         """)
-        st.markdown('<a href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>', unsafe_allow_html=True)
+        st.markdown('<a href="https://checkout.revolut.com/pay/2080f594-3b59-4e55-808c-1d1c954186a4" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>', unsafe_allow_html=True)
 
     # VIP Plan
     with col3:
