@@ -1,18 +1,17 @@
-
 import streamlit as st
 
 def get_trainings():
     """
-    Returns a list of available training courses with details.
+    Returns a list of available training courses with details, including prices.
     """
     trainings = {
         "courses": [
             {
-                "name": "Course 1: Foundations of Python Programming and Applied Coding",
+                "name": "Foundations of Python Programming and Applied Coding (Basic Plan)",
                 "impact": (
-                    "Participants will gain foundational skills in Python programming and learn to create robust "
-                    "scripts, work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners "
-                    "to automate tasks, process data, and build basic web applications."
+                    "Participants will gain foundational skills in Python programming and learn to create robust scripts, "
+                    "work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners to automate "
+                    "tasks, process data, and build basic web applications."
                 ),
                 "chapters": [
                     "Week 1: Introduction to Coding",
@@ -20,11 +19,31 @@ def get_trainings():
                     "Week 3: Deploy Apps with GitHub and Streamlit",
                     "Week 4: Data Week",
                     "Week 5: Project Capstone",
+                    "4 Weeks, each week contain a theorical and practical session",
                 ],
-                "availability": "✅ Included in Basic, Pro, and VIP Plans",
+                "availability": "Basic Plan",
+                "price": "250$",
             },
             {
-                "name": "Course 2: Advanced Machine Learning and Real-Time Deployment",
+                "name": "Foundations of Python Programming and Applied Coding (Pro Plan)",
+                "impact": (
+                    "Participants will gain foundational skills in Python programming and learn to create robust scripts, "
+                    "work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners to automate "
+                    "tasks, process data, and build basic web applications."
+                ),
+                "chapters": [
+                    "Week 1: Introduction to Coding",
+                    "Week 2: Generate Comprehensive Codings",
+                    "Week 3: Deploy Apps with GitHub and Streamlit",
+                    "Week 4: Data Week",
+                    "Week 5: Project Capstone",
+                    "4 Weeks, each week contain a theorical and practical session + 2 Project Mentorship Sessions",
+                ],
+                "availability": "Pro Plan",
+                "price": "350$",
+            },
+            {
+                "name": "Advanced Machine Learning and Real-Time Deployment (VIP Plan)",
                 "impact": (
                     "Participants will develop advanced skills in database management, machine learning, and real-time "
                     "application deployment. This course focuses on practical implementations, enabling learners to create "
@@ -32,16 +51,18 @@ def get_trainings():
                 ),
                 "chapters": [
                     "Week 1: Advanced SQL and Databases",
-                    "Week 2: Deploy Database",
+                    "Week 2: Fundumental of Statistics for Machine Learning",
                     "Week 3: Unsupervised Machine Learning",
                     "Week 4: Supervised Machine Learning",
                     "Week 5: Processing Data in Real-Time for Decision-Making",
                     "Week 6: Capstone Project",
+                    "6 Weeks, each week contain a theorical and practical sessions",
                 ],
-                "availability": "✅ Included in Pro and VIP Plans (Not available in Basic Plan)",
+                "availability": "VIP Plan",
+                "price": "900$",
             },
             {
-                "name": "Course 3: Mastering App Automation with Google Apps Script",
+                "name": "Mastering App Automation with Google Apps Script (Basic Plan)",
                 "impact": (
                     "Participants will learn to leverage Google Apps Script to automate routine tasks, streamline workflows, "
                     "and build custom applications that integrate with various Google services. This course empowers learners "
@@ -53,8 +74,28 @@ def get_trainings():
                     "Week 3: Automating Data Collection and Processing",
                     "Week 4: Integrating Google APIs and Third-Party Services",
                     "Week 5: Capstone Project: Automating a Real-World Workflow",
+                    "5 Weeks, each week contain a theorical and practical session",
                 ],
-                "availability": "✅ Included in Pro and VIP Plans (Not available in Basic Plan)",
+                "availability": "Basic Plan",
+                "price": "250$",
+            },
+            {
+                "name": "Mastering App Automation with Google Apps Script (Pro Plan)",
+                "impact": (
+                    "Participants will learn to leverage Google Apps Script to automate routine tasks, streamline workflows, "
+                    "and build custom applications that integrate with various Google services. This course empowers learners "
+                    "to create efficient and scalable automation solutions for data processing, communication, and collaboration."
+                ),
+                "chapters": [
+                    "Week 1: Introduction to Google Apps Script and Automation",
+                    "Week 2: Building Custom Functions and Triggers",
+                    "Week 3: Automating Data Collection and Processing",
+                    "Week 4: Integrating Google APIs and Third-Party Services",
+                    "Week 5: Capstone Project: Automating a Real-World Workflow",
+                    "5 Weeks, each week contain a theorical and practical session + 2 Project Mentorship Sessions",
+                ],
+                "availability": "Pro Plan",
+                "price": "250$",
             },
         ]
     }
@@ -62,7 +103,7 @@ def get_trainings():
 
 def show_trainings():
     """
-    Display the training courses in a card-style layout.
+    Display the training courses in a card-style layout, including prices.
     """
     st.title("Our Courses")
     st.markdown("---")
@@ -141,6 +182,7 @@ def show_trainings():
         course_html += f"""
             </ul>
             <p><strong>Availability:</strong> {course['availability']}</p>
+            <p><strong>Price:</strong> {course['price']}</p>
             <a class="request-button" href="https://calendar.app.google/o6eQcsxCDwofXNn59" target="_blank">Request</a>
         </div>
         """
