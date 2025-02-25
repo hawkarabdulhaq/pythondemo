@@ -20,7 +20,6 @@ def get_trainings():
                     "Week 4: Data Week",
                     "Week 5: Project Capstone",
                 ],
-                "availability": "✅ Included in Basic, Pro, and VIP Plans",
             },
             {
                 "name": "Course 2: Advanced Machine Learning and Real-Time Deployment",
