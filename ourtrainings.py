@@ -6,8 +6,9 @@ def get_trainings():
     """
     trainings = {
         "courses": [
+            # Course 1: Basic Plan
             {
-                "name": "Course 1: Foundations of Python Programming and Applied Coding",
+                "name": "Course 1: Foundations of Python Programming and Applied Coding (Basic Plan)",
                 "impact": (
                     "Participants will gain foundational skills in Python programming and learn to create robust "
                     "scripts, work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners "
@@ -20,8 +21,8 @@ def get_trainings():
                     "Week 4: Data Week",
                     "Week 5: Project Capstone",
                 ],
-                # No "availability" key here
             },
+            # Course 1 Pro Plan
             {
                 "name": "Course 1 Pro Plan: Foundations of Python Programming and Applied Coding (Project Mentorship)",
                 "impact": (
@@ -34,10 +35,11 @@ def get_trainings():
                     "Week 2: Generate Comprehensive Codings",
                     "Week 3: Deploy Apps with GitHub and Streamlit",
                     "Week 4: Data Week",
-                    "Week 5: Project Capstone",
+                    "Week 5: Project Capstone A",
+                    "Week 5: Project Capstone B",
                 ],
-                # No "availability" key here
             },
+            # Course 2
             {
                 "name": "Course 2: Advanced Machine Learning and Real-Time Deployment",
                 "impact": (
@@ -55,6 +57,7 @@ def get_trainings():
                 ],
                 "availability": "✅ Included in Pro and VIP Plans (Not available in Basic Plan)",
             },
+            # Course 3
             {
                 "name": "Course 3: Mastering App Automation with Google Apps Script",
                 "impact": (
@@ -145,7 +148,7 @@ def show_trainings():
     
     for course in courses:
         # Determine button text and link based on the course name
-        if course["name"] == "Course 1: Foundations of Python Programming and Applied Coding":
+        if course["name"] == "Course 1: Foundations of Python Programming and Applied Coding (Basic Plan)":
             button_text = "Basic Plan: 250$"
             button_link = "https://checkout.revolut.com/pay/8236b9e9-36c4-4692-911b-735aba86a138"
         elif course["name"] == "Course 1 Pro Plan: Foundations of Python Programming and Applied Coding (Project Mentorship)":
