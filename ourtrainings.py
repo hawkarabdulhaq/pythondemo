@@ -2,12 +2,13 @@ import streamlit as st
 
 def get_trainings():
     """
-    Returns a list of available training courses with details, including prices.
+    Returns a list of available training courses with details, including prices and banner images.
     """
     trainings = {
         "courses": [
             {
                 "name": "Foundations of Python Programming and Applied Coding (Basic Plan)",
+                "image": "https://i.imgur.com/tITld9S.jpeg",
                 "impact": (
                     "Participants will gain foundational skills in Python programming and learn to create robust scripts, "
                     "work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners to automate "
@@ -26,6 +27,7 @@ def get_trainings():
             },
             {
                 "name": "Foundations of Python Programming and Applied Coding (Pro Plan)",
+                "image": "https://i.imgur.com/NWELv8b.jpeg",
                 "impact": (
                     "Participants will gain foundational skills in Python programming and learn to create robust scripts, "
                     "work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners to automate "
@@ -44,6 +46,7 @@ def get_trainings():
             },
             {
                 "name": "Advanced Machine Learning and Real-Time Deployment (VIP Plan)",
+                "image": "https://i.imgur.com/iIMdWOn.jpeg",
                 "impact": (
                     "Participants will develop advanced skills in database management, machine learning, and real-time "
                     "application deployment. This course focuses on practical implementations, enabling learners to create "
@@ -62,7 +65,8 @@ def get_trainings():
                 "price": "900$",
             },
             {
-                "name": "Mastering App Automation with Google Apps Script (Basic Plan)",
+                "name": "Mastering App Automation with Apps Script (Basic Plan)",
+                "image": "https://i.imgur.com/XXmFKXq.jpeg",
                 "impact": (
                     "Participants will learn to leverage Google Apps Script to automate routine tasks, streamline workflows, "
                     "and build custom applications that integrate with various Google services. This course empowers learners "
@@ -81,6 +85,7 @@ def get_trainings():
             },
             {
                 "name": "Mastering App Automation with Google Apps Script (Pro Plan)",
+                "image": "https://i.imgur.com/V5JuNm3.jpeg",
                 "impact": (
                     "Participants will learn to leverage Google Apps Script to automate routine tasks, streamline workflows, "
                     "and build custom applications that integrate with various Google services. This course empowers learners "
@@ -95,7 +100,7 @@ def get_trainings():
                     "5 Weeks, each week contain a theorical and practical session + 2 Project Mentorship Sessions",
                 ],
                 "availability": "Pro Plan",
-                "price": "350$",
+                "price": "250$",
             },
         ]
     }
@@ -103,7 +108,7 @@ def get_trainings():
 
 def show_trainings():
     """
-    Display the training courses in a card-style layout, including prices.
+    Display the training courses in a card-style layout, including prices and images.
     """
     st.title("Our Courses")
     st.markdown("---")
@@ -129,6 +134,12 @@ def show_trainings():
         .card h3 {
             color: #ffffff;
             margin-bottom: 10px;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
         .card p {
             color: #ffffff;
@@ -173,6 +184,7 @@ def show_trainings():
         course_html = f"""
         <div class="card">
             <h3>{course['name']}</h3>
+            <img src="{course['image']}" alt="{course['name']}"/>
             <p><strong>Impact:</strong> {course['impact']}</p>
             <p><strong>Course Chapters:</strong></p>
             <ul>
