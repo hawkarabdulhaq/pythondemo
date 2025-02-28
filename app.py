@@ -8,7 +8,7 @@ import contact
 import style
 
 # Set the title and icon for the browser tab
-st.set_page_config(page_title="AI for Impact", page_icon="🤖")
+st.set_page_config(page_title="AI for Impact", page_icon="📊")
 
 # Apply custom styles from style.py
 style.apply_custom_styles()
