@@ -1,127 +1,143 @@
 import streamlit as st
 
-def show():
-    """Display the streamlined Pricing page in the Streamlit app."""
+def get_trainings():
+    """
+    Returns a list of two selected training courses with full details.
+    """
+    trainings = {
+        "courses": [
+            {
+                "name": "Foundations of Python Programming and Applied Coding (Basic Plan)",
+                "image": "https://i.imgur.com/tITld9S.jpeg",
+                "impact": (
+                    "Participants will gain foundational skills in Python programming and learn to create robust scripts, "
+                    "work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners to automate "
+                    "tasks, process data, and build basic web applications."
+                ),
+                "chapters": [
+                    "Week 1: Introduction to Coding",
+                    "Week 2: Generate Comprehensive Codings",
+                    "Week 3: Deploy Apps with GitHub and Streamlit",
+                    "Week 4: Data Week",
+                    "Week 5: Project Capstone",
+                    "4 Weeks, each week contain a theorical and practical session",
+                ],
+                "availability": "Basic Plan",
+                "price": "250$",
+            },
+            {
+                "name": "Advanced Machine Learning and Real-Time Deployment (VIP Plan)",
+                "image": "https://i.imgur.com/iIMdWOn.jpeg",
+                "impact": (
+                    "Participants will develop advanced skills in coding, database management, machine learning, and real-time "
+                    "application deployment. This course focuses on practical implementations, enabling learners to create "
+                    "AI-driven solutions, deploy them in real-world scenarios, and integrate apps with cloud and database systems."
+                ),
+                "chapters": [
+                    "Week 1: Ice Breaker for Coding",
+                    "Week 2: Modularity Programming",
+                    "Week 3: UI and App Building",
+                    "Week 4: Advanced SQL and Databases",
+                    "Week 5: Fundumental of Statistics for Machine Learning",
+                    "Week 6: Unsupervised Machine Learning",
+                    "Week 7: Supervised Machine Learning",
+                    "Week 8: Neural Network Machine Learning",
+                    "Week 9: Capstone Project",
+                    "9 Weeks, each week contain a theorical and practical session",
+                ],
+                "availability": "VIP Plan",
+                "price": "900$",
+            },
+        ]
+    }
+    return trainings
 
-    # Page Title
-    st.title("💰 Pricing Plans")
-    st.markdown("""
-    <div style="text-align: center; font-size: 1.3em; color: #1ABC9C; margin-bottom: 20px;">
-        Find the best plan for your AI learning journey. Choose based on your needs!
-    </div>
-    """, unsafe_allow_html=True)
+def show_trainings():
+    """
+    Display the Basic and Advanced training courses using a card layout.
+    """
+    st.title("Our Courses")
+    st.markdown("---")
 
-    # Pricing Cards
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        st.markdown("### 🎓 Basic Plan ($250)")
-        st.write("""
-        ✅ 4 weeks of training  
-        ✅ 4 theoretical + 4 practical sessions  
-        ✅ Hands-on projects  
-        ✅ Certification  
-        ✅ **Covers Course 1 only**  
-        """)
-        st.markdown('<a href="https://checkout.revolut.com/pay/8236b9e9-36c4-4692-911b-735aba86a138" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Buy</a>', unsafe_allow_html=True)
-
-    with col2:
-        st.markdown("### 🚀 Pro Plan ($350)")
-        st.write("""
-        ✅ 6 weeks of training  
-        ✅ 6 theoretical + 6 practical sessions  
-        ✅ 3 private mentorship sessions  
-        ✅ Hands-on AI project support  
-        ✅ Certification  
-        ✅ **Covers Course 1 & Course 2**  
-        """)
-        st.markdown('<a href="https://checkout.revolut.com/pay/2080f594-3b59-4e55-808c-1d1c954186a4" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Buy</a>', unsafe_allow_html=True)
-
-    with col3:
-        st.markdown("### 👑 VIP Plan ($900 - $1200)")
-        st.write("""
-        ✅ 12 months of private coaching  
-        ✅ Monthly 1-on-1 mentorship  
-        ✅ Career guidance & networking  
-        ✅ Personalized AI learning roadmap  
-        ✅ Certification  
-        ✅ **Covers Course 1 & Course 2**  
-        """)
-        st.markdown('<a href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>', unsafe_allow_html=True)
-
-    # Streamlined Feature Comparison Table
-    st.markdown("### 📊 Compare Plans")
-    st.markdown("""
-    <style>
-        table {
+    # CSS Styling
+    st.markdown(
+        """
+        <style>
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background: #2f2f2f;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            flex: 1 1 calc(50% - 20px);
+            max-width: calc(100% - 20px);
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            color: #ffffff;
+        }
+        .card img {
             width: 100%;
-            border-collapse: collapse;
-            font-size: 1.1em;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: center;
-            padding: 10px;
+        .card p, .card ul {
+            color: #ffffff;
+            line-height: 1.5;
         }
-        th {
-            background-color: #1ABC9C;
-            color: white;
+        .card ul {
+            padding-left: 20px;
         }
-    </style>
-    <table>
-        <tr>
-            <th>Feature</th>
-            <th>Basic ($250)</th>
-            <th>Pro ($350)</th>
-            <th>VIP ($900 - $1200)</th>
-        </tr>
-        <tr>
-            <td><strong>Duration</strong></td>
-            <td>4 Weeks</td>
-            <td>6 Weeks</td>
-            <td>12 Months</td>
-        </tr>
-        <tr>
-            <td><strong>Live Theoretical Sessions</strong></td>
-            <td>✅ 4</td>
-            <td>✅ 6</td>
-            <td>✅ 6</td>
-        </tr>
-        <tr>
-            <td><strong>Project-Based Learning</strong></td>
-            <td>✅ Yes</td>
-            <td>✅ Yes</td>
-            <td>✅ Yes</td>
-        </tr>
-        <tr>
-            <td><strong>Live Practical Sessions</strong></td>
-            <td>✅ 4</td>
-            <td>✅ 6</td>
-            <td>✅ 6</td>
-        </tr>
-        <tr>
-            <td><strong>Certificate</strong></td>
-            <td>✅ Yes</td>
-            <td>✅ Yes</td>
-            <td>✅ Yes</td>
-        </tr>
-        <tr>
-            <td><strong>Career Guidance</strong></td>
-            <td>❌</td>
-            <td>❌</td>
-            <td>✅ Personalized</td>
-        </tr>
-        <tr>
-            <td><strong>Certifications</strong></td>
-            <td>✅</td>
-            <td>✅</td>
-            <td>✅</td>
-        </tr>
-        <tr>
-            <td><strong>Best For</strong></td>
-            <td>Beginners who want structured learning</td>
-            <td>Learners who need mentorship</td>
-            <td>Professionals seeking career coaching</td>
-        </tr>
-    </table>
-    """, unsafe_allow_html=True)
+        .request-button {
+            background-color: #ffffff;
+            color: black;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        @media screen and (max-width: 768px) {
+            .card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    courses = get_trainings()["courses"]
+    st.markdown('<div class="card-container">', unsafe_allow_html=True)
+
+    for course in courses:
+        course_html = f"""
+        <div class="card">
+            <h3>{course['name']}</h3>
+            <img src="{course['image']}" alt="{course['name']}"/>
+            <p><strong>Impact:</strong> {course['impact']}</p>
+            <p><strong>Course Chapters:</strong></p>
+            <ul>
+        """
+        for chapter in course["chapters"]:
+            course_html += f"<li>{chapter}</li>"
+        course_html += f"""
+            </ul>
+            <p><strong>Availability:</strong> {course['availability']}</p>
+            <p><strong>Price:</strong> {course['price']}</p>
+            <a class="request-button" href="https://calendar.app.google/o6eQcsxCDwofXNn59" target="_blank">Request</a>
+        </div>
+        """
+        st.markdown(course_html, unsafe_allow_html=True)
+
+    st.markdown('</div>', unsafe_allow_html=True)
