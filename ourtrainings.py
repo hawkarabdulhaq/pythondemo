@@ -2,7 +2,7 @@ import streamlit as st
 
 def get_trainings():
     """
-    Returns a list of available training courses with details, including prices and banner images.
+    Returns a list of selected training courses with details, including prices and banner images.
     """
     trainings = {
         "courses": [
@@ -26,81 +26,27 @@ def get_trainings():
                 "price": "250$",
             },
             {
-                "name": "Foundations of Python Programming and Applied Coding (Pro Plan)",
-                "image": "https://i.imgur.com/NWELv8b.jpeg",
-                "impact": (
-                    "Participants will gain foundational skills in Python programming and learn to create robust scripts, "
-                    "work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners to automate "
-                    "tasks, process data, and build basic web applications."
-                ),
-                "chapters": [
-                    "Week 1: Introduction to Coding",
-                    "Week 2: Generate Comprehensive Codings",
-                    "Week 3: Deploy Apps with GitHub and Streamlit",
-                    "Week 4: Data Week",
-                    "Week 5: Project Capstone",
-                    "4 Weeks, each week contain a theorical and practical session + 2 Project Mentorship Sessions",
-                ],
-                "availability": "Pro Plan",
-                "price": "350$",
-            },
-            {
                 "name": "Advanced Machine Learning and Real-Time Deployment (VIP Plan)",
                 "image": "https://i.imgur.com/iIMdWOn.jpeg",
                 "impact": (
-                    "Participants will develop advanced skills in database management, machine learning, and real-time "
+                    "Participants will develop advanced skills in coding, database management, machine learning, and real-time "
                     "application deployment. This course focuses on practical implementations, enabling learners to create "
                     "AI-driven solutions, deploy them in real-world scenarios, and integrate apps with cloud and database systems."
                 ),
                 "chapters": [
-                    "Week 1: Advanced SQL and Databases",
-                    "Week 2: Fundumental of Statistics for Machine Learning",
-                    "Week 3: Unsupervised Machine Learning",
-                    "Week 4: Supervised Machine Learning",
-                    "Week 5: Processing Data in Real-Time for Decision-Making",
-                    "Week 6: Capstone Project",
-                    "6 Weeks, each week contain a theorical and practical sessions",
+                    "Week 1: Ice Breaker for Coding",
+                    "Week 2: Modularity Programming",
+                    "Week 3: UI and App Building",
+                    "Week 4: Advanced SQL and Databases",
+                    "Week 5: Fundumental of Statistics for Machine Learning",
+                    "Week 6: Unsupervised Machine Learning",
+                    "Week 7: Supervised Machine Learning",
+                    "Week 8: Neural Network Machine Learning",
+                    "Week 9: Capstone Project",
+                    "9 Weeks, each week contain a theorical and practical session",
                 ],
                 "availability": "VIP Plan",
                 "price": "900$",
-            },
-            {
-                "name": "Mastering App Automation with Apps Script (Basic Plan)",
-                "image": "https://i.imgur.com/XXmFKXq.jpeg",
-                "impact": (
-                    "Participants will learn to leverage Google Apps Script to automate routine tasks, streamline workflows, "
-                    "and build custom applications that integrate with various Google services. This course empowers learners "
-                    "to create efficient and scalable automation solutions for data processing, communication, and collaboration."
-                ),
-                "chapters": [
-                    "Week 1: Introduction to Google Apps Script and Automation",
-                    "Week 2: Building Custom Functions and Triggers",
-                    "Week 3: Automating Data Collection and Processing",
-                    "Week 4: Integrating Google APIs and Third-Party Services",
-                    "Week 5: Capstone Project: Automating a Real-World Workflow",
-                    "5 Weeks, each week contain a theorical and practical session",
-                ],
-                "availability": "Basic Plan",
-                "price": "250$",
-            },
-            {
-                "name": "Mastering App Automation with Google Apps Script (Pro Plan)",
-                "image": "https://i.imgur.com/V5JuNm3.jpeg",
-                "impact": (
-                    "Participants will learn to leverage Google Apps Script to automate routine tasks, streamline workflows, "
-                    "and build custom applications that integrate with various Google services. This course empowers learners "
-                    "to create efficient and scalable automation solutions for data processing, communication, and collaboration."
-                ),
-                "chapters": [
-                    "Week 1: Introduction to Google Apps Script and Automation",
-                    "Week 2: Building Custom Functions and Triggers",
-                    "Week 3: Automating Data Collection and Processing",
-                    "Week 4: Integrating Google APIs and Third-Party Services",
-                    "Week 5: Capstone Project: Automating a Real-World Workflow",
-                    "5 Weeks, each week contain a theorical and practical session + 2 Project Mentorship Sessions",
-                ],
-                "availability": "Pro Plan",
-                "price": "350$",
             },
         ]
     }
@@ -108,12 +54,11 @@ def get_trainings():
 
 def show_trainings():
     """
-    Display the training courses in a card-style layout, including prices and images.
+    Display the selected training courses in a card-style layout.
     """
     st.title("Our Courses")
     st.markdown("---")
     
-    # Custom CSS for card layout and button styling with dark grey cards
     st.markdown(
         """
         <style>
@@ -177,7 +122,6 @@ def show_trainings():
     training_data = get_trainings()
     courses = training_data["courses"]
     
-    # Container for card layout
     st.markdown('<div class="card-container">', unsafe_allow_html=True)
     
     for course in courses:
