@@ -27,7 +27,7 @@ def show():
         st.markdown(
             '<a href="https://checkout.revolut.com/pay/8236b9e9-36c4-4692-911b-735aba86a138" '
             'target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; '
-            'border-radius:5px; text-decoration:none; font-size:1.1em;">Buy</a>',
+            'border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>',
             unsafe_allow_html=True
         )
 
