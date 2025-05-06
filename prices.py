@@ -2,7 +2,7 @@ import streamlit as st
 
 def get_trainings():
     """
-    Returns a list of two selected training courses with full details.
+    Returns a list of selected training courses with details, including prices and banner images.
     """
     trainings = {
         "courses": [
@@ -54,12 +54,11 @@ def get_trainings():
 
 def show_trainings():
     """
-    Display the Basic and Advanced training courses using a card layout.
+    Display the selected training courses in a card-style layout.
     """
     st.title("Our Courses")
     st.markdown("---")
-
-    # CSS Styling
+    
     st.markdown(
         """
         <style>
@@ -72,13 +71,14 @@ def show_trainings():
             background: #2f2f2f;
             border-radius: 15px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             flex: 1 1 calc(50% - 20px);
             max-width: calc(100% - 20px);
             margin-bottom: 20px;
         }
         .card h3 {
             color: #ffffff;
+            margin-bottom: 10px;
         }
         .card img {
             width: 100%;
@@ -86,25 +86,27 @@ def show_trainings():
             border-radius: 10px;
             margin-bottom: 15px;
         }
-        .card p, .card ul {
+        .card p {
             color: #ffffff;
             line-height: 1.5;
         }
         .card ul {
             padding-left: 20px;
+            color: #ffffff;
         }
         .request-button {
             background-color: #ffffff;
-            color: black;
+            border: none;
+            color: white;
             font-weight: bold;
             padding: 10px 20px;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            cursor: pointer;
+            text-align: center;
             text-decoration: none;
             display: inline-block;
+            font-size: 16px;
             margin-top: 10px;
+            cursor: pointer;
+            border-radius: 12px;
         }
         @media screen and (max-width: 768px) {
             .card {
@@ -116,10 +118,12 @@ def show_trainings():
         """,
         unsafe_allow_html=True,
     )
-
-    courses = get_trainings()["courses"]
+    
+    training_data = get_trainings()
+    courses = training_data["courses"]
+    
     st.markdown('<div class="card-container">', unsafe_allow_html=True)
-
+    
     for course in courses:
         course_html = f"""
         <div class="card">
@@ -139,5 +143,5 @@ def show_trainings():
         </div>
         """
         st.markdown(course_html, unsafe_allow_html=True)
-
+    
     st.markdown('</div>', unsafe_allow_html=True)
