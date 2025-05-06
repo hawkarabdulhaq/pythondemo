@@ -1,7 +1,7 @@
 import streamlit as st
 
 def show():
-    """Display the Pricing page in the Streamlit app."""
+    """Display the streamlined Pricing page in the Streamlit app."""
 
     # Page Title
     st.title("💰 Pricing Plans")
@@ -11,10 +11,9 @@ def show():
     </div>
     """, unsafe_allow_html=True)
 
-    # Pricing Table with Visuals
+    # Pricing Cards
     col1, col2, col3 = st.columns(3)
 
-    # Basic Plan
     with col1:
         st.markdown("### 🎓 Basic Plan ($250)")
         st.write("""
@@ -26,7 +25,6 @@ def show():
         """)
         st.markdown('<a href="https://checkout.revolut.com/pay/8236b9e9-36c4-4692-911b-735aba86a138" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Buy</a>', unsafe_allow_html=True)
 
-    # Pro Plan
     with col2:
         st.markdown("### 🚀 Pro Plan ($350)")
         st.write("""
@@ -35,11 +33,10 @@ def show():
         ✅ 3 private mentorship sessions  
         ✅ Hands-on AI project support  
         ✅ Certification  
-        ✅ **Covers both Course 1 & Course 2**  
+        ✅ **Covers Course 1 & Course 2**  
         """)
         st.markdown('<a href="https://checkout.revolut.com/pay/2080f594-3b59-4e55-808c-1d1c954186a4" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Buy</a>', unsafe_allow_html=True)
 
-    # VIP Plan
     with col3:
         st.markdown("### 👑 VIP Plan ($900 - $1200)")
         st.write("""
@@ -48,11 +45,11 @@ def show():
         ✅ Career guidance & networking  
         ✅ Personalized AI learning roadmap  
         ✅ Certification  
-        ✅ **Covers both Course 1 & Course 2**  
+        ✅ **Covers Course 1 & Course 2**  
         """)
         st.markdown('<a href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>', unsafe_allow_html=True)
 
-    # Detailed Feature Comparison Table
+    # Streamlined Feature Comparison Table
     st.markdown("### 📊 Compare Plans")
     st.markdown("""
     <style>
@@ -91,46 +88,34 @@ def show():
             <td>✅ 6</td>
         </tr>
         <tr>
-            <td><strong>Live Practical Sessions</strong></td>
-            <td>✅ 4</td>
-            <td>✅ 6</td>
-            <td>✅ 6</td>
-        </tr>
-        <tr>
             <td><strong>Project-Based Learning</strong></td>
             <td>✅ Yes</td>
             <td>✅ Yes</td>
             <td>✅ Yes</td>
         </tr>
         <tr>
-            <td><strong>Mentorship Sessions</strong></td>
-            <td>❌ No</td>
-            <td>✅ 3</td>
-            <td>✅ Ongoing</td>
+            <td><strong>Live Practical Sessions</strong></td>
+            <td>✅ 4</td>
+            <td>✅ 6</td>
+            <td>✅ 6</td>
         </tr>
         <tr>
-            <td><strong>Private Coaching</strong></td>
-            <td>❌ No</td>
-            <td>❌ No</td>
-            <td>✅ Monthly 1-on-1</td>
+            <td><strong>Certificate</strong></td>
+            <td>✅ Yes</td>
+            <td>✅ Yes</td>
+            <td>✅ Yes</td>
         </tr>
         <tr>
             <td><strong>Career Guidance</strong></td>
-            <td>❌ No</td>
-            <td>❌ No</td>
+            <td>❌</td>
+            <td>❌</td>
             <td>✅ Personalized</td>
         </tr>
         <tr>
-            <td><strong>Certification</strong></td>
-            <td>✅ Yes</td>
-            <td>✅ Yes</td>
-            <td>✅ Yes</td>
-        </tr>
-        <tr>
-            <td><strong>Course Access</strong></td>
-            <td>✅ **Only Course 1**</td>
-            <td>✅ **Course 1 & Course 2**</td>
-            <td>✅ **Course 1 & Course 2**</td>
+            <td><strong>Certifications</strong></td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
         </tr>
         <tr>
             <td><strong>Best For</strong></td>
@@ -139,9 +124,4 @@ def show():
             <td>Professionals seeking career coaching</td>
         </tr>
     </table>
-    """, unsafe_allow_html=True)
-
-    # Footer
-    st.markdown("""
-    </div>
     """, unsafe_allow_html=True)
