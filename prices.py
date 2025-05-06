@@ -1,18 +1,18 @@
 import streamlit as st
 
 def show():
-    """Display the Pricing page in the Streamlit app."""
+    """Display the updated Pricing page with only Basic and Advanced plans."""
 
     # Page Title
     st.title("💰 Pricing Plans")
     st.markdown("""
     <div style="text-align: center; font-size: 1.3em; color: #1ABC9C; margin-bottom: 20px;">
-        Find the best plan for your AI learning journey. Choose based on your needs!
+        Choose the plan that fits your learning goals!
     </div>
     """, unsafe_allow_html=True)
 
-    # Pricing Table with Visuals
-    col1, col2, col3 = st.columns(3)
+    # Pricing Cards
+    col1, col2 = st.columns(2)
 
     # Basic Plan
     with col1:
@@ -22,126 +22,51 @@ def show():
         ✅ 4 theoretical + 4 practical sessions  
         ✅ Hands-on projects  
         ✅ Certification  
-        ✅ **Covers Course 1 only**  
+        ✅ Course: Foundations of Python Programming and Applied Coding  
         """)
         st.markdown('<a href="https://checkout.revolut.com/pay/8236b9e9-36c4-4692-911b-735aba86a138" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Buy</a>', unsafe_allow_html=True)
 
-    # Pro Plan
+    # Advanced Plan
     with col2:
-        st.markdown("### 🚀 Pro Plan ($350)")
+        st.markdown("### 👑 Advanced Plan ($900)")
         st.write("""
-        ✅ 6 weeks of training  
-        ✅ 6 theoretical + 6 practical sessions  
-        ✅ 3 private mentorship sessions  
-        ✅ Hands-on AI project support  
+        ✅ 9 weeks of training  
+        ✅ 9 theoretical + 9 practical sessions  
+        ✅ Project-based learning  
         ✅ Certification  
-        ✅ **Covers both Course 1 & Course 2**  
-        """)
-        st.markdown('<a href="https://checkout.revolut.com/pay/2080f594-3b59-4e55-808c-1d1c954186a4" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Buy</a>', unsafe_allow_html=True)
-
-    # VIP Plan
-    with col3:
-        st.markdown("### 👑 VIP Plan ($900 - $1200)")
-        st.write("""
-        ✅ 12 months of private coaching  
-        ✅ Monthly 1-on-1 mentorship  
-        ✅ Career guidance & networking  
-        ✅ Personalized AI learning roadmap  
-        ✅ Certification  
-        ✅ **Covers both Course 1 & Course 2**  
+        ✅ Course: Advanced Machine Learning and Real-Time Deployment  
         """)
         st.markdown('<a href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank" style="background-color:#1ABC9C; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-size:1.1em;">Request</a>', unsafe_allow_html=True)
 
-    # Detailed Feature Comparison Table
-    st.markdown("### 📊 Compare Plans")
-    st.markdown("""
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 1.1em;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: center;
-            padding: 10px;
-        }
-        th {
-            background-color: #1ABC9C;
-            color: white;
-        }
-    </style>
-    <table>
-        <tr>
-            <th>Feature</th>
-            <th>Basic ($250)</th>
-            <th>Pro ($350)</th>
-            <th>VIP ($900 - $1200)</th>
-        </tr>
-        <tr>
-            <td><strong>Duration</strong></td>
-            <td>4 Weeks</td>
-            <td>6 Weeks</td>
-            <td>12 Months</td>
-        </tr>
-        <tr>
-            <td><strong>Live Theoretical Sessions</strong></td>
-            <td>✅ 4</td>
-            <td>✅ 6</td>
-            <td>✅ 6</td>
-        </tr>
-        <tr>
-            <td><strong>Live Practical Sessions</strong></td>
-            <td>✅ 4</td>
-            <td>✅ 6</td>
-            <td>✅ 6</td>
-        </tr>
-        <tr>
-            <td><strong>Project-Based Learning</strong></td>
-            <td>✅ Yes</td>
-            <td>✅ Yes</td>
-            <td>✅ Yes</td>
-        </tr>
-        <tr>
-            <td><strong>Mentorship Sessions</strong></td>
-            <td>❌ No</td>
-            <td>✅ 3</td>
-            <td>✅ Ongoing</td>
-        </tr>
-        <tr>
-            <td><strong>Private Coaching</strong></td>
-            <td>❌ No</td>
-            <td>❌ No</td>
-            <td>✅ Monthly 1-on-1</td>
-        </tr>
-        <tr>
-            <td><strong>Career Guidance</strong></td>
-            <td>❌ No</td>
-            <td>❌ No</td>
-            <td>✅ Personalized</td>
-        </tr>
-        <tr>
-            <td><strong>Certification</strong></td>
-            <td>✅ Yes</td>
-            <td>✅ Yes</td>
-            <td>✅ Yes</td>
-        </tr>
-        <tr>
-            <td><strong>Course Access</strong></td>
-            <td>✅ **Only Course 1**</td>
-            <td>✅ **Course 1 & Course 2**</td>
-            <td>✅ **Course 1 & Course 2**</td>
-        </tr>
-        <tr>
-            <td><strong>Best For</strong></td>
-            <td>Beginners who want structured learning</td>
-            <td>Learners who need mentorship</td>
-            <td>Professionals seeking career coaching</td>
-        </tr>
-    </table>
-    """, unsafe_allow_html=True)
+    # Detailed Comparison
+    st.markdown("### 📚 Course Breakdown")
+    
+    st.markdown("#### 🎓 Basic Plan")
+    st.write("""
+**Impact:** Participants will gain foundational skills in Python programming and learn to create robust scripts, work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners to automate tasks, process data, and build basic web applications.
 
-    # Footer
-    st.markdown("""
-    </div>
-    """, unsafe_allow_html=True)
+**Course Chapters:**
+- Week 1: Introduction to Coding  
+- Week 2: Generate Comprehensive Codings  
+- Week 3: Deploy Apps with GitHub and Streamlit  
+- Week 4: Data Week  
+- Week 5: Project Capstone  
+🕓 4 Weeks, each week contains a theoretical and practical session
+    """)
+
+    st.markdown("#### 👑 Advanced Plan")
+    st.write("""
+**Impact:** Participants will develop advanced skills in coding, database management, machine learning, and real-time application deployment. This course focuses on practical implementations, enabling learners to create AI-driven solutions, deploy them in real-world scenarios, and integrate apps with cloud and database systems.
+
+**Course Chapters:**
+- Week 1: Ice Breaker for Coding  
+- Week 2: Modularity Programming  
+- Week 3: UI and App Building  
+- Week 4: Advanced SQL and Databases  
+- Week 5: Fundumental of Statistics for Machine Learning  
+- Week 6: Unsupervised Machine Learning  
+- Week 7: Supervised Machine Learning  
+- Week 8: Neural Network Machine Learning  
+- Week 9: Capstone Project  
+🕘 9 Weeks, each week contains a theoretical and practical session
+    """)
