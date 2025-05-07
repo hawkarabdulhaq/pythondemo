@@ -1,7 +1,7 @@
 import streamlit as st
 
 def show():
-    """Display the updated Pricing page with only Basic and Advanced plans."""
+    """Display the updated Pricing page with Basic and Advanced plans."""
 
     # Page Title
     st.title("💰 Pricing Plans")
@@ -33,7 +33,7 @@ def show():
 
     # Advanced Plan
     with col2:
-        st.markdown("### 👑 Advanced Plan ($900)")
+        st.markdown("### 👑 Advanced Plan ($570)")
         st.write("""
         ✅ 9 weeks of training  
         ✅ 9 theoretical + 9 practical sessions  
