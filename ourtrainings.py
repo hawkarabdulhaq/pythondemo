@@ -46,7 +46,7 @@ def get_trainings():
                     "9 Weeks, each week contain a theorical and practical session",
                 ],
                 "availability": "VIP Plan",
-                "price": "900$",
+                "price": "570$",
             },
         ]
     }
