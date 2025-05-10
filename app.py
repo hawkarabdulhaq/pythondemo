@@ -1,6 +1,6 @@
 import streamlit as st
 import home
-import Trainings  # Replaces stepstoexpert
+import trainings  # Replaces stepstoexpert
 import prices
 import certificate
 import about
