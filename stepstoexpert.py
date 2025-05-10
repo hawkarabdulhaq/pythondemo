@@ -1,7 +1,6 @@
 import streamlit as st
 import base64
 import pandas as pd
-from ourtrainings import get_trainings, show_trainings
 import prices  # Import Prices Module
 import os
 
@@ -77,8 +76,3 @@ def show():
         )
         show_trainings()
 
-    with tab2:
-        prices.show()  # Calls the Pricing Page
-
-    with tab3:
-        show_certificate_database()
