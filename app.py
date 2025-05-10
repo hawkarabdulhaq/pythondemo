@@ -1,6 +1,7 @@
 import streamlit as st
 import home
 import stepstoexpert
+import prices
 import about
 import contact
 import style
@@ -27,6 +28,7 @@ with st.sidebar:
     # Navigation buttons
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Steps-to-Expert", on_click=set_page, args=("Steps-to-Expert",))
+    st.button("Pricing", on_click=set_page, args=("Pricing",))
     st.button("About", on_click=set_page, args=("About",))
     st.button("Contact", on_click=set_page, args=("Contact",))
 
@@ -54,6 +56,11 @@ elif page == "Steps-to-Expert":
         stepstoexpert.show()
     except AttributeError:
         st.error("Error: The Steps-to-Expert page is not defined properly.")
+elif page == "Pricing":
+    try:
+        prices.show()
+    except AttributeError:
+        st.error("Error: The Pricing page is not defined properly.")
 elif page == "About":
     try:
         about.show()
