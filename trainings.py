@@ -1,6 +1,6 @@
 import streamlit as st
 
-def trainings.show_trainings():
+def get_trainings():
     """
     Returns a list of selected training courses with details, including prices and banner images.
     """
@@ -20,7 +20,7 @@ def trainings.show_trainings():
                     "Week 3: Deploy Apps with GitHub and Streamlit",
                     "Week 4: Data Week",
                     "Week 5: Project Capstone",
-                    "4 Weeks, each week contain a theorical and practical session",
+                    "4 Weeks, each week contain a theoretical and practical session",
                 ],
                 "availability": "Basic Plan",
                 "price": "250$",
@@ -38,12 +38,12 @@ def trainings.show_trainings():
                     "Week 2: Modularity Programming",
                     "Week 3: UI and App Building",
                     "Week 4: Advanced SQL and Databases",
-                    "Week 5: Fundumental of Statistics for Machine Learning",
+                    "Week 5: Fundamental of Statistics for Machine Learning",
                     "Week 6: Unsupervised Machine Learning",
                     "Week 7: Supervised Machine Learning",
                     "Week 8: Neural Network Machine Learning",
                     "Week 9: Capstone Project",
-                    "9 Weeks, each week contain a theorical and practical session",
+                    "9 Weeks, each week contain a theoretical and practical session",
                 ],
                 "availability": "VIP Plan",
                 "price": "570$",
@@ -59,6 +59,7 @@ def show_trainings():
     st.title("Our Courses")
     st.markdown("---")
     
+    # Styling
     st.markdown(
         """
         <style>
