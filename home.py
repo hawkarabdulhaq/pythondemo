@@ -14,11 +14,11 @@ def show():
         unsafe_allow_html=True
     )
 
-    # --- Subtitle ---
+    # --- Subtitle (Updated) ---
     st.markdown(
         """
         <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #eeeeee; margin-bottom: 20px;">
-            Optimizing businesses for resilience and sustainable growth with AI!
+            Accelerate your journey from learner to expert. Catalyze your growth. Unlock your potential.
         </div>
         """,
         unsafe_allow_html=True
@@ -34,7 +34,7 @@ def show():
         unsafe_allow_html=True
     )
 
-    # --- Service Cards ---
+    # --- Service Cards (Updated Messaging) ---
     st.markdown(
         """
         <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
@@ -43,21 +43,21 @@ def show():
                 <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/training.jpg" alt="Steps-to-Expert" 
                      style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
                 <h3 style="color: #eeeeee;">Steps-to-Expert</h3>
-                <p style="color: #eeeeee;">Learn AI, Machine Learning, and Automation quickly and effectively.</p>
+                <p style="color: #eeeeee;">Quickly master AI, Machine Learning, and Automation through expert-guided training.</p>
             </div>
             <div style="background-color: #000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; 
                         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-                <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Steps-to-Impact" 
+                <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/analyze.jpg" alt="Catalyst Effect" 
                      style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-                <h3 style="color: #eeeeee;">Steps-to-Impact</h3>
-                <p style="color: #eeeeee;">We analyze your business and provide a custom data-driven improvement plan.</p>
+                <h3 style="color: #eeeeee;">Catalyst Effect</h3>
+                <p style="color: #eeeeee;">Accelerate your capabilities, maximizing performance and efficiency.</p>
             </div>
             <div style="background-color: #000000; padding: 20px; border-radius: 10px; width: 30%; margin-bottom: 20px; 
                         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
-                <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Steps-to-Solutions" 
+                <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/solution.jpg" alt="Explore Beyond" 
                      style="border-radius: 10px; margin-bottom: 15px; width: 100%; height: auto;">
-                <h3 style="color: #eeeeee;">Steps-to-Solutions</h3>
-                <p style="color: #eeeeee;">Custom-built tools to solve problems and streamline your operations.</p>
+                <h3 style="color: #eeeeee;">Explore Beyond</h3>
+                <p style="color: #eeeeee;">Unlock hidden talents and discover new paths with advanced AI skills.</p>
             </div>
         </div>
         """,
