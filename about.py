@@ -1,11 +1,9 @@
 import streamlit as st
 
 def show():
-    """Display the About Us page – CTA removed."""
+    """Display the About Us page – cleaned-up and button-free."""
 
-    # --------------------------------------------------
     # 1️⃣  Global CSS
-    # --------------------------------------------------
     st.markdown(
         """
         <style>
@@ -20,23 +18,23 @@ def show():
                            center/cover;
             }
             .banner-content{
-                position:relative;z-index:1;height:100%;display:flex;
-                flex-direction:column;justify-content:center;align-items:center;
-                text-align:center;color:#fff;
+                position:relative;z-index:1;height:100%;
+                display:flex;flex-direction:column;justify-content:center;
+                align-items:center;text-align:center;color:#fff;
             }
             .card{
                 background:#111;padding:35px 25px;border-radius:10px;
                 box-shadow:0 4px 10px rgba(0,0,0,.25);margin-bottom:35px;
             }
-            .divider{margin:40px auto;height:2px;width:60px;background:#1ABC9C;}
+            .divider{
+                margin:40px auto;height:2px;width:60px;background:#1ABC9C;
+            }
         </style>
         """,
         unsafe_allow_html=True
     )
 
-    # --------------------------------------------------
     # 2️⃣  Banner
-    # --------------------------------------------------
     st.markdown(
         """
         <div class="banner">
@@ -54,9 +52,7 @@ def show():
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
 
-    # --------------------------------------------------
     # 3️⃣  Content cards
-    # --------------------------------------------------
     st.markdown(
         """
         <div class="card">
@@ -93,6 +89,21 @@ def show():
                 AI is powerful—<i>but only when it serves the planet and its people</i>.
                 By embedding sustainability principles into every line of code,
                 we ensure technology remains a force for good.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # 4️⃣  CTA (heading + text only—button removed)
+    st.markdown(
+        """
+        <hr class="divider">
+        <div style="text-align:center;">
+            <h2 style="color:#1ABC9C;margin-bottom:10px;">Ready to Build Impact Together?</h2>
+            <p style="color:#eeeeee;font-size:1.15em;margin-bottom:0;">
+                Let’s accelerate your AI-for-Good journey—reach out and discover how
+                <b>Impact-Driven Coding</b> can move the needle for your organisation.
             </p>
         </div>
         """,
