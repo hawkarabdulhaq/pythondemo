@@ -1,15 +1,14 @@
 import streamlit as st
 
 def show():
-    """Display the About Us page – cleaned up version."""
+    """Display the About Us page – CTA removed."""
 
-    # ------------------------------------------------------------------
-    # 1️⃣  Inject global CSS just once
-    # ------------------------------------------------------------------
+    # --------------------------------------------------
+    # 1️⃣  Global CSS
+    # --------------------------------------------------
     st.markdown(
         """
         <style>
-            /* --- Re-usable building blocks --- */
             .banner{
                 position:relative;height:340px;border-radius:12px;
                 overflow:hidden;box-shadow:0 6px 12px rgba(0,0,0,.35);
@@ -21,25 +20,23 @@ def show():
                            center/cover;
             }
             .banner-content{
-                position:relative;z-index:1;height:100%;
-                display:flex;flex-direction:column;justify-content:center;
-                align-items:center;text-align:center;color:#fff;
+                position:relative;z-index:1;height:100%;display:flex;
+                flex-direction:column;justify-content:center;align-items:center;
+                text-align:center;color:#fff;
             }
             .card{
                 background:#111;padding:35px 25px;border-radius:10px;
                 box-shadow:0 4px 10px rgba(0,0,0,.25);margin-bottom:35px;
             }
-            .divider{
-                margin:40px auto;height:2px;width:60px;background:#1ABC9C;
-            }
+            .divider{margin:40px auto;height:2px;width:60px;background:#1ABC9C;}
         </style>
         """,
         unsafe_allow_html=True
     )
 
-    # ------------------------------------------------------------------
+    # --------------------------------------------------
     # 2️⃣  Banner
-    # ------------------------------------------------------------------
+    # --------------------------------------------------
     st.markdown(
         """
         <div class="banner">
@@ -57,9 +54,9 @@ def show():
 
     st.markdown('<hr class="divider">', unsafe_allow_html=True)
 
-    # ------------------------------------------------------------------
+    # --------------------------------------------------
     # 3️⃣  Content cards
-    # ------------------------------------------------------------------
+    # --------------------------------------------------
     st.markdown(
         """
         <div class="card">
@@ -97,27 +94,6 @@ def show():
                 By embedding sustainability principles into every line of code,
                 we ensure technology remains a force for good.
             </p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-    # ------------------------------------------------------------------
-    # 4️⃣  Call-to-action
-    # ------------------------------------------------------------------
-    st.markdown(
-        """
-        <hr class="divider">
-        <div style="text-align:center;">
-            <h2 style="color:#1ABC9C;margin-bottom:10px;">Ready to Build Impact Together?</h2>
-            <p style="color:#eeeeee;font-size:1.15em;margin-bottom:25px;">
-                Let’s accelerate your AI-for-Good journey—drop us a line and see how
-                <b>Impact-Driven Coding</b> can move the needle for your organisation.
-            </p>
-            <a href="#contact" style="
-                background:#1ABC9C;color:#000;padding:12px 28px;border-radius:6px;
-                font-weight:bold;text-decoration:none;box-shadow:0 3px 6px rgba(0,0,0,.3);
-            ">Get&nbsp;in&nbsp;Touch</a>
         </div>
         """,
         unsafe_allow_html=True
