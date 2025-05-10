@@ -1,6 +1,6 @@
 import streamlit as st
 import home
-import stepstoexpert
+import ourtrainings  # Replaces stepstoexpert
 import prices
 import certificate
 import about
@@ -28,7 +28,7 @@ with st.sidebar:
 
     # Navigation buttons
     st.button("Home", on_click=set_page, args=("Home",))
-    st.button("Steps-to-Expert", on_click=set_page, args=("Steps-to-Expert",))
+    st.button("Trainings", on_click=set_page, args=("Trainings",))  # Renamed label
     st.button("Pricing", on_click=set_page, args=("Pricing",))
     st.button("Certificate", on_click=set_page, args=("Certificate",))
     st.button("About", on_click=set_page, args=("About",))
@@ -53,11 +53,11 @@ if page == "Home":
         home.show()
     except AttributeError:
         st.error("Error: The Home page is not defined properly.")
-elif page == "Steps-to-Expert":
+elif page == "Trainings":
     try:
-        stepstoexpert.show()
+        ourtrainings.show()
     except AttributeError:
-        st.error("Error: The Steps-to-Expert page is not defined properly.")
+        st.error("Error: The Trainings page is not defined properly.")
 elif page == "Pricing":
     try:
         prices.show()
