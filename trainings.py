@@ -1,6 +1,6 @@
 import streamlit as st
 
-def trainings.show_trainings()():
+def trainings.show_trainings():
     """
     Returns a list of selected training courses with details, including prices and banner images.
     """
