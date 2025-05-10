@@ -55,7 +55,7 @@ if page == "Home":
         st.error("Error: The Home page is not defined properly.")
 elif page == "Trainings":
     try:
-        ourtrainings.show()
+        get_trainings.show()
     except AttributeError:
         st.error("Error: The Trainings page is not defined properly.")
 elif page == "Pricing":
