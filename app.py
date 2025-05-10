@@ -1,8 +1,6 @@
 import streamlit as st
 import home
-import stepstoexpert  # Module name is stepstoexpert (no hyphens)
-import business
-import solutions
+import stepstoexpert
 import about
 import contact
 import style
@@ -29,8 +27,6 @@ with st.sidebar:
     # Navigation buttons
     st.button("Home", on_click=set_page, args=("Home",))
     st.button("Steps-to-Expert", on_click=set_page, args=("Steps-to-Expert",))
-    st.button("Steps-to-Impact", on_click=set_page, args=("Steps-to-Impact",))
-    st.button("Steps-to-Solutions", on_click=set_page, args=("Steps-to-Solutions",))
     st.button("About", on_click=set_page, args=("About",))
     st.button("Contact", on_click=set_page, args=("Contact",))
 
@@ -58,16 +54,6 @@ elif page == "Steps-to-Expert":
         stepstoexpert.show()
     except AttributeError:
         st.error("Error: The Steps-to-Expert page is not defined properly.")
-elif page == "Steps-to-Impact":
-    try:
-        business.show()
-    except AttributeError:
-        st.error("Error: The Business page is not defined properly.")
-elif page == "Steps-to-Solutions":
-    try:
-        solutions.show()
-    except AttributeError:
-        st.error("Error: The Solutions page is not defined properly.")
 elif page == "About":
     try:
         about.show()
@@ -79,7 +65,7 @@ elif page == "Contact":
     except AttributeError:
         st.error("Error: The Contact page is not defined properly.")
 
-# Footer with powered-by message
+# Footer
 st.markdown(
     """
     <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
