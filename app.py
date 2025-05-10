@@ -28,7 +28,7 @@ with st.sidebar:
 
     # Navigation buttons
     st.button("Home", on_click=set_page, args=("Home",))
-    st.button("Trainings", on_click=set_page, args=("Trainings",))  # Renamed label
+    st.button("Trainings", on_click=set_page, args=("Trainings",))
     st.button("Pricing", on_click=set_page, args=("Pricing",))
     st.button("Certificate", on_click=set_page, args=("Certificate",))
     st.button("About", on_click=set_page, args=("About",))
@@ -55,7 +55,7 @@ if page == "Home":
         st.error("Error: The Home page is not defined properly.")
 elif page == "Trainings":
     try:
-        get_trainings.show()
+        trainings.show_trainings()
     except AttributeError:
         st.error("Error: The Trainings page is not defined properly.")
 elif page == "Pricing":
