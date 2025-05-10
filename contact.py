@@ -6,7 +6,7 @@ def show():
     # Calendly Scheduling Button
     st.markdown("""
     <div style="text-align: center; margin-top: 50px;">
-        <a href="https://calendar.app.google/o6eQcsxCDwofXNn59" target="_blank" style="
+        <a href="https://calendar.app.google/ceHWPAHUXnZbx2Q58" target="_blank" style="
             background-color: #129729; 
             color: white; 
             padding: 15px 25px; 
