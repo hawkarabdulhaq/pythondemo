@@ -47,6 +47,9 @@ def show():
                     <li>Neural Networks</li>
                     <li>Capstone Project</li>
                 </ul>
+                <p style="color: #eeeeee; font-size: 1.2em; font-weight: bold; text-align: center; margin-top: 10px;">
+                    💵 Course Fee: <span style="color: #1ABC9C;">$635 USD</span>
+                </p>
                 <div style="text-align: center; margin-top: 20px;">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdfISuw6xQvoXI-VFrPQ_HGkQ56ftr4uXr0BKrDCZM4GuKxHw/viewform?usp=header" 
                        target="_blank"
