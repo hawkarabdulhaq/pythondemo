@@ -26,7 +26,7 @@ def get_trainings():
                 "price": "250$",
             },
             {
-                "name": "Advanced Machine Learning and Real-Time Deployment",
+                "name": "Advanced Machine Learning and Real-Time Deployment (Advanced Plan)",
                 "image": "https://i.imgur.com/iIMdWOn.jpeg",
                 "impact": (
                     "Participants will develop advanced skills in coding, database management, machine learning, and real-time "
