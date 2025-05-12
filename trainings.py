@@ -45,7 +45,7 @@ def get_trainings():
                     "Week 9: Capstone Project",
                     "9 Weeks, each week contain a theoretical and practical session",
                 ],
-                "availability": "VIP Plan",
+                "availability": "Advanced Plan",
                 "price": "570$",
             },
         ]
