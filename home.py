@@ -48,7 +48,8 @@ def show():
                     <li>Capstone Project</li>
                 </ul>
                 <div style="text-align: center; margin-top: 20px;">
-                    <a href="https://calendly.com/hawkar_abdulhaq/ai-for-impact" target="_blank"
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdfISuw6xQvoXI-VFrPQ_HGkQ56ftr4uXr0BKrDCZM4GuKxHw/viewform?usp=header" 
+                       target="_blank"
                        style="background-color: #1ABC9C; color: white; padding: 10px 20px; text-decoration: none;
                        border-radius: 8px; font-weight: bold; font-size: 1.1em;">Apply Now</a>
                 </div>
