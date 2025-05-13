@@ -13,6 +13,40 @@ def show():
         """,
         unsafe_allow_html=True
     )
+# --- Opening Ceremony Announcement ---
+st.markdown(
+    """
+    <div style="border: 2px solid #1ABC9C; border-radius: 12px; padding: 20px; background-color: #111111; margin-bottom: 40px;">
+        <h2 style="color: #1ABC9C; text-align: center;">🎉 Opening Ceremony</h2>
+        <p style="color: #eeeeee; font-size: 1.1em;">
+            We warmly invite you to the <strong>Opening Ceremony</strong> of our AI Master Class in <strong>Erbil</strong>:
+            <br><br>
+            <strong>🗓 June 28, 2025</strong><br>
+            <strong>🕒 Duration: 2 hours</strong><br>
+            <strong>📍 In-person event</strong><br><br>
+            This special session will feature keynote speeches from:
+        </p>
+        <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap; margin-top: 20px;">
+            <div style="text-align: center;">
+                <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/Hunar.jpg"
+                     alt="Dr. Hunar Ahmad"
+                     style="width: 150px; height: 150px; border-radius: 50%; border: 2px solid #1ABC9C; margin-bottom: 10px;">
+                <p style="color: #ffffff; font-weight: bold;">Dr. Hunar Ahmad</p>
+            </div>
+            <div style="text-align: center;">
+                <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/Hawkar.jpg"
+                     alt="Hawkar Ali Abdulhaq"
+                     style="width: 150px; height: 150px; border-radius: 50%; border: 2px solid #1ABC9C; margin-bottom: 10px;">
+                <p style="color: #ffffff; font-weight: bold;">Hawkar Ali Abdulhaq</p>
+            </div>
+        </div>
+        <p style="color: #eeeeee; font-size: 1.1em; text-align: center; margin-top: 20px;">
+            📣 A powerful kickoff session to set the tone for two weeks of transformation and innovation.
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
     # --- Subtitle ---
     st.markdown(
