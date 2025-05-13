@@ -13,40 +13,6 @@ def show():
         """,
         unsafe_allow_html=True
     )
-# --- Opening Ceremony Announcement ---
-st.markdown(
-    """
-    <div style="border: 2px solid #1ABC9C; border-radius: 12px; padding: 20px; background-color: #111111; margin-bottom: 40px;">
-        <h2 style="color: #1ABC9C; text-align: center;">🎉 Opening Ceremony</h2>
-        <p style="color: #eeeeee; font-size: 1.1em;">
-            We warmly invite you to the <strong>Opening Ceremony</strong> of our AI Master Class in <strong>Erbil</strong>:
-            <br><br>
-            <strong>🗓 June 28, 2025</strong><br>
-            <strong>🕒 Duration: 2 hours</strong><br>
-            <strong>📍 In-person event</strong><br><br>
-            This special session will feature keynote speeches from:
-        </p>
-        <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap; margin-top: 20px;">
-            <div style="text-align: center;">
-                <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/Hunar.jpg"
-                     alt="Dr. Hunar Ahmad"
-                     style="width: 150px; height: 150px; border-radius: 50%; border: 2px solid #1ABC9C; margin-bottom: 10px;">
-                <p style="color: #ffffff; font-weight: bold;">Dr. Hunar Ahmad</p>
-            </div>
-            <div style="text-align: center;">
-                <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/Hawkar.jpg"
-                     alt="Hawkar Ali Abdulhaq"
-                     style="width: 150px; height: 150px; border-radius: 50%; border: 2px solid #1ABC9C; margin-bottom: 10px;">
-                <p style="color: #ffffff; font-weight: bold;">Hawkar Ali Abdulhaq</p>
-            </div>
-        </div>
-        <p style="color: #eeeeee; font-size: 1.1em; text-align: center; margin-top: 20px;">
-            📣 A powerful kickoff session to set the tone for two weeks of transformation and innovation.
-        </p>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
 
     # --- Subtitle ---
     st.markdown(
@@ -58,50 +24,52 @@ st.markdown(
         unsafe_allow_html=True
     )
 
-    # --- Course 1: AI for Everyone ---
+    # --- Opening Ceremony ---
     st.markdown(
         """
         <div style="border: 2px solid #1ABC9C; border-radius: 12px; padding: 20px; background-color: #111111; margin-bottom: 40px;">
-            <h2 style="color: #1ABC9C; text-align: center;">📣 AI for Everyone</h2>
+            <h2 style="color: #1ABC9C; text-align: center;">🎉 Opening Ceremony</h2>
             <p style="color: #eeeeee; font-size: 1.1em;">
-                A complete beginner-to-expert journey through practical AI, in <strong>Erbil</strong>:
+                We warmly invite you to the <strong>Opening Ceremony</strong> of our AI Master Class in <strong>Erbil</strong>:
                 <br><br>
-                <strong>🗓 July 6 – July 10, 2025</strong><br>
-                <strong>📍 In-person, 5 sessions × 2 hours</strong><br><br>
-                You’ll cover key stages of learning AI—from fundamentals to deployment:
-                <ul style="color: #eeeeee; padding-left: 25px;">
-                    <li>Week 1: Why AI? Where to Start?</li>
-                    <li>Week 2: Coding and Data Analysis with AI</li>
-                    <li>Week 3: Deploy Apps with GitHub and Streamlit</li>
-                    <li>Week 4: Data Week</li>
-                    <li>Week 5: Project Capstone</li>
-                </ul>
-                <p style="color: #eeeeee; font-size: 1.2em; font-weight: bold; text-align: center; margin-top: 10px;">
-                    💵 Course Fee: <span style="color: #1ABC9C;">$290 USD</span>
-                </p>
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdfISuw6xQvoXI-VFrPQ_HGkQ56ftr4uXr0BKrDCZM4GuKxHw/viewform?usp=header" 
-                       target="_blank"
-                       style="background-color: #1ABC9C; color: white; padding: 10px 20px; text-decoration: none;
-                       border-radius: 8px; font-weight: bold; font-size: 1.1em;">Apply Now</a>
+                <strong>🗓 June 28, 2025</strong><br>
+                <strong>🕒 Duration: 2 hours</strong><br>
+                <strong>📍 In-person event</strong><br><br>
+                This special session will feature keynote speeches from:
+            </p>
+            <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap; margin-top: 20px;">
+                <div style="text-align: center;">
+                    <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/Hunar.jpg"
+                         alt="Dr. Hunar Ahmad"
+                         style="width: 150px; height: 150px; border-radius: 50%; border: 2px solid #1ABC9C; margin-bottom: 10px;">
+                    <p style="color: #ffffff; font-weight: bold;">Dr. Hunar Ahmad</p>
                 </div>
+                <div style="text-align: center;">
+                    <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/Hawkar.jpg"
+                         alt="Hawkar Ali Abdulhaq"
+                         style="width: 150px; height: 150px; border-radius: 50%; border: 2px solid #1ABC9C; margin-bottom: 10px;">
+                    <p style="color: #ffffff; font-weight: bold;">Hawkar Ali Abdulhaq</p>
+                </div>
+            </div>
+            <p style="color: #eeeeee; font-size: 1.1em; text-align: center; margin-top: 20px;">
+                📣 A powerful kickoff session to set the tone for two weeks of transformation and innovation.
             </p>
         </div>
         """,
         unsafe_allow_html=True
     )
 
-    # --- Course 2: Master Class Announcement ---
+    # --- Master Class Announcement ---
     st.markdown(
         """
         <div style="border: 2px solid #1ABC9C; border-radius: 12px; padding: 20px; background-color: #111111; margin-bottom: 40px;">
-            <h2 style="color: #1ABC9C; text-align: center;">📣 Master Class: Advanced Machine Learning and Real-Time Deployment</h2>
+            <h2 style="color: #1ABC9C; text-align: center;">📣 Master Class Announcement</h2>
             <p style="color: #eeeeee; font-size: 1.1em;">
-                An advanced 1-week bootcamp for serious AI developers in <strong>Erbil</strong>:
+                Join our <strong>in-person</strong> 2-week course in <strong>Erbil</strong>:
                 <br><br>
-                <strong>🗓 June 29 – July 3, 2025</strong><br>
-                <strong>📍 In-person, 10 sessions × 2 hours</strong><br><br>
-                Learn cutting-edge tools and build real-world AI applications:
+                <strong>🗓 June 29 – July 10, 2025</strong><br>
+                <strong>📍 Master Class of Utilizing AI for Advanced Machine Learning and Real-Time Deployment</strong><br><br>
+                This exclusive program includes <strong>10 sessions</strong> (2 hours each), with hands-on training in:
                 <ul style="color: #eeeeee; padding-left: 25px;">
                     <li>Your Data, Your Future Impact</li>
                     <li>Ice Breaker for Coding</li>
