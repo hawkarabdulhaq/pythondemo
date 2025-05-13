@@ -18,7 +18,7 @@ def show():
     st.markdown(
         """
         <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #eeeeee; margin-bottom: 20px;">
-            Accelerate your journey from learner to expert with Impact-Driven Coding—proven workflows for maximum results.
+            AI for Impact is coming to Erbil with in-person trainings—learn, connect, and build with purpose.
         </div>
         """,
         unsafe_allow_html=True
@@ -53,6 +53,39 @@ def show():
             </div>
             <p style="color: #eeeeee; font-size: 1.1em; text-align: center; margin-top: 20px;">
                 📣 A powerful kickoff session to set the tone for two weeks of transformation and innovation.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # --- Course 1: AI for Everyone ---
+    st.markdown(
+        """
+        <div style="border: 2px solid #1ABC9C; border-radius: 12px; padding: 20px; background-color: #111111; margin-bottom: 40px;">
+            <h2 style="color: #1ABC9C; text-align: center;">📣 AI for Everyone: From Basic to Expert</h2>
+            <p style="color: #eeeeee; font-size: 1.1em;">
+                A complete beginner-to-expert journey through practical AI, in <strong>Erbil</strong>:
+                <br><br>
+                <strong>🗓 July 6 – July 10, 2025</strong><br>
+                <strong>📍 In-person, 5 sessions × 2 hours</strong><br><br>
+                You’ll cover key stages of learning AI—from fundamentals to deployment:
+                <ul style="color: #eeeeee; padding-left: 25px;">
+                    <li>Week 1: Why AI? Where to Start?</li>
+                    <li>Week 2: Coding and Data Analysis with AI</li>
+                    <li>Week 3: Deploy Apps with GitHub and Streamlit</li>
+                    <li>Week 4: Data Week</li>
+                    <li>Week 5: Project Capstone</li>
+                </ul>
+                <p style="color: #eeeeee; font-size: 1.2em; font-weight: bold; text-align: center; margin-top: 10px;">
+                    💵 Course Fee: <span style="color: #1ABC9C;">$290 USD</span>
+                </p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdfISuw6xQvoXI-VFrPQ_HGkQ56ftr4uXr0BKrDCZM4GuKxHw/viewform?usp=header" 
+                       target="_blank"
+                       style="background-color: #1ABC9C; color: white; padding: 10px 20px; text-decoration: none;
+                       border-radius: 8px; font-weight: bold; font-size: 1.1em;">Apply Now</a>
+                </div>
             </p>
         </div>
         """,
