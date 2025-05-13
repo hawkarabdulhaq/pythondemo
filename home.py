@@ -63,7 +63,7 @@ def show():
     st.markdown(
         """
         <div style="border: 2px solid #1ABC9C; border-radius: 12px; padding: 20px; background-color: #111111; margin-bottom: 40px;">
-            <h2 style="color: #1ABC9C; text-align: center;">📣 AI for Everyone: From Basic to Expert</h2>
+            <h2 style="color: #1ABC9C; text-align: center;">📣 AI for Everyone</h2>
             <p style="color: #eeeeee; font-size: 1.1em;">
                 A complete beginner-to-expert journey through practical AI, in <strong>Erbil</strong>:
                 <br><br>
