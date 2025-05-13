@@ -96,7 +96,7 @@ def show():
     st.markdown(
         """
         <div style="border: 2px solid #1ABC9C; border-radius: 12px; padding: 20px; background-color: #111111; margin-bottom: 40px;">
-            <h2 style="color: #1ABC9C; text-align: center;">📣 Master Class Announcement</h2>
+            <h2 style="color: #1ABC9C; text-align: center;">📣 AI Master Class</h2>
             <p style="color: #eeeeee; font-size: 1.1em;">
                 Join our <strong>in-person</strong> 2-week course in <strong>Erbil</strong>:
                 <br><br>
