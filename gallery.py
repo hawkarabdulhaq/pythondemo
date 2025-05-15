@@ -8,29 +8,42 @@ def load_cards():
 
 def render_card(card: dict):
     with st.container():
-        st.markdown(f"""
-        <div class="card">
-            <h3>{card.get('headline', 'Showcase')}</h3>
-            <img src="{card.get('screenshot', '')}" alt="{card.get('headline', '')}"/>
-            <p>{card.get('description', '')}</p>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            f"""
+            <div class="card">
+                <h3>{card.get('headline', 'Showcase')}</h3>
+                <img class="card-img" src="{card.get('screenshot', '')}" alt="{card.get('headline', '')}">
+                <p>{card.get('description', '')}</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
         if feats := card.get("features"):
-            st.markdown("<ul>" + "".join(f"<li>{feat}</li>" for feat in feats) + "</ul>", unsafe_allow_html=True)
+            st.markdown(
+                "<ul>" + "".join(f"<li>{feat}</li>" for feat in feats) + "</ul>",
+                unsafe_allow_html=True,
+            )
+
+        cols = st.columns(2)
 
         if card.get("demo_url"):
-            st.link_button("🖥️ Live Demo", card["demo_url"], use_container_width=True)
+            cols[0].link_button(
+                "🖥️ Live Demo", card["demo_url"], use_container_width=True
+            )
 
         if card.get("code_url"):
-            st.link_button("📂 Source Code", card["code_url"], use_container_width=True)
-
-        st.markdown("</div>", unsafe_allow_html=True)
+            cols[1].link_button(
+                "📂 Source Code", card["code_url"], use_container_width=True
+            )
 
 def show():
     st.title("🖼️ Project Gallery")
     st.markdown("---")
 
-    st.markdown("""
+    # CSS for styling (consistent with trainings.py)
+    st.markdown(
+        """
     <style>
         .card-container {
             display: flex;
@@ -50,7 +63,7 @@ def show():
             color: #ffffff;
             margin-bottom: 10px;
         }
-        .card img {
+        .card-img {
             width: 100%;
             height: auto;
             border-radius: 10px;
@@ -70,7 +83,9 @@ def show():
             }
         }
     </style>
-    """, unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )
 
     cards = load_cards()
 
@@ -83,4 +98,4 @@ def show():
     for card in cards:
         render_card(card)
 
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
