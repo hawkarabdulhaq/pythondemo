@@ -1,19 +1,15 @@
-# gallery.py  – Gallery driven by input/gallery.json
+# gallery.py – nicer layout: all content inside one green frame
 import json, pathlib, streamlit as st
 
 ACCENT, BG = "#1ABC9C", "#111111"
 
 # ───────────────────────── helpers ─────────────────────────
 def load_cards():
-    """Read showcase info from input/gallery.json (or return [])."""
-    path = pathlib.Path("input/gallery.json")
-    if path.is_file():
-        with path.open() as f:
-            return json.load(f)
-    return []
+    p = pathlib.Path("input/gallery.json")
+    return json.loads(p.read_text()) if p.is_file() else []
 
 def render_card(card: dict):
-    """Render one showcase card."""
+    """Render one showcase card (inside the frame)."""
     st.markdown("<div class='card'>", unsafe_allow_html=True)
 
     if card.get("screenshot"):
@@ -39,24 +35,52 @@ def render_card(card: dict):
 def show() -> None:
     """Render the Gallery page (called from app.py)."""
 
-    # Inject CSS once per session
+    # Inject CSS once
     if "gallery_css_loaded" not in st.session_state:
         st.session_state.gallery_css_loaded = True
         st.markdown(f"""
         <style>
         .stApp {{ background:{BG}; color:#EEE; }}
-        h1, h2, h3 {{ color:{ACCENT}; }}
-        .card {{
-            background:#000; border:2px solid {ACCENT}; border-radius:12px;
-            padding:20px; box-shadow:0 4px 8px #0006;
+
+        /* big outer frame */
+        .gallery-frame {{
+            border:3px solid {ACCENT};
+            border-radius:18px;
+            padding:35px 28px 40px;
+            margin-top:10px;
+            background:#000;           /* subtle contrast with page BG */
         }}
-        .card img {{ width:100%; border-radius:8px; margin-bottom:14px; }}
-        .card button {{ background:{ACCENT}; color:#FFF;
-                        border-radius:8px; font-weight:bold; }}
+
+        /* section titles */
+        h1, h2, h3 {{ color:{ACCENT}; }}
+
+        /* individual cards */
+        .card {{
+            background:#0d0d0d;
+            border:1px solid {ACCENT}55;  /* lighter, so frame stands out */
+            border-radius:12px;
+            padding:20px;
+            box-shadow:0 4px 8px #0004;
+            margin-bottom:32px;
+        }}
+        .card img {{
+            width:100%;
+            border-radius:8px;
+            margin-bottom:14px;
+        }}
+        .card button {{
+            background:{ACCENT};
+            color:#FFF;
+            border-radius:8px;
+            font-weight:bold;
+        }}
         </style>
         """, unsafe_allow_html=True)
 
-    # Header
+    # ──────── open frame ────────
+    st.markdown("<div class='gallery-frame'>", unsafe_allow_html=True)
+
+    # header
     st.markdown("""
     <h1 style='text-align:center'>🖼️ Project Gallery</h1>
     <p style='text-align:center;font-size:1.2rem;'>
@@ -65,12 +89,13 @@ def show() -> None:
     <hr style='border:none;border-top:2px solid #1ABC9C;margin:0 0 35px 0;'>
     """, unsafe_allow_html=True)
 
-    # Cards
+    # cards
     cards = load_cards()
     if not cards:
         st.info("No showcase cards found — add some to `input/gallery.json`")
-        return
+    else:
+        for card in cards:
+            render_card(card)
 
-    for card in cards:
-        render_card(card)
-        st.markdown("<!-- spacer -->", unsafe_allow_html=True)
+    # ──────── close frame ────────
+    st.markdown("</div>", unsafe_allow_html=True)
