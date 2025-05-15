@@ -1,0 +1,15 @@
+[
+  {
+    "image": "https://raw.githubusercontent.com/AIforimpact22/coolassistant/main/docs/preview.png",
+    "headline": "Real-time Data Collection & Insight",
+    "description": "An interactive web app that lets users enter data anywhere, anytime. Every submission is stored in an **online PostgreSQL database** and reflected instantly on maps and dashboards – perfect for surveys, incident reporting, or live field research.",
+    "highlights": [
+      "🔗 **Cloud database** keeps everything in one secure place",
+      "🖊️ **Streamlit form** for quick data entry",
+      "♻️ **Real-time updates** – no page refresh needed"
+    ],
+    "demo_url": "https://coolassistant.streamlit.app/"
+  }
+
+  /* Add more objects here for more showcase cards */
+]
