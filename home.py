@@ -130,6 +130,31 @@ def show():
         unsafe_allow_html=True
     )
 
+    # --- Final Ceremony ---
+    st.markdown(
+        """
+        <div style="border: 2px solid #1ABC9C; border-radius: 12px; padding: 20px; background-color: #111111; margin-bottom: 40px;">
+            <h2 style="color: #1ABC9C; text-align: center;">🎓 Final Ceremony</h2>
+            <p style="color: #eeeeee; font-size: 1.1em;">
+                Celebrate the successful completion of our AI programs at the <strong>Final Ceremony</strong>:
+                <br><br>
+                <strong>🗓 July 12, 2025</strong><br>
+                <strong>🕒 Duration: 2 hours</strong><br>
+                <strong>📍 In-person event</strong><br><br>
+                Highlights of the ceremony include:
+            </p>
+            <ul style="color: #eeeeee; font-size: 1.05em; padding-left: 25px;">
+                <li><strong>Certificate Awards</strong> – official recognition of your achievement</li>
+                <li><strong>Round Table Discussion</strong> – connect with AI-focused business guests and fellow participants</li>
+            </ul>
+            <p style="color: #eeeeee; font-size: 1.1em; text-align: center; margin-top: 20px;">
+                🏆 A rewarding finale to honor your journey and spark new collaborations.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
     # --- What We Offer Section ---
     st.markdown(
         """
