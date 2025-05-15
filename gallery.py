@@ -17,29 +17,23 @@ def render_card(card: dict):
     if feats := card.get("features"):
         card_html += "<ul>" + "".join(f"<li>{feat}</li>" for feat in feats) + "</ul>"
 
-    if card.get("demo_url"):
-        card_html += f"""
-        <a class="request-button" href="{card['demo_url']}" target="_blank">
-            🖥️ Live Demo
-        </a>
-        """
-
-    if card.get("code_url"):
-        card_html += f"""
-        <a class="request-button" href="{card['code_url']}" target="_blank">
-            📂 Source Code
-        </a>
-        """
-
     card_html += "</div>"
 
     st.markdown(card_html, unsafe_allow_html=True)
+
+    cols = st.columns(2)
+
+    if card.get("demo_url"):
+        cols[0].link_button("🖥️ Live Demo", card["demo_url"], use_container_width=True)
+
+    if card.get("code_url"):
+        cols[1].link_button("📂 Source Code", card["code_url"], use_container_width=True)
 
 def show():
     st.title("🖼️ Project Gallery")
     st.markdown("---")
 
-    # CSS matching your trainings.py style
+    # CSS consistent with trainings.py style
     st.markdown("""
     <style>
         .card-container {
@@ -72,17 +66,6 @@ def show():
         }
         .card ul {
             padding-left: 20px;
-        }
-        .request-button {
-            background-color: #1ABC9C;
-            border: none;
-            color: #ffffff;
-            font-weight: bold;
-            padding: 8px 15px;
-            text-decoration: none;
-            display: inline-block;
-            border-radius: 12px;
-            margin-top: 10px;
         }
         @media screen and (max-width: 768px) {
             .card {
