@@ -1,128 +1,113 @@
-import json, pathlib, streamlit as st
+import json
+import pathlib
+import streamlit as st
 
-ACCENT, BG, CARD_BG = "#1ABC9C", "#111111", "#181818"
+ACCENT = "#1ABC9C"
 
-# ──────────────────────────── helpers ────────────────────────────
 def load_cards():
     p = pathlib.Path("input/gallery.json")
     return json.loads(p.read_text()) if p.is_file() else []
 
 def render_card(card: dict):
-    st.markdown("<div class='gallery-card'>", unsafe_allow_html=True)
+    chapters_html = ""
+    if features := card.get("features"):
+        chapters_html += "<ul>"
+        for feat in features:
+            chapters_html += f"<li>{feat}</li>"
+        chapters_html += "</ul>"
 
-    # Image section
-    if card.get("screenshot"):
-        st.image(card["screenshot"], use_container_width=True)
+    demo_btn = (f'<a class="button" href="{card["demo_url"]}" target="_blank">'
+                f'🖥️ Live Demo</a>') if card.get("demo_url") else ""
 
-    # Text section
+    code_btn = (f'<a class="button" href="{card["code_url"]}" target="_blank">'
+                f'📂 Source Code</a>') if card.get("code_url") else ""
+
+    buttons_html = f"{demo_btn} {code_btn}"
+
+    card_html = f"""
+        <div class="card">
+            <h3>{card.get('headline', 'Untitled Showcase')}</h3>
+            <img src="{card.get('screenshot')}" alt="{card.get('headline')}"/>
+            <p>{card.get('description', '')}</p>
+            {chapters_html}
+            <div style="margin-top:15px;">{buttons_html}</div>
+        </div>
+    """
+
+    st.markdown(card_html, unsafe_allow_html=True)
+
+def show():
+    st.title("🖼️ Project Gallery")
+    st.markdown("---")
+
     st.markdown(
-        f"<h3 class='card-title'>{card.get('headline','Showcase')}</h3>",
-        unsafe_allow_html=True
-    )
-    st.markdown(f"<p>{card.get('description','')}</p>", unsafe_allow_html=True)
-
-    # Feature list (bullet style)
-    if feats := card.get("features"):
-        feat_html = "<ul>" + "".join(f"<li>{f}</li>" for f in feats) + "</ul>"
-        st.markdown(feat_html, unsafe_allow_html=True)
-
-    # Buttons (side-by-side, evenly spaced)
-    cols = st.columns(2)
-    if card.get("demo_url"):
-        cols[0].link_button("🖥️ Live Demo", card["demo_url"],
-                            use_container_width=True)
-    if card.get("code_url"):
-        cols[1].link_button("📂 Source Code", card["code_url"],
-                            use_container_width=True)
-
-    st.markdown("</div>", unsafe_allow_html=True)
-
-# ──────────────────────────── PUBLIC API ────────────────────────────
-def show() -> None:
-    """Render the Gallery page (called from app.py)."""
-
-    # Inject CSS once
-    if "gallery_css_loaded" not in st.session_state:
-        st.session_state.gallery_css_loaded = True
-        st.markdown(f"""
+        f"""
         <style>
-        /* General app styling */
-        .stApp {{
-            background-color:{BG}; color:#E4E4E4;
-        }}
-
-        /* Gallery frame styling */
-        .gallery-frame {{
+        .gallery-container {{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
             border: 3px solid {ACCENT};
             border-radius: 20px;
-            padding: 30px;
-            background-color: {CARD_BG};
+            background-color: #181818;
             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            margin-bottom: 50px;
         }}
-
-        /* Card styling */
-        .gallery-card {{
+        .card {{
+            background: #2f2f2f;
             border-radius: 15px;
             padding: 20px;
-            background-color: {BG};
-            box-shadow: 0 3px 10px rgba(0,0,0,0.6);
-            margin-bottom: 30px;
-        }}
-
-        /* Card title */
-        .card-title {{
-            color: {ACCENT};
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }}
-
-        /* Bullet styling */
-        .gallery-card ul {{
-            margin-left: 18px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            flex: 1 1 calc(50% - 20px);
+            max-width: calc(50% - 20px);
             margin-bottom: 20px;
         }}
-
-        /* Button styling override */
-        .stButton > button, .stLinkButton > a {{
-            background-color: {ACCENT};
-            color: #FFFFFF;
-            font-weight: bold;
-            border-radius: 8px;
-        }}
-
-        h1 {{
+        .card h3 {{
             color: {ACCENT};
-            font-size: 2.5rem;
+            margin-bottom: 12px;
         }}
-
-        hr {{
-            border:none;
-            border-top: 2px solid {ACCENT};
-            margin: 20px 0;
+        .card img {{
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }}
+        .card p, .card ul {{
+            color: #ffffff;
+            line-height: 1.5;
+        }}
+        .card ul {{
+            padding-left: 20px;
+        }}
+        .button {{
+            display: inline-block;
+            background-color: {ACCENT};
+            color: white !important;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 10px;
+            margin-right: 8px;
+        }}
+        @media (max-width: 768px) {{
+            .card {{
+                flex: 1 1 100%;
+                max-width: 100%;
+            }}
         }}
         </style>
-        """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True,
+    )
 
-    # Open main gallery frame
-    st.markdown("<div class='gallery-frame'>", unsafe_allow_html=True)
-
-    # Header area
-    st.markdown("""
-    <h1 style='text-align:center'>🖼️ Project Gallery</h1>
-    <p style='text-align:center;font-size:1.2rem; margin-bottom:30px;'>
-      Real-world projects you will build, deploy, and showcase.
-    </p>
-    <hr>
-    """, unsafe_allow_html=True)
-
-    # Load and display cards
     cards = load_cards()
+
     if not cards:
         st.info("No showcase cards yet — add examples in `input/gallery.json`.")
-    else:
-        for card in cards:
-            render_card(card)
+        return
 
-    # Close main gallery frame
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown('<div class="gallery-container">', unsafe_allow_html=True)
+
+    for card in cards:
+        render_card(card)
+
+    st.markdown('</div>', unsafe_allow_html=True)
