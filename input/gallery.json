@@ -8,6 +8,16 @@
       "♻️ **Real-time updates** – no page refresh needed"
     ],
     "demo_url": "https://coolassistant.streamlit.app/"
+  },
+  {
+    "headline": "Online Inventory & Shop Management",
+    "description": "A fully integrated online platform for managing inventory, online sales, and customer transactions securely in real-time. Features streamlined checkout, secure user authentication, and instant payment processing.",
+    "highlights": [
+      "📦 **Real-time Inventory Management** with automatic updates",
+      "🔐 **Secure Authentication** for users via Google OAuth",
+      "💳 **Instant Payment** with real-time transaction tracking",
+      "📊 Integrated **Analytics Dashboard** for inventory and sales"
+    ],
+    "demo_url": "https://tree-nursery.streamlit.app/"
   }
-
 ]
