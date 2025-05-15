@@ -1,103 +1,80 @@
 import streamlit as st
 import home
-import trainings      # Replaces stepstoexpert
+import trainings
 import prices
+import gallery          # NEW ⬅️  (make sure gallery.py exists)
 import certificate
 import about
 import contact
 import style
 
-# ────────────────────────────────────────────────────────
-# Page-wide config (title + favicon)
-# ────────────────────────────────────────────────────────
+# ─────────────────────────── Page-wide config ───────────────────────────
 st.set_page_config(
     page_title="AI for Impact",
-    page_icon="input/logo_improved.png"      # NEW: favicon now matches the logo
+    page_icon="input/logo_improved.png",
 )
-
-# Apply custom styles from style.py
 style.apply_custom_styles()
 
-# ────────────────────────────────────────────────────────
-# Session-state helper
-# ────────────────────────────────────────────────────────
+# ─────────────────────────── Session-state helper ───────────────────────
 if "page" not in st.session_state:
     st.session_state["page"] = "Home"
 
-def set_page(page: str) -> None:
-    """Update the session state's page value."""
+def set_page(page: str):
     st.session_state["page"] = page
 
-# ────────────────────────────────────────────────────────
-# Sidebar Navigation
-# ────────────────────────────────────────────────────────
+# ─────────────────────────── Sidebar navigation ─────────────────────────
 with st.sidebar:
-    # Display logo
-    st.image("input/logo_improved.png", width=200)   # NEW: updated file
+    st.image("input/logo_improved.png", width=200)
 
-    # Navigation buttons
     st.button("Home",        on_click=set_page, args=("Home",))
     st.button("Trainings",   on_click=set_page, args=("Trainings",))
     st.button("Pricing",     on_click=set_page, args=("Pricing",))
+    st.button("Gallery",     on_click=set_page, args=("Gallery",))   # NEW ⬅️
     st.button("Certificate", on_click=set_page, args=("Certificate",))
     st.button("About",       on_click=set_page, args=("About",))
     st.button("Contact",     on_click=set_page, args=("Contact",))
 
-    # Contact Information
     st.markdown(
         """
         <div style="margin-top: 30px; font-size: 1.1em; color: #eeeeee;">
             <p><strong>Contact:</strong></p>
-            <p>Email: <a href="mailto:connect@aiforimpact.net" target="_blank" style="color: #1ABC9C;">connect@aiforimpact.net</a></p>
+            <p>Email: <a href="mailto:connect@aiforimpact.net"
+                         target="_blank"
+                         style="color: #1ABC9C;">connect@aiforimpact.net</a></p>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-# ────────────────────────────────────────────────────────
-# Main Page Content
-# ────────────────────────────────────────────────────────
+# ─────────────────────────── Main router ────────────────────────────────
 page = st.session_state.get("page", "Home")
 
-if page == "Home":
-    try:
+try:
+    if page == "Home":
         home.show()
-    except AttributeError:
-        st.error("Error: The Home page is not defined properly.")
 
-elif page == "Trainings":
-    try:
+    elif page == "Trainings":
         trainings.show_trainings()
-    except AttributeError:
-        st.error("Error: The Trainings page is not defined properly.")
 
-elif page == "Pricing":
-    try:
+    elif page == "Pricing":
         prices.show()
-    except AttributeError:
-        st.error("Error: The Pricing page is not defined properly.")
 
-elif page == "Certificate":
-    try:
+    elif page == "Gallery":               # NEW ⬅️
+        gallery.show()                    # gallery.py must define show()
+
+    elif page == "Certificate":
         certificate.show()
-    except AttributeError:
-        st.error("Error: The Certificate page is not defined properly.")
 
-elif page == "About":
-    try:
+    elif page == "About":
         about.show()
-    except AttributeError:
-        st.error("Error: The About page is not defined properly.")
 
-elif page == "Contact":
-    try:
+    elif page == "Contact":
         contact.show()
-    except AttributeError:
-        st.error("Error: The Contact page is not defined properly.")
 
-# ────────────────────────────────────────────────────────
-# Footer
-# ────────────────────────────────────────────────────────
+except AttributeError:
+    st.error(f"Error: the {page} page is not defined properly.")
+
+# ─────────────────────────── Footer ─────────────────────────────────────
 st.markdown(
     """
     <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
