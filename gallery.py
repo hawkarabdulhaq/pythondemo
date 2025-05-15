@@ -7,6 +7,14 @@ def load_cards():
     return json.loads(path.read_text()) if path.is_file() else []
 
 def render_card(card: dict):
+    button_html = ""
+    if card.get("demo_url"):
+        button_html = f"""
+        <a class="demo-button" href="{card['demo_url']}" target="_blank">
+            🖥️ Live Demo
+        </a>
+        """
+
     card_html = f"""
     <div class="card">
         <h3>{card.get('headline', 'Showcase')}</h3>
@@ -17,23 +25,15 @@ def render_card(card: dict):
     if feats := card.get("features"):
         card_html += "<ul>" + "".join(f"<li>{feat}</li>" for feat in feats) + "</ul>"
 
-    card_html += "</div>"
+    card_html += button_html + "</div>"
 
     st.markdown(card_html, unsafe_allow_html=True)
-
-    cols = st.columns(2)
-
-    if card.get("demo_url"):
-        cols[0].link_button("🖥️ Live Demo", card["demo_url"], use_container_width=True)
-
-    if card.get("code_url"):
-        cols[1].link_button("📂 Source Code", card["code_url"], use_container_width=True)
 
 def show():
     st.title("🖼️ Project Gallery")
     st.markdown("---")
 
-    # CSS consistent with trainings.py style
+    # CSS for styling
     st.markdown("""
     <style>
         .card-container {
@@ -49,6 +49,7 @@ def show():
             flex: 1 1 calc(50% - 20px);
             max-width: calc(100% - 20px);
             margin-bottom: 20px;
+            position: relative;
         }
         .card h3 {
             color: #ffffff;
@@ -66,6 +67,19 @@ def show():
         }
         .card ul {
             padding-left: 20px;
+        }
+        .demo-button {
+            display: inline-block;
+            background-color: #1ABC9C;
+            color: #ffffff !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .demo-button:hover {
+            opacity: 0.8;
         }
         @media screen and (max-width: 768px) {
             .card {
