@@ -1,99 +1,173 @@
+# gallery.py  –  Student Showcase
+# -------------------------------------------------------------
+# Dark-theme gallery that highlights real apps built during (or
+# for) your courses.  Add or edit entries in the APPS list and
+# the page updates automatically.
+
 import streamlit as st
-from dictionary import translate  # Import the centralized translate function
 
-def show():
-    language = st.session_state.language  # Retrieve the selected language
+# ───────────────────────── Page config ─────────────────────────
+st.set_page_config(page_title="Gallery • Student Showcase",
+                   page_icon="🖼️",
+                   layout="wide")
 
-    # Title Section
-    st.markdown(f'<div class="title">{translate("fit_title", language)}</div>', unsafe_allow_html=True)
+ACCENT   = "#1ABC9C"     # same teal you use everywhere
+BG_DARK  = "#111111"     # nearly-black background
+TEXT_LGT = "#EEEEEE"
 
-    # Create tabs for Individuals and Enterprises
-    tab1, tab2 = st.tabs([translate("individuals_tab", language), translate("enterprises_tab", language)])
+# ───────────────────────── CSS styling ─────────────────────────
+st.markdown(
+    f"""
+    <style>
+    /* overall dark skin */
+    .stApp {{ background:{BG_DARK}; color:{TEXT_LGT}; }}
 
-    # Individual Tab Content
-    with tab1:
-        st.markdown(f"""
-        <div class="content">
-            {translate("individuals_intro", language)}
-        </div>
-        """, unsafe_allow_html=True)
+    /* headings */
+    h1, h2, h3, h4, h5, h6 {{ color:{ACCENT}; font-weight:bold; }}
 
-        # Objectives Section
-        st.markdown(f"<h3>{translate('objectives_title', language)}</h3>", unsafe_allow_html=True)
-        st.markdown(f"""
-        <ul>
-            <li><strong>{translate("objective_1", language)}</strong></li>
-            <li><strong>{translate("objective_2", language)}</strong></li>
-            <li><strong>{translate("objective_3", language)}</strong></li>
-            <li><strong>{translate("objective_4", language)}</strong></li>
-        </ul>
-        """, unsafe_allow_html=True)
+    /* section subtitle */
+    .subtitle {{ font-size:1.4rem; font-weight:bold; color:{TEXT_LGT}; }}
 
-        # Class Overview Table for Individuals
-        st.markdown(f"<h3>{translate('class_overview_title', language)}</h3>", unsafe_allow_html=True)
-        st.markdown(f"""
-        <table style="width:100%; border-collapse: collapse; margin-bottom: 20px;">
-            <tr style="border-bottom: 1px solid var(--border-color);">
-                <th style="text-align: left; padding: 10px;"><strong>{translate("class_column", language)}</strong></th>
-                <th style="text-align: left; padding: 10px;"><strong>{translate("title_column", language)}</strong></th>
-                <th style="text-align: left; padding: 10px;"><strong>{translate("description_column", language)}</strong></th>
-            </tr>
-            <tr>
-                <td style="padding: 10px;">A</td>
-                <td style="padding: 10px;">{translate("class_a_title", language)}</td>
-                <td style="padding: 10px;">{translate("class_a_description", language)}</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px;">B</td>
-                <td style="padding: 10px;">{translate("class_b_title", language)}</td>
-                <td style="padding: 10px;">{translate("class_b_description", language)}</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px;">C</td>
-                <td style="padding: 10px;">{translate("class_c_title", language)}</td>
-                <td style="padding: 10px;">{translate("class_c_description", language)}</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px;">D</td>
-                <td style="padding: 10px;">{translate("class_d_title", language)}</td>
-                <td style="padding: 10px;">{translate("class_d_description", language)}</td>
-            </tr>
-        </table>
-        """, unsafe_allow_html=True)
+    /* card container */
+    .card {{
+        background-color:#000000;
+        border:2px solid {ACCENT};
+        border-radius:12px;
+        padding:18px 20px 24px 20px;
+        box-shadow:0px 4px 10px rgba(0,0,0,0.25);
+        height:100%;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+    }}
 
-        # How It Works Section
-        st.markdown(f"<h3>{translate('workflow_title', language)}</h3>", unsafe_allow_html=True)
-        st.markdown(f"""
-        <div class="content">
-            <ol>
-                <li><strong>{translate("workflow_step_1", language)}</strong></li>
-                <li><strong>{translate("workflow_step_2", language)}</strong></li>
-            </ol>
-        </div>
-        """, unsafe_allow_html=True)
+    .card-img {{
+        width:100%;
+        border-radius:10px;
+        margin-bottom:15px;
+        object-fit:cover;
+    }}
 
-        # Highlighted Button to Survey for Individuals
-        st.markdown(f"""
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScHcfqWZ_-mkfuNpq7hBQQNzqmIX3oHlsE0UAAlIAe7FGaRdw/viewform?usp=sf_link" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 1.2em; font-weight: bold; color: white; background-color: #1ABC9C; border-radius: 5px; text-decoration: none;">
-                {translate("individual_button", language)}
-            </a>
-        </div>
-        """, unsafe_allow_html=True)
+    .skills span {{
+        background:{ACCENT}22;
+        padding:3px 8px;
+        border-radius:6px;
+        margin-right:6px;
+        font-size:0.8rem;
+    }}
 
-    # Enterprises Tab Content
-    with tab2:
-        st.markdown(f"""
-        <div class="content">
-            {translate("enterprises_intro", language)}
-        </div>
-        """, unsafe_allow_html=True)
+    /* CTA button overrides */
+    div.stButton>button:first-child {{
+        background:{ACCENT};
+        color:white;
+        border-radius:8px;
+        font-weight:bold;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
-        # Highlighted Button to Survey for Enterprises
-        st.markdown(f"""
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSekdOWoJsM1KCzz6lnhDNjiDHmN7jAvp3yp-cJyie1zeT0-Eg/viewform?usp=sf_link" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 1.2em; font-weight: bold; color: white; background-color: #1ABC9C; border-radius: 5px; text-decoration: none;">
-                {translate("enterprise_button", language)}
-            </a>
-        </div>
-        """, unsafe_allow_html=True)
+# ───────────────────────── App data ────────────────────────────
+# • screenshot: local file or URL
+# • demo_url   : external link (Streamlit Cloud, Render, etc.)
+APPS = [
+    {
+        "title": "Cool Assistant",
+        "tagline": "Location-aware, real-time survey & heat-map analytics",
+        "screenshot": "https://raw.githubusercontent.com/AIforimpact22/coolassistant/main/docs/preview.png",
+        "description": (
+            "Collect emotional wellbeing data on a map, store everything in "
+            "PostgreSQL, deduplicate automatically every hour, and share with "
+            "one click via email or WhatsApp."
+        ),
+        "skills": ["Streamlit", "PostgreSQL", "Authentication", "Geospatial", "Data Cleaning"],
+        "demo_url": "https://coolassistant.streamlit.app/",
+        "code_url": "https://github.com/AIforimpact22/coolassistant",
+    },
+    {
+        "title": "Inventory Tracker",
+        "tagline": "Live stock monitoring for AMAS Hypermarket",
+        "screenshot": "https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/inventory_demo.png",
+        "description": (
+            "Barcode-based intake, reorder-point alerts, expiry dashboards, and "
+            "supplier scorecards – all driven from one shared database."
+        ),
+        "skills": ["SQL", "Pandas", "Streamlit AgGrid", "Plotly"],
+        "demo_url": "https://inventory-demo.streamlit.app/",
+        "code_url": None,   # hide button if None
+    },
+    {
+        "title": "Supplier Portal",
+        "tagline": "Self-service portal for vendor bids & delivery schedules",
+        "screenshot": "https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/input/supplier_demo.png",
+        "description": (
+            "Suppliers log in, upload quotations, track purchase orders, and "
+            "book delivery slots – reducing email back-and-forth by 70 %."
+        ),
+        "skills": ["Streamlit", "JWT Auth", "Async API", "Scheduling"],
+        "demo_url": None,   # demo still private
+        "code_url": None,
+    },
+]
+
+# ───────────────────────── Hero / intro ────────────────────────
+st.markdown(
+    f"""
+    <div style="width:100%;text-align:center;">
+        <img src="https://raw.githubusercontent.com/hawkarabdulhaq/pythondemo/main/impact_wave.svg"
+             style="width:100%;height:auto;display:block;">
+    </div>
+    <h1 style="text-align:center;margin-top:0;">🖼️ Student & Instructor Gallery</h1>
+    <p class="subtitle" style="text-align:center;">
+        Real projects that move from <em>idea</em> to <em>impact</em> – and that <strong>you</strong> will learn to build.
+    </p>
+    <hr style="border:none;border-top:2px solid {ACCENT};margin:0 0 35px 0;">
+    """,
+    unsafe_allow_html=True,
+)
+
+# ───────────────────────── Card renderer ───────────────────────
+def render_card(app: dict):
+    """Render a single app showcase card."""
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.image(app["screenshot"], use_column_width=True, output_format="auto", caption=None)
+    st.markdown(f"### {app['title']}", unsafe_allow_html=True)
+    st.markdown(f"<em>{app['tagline']}</em>", unsafe_allow_html=True)
+    st.markdown(f"<p style='margin-top:10px;'>{app['description']}</p>", unsafe_allow_html=True)
+
+    # skills badges
+    if app["skills"]:
+        skills_html = " ".join(f"<span>{skill}</span>" for skill in app["skills"])
+        st.markdown(f"<p class='skills'>{skills_html}</p>", unsafe_allow_html=True)
+
+    # buttons
+    btn_cols = st.columns(2)
+    if app.get("demo_url"):
+        with btn_cols[0]:
+            st.link_button("🖥️ Live Demo", app["demo_url"], use_container_width=True)
+    if app.get("code_url"):
+        with btn_cols[1]:
+            st.link_button("📂 Source Code", app["code_url"], use_container_width=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+
+# ───────────────────────── Gallery grid ────────────────────────
+# Two cards per row on wide screens
+for i in range(0, len(APPS), 2):
+    cols = st.columns(2, gap="large")
+    for col, app in zip(cols, APPS[i : i + 2]):
+        with col:
+            render_card(app)
+
+# ───────────────────────── CTA banner ──────────────────────────
+st.markdown(
+    f"""
+    <hr style="border:none;border-top:2px solid {ACCENT};margin:40px 0 20px 0;">
+    <h2 style="text-align:center;">Ready to build and showcase your own project?</h2>
+    """,
+    unsafe_allow_html=True,
+)
+center = st.columns(3)[1]   # simple centering trick
+with center:
+    st.link_button("🚀 Apply Now", "https://docs.google.com/forms/d/e/1FAIpQLSdfISuw6xQvoXI-VFrPQ_HGkQ56ftr4uXr0BKrDCZM4GuKxHw/viewform?usp=header",
+                   use_container_width=True)
