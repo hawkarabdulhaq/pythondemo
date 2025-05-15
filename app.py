@@ -1,70 +1,88 @@
-# gallery.py  – Gallery driven by input/gallery.json
-import json, pathlib, streamlit as st
 
-ACCENT, BG = "#1ABC9C", "#111111"
 
-# ───────────────────────── helpers ─────────────────────────
-def load_cards():
-    path = pathlib.Path("input/gallery.json")
-    if path.is_file():
-        with path.open() as f:
-            return json.load(f)
-    return []
+import streamlit as st
+import home
+import trainings
+import prices
+import gallery          # NEW ⬅️  (make sure gallery.py exists)
+import certificate
+import about
+import contact
+import style
 
-def render_card(card: dict):
-    st.markdown("<div class='card'>", unsafe_allow_html=True)
+# ─────────────────────────── Page-wide config ───────────────────────────
+st.set_page_config(
+    page_title="AI for Impact",
+    page_icon="input/logo_improved.png",
+)
+style.apply_custom_styles()
 
-    if card.get("screenshot"):
-        st.image(card["screenshot"], use_container_width=True)
+# ─────────────────────────── Session-state helper ───────────────────────
+if "page" not in st.session_state:
+    st.session_state["page"] = "Home"
 
-    st.subheader(card.get("headline", "Untitled Showcase"))
-    st.write(card.get("description", "—"))
+def set_page(page: str):
+    st.session_state["page"] = page
 
-    if feats := card.get("features"):
-        st.markdown("\n".join(f"- {f}" for f in feats))
+# ─────────────────────────── Sidebar navigation ─────────────────────────
+with st.sidebar:
+    st.image("input/logo_improved.png", width=200)
 
-    cols = st.columns(2)
-    if card.get("demo_url"):
-        cols[0].link_button("🖥️ Live Demo", card["demo_url"],
-                            use_container_width=True)
-    if card.get("code_url"):
-        cols[1].link_button("📂 Source Code", card["code_url"],
-                            use_container_width=True)
+    st.button("Home",        on_click=set_page, args=("Home",))
+    st.button("Trainings",   on_click=set_page, args=("Trainings",))
+    st.button("Pricing",     on_click=set_page, args=("Pricing",))
+    st.button("Gallery",     on_click=set_page, args=("Gallery",))   # NEW ⬅️
+    st.button("Certificate", on_click=set_page, args=("Certificate",))
+    st.button("About",       on_click=set_page, args=("About",))
+    st.button("Contact",     on_click=set_page, args=("Contact",))
 
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown(
+        """
+        <div style="margin-top: 30px; font-size: 1.1em; color: #eeeeee;">
+            <p><strong>Contact:</strong></p>
+            <p>Email: <a href="mailto:connect@aiforimpact.net"
+                         target="_blank"
+                         style="color: #1ABC9C;">connect@aiforimpact.net</a></p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-# ───────────────────────── PUBLIC API ─────────────────────
-def show() -> None:
-    """Render the Gallery page (called from app.py)."""
-    st.set_page_config("Gallery", page_icon="🖼️", layout="wide")
+# ─────────────────────────── Main router ────────────────────────────────
+page = st.session_state.get("page", "Home")
 
-    # one-shot CSS
-    st.markdown(f"""
-    <style>
-    .stApp {{ background:{BG}; color:#EEE; }}
-    h1, h2, h3 {{ color:{ACCENT}; }}
-    .card {{
-        background:#000; border:2px solid {ACCENT}; border-radius:12px;
-        padding:20px; box-shadow:0 4px 8px #0006;
-    }}
-    .card img {{ width:100%; border-radius:8px; margin-bottom:14px; }}
-    .card button {{ background:{ACCENT}; color:#FFF; border-radius:8px; font-weight:bold; }}
-    </style>
-    """, unsafe_allow_html=True)
+try:
+    if page == "Home":
+        home.show()
 
-    st.markdown("""
-    <h1 style='text-align:center'>🖼️ Project Gallery</h1>
-    <p style='text-align:center;font-size:1.2rem;'>
-      Real examples you’ll be able to build after the course.
-    </p>
-    <hr style='border:none;border-top:2px solid #1ABC9C;margin:0 0 35px 0;'>
-    """, unsafe_allow_html=True)
+    elif page == "Trainings":
+        trainings.show_trainings()
 
-    cards = load_cards()
-    if not cards:
-        st.info("No showcase cards defined yet — add some to `input/gallery.json`")
-        return
+    elif page == "Pricing":
+        prices.show()
 
-    for card in cards:
-        render_card(card)
-        st.markdown("<!-- spacer -->", unsafe_allow_html=True)
+    elif page == "Gallery":               # NEW ⬅️
+        gallery.show()                    # gallery.py must define show()
+
+    elif page == "Certificate":
+        certificate.show()
+
+    elif page == "About":
+        about.show()
+
+    elif page == "Contact":
+        contact.show()
+
+except AttributeError:
+    st.error(f"Error: the {page} page is not defined properly.")
+
+# ─────────────────────────── Footer ─────────────────────────────────────
+st.markdown(
+    """
+    <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
+        aiforimpact © 2024<br>
+        Powered by Climate Resilience Fundraising Platform B.V.
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
