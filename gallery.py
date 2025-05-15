@@ -6,96 +6,63 @@ def load_cards():
     path = pathlib.Path("input/gallery.json")
     return json.loads(path.read_text()) if path.is_file() else []
 
-def render_card(card: dict):
-    with st.container():
-        st.markdown(
-            f"""
-            <div class="card">
-                <h3>{card.get('headline', 'Showcase')}</h3>
-                <img class="card-img" src="{card.get('screenshot', '')}" alt="{card.get('headline', '')}">
-                <p>{card.get('description', '')}</p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-        if feats := card.get("features"):
-            st.markdown(
-                "<ul>" + "".join(f"<li>{feat}</li>" for feat in feats) + "</ul>",
-                unsafe_allow_html=True,
-            )
-
-        cols = st.columns(2)
-
-        if card.get("demo_url"):
-            cols[0].link_button(
-                "🖥️ Live Demo", card["demo_url"], use_container_width=True
-            )
-
-        if card.get("code_url"):
-            cols[1].link_button(
-                "📂 Source Code", card["code_url"], use_container_width=True
-            )
-
 def show():
     st.title("🖼️ Project Gallery")
     st.markdown("---")
 
-    # CSS for styling (consistent with trainings.py)
-    st.markdown(
-        """
+    # Minimal, clean CSS styling
+    st.markdown("""
     <style>
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
         .card {
-            background: #2f2f2f;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            flex: 1 1 calc(50% - 20px);
-            max-width: calc(100% - 20px);
-            margin-bottom: 20px;
-        }
-        .card h3 {
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-        .card-img {
-            width: 100%;
-            height: auto;
+            background-color: #2f2f2f;
             border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
             margin-bottom: 15px;
         }
-        .card p, .card ul {
+        .card a {
+            text-decoration: none;
+            color: #1ABC9C;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .card p, .card li {
             color: #ffffff;
             line-height: 1.5;
         }
-        .card ul {
+        ul.highlights {
             padding-left: 20px;
         }
-        @media screen and (max-width: 768px) {
-            .card {
-                flex: 1 1 100%;
-                max-width: 100%;
-            }
-        }
     </style>
-    """,
-        unsafe_allow_html=True,
-    )
+    """, unsafe_allow_html=True)
 
     cards = load_cards()
 
     if not cards:
-        st.info("No gallery items found. Add some cards to `input/gallery.json`.")
+        st.info("No gallery items found. Add cards to `input/gallery.json`.")
         return
 
-    st.markdown('<div class="card-container">', unsafe_allow_html=True)
-
     for card in cards:
-        render_card(card)
+        card_html = f"""
+        <div class="card">
+            <div class="card-title">
+                <a href="{card.get('demo_url', '#')}" target="_blank">
+                    {card.get('headline', 'Untitled')}
+                </a>
+            </div>
+            <p>{card.get('description', '')}</p>
+            <ul class="highlights">
+        """
 
-    st.markdown("</div>", unsafe_allow_html=True)
+        if highlights := card.get("highlights"):
+            for item in highlights:
+                card_html += f"<li>{item}</li>"
+
+        card_html += "</ul></div>"
+
+        st.markdown(card_html, unsafe_allow_html=True)
