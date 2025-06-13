@@ -1,29 +1,32 @@
 import streamlit as st
+
+# internal page modules
 import home
 import trainings
 import prices
-import gallery          # NEW
+import gallery
 import certificate
 import about
 import contact
-import participants      # NEW  ← participants.py must exist
+import participants        # NEW
+
 import style
 
-# ─────────────────────────── Page-wide config ───────────────────────────
+# ───────────────────────── Page-wide config ─────────────────────────
 st.set_page_config(
     page_title="AI for Impact",
     page_icon="input/logo_improved.png",
 )
 style.apply_custom_styles()
 
-# ─────────────────────────── Session-state helper ───────────────────────
+# ───────────────────────── Session-state helper ─────────────────────
 if "page" not in st.session_state:
     st.session_state["page"] = "Home"
 
 def set_page(page: str):
     st.session_state["page"] = page
 
-# ─────────────────────────── Sidebar navigation ─────────────────────────
+# ───────────────────────── Sidebar navigation ───────────────────────
 with st.sidebar:
     st.image("input/logo_improved.png", width=200)
 
@@ -32,7 +35,7 @@ with st.sidebar:
     st.button("Pricing",      on_click=set_page, args=("Pricing",))
     st.button("Gallery",      on_click=set_page, args=("Gallery",))
     st.button("Certificate",  on_click=set_page, args=("Certificate",))
-    st.button("Participants", on_click=set_page, args=("Participants",))   # NEW
+    st.button("Participants", on_click=set_page, args=("Participants",))  # NEW
     st.button("About",        on_click=set_page, args=("About",))
     st.button("Contact",      on_click=set_page, args=("Contact",))
 
@@ -48,7 +51,7 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
 
-# ─────────────────────────── Main router ────────────────────────────────
+# ───────────────────────── Main router ──────────────────────────────
 page = st.session_state.get("page", "Home")
 
 try:
@@ -67,8 +70,8 @@ try:
     elif page == "Certificate":
         certificate.show()
 
-    elif page == "Participants":        # NEW
-        participants.show()
+    elif page == "Participants":          # NEW
+        participants.show()               # participants.py must define show()
 
     elif page == "About":
         about.show()
@@ -79,7 +82,7 @@ try:
 except AttributeError:
     st.error(f"Error: the {page} page is not defined properly.")
 
-# ─────────────────────────── Footer ─────────────────────────────────────
+# ───────────────────────── Footer ──────────────────────────────────
 st.markdown(
     """
     <div style="text-align: center; margin-top: 50px; font-size: 0.9em; color: #7F8C8D;">
