@@ -98,8 +98,8 @@ def show():
     parts = _fetch_participants()
     rows_html, stats = _build_rows(parts)
     html_doc = _HTML_TEMPLATE.replace("{{ROWS}}", rows_html).replace("{{STATS}}", stats)
-    # Full‑width component; height scales with participants
-    html(html_doc, height=min(1000, 260 + len(parts) * 60), width=1400, scrolling=True)
+    # Full‑width component; height scales with participants - removed scrolling
+    html(html_doc, height=min(1000, 260 + len(parts) * 60), width=1400)
 
 
 if __name__ == "__main__":
