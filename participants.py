@@ -98,9 +98,7 @@ def _build_rows(parts):
 # Streamlit entrypoint
 # ───────────────────────────────────────────────────────────────
 
-def show():
-    st.set_page_config(page_title="Participants", layout="wide")
-    parts = _fetch_participants()
+def show():    parts = _fetch_participants()
     html_content = _build_rows(parts)
     html(html_content, height=min(900, 320 + len(parts) * 70), scrolling=True)
 
