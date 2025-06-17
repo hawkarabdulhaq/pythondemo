@@ -1,7 +1,7 @@
 import streamlit as st
 import mysql.connector
 from mysql.connector import Error
-from streamlit.components.v1 import html
+from streamlit.components.v1 import html  # kept for compatibility, but no longer used below
 
 # ───────────────────────────────────────────────────────────────
 # Database helper
@@ -65,7 +65,7 @@ _HTML_TEMPLATE = """
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#0a0e13;font-family:'JetBrains Mono',monospace;color:var(--text);}
 .terminal{width:95%;max-width:1000px;margin:30px auto;background:var(--bg1);border:2px solid var(--green);
-border-radius:12px;padding:26px;overflow:visible;}  /* changed here */
+border-radius:12px;padding:26px;overflow:visible;}
 .header{display:flex;align-items:center;margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--border);}
 .title{color:var(--cyan);font-size:1.6rem;font-weight:700;margin-right:auto;}
 .stats{color:var(--text2);font-size:.9rem;}
@@ -123,9 +123,19 @@ def show():
     avg = sum(p["percent"] for p in participants) / len(participants) if participants else 0
     stats = f"👥 {len(participants)} | Avg {avg:.1f}%"
     html_out = _HTML_TEMPLATE.replace("{{STATS}}", stats).replace("{{ROWS}}", _rows_html(participants))
-    
-    total_height = 300 + len(participants) * 70
-    html(html_out, height=total_height, scrolling=False)
+
+    # ─── pull out the <style>…</style> block ───
+    start = html_out.find("<style>")
+    end = html_out.find("</style>") + len("</style>")
+    style_block = html_out[start:end]
+
+    # ─── pull out the <div class="terminal">…</div> payload ───
+    body_start = html_out.find('<div class="terminal">')
+    body_end   = html_out.rfind("</div>") + len("</div>")
+    content_block = html_out[body_start:body_end]
+
+    # ─── render inline so Streamlit page scrolls normally ───
+    st.markdown(style_block + content_block, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     show()
