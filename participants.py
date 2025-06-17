@@ -65,7 +65,7 @@ _HTML_TEMPLATE = """
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#0a0e13;font-family:'JetBrains Mono',monospace;color:var(--text);}
 .terminal{width:95%;max-width:1000px;margin:30px auto;background:var(--bg1);border:2px solid var(--green);
-border-radius:12px;padding:26px;overflow:auto;}
+border-radius:12px;padding:26px;overflow:visible;}  /* changed here */
 .header{display:flex;align-items:center;margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--border);}
 .title{color:var(--cyan);font-size:1.6rem;font-weight:700;margin-right:auto;}
 .stats{color:var(--text2);font-size:.9rem;}
@@ -124,7 +124,6 @@ def show():
     stats = f"👥 {len(participants)} | Avg {avg:.1f}%"
     html_out = _HTML_TEMPLATE.replace("{{STATS}}", stats).replace("{{ROWS}}", _rows_html(participants))
     
-    # calculate full needed height and disable inner scrolling
     total_height = 300 + len(participants) * 70
     html(html_out, height=total_height, scrolling=False)
 
