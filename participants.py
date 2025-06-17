@@ -18,7 +18,7 @@ def _get_conn():
     )
 
 # ───────────────────────────────────────────────────────────────
-# Progress constants
+# Progress constants  ← week 5 changed to 4
 # ───────────────────────────────────────────────────────────────
 _REQUIRED_TABS = {1: 10, 2: 12, 3: 12, 4: 7, 5: 4}
 _TOTAL_REQUIRED = sum(_REQUIRED_TABS.values()) or 1
@@ -52,7 +52,7 @@ def _fetch_participants():
     return sorted(rows, key=lambda r: (-r["percent"], r["fullname"]))
 
 # ───────────────────────────────────────────────────────────────
-# HTML template (only .weeks style changed)
+# HTML template pieces
 # ───────────────────────────────────────────────────────────────
 _HTML_TEMPLATE = """
 <!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\">
@@ -78,10 +78,7 @@ border-radius:12px;padding:26px;overflow:auto;}
 .pct{font-weight:700;color:var(--green);margin-right:6px;}
 .o-bar{width:90px;height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;}
 .o-prog{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));}
-
-/* CHANGED ↓ – keep week boxes on one line */
-.weeks{display:flex;flex-wrap:nowrap;gap:6px;}
-
+.weeks{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:6px;}
 .w-item{display:flex;align-items:center;background:var(--bg2);padding:4px 8px;border-radius:5px;border-left:3px solid;}
 .w-lbl{font-size:.75rem;margin-right:4px;}
 .w-prog{flex:1;height:5px;background:var(--bg1);border-radius:2px;overflow:hidden;margin-right:4px;}
