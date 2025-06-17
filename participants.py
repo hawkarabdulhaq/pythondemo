@@ -123,7 +123,10 @@ def show():
     avg = sum(p["percent"] for p in participants) / len(participants) if participants else 0
     stats = f"👥 {len(participants)} | Avg {avg:.1f}%"
     html_out = _HTML_TEMPLATE.replace("{{STATS}}", stats).replace("{{ROWS}}", _rows_html(participants))
-    html(html_out, height=min(900, 300 + len(participants) * 70), scrolling=True)
+    
+    # calculate full needed height and disable inner scrolling
+    total_height = 300 + len(participants) * 70
+    html(html_out, height=total_height, scrolling=False)
 
 if __name__ == "__main__":
     show()
