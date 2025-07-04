@@ -1,15 +1,13 @@
 import streamlit as st
 
 def show():
-    """Display the updated Pricing page with Advanced plan only."""
+    """Display the updated Pricing page with the Advanced plan centered."""
 
     # Page Title
     st.title("💰 Pricing Plans")
 
-    # Pricing Cards
-    _, col2 = st.columns(2)
-
-    # Advanced Plan
+    # Center the Advanced Plan using three columns
+    col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown("### 👑 Advanced Plan ($570)")
         st.write("""
