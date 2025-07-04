@@ -7,25 +7,6 @@ def get_trainings():
     trainings = {
         "courses": [
             {
-                "name": "Foundations of Python Programming and Applied Coding (Basic Plan)",
-                "image": "https://i.imgur.com/tITld9S.jpeg",
-                "impact": (
-                    "Participants will gain foundational skills in Python programming and learn to create robust scripts, "
-                    "work with APIs, and utilize tools like Google Colab and GitHub. This course enables learners to automate "
-                    "tasks, process data, and build basic web applications."
-                ),
-                "chapters": [
-                    "Week 1: Introduction to Coding",
-                    "Week 2: Generate Comprehensive Codings",
-                    "Week 3: Deploy Apps with GitHub and Streamlit",
-                    "Week 4: Data Week",
-                    "Week 5: Project Capstone",
-                    "4 Weeks, each week contain a theoretical and practical session",
-                ],
-                "availability": "Basic Plan",
-                "price": "250$",
-            },
-            {
                 "name": "Advanced Machine Learning and Real-Time Deployment (Advanced Plan)",
                 "image": "https://i.imgur.com/iIMdWOn.jpeg",
                 "impact": (
@@ -51,6 +32,7 @@ def get_trainings():
         ]
     }
     return trainings
+
 
 def show_trainings():
     """
