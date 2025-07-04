@@ -14,16 +14,6 @@ def show():
         unsafe_allow_html=True
     )
 
-    # --- Subtitle ---
-    st.markdown(
-        """
-        <div style="text-align: center; font-size: 1.5em; font-weight: bold; color: #eeeeee; margin-bottom: 20px;">
-            AI for Impact is coming to Erbil with in-person trainings—learn, connect, and build with purpose.
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
     # --- What We Offer Section ---
     st.markdown(
         """
